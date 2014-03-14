@@ -1,0 +1,155 @@
+--------------------------------------------------------------------------------
+Release 14.7 Trace  (nt64)
+Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+
+C:\Xilinx\14.7\ISE_DS\ISE\bin\nt64\unwrapped\trce.exe -intstyle ise -v 3 -s 4
+-n 3 -fastpaths -xml Main.twx Main.ncd -o Main.twr Main.pcf -ucf
+implementation.ucf
+
+Design file:              Main.ncd
+Physical constraint file: Main.pcf
+Device,package,speed:     xc3s500e,fg320,-4 (PRODUCTION 1.27 2013-10-13)
+Report level:             verbose report
+
+Environment Variable      Effect 
+--------------------      ------ 
+NONE                      No environment variables were set
+--------------------------------------------------------------------------------
+
+INFO:Timing:2698 - No timing constraints found, doing default enumeration.
+INFO:Timing:3412 - To improve timing, see the Timing Closure User Guide (UG612).
+INFO:Timing:2752 - To get complete path coverage, use the unconstrained paths 
+   option. All paths that are not constrained will be reported in the 
+   unconstrained paths section(s) of the report.
+INFO:Timing:3339 - The clock-to-out numbers in this timing report are based on 
+   a 50 Ohm transmission line loading model.  For the details of this model, 
+   and for more information on accounting for different loading conditions, 
+   please see the device datasheet.
+INFO:Timing:3390 - This architecture does not support a default System Jitter 
+   value, please add SYSTEM_JITTER constraint to the UCF to modify the Clock 
+   Uncertainty calculation.
+INFO:Timing:3389 - This architecture does not support 'Discrete Jitter' and 
+   'Phase Error' calculations, these terms will be zero in the Clock 
+   Uncertainty calculation.  Please make appropriate modification to 
+   SYSTEM_JITTER to account for the unsupported Discrete Jitter and Phase 
+   Error.
+
+
+
+Data Sheet report:
+-----------------
+All values displayed in nanoseconds (ns)
+
+Clock clk to Pad
+------------+------------+------------------+--------+
+            | clk (edge) |                  | Clock  |
+Destination |   to PAD   |Internal Clock(s) | Phase  |
+------------+------------+------------------+--------+
+Pin<0>      |   11.526(R)|clk_BUFGP         |   0.000|
+Pin<1>      |   11.106(R)|clk_BUFGP         |   0.000|
+Pin<2>      |   11.216(R)|clk_BUFGP         |   0.000|
+Pin<3>      |   12.048(R)|clk_BUFGP         |   0.000|
+Pin<4>      |   11.139(R)|clk_BUFGP         |   0.000|
+Pin<5>      |   11.782(R)|clk_BUFGP         |   0.000|
+Pin<6>      |   12.547(R)|clk_BUFGP         |   0.000|
+Pin<7>      |   12.041(R)|clk_BUFGP         |   0.000|
+------------+------------+------------------+--------+
+
+Clock to Setup on destination clock clk
+---------------+---------+---------+---------+---------+
+               | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
+Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
+---------------+---------+---------+---------+---------+
+clk            |    3.535|         |         |         |
+---------------+---------+---------+---------+---------+
+
+Pad to Pad
+---------------+---------------+---------+
+Source Pad     |Destination Pad|  Delay  |
+---------------+---------------+---------+
+switch<0>      |LED<0>         |    5.698|
+switch<0>      |Pin<0>         |    9.007|
+switch<0>      |Pin<1>         |    8.587|
+switch<0>      |Pin<2>         |    8.697|
+switch<0>      |Pin<3>         |    9.529|
+switch<0>      |Pin<4>         |    8.620|
+switch<0>      |Pin<5>         |    9.263|
+switch<0>      |Pin<6>         |   10.028|
+switch<0>      |Pin<7>         |    9.522|
+switch<1>      |LED<1>         |    4.827|
+switch<1>      |Pin<0>         |    8.441|
+switch<1>      |Pin<1>         |    8.021|
+switch<1>      |Pin<2>         |    8.131|
+switch<1>      |Pin<3>         |    8.963|
+switch<1>      |Pin<4>         |    8.054|
+switch<1>      |Pin<5>         |    8.697|
+switch<1>      |Pin<6>         |    9.462|
+switch<1>      |Pin<7>         |    8.956|
+switch<2>      |LED<2>         |    4.827|
+switch<2>      |Pin<0>         |    8.147|
+switch<2>      |Pin<1>         |    7.727|
+switch<2>      |Pin<2>         |    7.837|
+switch<2>      |Pin<3>         |    8.669|
+switch<2>      |Pin<4>         |    7.760|
+switch<2>      |Pin<5>         |    8.403|
+switch<2>      |Pin<6>         |    9.168|
+switch<2>      |Pin<7>         |    8.662|
+switch<3>      |LED<3>         |    5.418|
+switch<3>      |Pin<0>         |    8.253|
+switch<3>      |Pin<1>         |    7.833|
+switch<3>      |Pin<2>         |    7.943|
+switch<3>      |Pin<3>         |    8.775|
+switch<3>      |Pin<4>         |    7.866|
+switch<3>      |Pin<5>         |    8.509|
+switch<3>      |Pin<6>         |    9.274|
+switch<3>      |Pin<7>         |    8.768|
+switch<4>      |LED<4>         |    6.750|
+switch<4>      |Pin<0>         |    8.574|
+switch<4>      |Pin<1>         |    8.154|
+switch<4>      |Pin<2>         |    8.264|
+switch<4>      |Pin<3>         |    9.096|
+switch<4>      |Pin<4>         |    8.187|
+switch<4>      |Pin<5>         |    8.830|
+switch<4>      |Pin<6>         |    9.595|
+switch<4>      |Pin<7>         |    9.089|
+switch<5>      |LED<5>         |    5.500|
+switch<5>      |Pin<0>         |    8.765|
+switch<5>      |Pin<1>         |    8.345|
+switch<5>      |Pin<2>         |    8.455|
+switch<5>      |Pin<3>         |    9.287|
+switch<5>      |Pin<4>         |    8.378|
+switch<5>      |Pin<5>         |    9.021|
+switch<5>      |Pin<6>         |    9.786|
+switch<5>      |Pin<7>         |    9.280|
+switch<6>      |LED<6>         |    8.780|
+switch<6>      |Pin<0>         |    9.037|
+switch<6>      |Pin<1>         |    8.617|
+switch<6>      |Pin<2>         |    8.727|
+switch<6>      |Pin<3>         |    9.559|
+switch<6>      |Pin<4>         |    8.650|
+switch<6>      |Pin<5>         |    9.293|
+switch<6>      |Pin<6>         |   10.058|
+switch<6>      |Pin<7>         |    9.552|
+switch<7>      |LED<7>         |    8.056|
+switch<7>      |Pin<0>         |    8.831|
+switch<7>      |Pin<1>         |    8.411|
+switch<7>      |Pin<2>         |    8.521|
+switch<7>      |Pin<3>         |    9.353|
+switch<7>      |Pin<4>         |    8.444|
+switch<7>      |Pin<5>         |    9.087|
+switch<7>      |Pin<6>         |    9.852|
+switch<7>      |Pin<7>         |    9.346|
+---------------+---------------+---------+
+
+
+Analysis completed Fri Mar 14 15:35:22 2014 
+--------------------------------------------------------------------------------
+
+Trace Settings:
+-------------------------
+Trace Settings 
+
+Peak Memory Usage: 163 MB
+
+
+
