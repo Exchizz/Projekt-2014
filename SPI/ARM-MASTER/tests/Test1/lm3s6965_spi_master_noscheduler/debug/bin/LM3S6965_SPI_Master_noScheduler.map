@@ -1,0 +1,320 @@
+
+Discarded input sections
+
+ .text          0x00000000        0x0 ..\obj\spi.o
+ .data          0x00000000        0x0 ..\obj\spi.o
+ .bss           0x00000000        0x0 ..\obj\spi.o
+ .text          0x00000000        0x0 ..\obj\main.o
+ .bss           0x00000000        0x4 ..\obj\main.o
+ .text          0x00000000        0x0 ..\obj\gpio.o
+ .data          0x00000000        0x0 ..\obj\gpio.o
+ .bss           0x00000000        0x0 ..\obj\gpio.o
+ .text          0x00000000        0x0 ..\obj\startup_lm3s.o
+ .data          0x00000000        0x0 ..\obj\startup_lm3s.o
+ .bss           0x00000000        0x0 ..\obj\startup_lm3s.o
+ .text          0x00000000        0x0 ..\obj\systick.o
+ .data          0x00000000        0x0 ..\obj\systick.o
+
+Memory Configuration
+
+Name             Origin             Length             Attributes
+rom              0x00000000         0x00040000         xr
+ram              0x20000000         0x00010000         xrw
+*default*        0x00000000         0xffffffff
+
+Linker script and memory map
+
+                0x20010000                _eram = 0x20010000
+
+.text           0x00000000      0x65c
+ *(.isr_vector)
+ .isr_vector    0x00000000      0x100 ..\obj\startup_lm3s.o
+                0x00000000                g_pfnVectors
+ *(.text*)
+ .text.spi_enable
+                0x00000100       0x1c ..\obj\spi.o
+                0x00000100                spi_enable
+ .text.spi_disable
+                0x0000011c       0x1c ..\obj\spi.o
+                0x0000011c                spi_disable
+ .text.init_spi
+                0x00000138      0x1c0 ..\obj\spi.o
+                0x00000138                init_spi
+ .text.main     0x000002f8       0x80 ..\obj\main.o
+                0x000002f8                main
+ .text.init_gpio
+                0x00000378       0x80 ..\obj\gpio.o
+                0x00000378                init_gpio
+ .text.Default_Reset_Handler
+                0x000003f8       0x5c ..\obj\startup_lm3s.o
+                0x000003f8                Default_Reset_Handler
+                0x000003f8                Reset_Handler
+ .text.Default_Handler
+                0x00000454        0x8 ..\obj\startup_lm3s.o
+                0x00000454                DebugMon_Handler
+                0x00000454                FlashCtrl_IRQHandler
+                0x00000454                Timer0B_IRQHandler
+                0x00000454                I2C0_IRQHandler
+                0x00000454                HardFault_Handler
+                0x00000454                PendSV_Handler
+                0x00000454                NMI_Handler
+                0x00000454                I2C1_IRQHandler
+                0x00000454                PWMGen0_IRQHandler
+                0x00000454                UART1_IRQHandler
+                0x00000454                CAN1_IRQHandler
+                0x00000454                Timer1B_IRQHandler
+                0x00000454                Watchdog_IRQHandler
+                0x00000454                UART0_IRQHandler
+                0x00000454                SSI0_IRQHandler
+                0x00000454                UsageFault_Handler
+                0x00000454                ADCSeq1_IRQHandler
+                0x00000454                PWMFault_IRQHandler
+                0x00000454                PWMGen1_IRQHandler
+                0x00000454                SSI1_IRQHandler
+                0x00000454                uDMA_IRQHandler
+                0x00000454                GPIOPortC_IRQHandler
+                0x00000454                ADCSeq2_IRQHandler
+                0x00000454                PWMGen2_IRQHandler
+                0x00000454                UART2_IRQHandler
+                0x00000454                uDMAErr_IRQHandler
+                0x00000454                QEI1_IRQHandler
+                0x00000454                QEI0_IRQHandler
+                0x00000454                PWMGen3_IRQHandler
+                0x00000454                GPIOPortD_IRQHandler
+                0x00000454                USB0_IRQHandler
+                0x00000454                MemManage_Handler
+                0x00000454                Ethernet_IRQHandler
+                0x00000454                SVC_Handler
+                0x00000454                Timer3B_IRQHandler
+                0x00000454                Timer3A_IRQHandler
+                0x00000454                GPIOPortA_IRQHandler
+                0x00000454                Timer0A_IRQHandler
+                0x00000454                ADCSeq0_IRQHandler
+                0x00000454                Timer1A_IRQHandler
+                0x00000454                GPIOPortG_IRQHandler
+                0x00000454                ADCSeq3_IRQHandler
+                0x00000454                GPIOPortE_IRQHandler
+                0x00000454                CAN0_IRQHandler
+                0x00000454                Comp0_IRQHandler
+                0x00000454                Comp1_IRQHandler
+                0x00000454                Comp2_IRQHandler
+                0x00000454                GPIOPortF_IRQHandler
+                0x00000454                GPIOPortB_IRQHandler
+                0x00000454                CAN2_IRQHandler
+                0x00000454                GPIOPortH_IRQHandler
+                0x00000454                BusFault_Handler
+                0x00000454                Timer2A_IRQHandler
+                0x00000454                Timer2B_IRQHandler
+                0x00000454                SysCtrl_IRQHandler
+                0x00000454                Hibernate_IRQHandler
+ .text.init_clk_system
+                0x0000045c       0xe4 ..\obj\systick.o
+                0x0000045c                init_clk_system
+ .text.init_status_led
+                0x00000540       0x58 ..\obj\systick.o
+                0x00000540                init_status_led
+ .text.systick_init
+                0x00000598       0x84 ..\obj\systick.o
+                0x00000598                systick_init
+ .text.SysTick_Handler
+                0x0000061c       0x20 ..\obj\systick.o
+                0x0000061c                SysTick_Handler
+ .text.enable_global_int
+                0x0000063c       0x10 ..\obj\systick.o
+                0x0000063c                enable_global_int
+ .text.disable_global_int
+                0x0000064c       0x10 ..\obj\systick.o
+                0x0000064c                disable_global_int
+ *(.init)
+ *(.fini)
+ *crtbegin.o(.ctors)
+ *crtbegin?.o(.ctors)
+ *(EXCLUDE_FILE(*crtend.o *crtend?.o) .ctors)
+ *(SORT(.ctors.*))
+ *(.ctors)
+ *crtbegin.o(.dtors)
+ *crtbegin?.o(.dtors)
+ *(EXCLUDE_FILE(*crtend.o *crtend?.o) .dtors)
+ *(SORT(.dtors.*))
+ *(.dtors)
+ *(.rodata*)
+ *(.eh_fram e*)
+
+.glue_7         0x0000065c        0x0
+ .glue_7        0x00000000        0x0 linker stubs
+
+.glue_7t        0x0000065c        0x0
+ .glue_7t       0x00000000        0x0 linker stubs
+
+.vfp11_veneer   0x0000065c        0x0
+ .vfp11_veneer  0x00000000        0x0 linker stubs
+
+.v4_bx          0x0000065c        0x0
+ .v4_bx         0x00000000        0x0 linker stubs
+
+.iplt           0x0000065c        0x0
+ .iplt          0x00000000        0x0 ..\obj\spi.o
+
+.rel.dyn        0x0000065c        0x0
+ .rel.iplt      0x00000000        0x0 ..\obj\spi.o
+
+.ARM.extab
+ *(.ARM.extab* .gnu.linkonce.armextab.*)
+                0x0000065c                __exidx_start = .
+
+.ARM.exidx
+ *(.ARM.exidx* .gnu.linkonce.armexidx.*)
+                0x0000065c                __exidx_end = .
+                0x0000065c                __etext = .
+                0x0000065c                _sidata = __etext
+
+.data           0x20000000        0x4 load address 0x0000065c
+                0x20000000                __data_start__ = .
+                0x20000000                _sdata = __data_start__
+ *(vtable)
+ *(.data*)
+ .data          0x20000000        0x2 ..\obj\main.o
+                0x20000000                alive_timer
+                0x20000004                . = ALIGN (0x4)
+ *fill*         0x20000002        0x2 
+                0x20000004                PROVIDE (__preinit_array_start, .)
+ *(.preinit_array)
+                0x20000004                PROVIDE (__preinit_array_end, .)
+                0x20000004                . = ALIGN (0x4)
+                0x20000004                PROVIDE (__init_array_start, .)
+ *(SORT(.init_array.*))
+ *(.init_array)
+                0x20000004                PROVIDE (__init_array_end, .)
+                0x20000004                . = ALIGN (0x4)
+                0x20000004                PROVIDE (__fini_array_start, .)
+ *(SORT(.fini_array.*))
+ *(.fini_array)
+                0x20000004                PROVIDE (__fini_array_end, .)
+ *(.jcr*)
+                0x20000004                . = ALIGN (0x4)
+                0x20000004                __data_end__ = .
+                0x20000004                _edata = __data_end__
+
+.igot.plt       0x20000004        0x0 load address 0x00000660
+ .igot.plt      0x00000000        0x0 ..\obj\spi.o
+
+.bss            0x20000004        0x4 load address 0x00000660
+                0x20000004                . = ALIGN (0x4)
+                0x20000004                __bss_start__ = .
+                0x20000004                _sbss = __bss_start__
+ *(.bss*)
+ .bss           0x20000004        0x2 ..\obj\systick.o
+                0x20000004                ticks
+ *(COMMON)
+                0x20000008                . = ALIGN (0x4)
+ *fill*         0x20000006        0x2 
+                0x20000008                __bss_end__ = .
+                0x20000008                _ebss = __bss_end__
+
+.heap           0x20000008        0x0
+                0x20000008                __end__ = .
+                0x20000008                _end = __end__
+                0x20000008                end = __end__
+ *(.heap*)
+                0x20000008                __HeapLimit = .
+
+.co_stack       0x20000008      0x400 load address 0x00000664
+                0x20000008                . = ALIGN (0x8)
+ *(.co_stack .co_stack.*)
+ .co_stack      0x20000008      0x400 ..\obj\startup_lm3s.o
+                0x20000008                pulStack
+                0x20010000                __StackTop = (ORIGIN (ram) + 0x10000)
+                0x2000fc00                __StackLimit = (__StackTop - SIZEOF (.co_stack))
+                0x20010000                PROVIDE (__stack, __StackTop)
+                0x00000001                ASSERT ((__StackLimit >= __HeapLimit), region ram  overflowed with stack)
+LOAD ..\obj\spi.o
+LOAD ..\obj\main.o
+LOAD ..\obj\gpio.o
+LOAD ..\obj\startup_lm3s.o
+LOAD ..\obj\systick.o
+START GROUP
+LOAD c:/program files (x86)/gnu tools arm embedded/4.8 2013q4/bin/../lib/gcc/arm-none-eabi/4.8.3/armv7-m\libgcc.a
+LOAD c:/program files (x86)/gnu tools arm embedded/4.8 2013q4/bin/../lib/gcc/arm-none-eabi/4.8.3/../../../../arm-none-eabi/lib/armv7-m\libg.a
+LOAD c:/program files (x86)/gnu tools arm embedded/4.8 2013q4/bin/../lib/gcc/arm-none-eabi/4.8.3/../../../../arm-none-eabi/lib/armv7-m\libc.a
+END GROUP
+OUTPUT(LM3S6965_SPI_Master_noScheduler.elf elf32-littlearm)
+
+.debug_info     0x00000000      0x484
+ .debug_info    0x00000000       0xb5 ..\obj\spi.o
+ .debug_info    0x000000b5      0x128 ..\obj\main.o
+ .debug_info    0x000001dd       0x93 ..\obj\gpio.o
+ .debug_info    0x00000270       0xe9 ..\obj\startup_lm3s.o
+ .debug_info    0x00000359      0x12b ..\obj\systick.o
+
+.debug_abbrev   0x00000000      0x2b3
+ .debug_abbrev  0x00000000       0x67 ..\obj\spi.o
+ .debug_abbrev  0x00000067       0xa3 ..\obj\main.o
+ .debug_abbrev  0x0000010a       0x51 ..\obj\gpio.o
+ .debug_abbrev  0x0000015b       0xa7 ..\obj\startup_lm3s.o
+ .debug_abbrev  0x00000202       0xb1 ..\obj\systick.o
+
+.debug_aranges  0x00000000       0xe0
+ .debug_aranges
+                0x00000000       0x30 ..\obj\spi.o
+ .debug_aranges
+                0x00000030       0x20 ..\obj\main.o
+ .debug_aranges
+                0x00000050       0x20 ..\obj\gpio.o
+ .debug_aranges
+                0x00000070       0x28 ..\obj\startup_lm3s.o
+ .debug_aranges
+                0x00000098       0x48 ..\obj\systick.o
+
+.debug_ranges   0x00000000       0x90
+ .debug_ranges  0x00000000       0x20 ..\obj\spi.o
+ .debug_ranges  0x00000020       0x10 ..\obj\main.o
+ .debug_ranges  0x00000030       0x10 ..\obj\gpio.o
+ .debug_ranges  0x00000040       0x18 ..\obj\startup_lm3s.o
+ .debug_ranges  0x00000058       0x38 ..\obj\systick.o
+
+.debug_line     0x00000000      0x47d
+ .debug_line    0x00000000       0xf4 ..\obj\spi.o
+ .debug_line    0x000000f4       0xca ..\obj\main.o
+ .debug_line    0x000001be       0xb1 ..\obj\gpio.o
+ .debug_line    0x0000026f       0xcd ..\obj\startup_lm3s.o
+ .debug_line    0x0000033c      0x141 ..\obj\systick.o
+
+.debug_str      0x00000000      0x437
+ .debug_str     0x00000000      0x16f ..\obj\spi.o
+                                0x196 (size before relaxing)
+ .debug_str     0x0000016f       0xe3 ..\obj\main.o
+                                0x1ec (size before relaxing)
+ .debug_str     0x00000252       0x7b ..\obj\gpio.o
+                                0x181 (size before relaxing)
+ .debug_str     0x000002cd       0xe5 ..\obj\startup_lm3s.o
+                                0x173 (size before relaxing)
+ .debug_str     0x000003b2       0x85 ..\obj\systick.o
+                                0x1f0 (size before relaxing)
+
+.comment        0x00000000       0x70
+ .comment       0x00000000       0x70 ..\obj\spi.o
+                                 0x71 (size before relaxing)
+ .comment       0x00000000       0x71 ..\obj\main.o
+ .comment       0x00000000       0x71 ..\obj\gpio.o
+ .comment       0x00000000       0x71 ..\obj\startup_lm3s.o
+ .comment       0x00000000       0x71 ..\obj\systick.o
+
+.ARM.attributes
+                0x00000000       0x33
+ .ARM.attributes
+                0x00000000       0x33 ..\obj\spi.o
+ .ARM.attributes
+                0x00000033       0x33 ..\obj\main.o
+ .ARM.attributes
+                0x00000066       0x33 ..\obj\gpio.o
+ .ARM.attributes
+                0x00000099       0x33 ..\obj\startup_lm3s.o
+ .ARM.attributes
+                0x000000cc       0x33 ..\obj\systick.o
+
+.debug_frame    0x00000000      0x1a8
+ .debug_frame   0x00000000       0x60 ..\obj\spi.o
+ .debug_frame   0x00000060       0x2c ..\obj\main.o
+ .debug_frame   0x0000008c       0x2c ..\obj\gpio.o
+ .debug_frame   0x000000b8       0x48 ..\obj\startup_lm3s.o
+ .debug_frame   0x00000100       0xa8 ..\obj\systick.o
