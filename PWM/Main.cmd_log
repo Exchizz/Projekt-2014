@@ -175,3 +175,23 @@ map -intstyle ise -p xc3s500e-fg320-4 -cm area -ir off -pr off -c 100 -o Main_ma
 par -w -intstyle ise -ol high -t 1 Main_map.ncd Main.ncd Main.pcf 
 trce -intstyle ise -v 3 -s 4 -n 3 -fastpaths -xml Main.twx Main.ncd -o Main.twr Main.pcf -ucf implementation.ucf 
 bitgen -intstyle ise -f Main.ut Main.ncd 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc implementation.ucf -p xc3s500e-fg320-4 "Main.ngc" Main.ngd  
+map -intstyle ise -p xc3s500e-fg320-4 -cm area -ir off -pr off -c 100 -o Main_map.ncd Main.ngd Main.pcf 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc implementation.ucf -p xc3s500e-fg320-4 "Main.ngc" Main.ngd  
+map -intstyle ise -p xc3s500e-fg320-4 -cm area -ir off -pr off -c 100 -o Main_map.ncd Main.ngd Main.pcf 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc implementation.ucf -p xc3s500e-fg320-4 "Main.ngc" Main.ngd  
+map -intstyle ise -p xc3s500e-fg320-4 -cm area -ir off -pr off -c 100 -o Main_map.ncd Main.ngd Main.pcf 
+xst -intstyle ise -ifn "C:/Users/Lukas Schwartz/Documents/GitHub/Projekt-2014/PWM/Main.xst" -ofn "C:/Users/Lukas Schwartz/Documents/GitHub/Projekt-2014/PWM/Main.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc implementation.ucf -p xc3s100e-vq100-4 "Main.ngc" Main.ngd  
+map -intstyle ise -p xc3s100e-vq100-4 -cm area -ir off -pr off -c 100 -o Main_map.ncd Main.ngd Main.pcf 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc implementation.ucf -p xc3s100e-vq100-4 "Main.ngc" Main.ngd  
+map -intstyle ise -p xc3s100e-vq100-4 -cm area -ir off -pr off -c 100 -o Main_map.ncd Main.ngd Main.pcf 
+xst -intstyle ise -ifn "C:/Users/Lukas Schwartz/Documents/GitHub/Projekt-2014/PWM/Main.xst" -ofn "C:/Users/Lukas Schwartz/Documents/GitHub/Projekt-2014/PWM/Main.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc implementation.ucf -p xc3s100e-vq100-4 "Main.ngc" Main.ngd  
+map -intstyle ise -p xc3s100e-vq100-4 -cm area -ir off -pr off -c 100 -o Main_map.ncd Main.ngd Main.pcf 
+xst -intstyle ise -ifn "C:/Users/Lukas Schwartz/Documents/GitHub/Projekt-2014/PWM/Main.xst" -ofn "C:/Users/Lukas Schwartz/Documents/GitHub/Projekt-2014/PWM/Main.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc implementation.ucf -p xc3s100e-tq144-4 "Main.ngc" Main.ngd  
+map -intstyle ise -p xc3s100e-tq144-4 -cm area -ir off -pr off -c 100 -o Main_map.ncd Main.ngd Main.pcf 
+par -w -intstyle ise -ol high -t 1 Main_map.ncd Main.ncd Main.pcf 
+trce -intstyle ise -v 3 -s 4 -n 3 -fastpaths -xml Main.twx Main.ncd -o Main.twr Main.pcf -ucf implementation.ucf 
+bitgen -intstyle ise -f Main.ut Main.ncd 

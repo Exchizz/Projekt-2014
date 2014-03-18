@@ -1,6 +1,10 @@
-V3 3
+V3 4
 FL C:/.Xilinx/PWm2/Main.vhd 2014/03/14.15:31:44 P.20131013
-EN work/Main 1394807507 FL C:/.Xilinx/PWm2/Main.vhd PB ieee/std_logic_1164 1381692176 \
-      PB ieee/std_logic_arith 1381692177 PB ieee/STD_LOGIC_UNSIGNED 1381692179
-AR work/Main/Behavioral 1394807508 \
-      FL C:/.Xilinx/PWm2/Main.vhd EN work/Main 1394807507
+FL "C:/Users/Lukas Schwartz/Documents/GitHub/Projekt-2014/PWM/Main.vhd" 2014/03/18.09:50:07 P.20131013
+EN work/Main 1395134552 \
+      FL "C:/Users/Lukas Schwartz/Documents/GitHub/Projekt-2014/PWM/Main.vhd" \
+      PB ieee/std_logic_1164 1381692176 PB ieee/std_logic_arith 1381692177 \
+      PB ieee/STD_LOGIC_UNSIGNED 1381692179
+AR work/Main/Behavioral 1395134553 \
+      FL "C:/Users/Lukas Schwartz/Documents/GitHub/Projekt-2014/PWM/Main.vhd" \
+      EN work/Main 1395134552
