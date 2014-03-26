@@ -1,8 +1,8 @@
 INTSTYLE=ise
-INFILE=C:\Users\Lukas Schwartz\Documents\GitHub\Projekt-2014\PWM\Main.ncd
-OUTFILE=C:\Users\Lukas Schwartz\Documents\GitHub\Projekt-2014\PWM\Main.bit
+INFILE=C:\.Xilinx\PWm2\Main.ncd
+OUTFILE=C:\.Xilinx\PWm2\Main.bit
 FAMILY=Spartan3E
-PART=xc3s100e-4tq144
-WORKINGDIR=C:\Users\Lukas Schwartz\Documents\GitHub\Projekt-2014\PWM
+PART=xc3s500e-4fg320
+WORKINGDIR=C:\.Xilinx\PWm2
 LICENSE=WebPack
-USER_INFO=210852675_0_0_758
+USER_INFO=210848684_0_0_811

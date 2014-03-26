@@ -3,14 +3,14 @@ Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
 --> Parameter TMPDIR set to xst/projnav.tmp
 
 
-Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.21 secs
+Total REAL time to Xst completion: 1.00 secs
+Total CPU time to Xst completion: 0.14 secs
  
 --> Parameter xsthdpdir set to xst
 
 
-Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.22 secs
+Total REAL time to Xst completion: 1.00 secs
+Total CPU time to Xst completion: 0.14 secs
  
 --> Reading design: Main.prj
 
@@ -42,7 +42,7 @@ Ignore Synthesis Constraint File   : NO
 ---- Target Parameters
 Output File Name                   : "Main"
 Output Format                      : NGC
-Target Device                      : xc3s100e-4-tq144
+Target Device                      : xc3s500e-4-fg320
 
 ---- Source Options
 Top Module Name                    : Main
@@ -104,8 +104,9 @@ Slice Utilization Ratio Delta      : 5
 =========================================================================
 *                          HDL Compilation                              *
 =========================================================================
-Compiling vhdl file "C:/Users/Lukas Schwartz/Documents/GitHub/Projekt-2014/PWM/Main.vhd" in Library work.
-Architecture behavioral of Entity main is up to date.
+Compiling vhdl file "C:/.Xilinx/PWm2/Main.vhd" in Library work.
+Entity <main> compiled.
+Entity <main> (Architecture <behavioral>) compiled.
 
 =========================================================================
 *                     Design Hierarchy Analysis                         *
@@ -127,7 +128,7 @@ Entity <Main> analyzed. Unit <Main> generated.
 Performing bidirectional port resolution...
 
 Synthesizing Unit <Main>.
-    Related source file is "C:/Users/Lukas Schwartz/Documents/GitHub/Projekt-2014/PWM/Main.vhd".
+    Related source file is "C:/.Xilinx/PWm2/Main.vhd".
     Found 11-bit comparator greater for signal <Pin$cmp_gt0000> created at line 71.
     Found 11-bit up counter for signal <prescaler>.
     Summary:
@@ -171,7 +172,7 @@ Optimizing unit <Main> ...
 
 Mapping all equations...
 Building and optimizing final netlist ...
-Found area constraint ratio of 100 (+ 5) on block Main, actual ratio is 1.
+Found area constraint ratio of 100 (+ 5) on block Main, actual ratio is 0.
 
 Final Macro Processing ...
 
@@ -230,13 +231,13 @@ Cell Usage :
 Device utilization summary:
 ---------------------------
 
-Selected Device : 3s100etq144-4 
+Selected Device : 3s500efg320-4 
 
- Number of Slices:                       11  out of    960     1%  
- Number of Slice Flip Flops:             11  out of   1920     0%  
- Number of 4 input LUTs:                 20  out of   1920     1%  
+ Number of Slices:                       11  out of   4656     0%  
+ Number of Slice Flip Flops:             11  out of   9312     0%  
+ Number of 4 input LUTs:                 20  out of   9312     0%  
  Number of IOs:                          25
- Number of bonded IOBs:                  25  out of    108    23%  
+ Number of bonded IOBs:                  25  out of    232    10%  
  Number of GCLKs:                         1  out of     24     4%  
 
 ---------------------------
@@ -371,12 +372,12 @@ Delay:               7.850ns (Levels of Logic = 11)
 =========================================================================
 
 
-Total REAL time to Xst completion: 8.00 secs
-Total CPU time to Xst completion: 8.74 secs
+Total REAL time to Xst completion: 5.00 secs
+Total CPU time to Xst completion: 4.43 secs
  
 --> 
 
-Total memory usage is 257572 kilobytes
+Total memory usage is 254324 kilobytes
 
 Number of errors   :    0 (   0 filtered)
 Number of warnings :    0 (   0 filtered)

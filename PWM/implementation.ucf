@@ -1,61 +1,25 @@
-#NET "LED<0>"  		LOC = "J14"; 
-#NET "LED<1>"  		LOC = "J15"; 
-#NET "LED<2>"  		LOC = "K15"; 
-#NET "LED<3>"  		LOC = "K14"; 
-#NET "LED<4>"  		LOC = "E17"; 
-#NET "LED<5>"  		LOC = "P15"; 
-#NET "LED<6>"  		LOC = "F4" ; 
-#NET "LED<7>"  		LOC = "R4" ; 
-#NET "Clk"			LOC = "B8" ;	
-#NET "Switch<0>" 	LOC = "G18";
-#NET "Switch<1>" 	LOC = "H18";
-#NET "Switch<2>" 	LOC = "K18";
-#NET "Switch<3>" 	LOC = "K17";
-#NET "Switch<4>" 	LOC = "L14";
-#NET "Switch<5>" 	LOC = "L13";
-#NET "Switch<6>" 	LOC = "N17";
-#NET "Switch<7>" 	LOC = "R17";
-#NET "Pin<0>"		LOC = "L15";
-#NET "Pin<1>"		LOC = "K12";
-#NET "Pin<2>"		LOC = "L17";
-#NET "Pin<3>"		LOC = "M15";
-#NET "Pin<4>"		LOC = "K13";
-#NET "Pin<5>"		LOC = "L16";
-#NET "Pin<6>"		LOC = "M14";
-#NET "Pin<7>"		LOC = "M16";
-
-#User Constrain File for BASYS and NEXYS kits
-#Use the comment / uncomment commands to select
-# Revision 12-7-2009
-
-############################# B A S Y S - kit ########
-NET "Pin<0>" LOC = "P81";  #PMOD 1
-NET "Pin<1>" LOC = "P91"; 
-NET "Pin<2>" LOC = "P82";
-NET "Pin<3>" LOC = "P92";
-##--------------------------------------
-NET "Pin<4>" LOC = "p87";  #PMOD 2
-NET "Pin<5>" LOC = "p93"; 
-NET "Pin<6>" LOC = "p88";
-NET "Pin<7>" LOC = "p94";
-
-NET "LED<0>" LOC = "P15"; 
-NET "LED<1>" LOC = "P14"; 
-NET "LED<2>" LOC = "P8"; 
-NET "LED<3>" LOC = "p7"; 
-NET "LED<4>" LOC = "p5"; 
-NET "LED<5>" LOC = "p4"; 
-NET "LED<6>" LOC = "p3"; 
-NET "LED<7>" LOC = "p2"; 
-
-NET "Switch<0>" LOC = "p38";
-NET "Switch<1>" LOC = "p36";
-NET "Switch<2>" LOC = "p29";
-NET "Switch<3>" LOC = "p24";
-NET "Switch<4>" LOC = "p18";
-NET "Switch<5>" LOC = "p12";
-NET "Switch<6>" LOC = "p10";
-NET "Switch<7>" LOC = "p6";
-
-NET "Clk" LOC = "p54"; #Clk 50MHz
-
+NET "LED<0>"  		LOC = "J14"; 
+NET "LED<1>"  		LOC = "J15"; 
+NET "LED<2>"  		LOC = "K15"; 
+NET "LED<3>"  		LOC = "K14"; 
+NET "LED<4>"  		LOC = "E17"; 
+NET "LED<5>"  		LOC = "P15"; 
+NET "LED<6>"  		LOC = "F4" ; 
+NET "LED<7>"  		LOC = "R4" ; 
+NET "Clk"			LOC = "B8" ;	
+NET "Switch<0>" 	LOC = "G18";
+NET "Switch<1>" 	LOC = "H18";
+NET "Switch<2>" 	LOC = "K18";
+NET "Switch<3>" 	LOC = "K17";
+NET "Switch<4>" 	LOC = "L14";
+NET "Switch<5>" 	LOC = "L13";
+NET "Switch<6>" 	LOC = "N17";
+NET "Switch<7>" 	LOC = "R17";
+NET "Pin<0>"		LOC = "L15";
+NET "Pin<1>"		LOC = "K12";
+NET "Pin<2>"		LOC = "L17";
+NET "Pin<3>"		LOC = "M15";
+NET "Pin<4>"		LOC = "K13";
+NET "Pin<5>"		LOC = "L16";
+NET "Pin<6>"		LOC = "M14";
+NET "Pin<7>"		LOC = "M16";
