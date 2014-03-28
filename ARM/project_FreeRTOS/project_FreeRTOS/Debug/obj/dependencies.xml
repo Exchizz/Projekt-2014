@@ -1,0 +1,121 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<dependencies>
+   <includePath signature="/IC:\Users\Thomas\Documents\GitHub\Projekt-2014\ARM\project_FreeRTOS\FRT_Library\FreeRTOS\Source /IC:\Users\Thomas\Documents\GitHub\Projekt-2014\ARM\project_FreeRTOS\FRT_Library\FreeRTOS\Source\portable\GCC /IC:\Users\Thomas\Documents\GitHub\Projekt-2014\ARM\project_FreeRTOS\uartprintf /IC:\Users\Thomas\Documents\GitHub\Projekt-2014\ARM\project_FreeRTOS\FRT_Library\FreeRTOS /IC:\Users\Thomas\Documents\GitHub\Projekt-2014\ARM\project_FreeRTOS\FRT_Library\FreeRTOS\Source\portable\GCC\ARM_CM3 /IC:\Users\Thomas\Documents\GitHub\Projekt-2014 /IC:\Users\Thomas\Documents\GitHub\Projekt-2014\ARM\project_FreeRTOS\spi /IC:\Users\Thomas\Documents\GitHub\Projekt-2014\ARM\project_FreeRTOS /IC:\Users\Thomas\Documents\GitHub\Projekt-2014\ARM /IC:\Users\Thomas\Documents\GitHub\Projekt-2014\ARM\project_FreeRTOS\includes /IC:\Users\Thomas\Documents\GitHub\Projekt-2014\ARM\project_FreeRTOS\gpio /IC:\Users\Thomas\Documents\GitHub\Projekt-2014\ARM\project_FreeRTOS\debug /IC:\Users\Thomas\Documents\GitHub\Projekt-2014\ARM\project_FreeRTOS\FRT_Library\FreeRTOS\Source\include /IC:\Users\Thomas\Documents\GitHub\Projekt-2014\ARM\project_FreeRTOS\FRT_Library\FreeRTOS\Source\portable /IC:\Users\Thomas\Documents\GitHub\Projekt-2014\ARM\project_FreeRTOS\cpu">
+      <source file="..\..\..\FRT_Library\FreeRTOS\Source\include\FreeRTOS.h" lastModified="14502f9a2d3">
+         <include file="..\..\..\FRT_Library\FreeRTOS\Source\include\projdefs.h"/>
+         <include file="..\..\..\FreeRTOSConfig.h"/>
+         <include file="..\..\..\FRT_Library\FreeRTOS\Source\include\portable.h"/>
+      </source>
+      <source file="..\..\..\FRT_Library\FreeRTOS\Source\include\mpu_wrappers.h" lastModified="14502f99eed">
+      </source>
+      <source file="..\..\..\FRT_Library\FreeRTOS\Source\portable\GCC\ARM_CM3\common.c" lastModified="14502f99ef2">
+         <include file="..\..\..\FRT_Library\FreeRTOS\Source\include\FreeRTOS.h"/>
+         <include file="..\..\..\FRT_Library\FreeRTOS\Source\include\task.h"/>
+      </source>
+      <source file="..\..\..\FRT_Library\FreeRTOS\Source\include\portable.h" lastModified="14502fa623e">
+         <include file="..\..\..\FRT_Library\FreeRTOS\Source\portable\GCC\ARM_CM3\portmacro.h"/>
+         <include file="..\..\..\FRT_Library\FreeRTOS\Source\portable\GCC\ARM_CM3\portmacro.h"/>
+         <include file="..\..\..\FRT_Library\FreeRTOS\Source\portable\GCC\ARM_CM3\portmacro.h"/>
+         <include file="..\..\..\FRT_Library\FreeRTOS\Source\portable\GCC\ARM_CM3\portmacro.h"/>
+         <include file="..\..\..\FRT_Library\FreeRTOS\Source\portable\GCC\ARM_CM3\portmacro.h"/>
+         <include file="..\..\..\FRT_Library\FreeRTOS\Source\portable\GCC\ARM_CM3\portmacro.h"/>
+         <include file="..\..\..\FRT_Library\FreeRTOS\Source\portable\GCC\ARM_CM3\portmacro.h"/>
+         <include file="..\..\..\FRT_Library\FreeRTOS\Source\portable\GCC\ARM_CM3\portmacro.h"/>
+         <include file="..\..\..\FRT_Library\FreeRTOS\Source\include\mpu_wrappers.h"/>
+      </source>
+      <source file="..\..\..\FRT_Library\FreeRTOS\Source\list.c" lastModified="14502f9a2d9">
+         <include file="..\..\..\FRT_Library\FreeRTOS\Source\include\FreeRTOS.h"/>
+         <include file="..\..\..\FRT_Library\FreeRTOS\Source\include\list.h"/>
+      </source>
+      <source file="..\..\..\debug\debug.h" lastModified="14502f99efc">
+         <include file="..\..\..\uartprintf\uartprintf.h"/>
+         <include file="..\..\..\includes\lm3s6965.h"/>
+         <include file="..\..\..\includes\emp_type.h"/>
+         <include file="..\..\..\includes\glob_def.h"/>
+         <include file="..\..\..\includes\binary.h"/>
+      </source>
+      <source file="..\..\..\FRT_Library\FreeRTOS\Source\include\list.h" lastModified="14502f99eec">
+      </source>
+      <source file="..\..\..\FRT_Library\FreeRTOS\Source\include\croutine.h" lastModified="14502f99eec">
+         <include file="..\..\..\FRT_Library\FreeRTOS\Source\include\list.h"/>
+      </source>
+      <source file="..\..\..\FRT_Library\FreeRTOS\Source\portable\GCC\ARM_CM3\port.c" lastModified="14502f99ef3">
+         <include file="..\..\..\FRT_Library\FreeRTOS\Source\include\FreeRTOS.h"/>
+         <include file="..\..\..\FRT_Library\FreeRTOS\Source\include\task.h"/>
+      </source>
+      <source file="..\..\..\debug\debug.c" lastModified="14502f99efc">
+         <include file="..\..\..\debug\debug.h"/>
+      </source>
+      <source file="..\..\..\FRT_Library\FreeRTOS\Source\include\projdefs.h" lastModified="14502f99eee">
+      </source>
+      <source file="..\..\..\FRT_Library\FreeRTOS\Source\include\task.h" lastModified="14502f99ef1">
+         <include file="..\..\..\FRT_Library\FreeRTOS\Source\include\portable.h"/>
+         <include file="..\..\..\FRT_Library\FreeRTOS\Source\include\list.h"/>
+      </source>
+      <source file="..\..\..\FRT_Library\FreeRTOS\Source\tasks.c" lastModified="14502f9aaaf">
+         <include file="..\..\..\FRT_Library\FreeRTOS\Source\include\FreeRTOS.h"/>
+         <include file="..\..\..\FRT_Library\FreeRTOS\Source\include\task.h"/>
+         <include file="..\..\..\FRT_Library\FreeRTOS\Source\include\StackMacros.h"/>
+      </source>
+      <source file="..\..\..\startup_frt.c" lastModified="14502f99f10">
+      </source>
+      <source file="..\..\..\includes\glob_def.h" lastModified="14502f99efe">
+      </source>
+      <source file="..\..\..\spi\spi.c" lastModified="14502f99f0e">
+         <include file="..\..\..\includes\lm3s6965.h"/>
+         <include file="..\..\..\includes\emp_type.h"/>
+         <include file="..\..\..\includes\binary.h"/>
+         <include file="..\..\..\debug\debug.h"/>
+      </source>
+      <source file="..\..\..\includes\emp_type.h" lastModified="14502f99efe">
+      </source>
+      <source file="..\..\..\FRT_Library\FreeRTOS\Source\portable\GCC\ARM_CM3\portmacro.h" lastModified="14502f99ef3">
+      </source>
+      <source file="..\..\..\includes\binary.h" lastModified="14502f99efe">
+         <include file="..\..\..\includes\emp_type.h"/>
+      </source>
+      <source file="..\..\..\..\..\lm3s6965.h" lastModified="1443efd920d">
+      </source>
+      <source file="..\..\..\gpio\gpio.c" lastModified="14502f99efd">
+         <include file="..\..\..\includes\lm3s6965.h"/>
+         <include file="..\..\..\includes\emp_type.h"/>
+      </source>
+      <source file="..\..\..\cpu\cpu.h" lastModified="14502f99ef9">
+         <include file="..\..\..\includes\emp_type.h"/>
+      </source>
+      <source file="..\..\..\FRT_Library\FreeRTOS\Source\queue.c" lastModified="14502f9a6c5">
+         <include file="..\..\..\FRT_Library\FreeRTOS\Source\include\FreeRTOS.h"/>
+         <include file="..\..\..\FRT_Library\FreeRTOS\Source\include\task.h"/>
+         <include file="..\..\..\FRT_Library\FreeRTOS\Source\include\croutine.h"/>
+      </source>
+      <source file="..\..\..\cpu\cpu.c" lastModified="14502f99ef9">
+         <include file="..\..\..\includes\lm3s6965.h"/>
+         <include file="..\..\..\includes\emp_type.h"/>
+         <include file="..\..\..\includes\binary.h"/>
+         <include file="..\..\..\cpu\cpu.h"/>
+      </source>
+      <source file="..\..\..\FRT_Library\FreeRTOS\Source\portable\MemMang\heap_2.c" lastModified="14502f9a2dc">
+         <include file="..\..\..\FRT_Library\FreeRTOS\Source\include\FreeRTOS.h"/>
+         <include file="..\..\..\FRT_Library\FreeRTOS\Source\include\task.h"/>
+      </source>
+      <source file="..\..\..\uartprintf\uartprintf.h" lastModified="14502f99f12">
+      </source>
+      <source file="..\..\..\FreeRTOSConfig.h" lastModified="14502f99ef8">
+      </source>
+      <source file="..\..\..\FRT_Library\FreeRTOS\Source\include\semphr.h" lastModified="14502f99ef0">
+         <include file="..\..\..\FRT_Library\FreeRTOS\Source\include\queue.h"/>
+      </source>
+      <source file="..\..\..\FRT_Library\FreeRTOS\Source\include\StackMacros.h" lastModified="14502f99eeb">
+      </source>
+      <source file="..\..\..\FRT_Library\FreeRTOS\Source\croutine.c" lastModified="14502f99eea">
+         <include file="..\..\..\FRT_Library\FreeRTOS\Source\include\FreeRTOS.h"/>
+         <include file="..\..\..\FRT_Library\FreeRTOS\Source\include\task.h"/>
+         <include file="..\..\..\FRT_Library\FreeRTOS\Source\include\croutine.h"/>
+      </source>
+      <source file="..\..\..\includes\lm3s6965.h" lastModified="14502f99f01">
+      </source>
+      <source file="..\..\..\FRT_Library\FreeRTOS\Source\include\queue.h" lastModified="14502f99eef">
+         <include file="..\..\..\FRT_Library\FreeRTOS\Source\include\mpu_wrappers.h"/>
+      </source>
+   </includePath>
+</dependencies>

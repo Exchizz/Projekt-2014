@@ -21,7 +21,17 @@
   #define _UART_H
 
 /***************************** Include files *******************************/
+#include "FreeRTOS.h"
+#include "task.h"
+#include "queue.h"
+#include "include/semphr.h"
+
 #include "..\cpu\cpu.h"
+#include <stdarg.h>
+#include "../includes/lm3s6965.h"
+#include "../includes/emp_type.h"
+#include "../includes/glob_def.h"
+#include "../includes/binary.h"
 
 /*****************************    Defines    *******************************/
 // FCPU are defined in cpu.h
@@ -56,15 +66,24 @@
 	#error "Baud-rate or UARTSYSCLK not defined" 
 #endif
 
-//	// Enable UART0
-//	SYSCTL_RCGC1_R  |= SYSCTL_RCGC1_UART0;  
-//	
-//	UART0_IBRD_R = B_DIV_INT;
-//	UART0_FBRD_R = B_DIV_FRACT;
-//
+#define RX	0
+#define	TX	1
 /*****************************   Constants   *******************************/
 
+xQueueHandle UARTTXQueue, UARTRXQueue;
+
+xSemaphoreHandle UARTRXSem;
+
 /*****************************   Functions   *******************************/
+
+extern void uart_init(void);
+extern void UARTprintf(const char *pcString, ...);
+
+void UART_TX_task();
+void UART_RX_task();
+
+BOOLEAN UARTDataReady(INT8U);
+
 
 /****************************** End Of Module *******************************/
 #endif

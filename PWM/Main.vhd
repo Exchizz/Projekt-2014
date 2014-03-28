@@ -43,21 +43,21 @@ port (
 end Main;
 
 architecture Behavioral of Main is
-signal prescaler: 		         integer						   range 0 to 2047;  -- BINÆRT OPTÆlning => Optil 2^n.  Solve (50000000/ Frekvens = "Antal nærmeste 2^n værdi")
---signal counter: 					integer 						   range 1 to 50000000;
-shared variable duty: 			   integer   						range 0 to 2047; -- 50 % duty
+	signal prescaler:			integer range 0 to 2047;
+	shared variable duty: 	integer range 0 to 2047;
+
 begin
 
 switch_to_int: process(switch) -- Convert Switch (bin) to (dec)
-variable conv_switch: 				integer							range  0 to 255;
-begin
-	
-	conv_switch :=  (conv_integer(switch));
-	duty := conv_switch * 8; 
-	LED <=  conv_std_logic_vector(conv_switch,8);
+	variable conv_switch: integer range  0 to 255;
+begin	
+	conv_switch :=  (conv_integer(switch)); 			--8 bit input converted to variable
+	duty := conv_switch * 8; 								--Duty threshold set
+	LED <=  conv_std_logic_vector(conv_switch,8);	--Input written to LED's for debugging purposes.
 end process;
 
-Presccaler: process(clk)
+
+Presccaler: process(clk)	--Count up the PWM timer
 begin
 	if rising_edge(clk) then 
 		prescaler <= prescaler + 1;	
@@ -65,8 +65,7 @@ begin
 end process;
 
 
-
-pwm: process(prescaler)
+pwm: process(prescaler)		--If PWM timer is lower than threshhold, output is high, else output is low.
 begin
 	if(prescaler > duty) then 
 		pin <= "00000000";
@@ -74,7 +73,6 @@ begin
 		pin <= "11111111";
 	end if;
 end process;
-
 
 end Behavioral;
 
