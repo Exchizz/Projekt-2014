@@ -4,13 +4,13 @@ Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
 
 
 Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.13 secs
+Total CPU time to Xst completion: 0.22 secs
  
 --> Parameter xsthdpdir set to xst
 
 
 Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.13 secs
+Total CPU time to Xst completion: 0.22 secs
  
 --> Reading design: Encoder.prj
 
@@ -167,18 +167,21 @@ Unit <DisplaySelect_4_7segDisp> synthesized.
 
 Synthesizing Unit <Encoder>.
     Related source file is "C:/Users/Lukas Schwartz/Documents/GitHub/Projekt-2014/Encoder/encoder.vhd".
-    Found 16-bit up counter for signal <clk_scaler>.
     Found 2-bit register for signal <last_hall>.
-    Found 16-bit adder for signal <last_hall$add0000> created at line 54.
-    Found 2-bit comparator equal for signal <last_hall$cmp_eq0000> created at line 60.
+    Found 2-bit comparator equal for signal <last_hall$cmp_eq0005> created at line 60.
+    Found 2-bit 4-to-1 multiplexer for signal <last_hall$mux0000> created at line 61.
+    Found 2-bit 4-to-1 multiplexer for signal <last_hall$mux0001> created at line 63.
+    Found 2-bit 4-to-1 multiplexer for signal <last_hall$mux0002> created at line 79.
+    Found 2-bit 4-to-1 multiplexer for signal <last_hall$mux0003> created at line 95.
+    Found 2-bit 4-to-1 multiplexer for signal <last_hall$mux0004> created at line 111.
     Found 11-bit register for signal <Motor_Position>.
-    Found 11-bit subtractor for signal <Motor_Position$addsub0000> created at line 71.
+    Found 11-bit subtractor for signal <Motor_Position$addsub0000> created at line 73.
     Found 11-bit adder for signal <Motor_Position$share0000> created at line 61.
     Summary:
-	inferred   1 Counter(s).
 	inferred  13 D-type flip-flop(s).
-	inferred   3 Adder/Subtractor(s).
+	inferred   2 Adder/Subtractor(s).
 	inferred   1 Comparator(s).
+	inferred  10 Multiplexer(s).
 Unit <Encoder> synthesized.
 
 INFO:Xst:1767 - HDL ADVISOR - Resource sharing has identified that some arithmetic operations in this design can share the same physical resources for reduced device utilization. For improved clock frequency you may try to disable resource sharing.
@@ -187,21 +190,20 @@ INFO:Xst:1767 - HDL ADVISOR - Resource sharing has identified that some arithmet
 HDL Synthesis Report
 
 Macro Statistics
-# Adders/Subtractors                                   : 4
+# Adders/Subtractors                                   : 3
  10-bit adder                                          : 1
  11-bit adder                                          : 1
  11-bit subtractor                                     : 1
- 16-bit adder                                          : 1
-# Counters                                             : 3
+# Counters                                             : 2
  10-bit up counter                                     : 1
- 16-bit up counter                                     : 1
  2-bit up counter                                      : 1
 # Registers                                            : 2
  11-bit register                                       : 1
  2-bit register                                        : 1
 # Comparators                                          : 1
  2-bit comparator equal                                : 1
-# Multiplexers                                         : 1
+# Multiplexers                                         : 6
+ 2-bit 4-to-1 multiplexer                              : 5
  5-bit 4-to-1 multiplexer                              : 1
 # Decoders                                             : 1
  1-of-4 decoder                                        : 1
@@ -219,20 +221,19 @@ Macro Statistics
 Advanced HDL Synthesis Report
 
 Macro Statistics
-# Adders/Subtractors                                   : 4
+# Adders/Subtractors                                   : 3
  10-bit adder                                          : 1
  11-bit adder                                          : 1
  11-bit subtractor                                     : 1
- 16-bit adder                                          : 1
-# Counters                                             : 3
+# Counters                                             : 2
  10-bit up counter                                     : 1
- 16-bit up counter                                     : 1
  2-bit up counter                                      : 1
 # Registers                                            : 13
  Flip-Flops                                            : 13
 # Comparators                                          : 1
  2-bit comparator equal                                : 1
-# Multiplexers                                         : 1
+# Multiplexers                                         : 6
+ 2-bit 4-to-1 multiplexer                              : 5
  5-bit 4-to-1 multiplexer                              : 1
 # Decoders                                             : 1
  1-of-4 decoder                                        : 1
@@ -249,7 +250,7 @@ Optimizing unit <Encoder> ...
 
 Mapping all equations...
 Building and optimizing final netlist ...
-Found area constraint ratio of 100 (+ 5) on block Encoder, actual ratio is 8.
+Found area constraint ratio of 100 (+ 5) on block Encoder, actual ratio is 6.
 
 Final Macro Processing ...
 
@@ -257,8 +258,8 @@ Final Macro Processing ...
 Final Register Report
 
 Macro Statistics
-# Registers                                            : 41
- Flip-Flops                                            : 41
+# Registers                                            : 25
+ Flip-Flops                                            : 25
 
 =========================================================================
 
@@ -287,28 +288,24 @@ Design Statistics
 # IOs                              : 24
 
 Cell Usage :
-# BELS                             : 292
+# BELS                             : 191
 #      GND                         : 1
-#      INV                         : 16
-#      LUT1                        : 59
-#      LUT2                        : 12
+#      INV                         : 14
+#      LUT1                        : 29
+#      LUT2                        : 13
 #      LUT2_D                      : 1
-#      LUT2_L                      : 2
-#      LUT3                        : 3
-#      LUT3_D                      : 1
-#      LUT3_L                      : 6
-#      LUT4                        : 35
+#      LUT3                        : 2
+#      LUT3_L                      : 7
+#      LUT4                        : 33
 #      LUT4_D                      : 2
-#      LUT4_L                      : 8
-#      MUXCY                       : 68
+#      LUT4_L                      : 5
+#      MUXCY                       : 38
 #      MUXF5                       : 3
 #      VCC                         : 1
-#      XORCY                       : 74
-# FlipFlops/Latches                : 41
+#      XORCY                       : 42
+# FlipFlops/Latches                : 25
 #      FD                          : 10
 #      FDE                         : 15
-#      FDR                         : 15
-#      FDS                         : 1
 # Clock Buffers                    : 1
 #      BUFGP                       : 1
 # IO Buffers                       : 23
@@ -321,9 +318,9 @@ Device utilization summary:
 
 Selected Device : 3s100etq144-4 
 
- Number of Slices:                       75  out of    960     7%  
- Number of Slice Flip Flops:             41  out of   1920     2%  
- Number of 4 input LUTs:                145  out of   1920     7%  
+ Number of Slices:                       56  out of    960     5%  
+ Number of Slice Flip Flops:             25  out of   1920     1%  
+ Number of 4 input LUTs:                106  out of   1920     5%  
  Number of IOs:                          24
  Number of bonded IOBs:                  24  out of    108    22%  
  Number of GCLKs:                         1  out of     24     4%  
@@ -349,7 +346,7 @@ Clock Information:
 -----------------------------------+------------------------+-------+
 Clock Signal                       | Clock buffer(FF name)  | Load  |
 -----------------------------------+------------------------+-------+
-Clk                                | BUFGP                  | 41    |
+Clk                                | BUFGP                  | 25    |
 -----------------------------------+------------------------+-------+
 
 Asynchronous Control Signals Information:
@@ -360,8 +357,8 @@ Timing Summary:
 ---------------
 Speed Grade: -4
 
-   Minimum period: 8.382ns (Maximum Frequency: 119.303MHz)
-   Minimum input arrival time before clock: 6.759ns
+   Minimum period: 6.533ns (Maximum Frequency: 153.069MHz)
+   Minimum input arrival time before clock: 7.166ns
    Maximum output required time after clock: 8.053ns
    Maximum combinational path delay: No path found
 
@@ -371,65 +368,53 @@ All values displayed in nanoseconds (ns)
 
 =========================================================================
 Timing constraint: Default period analysis for Clock 'Clk'
-  Clock period: 8.382ns (frequency: 119.303MHz)
-  Total number of paths / destination ports: 4604 / 70
+  Clock period: 6.533ns (frequency: 153.069MHz)
+  Total number of paths / destination ports: 528 / 40
 -------------------------------------------------------------------------
-Delay:               8.382ns (Levels of Logic = 18)
-  Source:            clk_scaler_1 (FF)
-  Destination:       clk_scaler_0 (FF)
+Delay:               6.533ns (Levels of Logic = 6)
+  Source:            DispSelect/time_count_1 (FF)
+  Destination:       DispSelect/Display_State_0 (FF)
   Source Clock:      Clk rising
   Destination Clock: Clk rising
 
-  Data Path: clk_scaler_1 to clk_scaler_0
+  Data Path: DispSelect/time_count_1 to DispSelect/Display_State_0
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     FDR:C->Q              2   0.591   0.622  clk_scaler_1 (clk_scaler_1)
-     LUT1:I0->O            1   0.704   0.000  Madd_last_hall_add0000_cy<1>_rt (Madd_last_hall_add0000_cy<1>_rt)
-     MUXCY:S->O            1   0.464   0.000  Madd_last_hall_add0000_cy<1> (Madd_last_hall_add0000_cy<1>)
-     MUXCY:CI->O           1   0.059   0.000  Madd_last_hall_add0000_cy<2> (Madd_last_hall_add0000_cy<2>)
-     MUXCY:CI->O           1   0.059   0.000  Madd_last_hall_add0000_cy<3> (Madd_last_hall_add0000_cy<3>)
-     MUXCY:CI->O           1   0.059   0.000  Madd_last_hall_add0000_cy<4> (Madd_last_hall_add0000_cy<4>)
-     MUXCY:CI->O           1   0.059   0.000  Madd_last_hall_add0000_cy<5> (Madd_last_hall_add0000_cy<5>)
-     MUXCY:CI->O           1   0.059   0.000  Madd_last_hall_add0000_cy<6> (Madd_last_hall_add0000_cy<6>)
-     MUXCY:CI->O           1   0.059   0.000  Madd_last_hall_add0000_cy<7> (Madd_last_hall_add0000_cy<7>)
-     MUXCY:CI->O           1   0.059   0.000  Madd_last_hall_add0000_cy<8> (Madd_last_hall_add0000_cy<8>)
-     MUXCY:CI->O           1   0.059   0.000  Madd_last_hall_add0000_cy<9> (Madd_last_hall_add0000_cy<9>)
-     MUXCY:CI->O           1   0.059   0.000  Madd_last_hall_add0000_cy<10> (Madd_last_hall_add0000_cy<10>)
-     MUXCY:CI->O           1   0.059   0.000  Madd_last_hall_add0000_cy<11> (Madd_last_hall_add0000_cy<11>)
-     MUXCY:CI->O           1   0.059   0.000  Madd_last_hall_add0000_cy<12> (Madd_last_hall_add0000_cy<12>)
-     MUXCY:CI->O           1   0.059   0.000  Madd_last_hall_add0000_cy<13> (Madd_last_hall_add0000_cy<13>)
-     MUXCY:CI->O           0   0.059   0.000  Madd_last_hall_add0000_cy<14> (Madd_last_hall_add0000_cy<14>)
-     XORCY:CI->O           2   0.804   0.482  Madd_last_hall_add0000_xor<15> (last_hall_add0000<15>)
-     LUT3:I2->O            1   0.704   0.595  clk_scaler_cmp_eq00005 (clk_scaler_cmp_eq00005)
-     LUT4:I0->O           16   0.704   1.034  clk_scaler_cmp_eq000075 (clk_scaler_cmp_eq0000)
-     FDS:S                     0.911          clk_scaler_0
+     FD:C->Q               2   0.591   0.622  DispSelect/time_count_1 (DispSelect/time_count_1)
+     LUT1:I0->O            1   0.704   0.000  DispSelect/Madd_Display_State_addsub0000_cy<1>_rt (DispSelect/Madd_Display_State_addsub0000_cy<1>_rt)
+     MUXCY:S->O            1   0.464   0.000  DispSelect/Madd_Display_State_addsub0000_cy<1> (DispSelect/Madd_Display_State_addsub0000_cy<1>)
+     MUXCY:CI->O           1   0.059   0.000  DispSelect/Madd_Display_State_addsub0000_cy<2> (DispSelect/Madd_Display_State_addsub0000_cy<2>)
+     XORCY:CI->O           1   0.804   0.424  DispSelect/Madd_Display_State_addsub0000_xor<3> (DispSelect/Display_State_addsub0000<3>)
+     LUT4:I3->O            1   0.704   0.455  DispSelect/Display_State_cmp_eq000041_SW0 (N8)
+     LUT4:I2->O            2   0.704   0.447  DispSelect/Display_State_cmp_eq000041 (DispSelect/Display_State_cmp_eq0000)
+     FDE:CE                    0.555          DispSelect/Display_State_0
     ----------------------------------------
-    Total                      8.382ns (5.649ns logic, 2.733ns route)
-                                       (67.4% logic, 32.6% route)
+    Total                      6.533ns (4.585ns logic, 1.948ns route)
+                                       (70.2% logic, 29.8% route)
 
 =========================================================================
 Timing constraint: Default OFFSET IN BEFORE for Clock 'Clk'
-  Total number of paths / destination ports: 127 / 26
+  Total number of paths / destination ports: 129 / 26
 -------------------------------------------------------------------------
-Offset:              6.759ns (Levels of Logic = 5)
-  Source:            Hall<0> (PAD)
-  Destination:       Motor_Position_3 (FF)
+Offset:              7.166ns (Levels of Logic = 5)
+  Source:            Hall<1> (PAD)
+  Destination:       Motor_Position_5 (FF)
   Destination Clock: Clk rising
 
-  Data Path: Hall<0> to Motor_Position_3
+  Data Path: Hall<1> to Motor_Position_5
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     IBUF:I->O             3   1.218   0.706  Hall_0_IBUF (Hall_0_IBUF)
-     LUT2_D:I0->LO         1   0.704   0.104  Motor_Position_mux0001<0>121 (N25)
-     LUT4:I3->O           11   0.704   1.012  Motor_Position_mux0001<0>41 (N4)
-     LUT2:I1->O            1   0.704   0.595  Motor_Position_mux0001<7>0 (Motor_Position_mux0001<7>0)
-     LUT4:I0->O            1   0.704   0.000  Motor_Position_mux0001<7>15 (Motor_Position_mux0001<7>)
-     FDE:D                     0.308          Motor_Position_3
+     IBUF:I->O             6   1.218   0.844  Hall_1_IBUF (Hall_1_IBUF)
+     LUT2:I0->O            1   0.704   0.424  Motor_Position_mux0001<0>121_SW0 (N10)
+     LUT4_D:I3->O         10   0.704   0.961  Motor_Position_mux0001<0>41 (N4)
+     LUT2:I1->O            1   0.704   0.595  Motor_Position_mux0001<5>1 (Motor_Position_mux0001<5>1)
+     LUT4:I0->O            1   0.704   0.000  Motor_Position_mux0001<5>8 (Motor_Position_mux0001<5>)
+     FDE:D                     0.308          Motor_Position_5
     ----------------------------------------
-    Total                      6.759ns (4.342ns logic, 2.417ns route)
-                                       (64.2% logic, 35.8% route)
+    Total                      7.166ns (4.342ns logic, 2.824ns route)
+                                       (60.6% logic, 39.4% route)
 
 =========================================================================
 Timing constraint: Default OFFSET OUT AFTER for Clock 'Clk'
@@ -456,12 +441,12 @@ Offset:              8.053ns (Levels of Logic = 4)
 =========================================================================
 
 
-Total REAL time to Xst completion: 5.00 secs
-Total CPU time to Xst completion: 5.37 secs
+Total REAL time to Xst completion: 10.00 secs
+Total CPU time to Xst completion: 10.33 secs
  
 --> 
 
-Total memory usage is 266852 kilobytes
+Total memory usage is 265060 kilobytes
 
 Number of errors   :    0 (   0 filtered)
 Number of warnings :    0 (   0 filtered)
