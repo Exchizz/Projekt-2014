@@ -225,7 +225,7 @@ void spiRXTask()
 		if(xSemaphoreTake(SPIRXSem,20)){
 			if(spiDataReady(RX)){
 				receivedData = SSI0_DR_R;
-				xQueueSend(UARTTXQueue, &receivedData, 50);
+				xQueueSend(SPIRXQueue, &receivedData, 50);
 			}
 		}
 	}

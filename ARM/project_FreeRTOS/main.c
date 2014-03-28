@@ -30,6 +30,8 @@
 #include "uartprintf/uart.h"
 #include "spi/spi.h"
 
+#include "communication.h"
+
 /*****************************    Defines    *******************************/
 #define USERTASK_STACK_SIZE configMINIMAL_STACK_SIZE
 #define IDLE_PRIO	0
@@ -66,12 +68,12 @@ void status_led_task(void *pvParameters)
 {
 
 	status_led_init();
-	long int i;
-	INT8U test = 0x30;
+	//long int i;
+	//INT8U test = 0x30;
 	while(TRUE)
 	{
-		test++;
-		xQueueSend(SPITXQueue, &test, 20);
+		//test++;
+		//xQueueSend(SPITXQueue, &test, 20);
 		TOGGLE_BIT(GPIO_PORTF_DATA_R, PF0);
 		vTaskDelay(500 / portTICK_RATE_MS); // wait 100 ms.
 	}
@@ -126,6 +128,8 @@ int main(void)
 
 	xTaskCreate( spiRXTask, ( signed portCHAR * ) "spiReceiveTask", USERTASK_STACK_SIZE, NULL, LOW_PRIO, NULL );
 	xTaskCreate( spiTXTask, ( signed portCHAR * ) "spiTransmitTask", USERTASK_STACK_SIZE, NULL, LOW_PRIO, NULL );
+
+	xTaskCreate( decodeCommandTask, ( signed portCHAR * ) "ParseCommands", USERTASK_STACK_SIZE, NULL, LOW_PRIO, NULL );
 
 	/*
 	* Start the scheduler.
