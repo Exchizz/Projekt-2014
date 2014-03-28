@@ -29,6 +29,8 @@
 #define NULL	((void *)0)
 #define ON		1
 #define OFF		!ON
+#define RX		0
+#define	TX		1
 
 #define PF0		0		// Bit 0
 #define PG1     1       // Bit 1

@@ -114,7 +114,7 @@ void UART_RX_task()
 	INT8U receivedChar = 0;
 	while(TRUE)
 	{
-		if(xSemaphoreTake(UARTRXSem, 20) == pdTRUE){
+		if(xSemaphoreTake(UARTRXSem, 20)){
 			if(UARTDataReady(RX)){
 				receivedChar = UARTCharGet();
 				xQueueSend(UARTRXQueue, &receivedChar, 100);

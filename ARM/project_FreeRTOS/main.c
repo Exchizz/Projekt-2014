@@ -28,6 +28,7 @@
 #include "binary.h"
 #include "debug/debug.h"
 #include "uartprintf/uart.h"
+#include "spi/spi.h"
 
 /*****************************    Defines    *******************************/
 #define USERTASK_STACK_SIZE configMINIMAL_STACK_SIZE
@@ -64,13 +65,16 @@ void status_led_init(void)
 void status_led_task(void *pvParameters)
 {
 
-  status_led_init();
-  long int i;
-  while(1)
-  {
-	TOGGLE_BIT(GPIO_PORTF_DATA_R, PF0);
-	vTaskDelay(500 / portTICK_RATE_MS); // wait 100 ms.
-  }
+	status_led_init();
+	long int i;
+	INT8U test = 0x30;
+	while(TRUE)
+	{
+		test++;
+		xQueueSend(SPITXQueue, &test, 20);
+		TOGGLE_BIT(GPIO_PORTF_DATA_R, PF0);
+		vTaskDelay(500 / portTICK_RATE_MS); // wait 100 ms.
+	}
 }
 
 void poleRegs()
@@ -80,39 +84,57 @@ void poleRegs()
 		if(UARTDataReady(RX)){
 			xSemaphoreGive(UARTRXSem);
 		}
+		if(spiDataReady(RX)){
+			xSemaphoreGive(SPIRXSem);
+		}
 		vTaskDelay(5 / portTICK_RATE_MS);
 	}
 }
 
 int main(void)
 {
-  portBASE_TYPE return_value = pdTRUE;
+	portBASE_TYPE return_value = pdTRUE;
 
-  clk_system_init();
- //debug_pin_init();
-  uart_init();
-  /*
-   * Start the tasks defined within this file/specific to this demo.
-   */
+	clk_system_init();
 
-  UARTRXQueue = xQueueCreate(1, sizeof(INT8U)); //Receive queue
-  UARTTXQueue = xQueueCreate(1, sizeof(INT8U)); //Transmit queue
+	debug_pin_init();
+	debug_pin(OFF);
 
-  vSemaphoreCreateBinary(UARTRXSem);
-  xSemaphoreTake(UARTRXSem, 20);
+	uart_init();
+	spi_init();
 
-  return_value &= xTaskCreate( status_led_task, ( signed portCHAR * ) "Status_led", USERTASK_STACK_SIZE, NULL, LOW_PRIO, NULL );
-  xTaskCreate( UART_TX_task, ( signed portCHAR * ) "transmit_Task", USERTASK_STACK_SIZE, NULL, LOW_PRIO, NULL );
-  xTaskCreate( UART_RX_task, ( signed portCHAR * ) "receive_Task", USERTASK_STACK_SIZE, NULL, LOW_PRIO, NULL );
-  xTaskCreate( poleRegs, ( signed portCHAR * ) "pole_register_task", USERTASK_STACK_SIZE, NULL, LOW_PRIO, NULL );
-  /*
-   * Start the scheduler.
-   */
-  vTaskStartScheduler();
+	/*
+	* Start the tasks defined within this file/specific to this demo.
+	*/
 
-  /*
-   * Will only get here if there was insufficient memory to create the idle task.
-   */
-  return 1;
+	UARTRXQueue = xQueueCreate(1, sizeof(INT8U)); //Receive queue
+	UARTTXQueue = xQueueCreate(1, sizeof(INT8U)); //Transmit queue
+
+	SPIRXQueue = xQueueCreate(1, sizeof(INT16U));
+	SPITXQueue = xQueueCreate(1, sizeof(INT16U));
+
+	vSemaphoreCreateBinary(UARTRXSem);
+	xSemaphoreTake(UARTRXSem, 20);
+	vSemaphoreCreateBinary(SPIRXSem);
+	xSemaphoreTake(SPIRXSem, 20);
+
+	return_value &= xTaskCreate( status_led_task, ( signed portCHAR * ) "Status_led", USERTASK_STACK_SIZE, NULL, LOW_PRIO, NULL );
+	xTaskCreate( UART_TX_task, ( signed portCHAR * ) "transmit_Task", USERTASK_STACK_SIZE, NULL, LOW_PRIO, NULL );
+	xTaskCreate( UART_RX_task, ( signed portCHAR * ) "receive_Task", USERTASK_STACK_SIZE, NULL, LOW_PRIO, NULL );
+
+	xTaskCreate( poleRegs, ( signed portCHAR * ) "pole_register_task", USERTASK_STACK_SIZE, NULL, LOW_PRIO, NULL );
+
+	xTaskCreate( spiRXTask, ( signed portCHAR * ) "spiReceiveTask", USERTASK_STACK_SIZE, NULL, LOW_PRIO, NULL );
+	xTaskCreate( spiTXTask, ( signed portCHAR * ) "spiTransmitTask", USERTASK_STACK_SIZE, NULL, LOW_PRIO, NULL );
+
+	/*
+	* Start the scheduler.
+	*/
+	vTaskStartScheduler();
+
+	/*
+	* Will only get here if there was insufficient memory to create the idle task.
+	*/
+	return 1;
 
 }

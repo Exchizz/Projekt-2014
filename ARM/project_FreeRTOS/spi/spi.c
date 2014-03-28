@@ -18,10 +18,7 @@
 
 
 /***************************** Include files *******************************/
-#include "../includes/lm3s6965.h"
-#include "../includes/emp_type.h"
-#include "../includes/binary.h"
-#include "../debug/debug.h"
+#include "spi.h"
 
 /*****************************    Defines    *******************************/
 #define SSI_CLK	2
@@ -91,7 +88,7 @@ void SSI0_IRQHandler()
 	//CLEAR_BIT(SSI0_ICR_R, );
 }
 */
-void init_spi()
+void spi_init()
 /*
  *	Function : Initiates SPI
  */
@@ -153,7 +150,7 @@ void init_spi()
 	// SSI0_CR0_R			== SSICR0
 
 	// Enable SSI Clock
-	SYSCTL_RCGC1_R = SYSCTL_RCGC1_SSI0;
+	SYSCTL_RCGC1_R |= SYSCTL_RCGC1_SSI0;
 
 	// 1 Disable SSI
 		// Clear SSI bit in SSICR1
@@ -190,6 +187,48 @@ void init_spi()
 	// 5 Enable SSI
 			// Set SSI bit in SSICR1
 	spi_enable();
+}
+
+BOOLEAN spiDataReady(INT8U direction)
+{
+	BOOLEAN retVal = 0;
+
+	if(direction)
+		retVal = SSI0_SR_R & SSI_SR_TNF;
+	else
+		retVal = SSI0_SR_R & SSI_SR_RNE;
+
+	return retVal;
+}
+
+void spiTXTask()
+{
+	INT16U dataToSend;
+	while(TRUE)
+	{
+		if(xQueueReceive(SPITXQueue, &dataToSend, 50)){
+			if(spiDataReady(TX)){
+				SSI0_DR_R = dataToSend;
+				//xQueueSend(UARTTXQueue, &dataToSend,50);
+			}
+			//else
+				//some lcd error code
+		}
+	}
+}
+
+void spiRXTask()
+{
+	INT16U receivedData;
+	while(TRUE)
+	{
+		if(xSemaphoreTake(SPIRXSem,20)){
+			if(spiDataReady(RX)){
+				receivedData = SSI0_DR_R;
+				xQueueSend(UARTTXQueue, &receivedData, 50);
+			}
+		}
+	}
 }
 
 /****************************** End Of Module *******************************/

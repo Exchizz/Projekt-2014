@@ -21,12 +21,20 @@
 
 /***************************** Include files *******************************/
 #include "../includes/emp_type.h"
+#include "../includes/lm3s6965.h"
+#include "../includes/binary.h"
+#include "../debug/debug.h"
 
-
+#include "FreeRTOS.h"
+#include "queue.h"
+#include "semphr.h"
+#include "uart.h"
 /*****************************    Defines    *******************************/
 
 /*****************************   Constants   *******************************/
+xQueueHandle SPIRXQueue, SPITXQueue;
 
+xSemaphoreHandle SPIRXSem;
 /*****************************   Functions   *******************************/
 
 void spi_enable( void );
@@ -39,10 +47,15 @@ void spi_disable( void );
  * Function	:	Disables SPI
  */
 
-void init_spi();
+void spi_init();
 /*
  * Function	:	Initiates the SPI
  */
 
+void spiTXTask();
+
+void spiRXTask();
+
+BOOLEAN spiDataReady(INT8U);
 /****************************** End Of Module *******************************/
 #endif // _SPI_H

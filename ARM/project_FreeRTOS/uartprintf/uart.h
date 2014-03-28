@@ -66,8 +66,6 @@
 	#error "Baud-rate or UARTSYSCLK not defined" 
 #endif
 
-#define RX	0
-#define	TX	1
 /*****************************   Constants   *******************************/
 
 xQueueHandle UARTTXQueue, UARTRXQueue;

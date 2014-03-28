@@ -52,6 +52,16 @@
          <include file="..\..\..\FRT_Library\FreeRTOS\Source\include\portable.h"/>
          <include file="..\..\..\FRT_Library\FreeRTOS\Source\include\list.h"/>
       </source>
+      <source file="..\..\..\spi\spi.h" lastModified="14507d46cf4">
+         <include file="..\..\..\includes\emp_type.h"/>
+         <include file="..\..\..\includes\lm3s6965.h"/>
+         <include file="..\..\..\includes\binary.h"/>
+         <include file="..\..\..\debug\debug.h"/>
+         <include file="..\..\..\FRT_Library\FreeRTOS\Source\include\FreeRTOS.h"/>
+         <include file="..\..\..\FRT_Library\FreeRTOS\Source\include\queue.h"/>
+         <include file="..\..\..\FRT_Library\FreeRTOS\Source\include\semphr.h"/>
+         <include file="..\..\..\uartprintf\uart.h"/>
+      </source>
       <source file="..\..\..\FRT_Library\FreeRTOS\Source\tasks.c" lastModified="14502f9aaaf">
          <include file="..\..\..\FRT_Library\FreeRTOS\Source\include\FreeRTOS.h"/>
          <include file="..\..\..\FRT_Library\FreeRTOS\Source\include\task.h"/>
@@ -59,13 +69,10 @@
       </source>
       <source file="..\..\..\startup_frt.c" lastModified="14502f99f10">
       </source>
-      <source file="..\..\..\includes\glob_def.h" lastModified="14502f99efe">
+      <source file="..\..\..\includes\glob_def.h" lastModified="14507ca0b7a">
       </source>
-      <source file="..\..\..\spi\spi.c" lastModified="14502f99f0e">
-         <include file="..\..\..\includes\lm3s6965.h"/>
-         <include file="..\..\..\includes\emp_type.h"/>
-         <include file="..\..\..\includes\binary.h"/>
-         <include file="..\..\..\debug\debug.h"/>
+      <source file="..\..\..\spi\spi.c" lastModified="14508111bf4">
+         <include file="..\..\..\spi\spi.h"/>
       </source>
       <source file="..\..\..\includes\emp_type.h" lastModified="14502f99efe">
       </source>
@@ -102,8 +109,19 @@
       </source>
       <source file="..\..\..\FreeRTOSConfig.h" lastModified="14502f99ef8">
       </source>
-      <source file="..\..\..\FRT_Library\FreeRTOS\Source\include\semphr.h" lastModified="14502f99ef0">
+      <source file="..\..\..\uartprintf\uartprintf.c" lastModified="14507e2af5f">
+         <include file="..\..\..\uartprintf\uart.h"/>
+      </source>
+      <source file="..\..\..\uartprintf\uart.h" lastModified="14507cc7cc4">
+         <include file="..\..\..\FRT_Library\FreeRTOS\Source\include\FreeRTOS.h"/>
+         <include file="..\..\..\FRT_Library\FreeRTOS\Source\include\task.h"/>
          <include file="..\..\..\FRT_Library\FreeRTOS\Source\include\queue.h"/>
+         <include file="..\..\..\FRT_Library\FreeRTOS\Source\include\semphr.h"/>
+         <include file="..\..\..\cpu\cpu.h"/>
+         <include file="..\..\..\includes\lm3s6965.h"/>
+         <include file="..\..\..\includes\emp_type.h"/>
+         <include file="..\..\..\includes\glob_def.h"/>
+         <include file="..\..\..\includes\binary.h"/>
       </source>
       <source file="..\..\..\FRT_Library\FreeRTOS\Source\include\StackMacros.h" lastModified="14502f99eeb">
       </source>
@@ -111,6 +129,9 @@
          <include file="..\..\..\FRT_Library\FreeRTOS\Source\include\FreeRTOS.h"/>
          <include file="..\..\..\FRT_Library\FreeRTOS\Source\include\task.h"/>
          <include file="..\..\..\FRT_Library\FreeRTOS\Source\include\croutine.h"/>
+      </source>
+      <source file="..\..\..\FRT_Library\FreeRTOS\Source\include\semphr.h" lastModified="14502f99ef0">
+         <include file="..\..\..\FRT_Library\FreeRTOS\Source\include\queue.h"/>
       </source>
       <source file="..\..\..\includes\lm3s6965.h" lastModified="14502f99f01">
       </source>
