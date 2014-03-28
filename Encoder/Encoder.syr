@@ -1,0 +1,469 @@
+Release 14.7 - xst P.20131013 (nt64)
+Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+--> Parameter TMPDIR set to xst/projnav.tmp
+
+
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.13 secs
+ 
+--> Parameter xsthdpdir set to xst
+
+
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.13 secs
+ 
+--> Reading design: Encoder.prj
+
+TABLE OF CONTENTS
+  1) Synthesis Options Summary
+  2) HDL Compilation
+  3) Design Hierarchy Analysis
+  4) HDL Analysis
+  5) HDL Synthesis
+     5.1) HDL Synthesis Report
+  6) Advanced HDL Synthesis
+     6.1) Advanced HDL Synthesis Report
+  7) Low Level Synthesis
+  8) Partition Report
+  9) Final Report
+	9.1) Device utilization summary
+	9.2) Partition Resource Summary
+	9.3) TIMING REPORT
+
+
+=========================================================================
+*                      Synthesis Options Summary                        *
+=========================================================================
+---- Source Parameters
+Input File Name                    : "Encoder.prj"
+Input Format                       : mixed
+Ignore Synthesis Constraint File   : NO
+
+---- Target Parameters
+Output File Name                   : "Encoder"
+Output Format                      : NGC
+Target Device                      : xc3s100e-4-tq144
+
+---- Source Options
+Top Module Name                    : Encoder
+Automatic FSM Extraction           : YES
+FSM Encoding Algorithm             : Auto
+Safe Implementation                : No
+FSM Style                          : LUT
+RAM Extraction                     : Yes
+RAM Style                          : Auto
+ROM Extraction                     : Yes
+Mux Style                          : Auto
+Decoder Extraction                 : YES
+Priority Encoder Extraction        : Yes
+Shift Register Extraction          : YES
+Logical Shifter Extraction         : YES
+XOR Collapsing                     : YES
+ROM Style                          : Auto
+Mux Extraction                     : Yes
+Resource Sharing                   : YES
+Asynchronous To Synchronous        : NO
+Multiplier Style                   : Auto
+Automatic Register Balancing       : No
+
+---- Target Options
+Add IO Buffers                     : YES
+Global Maximum Fanout              : 100000
+Add Generic Clock Buffer(BUFG)     : 24
+Register Duplication               : YES
+Slice Packing                      : YES
+Optimize Instantiated Primitives   : NO
+Use Clock Enable                   : Yes
+Use Synchronous Set                : Yes
+Use Synchronous Reset              : Yes
+Pack IO Registers into IOBs        : Auto
+Equivalent register Removal        : YES
+
+---- General Options
+Optimization Goal                  : Speed
+Optimization Effort                : 1
+Keep Hierarchy                     : No
+Netlist Hierarchy                  : As_Optimized
+RTL Output                         : Yes
+Global Optimization                : AllClockNets
+Read Cores                         : YES
+Write Timing Constraints           : NO
+Cross Clock Analysis               : NO
+Hierarchy Separator                : /
+Bus Delimiter                      : <>
+Case Specifier                     : Maintain
+Slice Utilization Ratio            : 100
+BRAM Utilization Ratio             : 100
+Verilog 2001                       : YES
+Auto BRAM Packing                  : NO
+Slice Utilization Ratio Delta      : 5
+
+=========================================================================
+
+
+=========================================================================
+*                          HDL Compilation                              *
+=========================================================================
+Compiling vhdl file "C:/Users/Lukas Schwartz/Documents/GitHub/Projekt-2014/Encoder/DisplayHex.vhd" in Library work.
+Architecture behavioral of Entity displayhex is up to date.
+Compiling vhdl file "C:/Users/Lukas Schwartz/Documents/GitHub/Projekt-2014/Encoder/DisplaySelect_4.vhd" in Library work.
+Architecture behavioral of Entity displayselect_4_7segdisp is up to date.
+Compiling vhdl file "C:/Users/Lukas Schwartz/Documents/GitHub/Projekt-2014/Encoder/encoder.vhd" in Library work.
+Entity <encoder> compiled.
+Entity <encoder> (Architecture <behavioral>) compiled.
+
+=========================================================================
+*                     Design Hierarchy Analysis                         *
+=========================================================================
+Analyzing hierarchy for entity <Encoder> in library <work> (architecture <behavioral>).
+
+Analyzing hierarchy for entity <DisplayHex> in library <work> (architecture <behavioral>).
+
+Analyzing hierarchy for entity <DisplaySelect_4_7segDisp> in library <work> (architecture <behavioral>).
+
+
+=========================================================================
+*                            HDL Analysis                               *
+=========================================================================
+Analyzing Entity <Encoder> in library <work> (Architecture <behavioral>).
+Entity <Encoder> analyzed. Unit <Encoder> generated.
+
+Analyzing Entity <DisplayHex> in library <work> (Architecture <behavioral>).
+Entity <DisplayHex> analyzed. Unit <DisplayHex> generated.
+
+Analyzing Entity <DisplaySelect_4_7segDisp> in library <work> (Architecture <behavioral>).
+Entity <DisplaySelect_4_7segDisp> analyzed. Unit <DisplaySelect_4_7segDisp> generated.
+
+
+=========================================================================
+*                           HDL Synthesis                               *
+=========================================================================
+
+Performing bidirectional port resolution...
+
+Synthesizing Unit <DisplayHex>.
+    Related source file is "C:/Users/Lukas Schwartz/Documents/GitHub/Projekt-2014/Encoder/DisplayHex.vhd".
+    Found 1-bit xor2 for signal <Segment_0$xor0000> created at line 35.
+    Found 1-bit xor2 for signal <Segment_0$xor0001> created at line 35.
+    Found 1-bit xor2 for signal <Segment_1$xor0000> created at line 38.
+    Found 1-bit xor2 for signal <Segment_2$xor0000> created at line 42.
+Unit <DisplayHex> synthesized.
+
+
+Synthesizing Unit <DisplaySelect_4_7segDisp>.
+    Related source file is "C:/Users/Lukas Schwartz/Documents/GitHub/Projekt-2014/Encoder/DisplaySelect_4.vhd".
+    Found 1-of-4 decoder for signal <DisplayAN>.
+    Found 5-bit 4-to-1 multiplexer for signal <DisplayPart>.
+    Found 2-bit up counter for signal <Display_State>.
+    Found 10-bit adder for signal <Display_State$addsub0000> created at line 43.
+    Found 10-bit up counter for signal <time_count>.
+    Summary:
+	inferred   2 Counter(s).
+	inferred   1 Adder/Subtractor(s).
+	inferred   5 Multiplexer(s).
+	inferred   1 Decoder(s).
+Unit <DisplaySelect_4_7segDisp> synthesized.
+
+
+Synthesizing Unit <Encoder>.
+    Related source file is "C:/Users/Lukas Schwartz/Documents/GitHub/Projekt-2014/Encoder/encoder.vhd".
+    Found 16-bit up counter for signal <clk_scaler>.
+    Found 2-bit register for signal <last_hall>.
+    Found 16-bit adder for signal <last_hall$add0000> created at line 54.
+    Found 2-bit comparator equal for signal <last_hall$cmp_eq0000> created at line 60.
+    Found 11-bit register for signal <Motor_Position>.
+    Found 11-bit subtractor for signal <Motor_Position$addsub0000> created at line 71.
+    Found 11-bit adder for signal <Motor_Position$share0000> created at line 61.
+    Summary:
+	inferred   1 Counter(s).
+	inferred  13 D-type flip-flop(s).
+	inferred   3 Adder/Subtractor(s).
+	inferred   1 Comparator(s).
+Unit <Encoder> synthesized.
+
+INFO:Xst:1767 - HDL ADVISOR - Resource sharing has identified that some arithmetic operations in this design can share the same physical resources for reduced device utilization. For improved clock frequency you may try to disable resource sharing.
+
+=========================================================================
+HDL Synthesis Report
+
+Macro Statistics
+# Adders/Subtractors                                   : 4
+ 10-bit adder                                          : 1
+ 11-bit adder                                          : 1
+ 11-bit subtractor                                     : 1
+ 16-bit adder                                          : 1
+# Counters                                             : 3
+ 10-bit up counter                                     : 1
+ 16-bit up counter                                     : 1
+ 2-bit up counter                                      : 1
+# Registers                                            : 2
+ 11-bit register                                       : 1
+ 2-bit register                                        : 1
+# Comparators                                          : 1
+ 2-bit comparator equal                                : 1
+# Multiplexers                                         : 1
+ 5-bit 4-to-1 multiplexer                              : 1
+# Decoders                                             : 1
+ 1-of-4 decoder                                        : 1
+# Xors                                                 : 4
+ 1-bit xor2                                            : 4
+
+=========================================================================
+
+=========================================================================
+*                       Advanced HDL Synthesis                          *
+=========================================================================
+
+
+=========================================================================
+Advanced HDL Synthesis Report
+
+Macro Statistics
+# Adders/Subtractors                                   : 4
+ 10-bit adder                                          : 1
+ 11-bit adder                                          : 1
+ 11-bit subtractor                                     : 1
+ 16-bit adder                                          : 1
+# Counters                                             : 3
+ 10-bit up counter                                     : 1
+ 16-bit up counter                                     : 1
+ 2-bit up counter                                      : 1
+# Registers                                            : 13
+ Flip-Flops                                            : 13
+# Comparators                                          : 1
+ 2-bit comparator equal                                : 1
+# Multiplexers                                         : 1
+ 5-bit 4-to-1 multiplexer                              : 1
+# Decoders                                             : 1
+ 1-of-4 decoder                                        : 1
+# Xors                                                 : 4
+ 1-bit xor2                                            : 4
+
+=========================================================================
+
+=========================================================================
+*                         Low Level Synthesis                           *
+=========================================================================
+
+Optimizing unit <Encoder> ...
+
+Mapping all equations...
+Building and optimizing final netlist ...
+Found area constraint ratio of 100 (+ 5) on block Encoder, actual ratio is 8.
+
+Final Macro Processing ...
+
+=========================================================================
+Final Register Report
+
+Macro Statistics
+# Registers                                            : 41
+ Flip-Flops                                            : 41
+
+=========================================================================
+
+=========================================================================
+*                           Partition Report                            *
+=========================================================================
+
+Partition Implementation Status
+-------------------------------
+
+  No Partitions were found in this design.
+
+-------------------------------
+
+=========================================================================
+*                            Final Report                               *
+=========================================================================
+Final Results
+RTL Top Level Output File Name     : Encoder.ngr
+Top Level Output File Name         : Encoder
+Output Format                      : NGC
+Optimization Goal                  : Speed
+Keep Hierarchy                     : No
+
+Design Statistics
+# IOs                              : 24
+
+Cell Usage :
+# BELS                             : 292
+#      GND                         : 1
+#      INV                         : 16
+#      LUT1                        : 59
+#      LUT2                        : 12
+#      LUT2_D                      : 1
+#      LUT2_L                      : 2
+#      LUT3                        : 3
+#      LUT3_D                      : 1
+#      LUT3_L                      : 6
+#      LUT4                        : 35
+#      LUT4_D                      : 2
+#      LUT4_L                      : 8
+#      MUXCY                       : 68
+#      MUXF5                       : 3
+#      VCC                         : 1
+#      XORCY                       : 74
+# FlipFlops/Latches                : 41
+#      FD                          : 10
+#      FDE                         : 15
+#      FDR                         : 15
+#      FDS                         : 1
+# Clock Buffers                    : 1
+#      BUFGP                       : 1
+# IO Buffers                       : 23
+#      IBUF                        : 3
+#      OBUF                        : 20
+=========================================================================
+
+Device utilization summary:
+---------------------------
+
+Selected Device : 3s100etq144-4 
+
+ Number of Slices:                       75  out of    960     7%  
+ Number of Slice Flip Flops:             41  out of   1920     2%  
+ Number of 4 input LUTs:                145  out of   1920     7%  
+ Number of IOs:                          24
+ Number of bonded IOBs:                  24  out of    108    22%  
+ Number of GCLKs:                         1  out of     24     4%  
+
+---------------------------
+Partition Resource Summary:
+---------------------------
+
+  No Partitions were found in this design.
+
+---------------------------
+
+
+=========================================================================
+TIMING REPORT
+
+NOTE: THESE TIMING NUMBERS ARE ONLY A SYNTHESIS ESTIMATE.
+      FOR ACCURATE TIMING INFORMATION PLEASE REFER TO THE TRACE REPORT
+      GENERATED AFTER PLACE-and-ROUTE.
+
+Clock Information:
+------------------
+-----------------------------------+------------------------+-------+
+Clock Signal                       | Clock buffer(FF name)  | Load  |
+-----------------------------------+------------------------+-------+
+Clk                                | BUFGP                  | 41    |
+-----------------------------------+------------------------+-------+
+
+Asynchronous Control Signals Information:
+----------------------------------------
+No asynchronous control signals found in this design
+
+Timing Summary:
+---------------
+Speed Grade: -4
+
+   Minimum period: 8.382ns (Maximum Frequency: 119.303MHz)
+   Minimum input arrival time before clock: 6.759ns
+   Maximum output required time after clock: 8.053ns
+   Maximum combinational path delay: No path found
+
+Timing Detail:
+--------------
+All values displayed in nanoseconds (ns)
+
+=========================================================================
+Timing constraint: Default period analysis for Clock 'Clk'
+  Clock period: 8.382ns (frequency: 119.303MHz)
+  Total number of paths / destination ports: 4604 / 70
+-------------------------------------------------------------------------
+Delay:               8.382ns (Levels of Logic = 18)
+  Source:            clk_scaler_1 (FF)
+  Destination:       clk_scaler_0 (FF)
+  Source Clock:      Clk rising
+  Destination Clock: Clk rising
+
+  Data Path: clk_scaler_1 to clk_scaler_0
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDR:C->Q              2   0.591   0.622  clk_scaler_1 (clk_scaler_1)
+     LUT1:I0->O            1   0.704   0.000  Madd_last_hall_add0000_cy<1>_rt (Madd_last_hall_add0000_cy<1>_rt)
+     MUXCY:S->O            1   0.464   0.000  Madd_last_hall_add0000_cy<1> (Madd_last_hall_add0000_cy<1>)
+     MUXCY:CI->O           1   0.059   0.000  Madd_last_hall_add0000_cy<2> (Madd_last_hall_add0000_cy<2>)
+     MUXCY:CI->O           1   0.059   0.000  Madd_last_hall_add0000_cy<3> (Madd_last_hall_add0000_cy<3>)
+     MUXCY:CI->O           1   0.059   0.000  Madd_last_hall_add0000_cy<4> (Madd_last_hall_add0000_cy<4>)
+     MUXCY:CI->O           1   0.059   0.000  Madd_last_hall_add0000_cy<5> (Madd_last_hall_add0000_cy<5>)
+     MUXCY:CI->O           1   0.059   0.000  Madd_last_hall_add0000_cy<6> (Madd_last_hall_add0000_cy<6>)
+     MUXCY:CI->O           1   0.059   0.000  Madd_last_hall_add0000_cy<7> (Madd_last_hall_add0000_cy<7>)
+     MUXCY:CI->O           1   0.059   0.000  Madd_last_hall_add0000_cy<8> (Madd_last_hall_add0000_cy<8>)
+     MUXCY:CI->O           1   0.059   0.000  Madd_last_hall_add0000_cy<9> (Madd_last_hall_add0000_cy<9>)
+     MUXCY:CI->O           1   0.059   0.000  Madd_last_hall_add0000_cy<10> (Madd_last_hall_add0000_cy<10>)
+     MUXCY:CI->O           1   0.059   0.000  Madd_last_hall_add0000_cy<11> (Madd_last_hall_add0000_cy<11>)
+     MUXCY:CI->O           1   0.059   0.000  Madd_last_hall_add0000_cy<12> (Madd_last_hall_add0000_cy<12>)
+     MUXCY:CI->O           1   0.059   0.000  Madd_last_hall_add0000_cy<13> (Madd_last_hall_add0000_cy<13>)
+     MUXCY:CI->O           0   0.059   0.000  Madd_last_hall_add0000_cy<14> (Madd_last_hall_add0000_cy<14>)
+     XORCY:CI->O           2   0.804   0.482  Madd_last_hall_add0000_xor<15> (last_hall_add0000<15>)
+     LUT3:I2->O            1   0.704   0.595  clk_scaler_cmp_eq00005 (clk_scaler_cmp_eq00005)
+     LUT4:I0->O           16   0.704   1.034  clk_scaler_cmp_eq000075 (clk_scaler_cmp_eq0000)
+     FDS:S                     0.911          clk_scaler_0
+    ----------------------------------------
+    Total                      8.382ns (5.649ns logic, 2.733ns route)
+                                       (67.4% logic, 32.6% route)
+
+=========================================================================
+Timing constraint: Default OFFSET IN BEFORE for Clock 'Clk'
+  Total number of paths / destination ports: 127 / 26
+-------------------------------------------------------------------------
+Offset:              6.759ns (Levels of Logic = 5)
+  Source:            Hall<0> (PAD)
+  Destination:       Motor_Position_3 (FF)
+  Destination Clock: Clk rising
+
+  Data Path: Hall<0> to Motor_Position_3
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     IBUF:I->O             3   1.218   0.706  Hall_0_IBUF (Hall_0_IBUF)
+     LUT2_D:I0->LO         1   0.704   0.104  Motor_Position_mux0001<0>121 (N25)
+     LUT4:I3->O           11   0.704   1.012  Motor_Position_mux0001<0>41 (N4)
+     LUT2:I1->O            1   0.704   0.595  Motor_Position_mux0001<7>0 (Motor_Position_mux0001<7>0)
+     LUT4:I0->O            1   0.704   0.000  Motor_Position_mux0001<7>15 (Motor_Position_mux0001<7>)
+     FDE:D                     0.308          Motor_Position_3
+    ----------------------------------------
+    Total                      6.759ns (4.342ns logic, 2.417ns route)
+                                       (64.2% logic, 35.8% route)
+
+=========================================================================
+Timing constraint: Default OFFSET OUT AFTER for Clock 'Clk'
+  Total number of paths / destination ports: 233 / 19
+-------------------------------------------------------------------------
+Offset:              8.053ns (Levels of Logic = 4)
+  Source:            DispSelect/Display_State_0 (FF)
+  Destination:       Seg<6> (PAD)
+  Source Clock:      Clk rising
+
+  Data Path: DispSelect/Display_State_0 to Seg<6>
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDE:C->Q             13   0.591   1.158  DispSelect/Display_State_0 (DispSelect/Display_State_0)
+     LUT4:I0->O            1   0.704   0.000  DispSelect/Mmux_DisplayPart42 (DispSelect/Mmux_DisplayPart41)
+     MUXF5:I0->O           7   0.321   0.883  DispSelect/Mmux_DisplayPart4_f5 (DisplayThis_DisplayPart_connect<1>)
+     LUT4:I0->O            1   0.704   0.420  DispHex/Segment_2_or00001 (Seg_2_OBUF)
+     OBUF:I->O                 3.272          Seg_2_OBUF (Seg<2>)
+    ----------------------------------------
+    Total                      8.053ns (5.592ns logic, 2.461ns route)
+                                       (69.4% logic, 30.6% route)
+
+=========================================================================
+
+
+Total REAL time to Xst completion: 5.00 secs
+Total CPU time to Xst completion: 5.37 secs
+ 
+--> 
+
+Total memory usage is 266852 kilobytes
+
+Number of errors   :    0 (   0 filtered)
+Number of warnings :    0 (   0 filtered)
+Number of infos    :    1 (   0 filtered)
+

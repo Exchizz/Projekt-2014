@@ -1,0 +1,3 @@
+vhdl work "DisplaySelect_4.vhd"
+vhdl work "DisplayHex.vhd"
+vhdl work "encoder.vhd"
