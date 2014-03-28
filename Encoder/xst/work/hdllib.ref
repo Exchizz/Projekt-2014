@@ -1,0 +1,6 @@
+AR encoder behavioral "C:/Users/Lukas Schwartz/Documents/GitHub/Projekt-2014/Encoder/encoder.vhd" sub00/vhpl01 1396011419
+EN displayselect_4_7segdisp NULL "C:/Users/Lukas Schwartz/Documents/GitHub/Projekt-2014/Encoder/DisplaySelect_4.vhd" sub00/vhpl04 1396011416
+EN displayhex NULL "C:/Users/Lukas Schwartz/Documents/GitHub/Projekt-2014/Encoder/DisplayHex.vhd" sub00/vhpl02 1396011414
+EN encoder NULL "C:/Users/Lukas Schwartz/Documents/GitHub/Projekt-2014/Encoder/encoder.vhd" sub00/vhpl00 1396011418
+AR displayhex behavioral "C:/Users/Lukas Schwartz/Documents/GitHub/Projekt-2014/Encoder/DisplayHex.vhd" sub00/vhpl03 1396011415
+AR displayselect_4_7segdisp behavioral "C:/Users/Lukas Schwartz/Documents/GitHub/Projekt-2014/Encoder/DisplaySelect_4.vhd" sub00/vhpl05 1396011417

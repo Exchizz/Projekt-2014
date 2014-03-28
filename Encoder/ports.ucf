@@ -1,0 +1,28 @@
+NET "Seg<0>" LOC = P25;
+NET "Seg<1>" LOC = P16;
+NET "Seg<2>" LOC = P23;
+NET "Seg<3>" LOC = P21;
+NET "Seg<4>" LOC = P20;
+NET "Seg<5>" LOC = P17;
+NET "Seg<6>" LOC = P83;
+NET "Seg<7>" LOC = P22;
+
+NET "AN<0>" LOC = P34;
+NET "AN<1>" LOC = P33;
+NET "AN<2>" LOC = P32;
+NET "AN<3>" LOC = P26;
+
+NET "Clk" LOC = P54;
+
+NET "Hall<0>" LOC = P81;
+NET "Hall<1>" LOC = P91;
+NET "Hall<2>" LOC = P82;
+
+NET "LED<0>" LOC = P15;
+NET "LED<1>" LOC = P14;
+NET "LED<2>" LOC = P8;
+NET "LED<3>" LOC = P7;
+NET "LED<4>" LOC = P5;
+NET "LED<5>" LOC = P4;
+NET "LED<6>" LOC = P3;
+NET "LED<7>" LOC = P2;

@@ -1,0 +1,1 @@
+xst -intstyle ise -ifn "C:/Users/Lukas Schwartz/Documents/GitHub/Projekt-2014/Encoder/Stopur.xst" -ofn "C:/Users/Lukas Schwartz/Documents/GitHub/Projekt-2014/Encoder/Stopur.syr" 
