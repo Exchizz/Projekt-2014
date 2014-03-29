@@ -1,11 +1,11 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <report-views version="2.0" >
  <header>
-  <DateModified>2014-03-19T10:13:06</DateModified>
+  <DateModified>2014-03-28T14:02:28</DateModified>
   <ModuleName>Main</ModuleName>
   <SummaryTimeStamp>2014-03-14T15:24:21</SummaryTimeStamp>
-  <SavedFilePath>C:/Users/Thomas/Documents/GitHub/Projekt-2014/PWM/iseconfig/Main.xreport</SavedFilePath>
-  <ImplementationReportsDirectory>C:/Users/Thomas/Documents/GitHub/Projekt-2014/PWM\</ImplementationReportsDirectory>
+  <SavedFilePath>C:/Users/Lukas Schwartz/Documents/GitHub/Projekt-2014/PWM/iseconfig/Main.xreport</SavedFilePath>
+  <ImplementationReportsDirectory>C:/Users/Lukas Schwartz/Documents/GitHub/Projekt-2014/PWM\</ImplementationReportsDirectory>
   <DateInitialized>2014-03-12T18:20:22</DateInitialized>
   <EnableMessageFiltering>false</EnableMessageFiltering>
  </header>

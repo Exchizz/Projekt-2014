@@ -1,0 +1,6 @@
+AR encoder behavioral "C:/Users/Lukas Schwartz/Documents/GitHub/Projekt-2014/Encoder/encoder.vhd" sub00/vhpl03 1396016314
+EN pwm NULL "C:/Users/Lukas Schwartz/Documents/GitHub/Projekt-2014/PWM/PWM.vhd" sub00/vhpl00 1396016311
+EN mcs NULL "C:/Users/Lukas Schwartz/Documents/GitHub/Projekt-2014/MotorControlSystem/MCS.vhd" sub00/vhpl04 1396016315
+EN encoder NULL "C:/Users/Lukas Schwartz/Documents/GitHub/Projekt-2014/Encoder/encoder.vhd" sub00/vhpl02 1396016313
+AR pwm behavioral "C:/Users/Lukas Schwartz/Documents/GitHub/Projekt-2014/PWM/PWM.vhd" sub00/vhpl01 1396016312
+AR mcs behavioral "C:/Users/Lukas Schwartz/Documents/GitHub/Projekt-2014/MotorControlSystem/MCS.vhd" sub00/vhpl05 1396016316

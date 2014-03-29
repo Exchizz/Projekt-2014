@@ -3,14 +3,14 @@ Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
 --> Parameter TMPDIR set to xst/projnav.tmp
 
 
-Total REAL time to Xst completion: 1.00 secs
-Total CPU time to Xst completion: 0.14 secs
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.22 secs
  
 --> Parameter xsthdpdir set to xst
 
 
-Total REAL time to Xst completion: 1.00 secs
-Total CPU time to Xst completion: 0.14 secs
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.22 secs
  
 --> Reading design: Main.prj
 
@@ -104,7 +104,7 @@ Slice Utilization Ratio Delta      : 5
 =========================================================================
 *                          HDL Compilation                              *
 =========================================================================
-Compiling vhdl file "C:/.Xilinx/PWm2/Main.vhd" in Library work.
+Compiling vhdl file "C:/Users/Lukas Schwartz/Documents/GitHub/Projekt-2014/PWM/Main.vhd" in Library work.
 Entity <main> compiled.
 Entity <main> (Architecture <behavioral>) compiled.
 
@@ -128,8 +128,8 @@ Entity <Main> analyzed. Unit <Main> generated.
 Performing bidirectional port resolution...
 
 Synthesizing Unit <Main>.
-    Related source file is "C:/.Xilinx/PWm2/Main.vhd".
-    Found 11-bit comparator greater for signal <Pin$cmp_gt0000> created at line 71.
+    Related source file is "C:/Users/Lukas Schwartz/Documents/GitHub/Projekt-2014/PWM/Main.vhd".
+    Found 11-bit comparator greater for signal <Pin$cmp_gt0000> created at line 70.
     Found 11-bit up counter for signal <prescaler>.
     Summary:
 	inferred   1 Counter(s).
@@ -207,7 +207,7 @@ Optimization Goal                  : Speed
 Keep Hierarchy                     : No
 
 Design Statistics
-# IOs                              : 25
+# IOs                              : 10
 
 Cell Usage :
 # BELS                             : 52
@@ -223,9 +223,9 @@ Cell Usage :
 #      FD                          : 11
 # Clock Buffers                    : 1
 #      BUFGP                       : 1
-# IO Buffers                       : 24
+# IO Buffers                       : 9
 #      IBUF                        : 8
-#      OBUF                        : 16
+#      OBUF                        : 1
 =========================================================================
 
 Device utilization summary:
@@ -236,8 +236,8 @@ Selected Device : 3s500efg320-4
  Number of Slices:                       11  out of   4656     0%  
  Number of Slice Flip Flops:             11  out of   9312     0%  
  Number of 4 input LUTs:                 20  out of   9312     0%  
- Number of IOs:                          25
- Number of bonded IOBs:                  25  out of    232    10%  
+ Number of IOs:                          10
+ Number of bonded IOBs:                  10  out of    232     4%  
  Number of GCLKs:                         1  out of     24     4%  
 
 ---------------------------
@@ -274,8 +274,8 @@ Speed Grade: -4
 
    Minimum period: 3.965ns (Maximum Frequency: 252.207MHz)
    Minimum input arrival time before clock: No path found
-   Maximum output required time after clock: 7.282ns
-   Maximum combinational path delay: 7.850ns
+   Maximum output required time after clock: 6.945ns
+   Maximum combinational path delay: 7.486ns
 
 Timing Detail:
 --------------
@@ -315,14 +315,14 @@ Delay:               3.965ns (Levels of Logic = 11)
 
 =========================================================================
 Timing constraint: Default OFFSET OUT AFTER for Clock 'clk'
-  Total number of paths / destination ports: 88 / 8
+  Total number of paths / destination ports: 11 / 1
 -------------------------------------------------------------------------
-Offset:              7.282ns (Levels of Logic = 11)
+Offset:              6.945ns (Levels of Logic = 11)
   Source:            prescaler_0 (FF)
-  Destination:       Pin<7> (PAD)
+  Destination:       Pin (PAD)
   Source Clock:      clk rising
 
-  Data Path: prescaler_0 to Pin<7>
+  Data Path: prescaler_0 to Pin
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
@@ -336,25 +336,25 @@ Offset:              7.282ns (Levels of Logic = 11)
      MUXCY:CI->O           1   0.059   0.000  Mcompar_Pin_cmp_gt0000_cy<5> (Mcompar_Pin_cmp_gt0000_cy<5>)
      MUXCY:CI->O           1   0.059   0.000  Mcompar_Pin_cmp_gt0000_cy<6> (Mcompar_Pin_cmp_gt0000_cy<6>)
      MUXCY:CI->O           1   0.059   0.000  Mcompar_Pin_cmp_gt0000_cy<7> (Mcompar_Pin_cmp_gt0000_cy<7>)
-     MUXCY:CI->O           8   0.459   0.757  Mcompar_Pin_cmp_gt0000_cy<8> (Mcompar_Pin_cmp_gt0000_cy<8>)
-     OBUF:I->O                 3.272          Pin_7_OBUF (Pin<7>)
+     MUXCY:CI->O           1   0.459   0.420  Mcompar_Pin_cmp_gt0000_cy<8> (Mcompar_Pin_cmp_gt0000_cy<8>)
+     OBUF:I->O                 3.272          Pin_OBUF (Pin)
     ----------------------------------------
-    Total                      7.282ns (5.903ns logic, 1.379ns route)
-                                       (81.1% logic, 18.9% route)
+    Total                      6.945ns (5.903ns logic, 1.042ns route)
+                                       (85.0% logic, 15.0% route)
 
 =========================================================================
 Timing constraint: Default path analysis
-  Total number of paths / destination ports: 136 / 16
+  Total number of paths / destination ports: 16 / 1
 -------------------------------------------------------------------------
-Delay:               7.850ns (Levels of Logic = 11)
-  Source:            switch<0> (PAD)
-  Destination:       Pin<7> (PAD)
+Delay:               7.486ns (Levels of Logic = 11)
+  Source:            PWM<0> (PAD)
+  Destination:       Pin (PAD)
 
-  Data Path: switch<0> to Pin<7>
+  Data Path: PWM<0> to Pin
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     IBUF:I->O             2   1.218   0.622  switch_0_IBUF (LED_0_OBUF)
+     IBUF:I->O             1   1.218   0.595  PWM_0_IBUF (PWM_0_IBUF)
      LUT2:I0->O            1   0.704   0.000  Mcompar_Pin_cmp_gt0000_lut<1> (Mcompar_Pin_cmp_gt0000_lut<1>)
      MUXCY:S->O            1   0.464   0.000  Mcompar_Pin_cmp_gt0000_cy<1> (Mcompar_Pin_cmp_gt0000_cy<1>)
      MUXCY:CI->O           1   0.059   0.000  Mcompar_Pin_cmp_gt0000_cy<2> (Mcompar_Pin_cmp_gt0000_cy<2>)
@@ -363,21 +363,21 @@ Delay:               7.850ns (Levels of Logic = 11)
      MUXCY:CI->O           1   0.059   0.000  Mcompar_Pin_cmp_gt0000_cy<5> (Mcompar_Pin_cmp_gt0000_cy<5>)
      MUXCY:CI->O           1   0.059   0.000  Mcompar_Pin_cmp_gt0000_cy<6> (Mcompar_Pin_cmp_gt0000_cy<6>)
      MUXCY:CI->O           1   0.059   0.000  Mcompar_Pin_cmp_gt0000_cy<7> (Mcompar_Pin_cmp_gt0000_cy<7>)
-     MUXCY:CI->O           8   0.459   0.757  Mcompar_Pin_cmp_gt0000_cy<8> (Mcompar_Pin_cmp_gt0000_cy<8>)
-     OBUF:I->O                 3.272          Pin_7_OBUF (Pin<7>)
+     MUXCY:CI->O           1   0.459   0.420  Mcompar_Pin_cmp_gt0000_cy<8> (Mcompar_Pin_cmp_gt0000_cy<8>)
+     OBUF:I->O                 3.272          Pin_OBUF (Pin)
     ----------------------------------------
-    Total                      7.850ns (6.471ns logic, 1.379ns route)
-                                       (82.4% logic, 17.6% route)
+    Total                      7.486ns (6.471ns logic, 1.015ns route)
+                                       (86.4% logic, 13.6% route)
 
 =========================================================================
 
 
-Total REAL time to Xst completion: 5.00 secs
-Total CPU time to Xst completion: 4.43 secs
+Total REAL time to Xst completion: 9.00 secs
+Total CPU time to Xst completion: 8.75 secs
  
 --> 
 
-Total memory usage is 254324 kilobytes
+Total memory usage is 258468 kilobytes
 
 Number of errors   :    0 (   0 filtered)
 Number of warnings :    0 (   0 filtered)

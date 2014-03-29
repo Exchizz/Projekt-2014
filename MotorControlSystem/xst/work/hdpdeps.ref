@@ -1,0 +1,24 @@
+V3 11
+FL "C:/Users/Lukas Schwartz/Documents/GitHub/Projekt-2014/Encoder/encoder.vhd" 2014/03/28.15:18:20 P.20131013
+EN work/Encoder 1396016313 \
+      FL "C:/Users/Lukas Schwartz/Documents/GitHub/Projekt-2014/Encoder/encoder.vhd" \
+      PB ieee/std_logic_1164 1381692176 PB ieee/std_logic_arith 1381692177 \
+      PB ieee/STD_LOGIC_UNSIGNED 1381692179
+AR work/Encoder/Behavioral 1396016314 \
+      FL "C:/Users/Lukas Schwartz/Documents/GitHub/Projekt-2014/Encoder/encoder.vhd" \
+      EN work/Encoder 1396016313
+FL "C:/Users/Lukas Schwartz/Documents/GitHub/Projekt-2014/MotorControlSystem/MCS.vhd" 2014/03/28.15:17:23 P.20131013
+EN work/MCS 1396016315 \
+      FL "C:/Users/Lukas Schwartz/Documents/GitHub/Projekt-2014/MotorControlSystem/MCS.vhd" \
+      PB ieee/std_logic_1164 1381692176
+AR work/MCS/Behavioral 1396016316 \
+      FL "C:/Users/Lukas Schwartz/Documents/GitHub/Projekt-2014/MotorControlSystem/MCS.vhd" \
+      EN work/MCS 1396016315 CP PWM CP Encoder
+FL "C:/Users/Lukas Schwartz/Documents/GitHub/Projekt-2014/PWM/PWM.vhd" 2014/03/28.14:29:43 P.20131013
+EN work/PWM 1396016311 \
+      FL "C:/Users/Lukas Schwartz/Documents/GitHub/Projekt-2014/PWM/PWM.vhd" \
+      PB ieee/std_logic_1164 1381692176 PB ieee/std_logic_arith 1381692177 \
+      PB ieee/STD_LOGIC_UNSIGNED 1381692179
+AR work/PWM/Behavioral 1396016312 \
+      FL "C:/Users/Lukas Schwartz/Documents/GitHub/Projekt-2014/PWM/PWM.vhd" \
+      EN work/PWM 1396016311

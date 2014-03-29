@@ -1,0 +1,25 @@
+xst -intstyle ise -ifn "C:/Users/Lukas Schwartz/Documents/GitHub/Projekt-2014/MotorControlSystem/MCS.xst" -ofn "C:/Users/Lukas Schwartz/Documents/GitHub/Projekt-2014/MotorControlSystem/MCS.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc ports.ucf -p xc3s100e-tq144-4 "MCS.ngc" MCS.ngd  
+map -intstyle ise -p xc3s100e-tq144-4 -cm area -ir off -pr off -c 100 -o MCS_map.ncd MCS.ngd MCS.pcf 
+xst -intstyle ise -ifn "C:/Users/Lukas Schwartz/Documents/GitHub/Projekt-2014/MotorControlSystem/MCS.xst" -ofn "C:/Users/Lukas Schwartz/Documents/GitHub/Projekt-2014/MotorControlSystem/MCS.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc ports.ucf -p xc3s100e-tq144-4 "MCS.ngc" MCS.ngd  
+map -intstyle ise -p xc3s100e-tq144-4 -cm area -ir off -pr off -c 100 -o MCS_map.ncd MCS.ngd MCS.pcf 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc ports.ucf -p xc3s100e-tq144-4 "MCS.ngc" MCS.ngd  
+map -intstyle ise -p xc3s100e-tq144-4 -cm area -ir off -pr off -c 100 -o MCS_map.ncd MCS.ngd MCS.pcf 
+par -w -intstyle ise -ol high -t 1 MCS_map.ncd MCS.ncd MCS.pcf 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc ports.ucf -p xc3s100e-tq144-4 "MCS.ngc" MCS.ngd  
+map -intstyle ise -p xc3s100e-tq144-4 -cm area -ir off -pr off -c 100 -o MCS_map.ncd MCS.ngd MCS.pcf 
+par -w -intstyle ise -ol high -t 1 MCS_map.ncd MCS.ncd MCS.pcf 
+trce -intstyle ise -v 3 -s 4 -n 3 -fastpaths -xml MCS.twx MCS.ncd -o MCS.twr MCS.pcf -ucf ports.ucf 
+bitgen -intstyle ise -f MCS.ut MCS.ncd 
+bitgen -intstyle ise -f MCS.ut MCS.ncd 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc ports.ucf -p xc3s100e-tq144-4 "MCS.ngc" MCS.ngd  
+map -intstyle ise -p xc3s100e-tq144-4 -cm area -ir off -pr off -c 100 -o MCS_map.ncd MCS.ngd MCS.pcf 
+par -w -intstyle ise -ol high -t 1 MCS_map.ncd MCS.ncd MCS.pcf 
+trce -intstyle ise -v 3 -s 4 -n 3 -fastpaths -xml MCS.twx MCS.ncd -o MCS.twr MCS.pcf -ucf ports.ucf 
+bitgen -intstyle ise -f MCS.ut MCS.ncd 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc ports.ucf -p xc3s100e-tq144-4 "MCS.ngc" MCS.ngd  
+map -intstyle ise -p xc3s100e-tq144-4 -cm area -ir off -pr off -c 100 -o MCS_map.ncd MCS.ngd MCS.pcf 
+par -w -intstyle ise -ol high -t 1 MCS_map.ncd MCS.ncd MCS.pcf 
+trce -intstyle ise -v 3 -s 4 -n 3 -fastpaths -xml MCS.twx MCS.ncd -o MCS.twr MCS.pcf -ucf ports.ucf 
+bitgen -intstyle ise -f MCS.ut MCS.ncd 

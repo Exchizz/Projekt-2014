@@ -1,0 +1,3 @@
+vhdl work "../PWM/PWM.vhd"
+vhdl work "../Encoder/encoder.vhd"
+vhdl work "MCS.vhd"

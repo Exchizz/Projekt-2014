@@ -5,45 +5,22 @@ use IEEE.STD_LOGIC_ARITH.ALL;
 use IEEE.STD_LOGIC_UNSIGNED.ALL;
 
 entity Encoder is
-    Port ( Seg : out  STD_LOGIC_VECTOR (7 downto 0);
-           AN : out  STD_LOGIC_VECTOR (3 downto 0);
-			  Clk : in STD_LOGIC;
+    Port ( Clk : in STD_LOGIC;
 			  Hall : in STD_LOGIC_VECTOR (2 downto 0);
-			  LED : out STD_LOGIC_VECTOR (7 downto 0));
+			  Position : out STD_LOGIC_VECTOR (10 downto 0));
 end Encoder;
 
 
 architecture Behavioral of Encoder is
--- component display --
-COMPONENT DisplayHex is
-	Port( Segment : out  STD_LOGIC_VECTOR (7 downto 0);
-		   DisplayThis : in STD_LOGIC_VECTOR (4 downto 0));
-End Component;
-
-COMPONENT DisplaySelect_4_7segDisp is
-    Port ( DisplayData : in  STD_LOGIC_VECTOR (19 downto 0);
-           DisplayAN : out  STD_LOGIC_VECTOR (3 downto 0);
-           DisplayPart : out  STD_LOGIC_VECTOR (4 downto 0);
-			  ClkSignal : in STD_LOGIC);
-end COMPONENT ;
-
--- SIGNals for components --
-SIGNAL DisplayThis_DisplayPart_connect : STD_LOGIC_VECTOR (4 downto 0);
 
 
 -- motor --
 SIGNAL Motor_Position : STD_LOGIC_VECTOR (10 downto 0) := "00000000001";
-Signal DisplayThisData : STD_LOGIC_VECTOR (19 downto 0);
+--Signal DisplayThisData : STD_LOGIC_VECTOR (19 downto 0);
 
 begin
--- instatiate component --
-DispHex : DisplayHex Port Map(Segment => Seg, DisplayThis => DisplayThis_DisplayPart_connect);
-DispSelect : DisplaySelect_4_7segDisp Port Map (DisplayData => DisplayThisData, DisplayAN => AN, DisplayPart => DisplayThis_DisplayPart_connect, ClkSignal => Clk);
-
--- assign ... --
-DisplayThisData <= "0000000" & Motor_Position(10 downto 8) & '0' & Motor_Position(7 downto 4) & '0' & Motor_Position(3 downto 0);
-
-LED <= Motor_Position(10 downto 3);
+-- output ... --
+Position <= Motor_Position(10 downto 0);
 
 -- ... --
 PROCESS (Clk)

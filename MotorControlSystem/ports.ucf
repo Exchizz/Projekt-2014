@@ -1,0 +1,42 @@
+#PWM_duty : in  STD_LOGIC_VECTOR (7 downto 0);
+#			  Motor_Direction_in : in  STD_LOGIC_VECTOR (1 downto 0);
+#			  Motor_Direction_out : out  STD_LOGIC_VECTOR (2 downto 0);
+#           Encoder : in  STD_LOGIC_VECTOR (2 downto 0);
+#           Position : out  STD_LOGIC_VECTOR (10 downto 0);
+#			  Hall_sensors : in STD_LOGIC_VECTOR (2 downto 0);
+#			  Clk : in STD_LOGIC);
+
+NET "PWM_duty<0>" LOC = "P38";
+NET "PWM_duty<1>" LOC = "P36";
+NET "PWM_duty<2>" LOC = "P29";
+NET "PWM_duty<3>" LOC = "P24";
+NET "PWM_duty<4>" LOC = "P18";
+NET "PWM_duty<5>" LOC = "P12";
+NET "PWM_duty<6>" LOC = "P10";
+NET "PWM_duty<7>" LOC = "P6";
+
+NET "Motor_Direction_in<0>" LOC = "P69";
+NET "Motor_Direction_in<1>" LOC = "P48";
+
+NET "Motor_Direction_out<0>" LOC = "P87";
+NET "Motor_Direction_out<1>" LOC = "P93";
+NET "Motor_Direction_out<2>" LOC = "P88";
+
+NET "Hall_sensors<0>" LOC = "P81";
+NET "Hall_sensors<1>" LOC = "P91";
+NET "Hall_sensors<2>" LOC = "P82";
+
+NET "Position<0>" LOC = "P33";
+NET "Position<1>" LOC = "P32";
+NET "Position<2>" LOC = "P26";
+NET "Position<3>" LOC = "P15";
+NET "Position<4>" LOC = "P14";
+NET "Position<5>" LOC = "P8";
+NET "Position<6>" LOC = "P7";
+NET "Position<7>" LOC = "P5";
+NET "Position<8>" LOC = "P4";
+NET "Position<9>" LOC = "P3";
+NET "Position<10>" LOC = "P2";
+
+
+NET "Clk" LOC = "P54";

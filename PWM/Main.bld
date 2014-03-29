@@ -5,7 +5,8 @@ Command Line: C:\Xilinx\14.7\ISE_DS\ISE\bin\nt64\unwrapped\ngdbuild.exe
 -intstyle ise -dd _ngo -nt timestamp -uc implementation.ucf -p xc3s500e-fg320-4
 Main.ngc Main.ngd
 
-Reading NGO file "C:/.Xilinx/PWm2/Main.ngc" ...
+Reading NGO file "C:/Users/Lukas
+Schwartz/Documents/GitHub/Projekt-2014/PWM/Main.ngc" ...
 Gathering constraint information from source properties...
 Done.
 
@@ -27,10 +28,10 @@ NGDBUILD Design Results Summary:
   Number of errors:     0
   Number of warnings:   0
 
-Total memory usage is 153812 kilobytes
+Total memory usage is 157508 kilobytes
 
 Writing NGD file "Main.ngd" ...
-Total REAL time to NGDBUILD completion:  3 sec
-Total CPU time to NGDBUILD completion:   2 sec
+Total REAL time to NGDBUILD completion:  5 sec
+Total CPU time to NGDBUILD completion:   5 sec
 
 Writing NGDBUILD log file "Main.bld"...
