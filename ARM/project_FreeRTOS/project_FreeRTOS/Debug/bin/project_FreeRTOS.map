@@ -3,7 +3,7 @@ Archive member included because of file (symbol)
 d:/programs/gnu/bin/../lib/gcc/arm-none-eabi/4.8.3/../../../../arm-none-eabi/lib/armv7-m\libg.a(lib_a-memcpy.o)
                               ..\obj\queue.o (memcpy)
 d:/programs/gnu/bin/../lib/gcc/arm-none-eabi/4.8.3/../../../../arm-none-eabi/lib/armv7-m\libg.a(lib_a-memset.o)
-                              ..\obj\tasks.o (memset)
+                              ..\obj\communication.o (memset)
 d:/programs/gnu/bin/../lib/gcc/arm-none-eabi/4.8.3/../../../../arm-none-eabi/lib/armv7-m\libg.a(lib_a-strcat.o)
                               ..\obj\communication.o (strcat)
 d:/programs/gnu/bin/../lib/gcc/arm-none-eabi/4.8.3/../../../../arm-none-eabi/lib/armv7-m\libg.a(lib_a-strcmp.o)
@@ -12,6 +12,8 @@ d:/programs/gnu/bin/../lib/gcc/arm-none-eabi/4.8.3/../../../../arm-none-eabi/lib
                               d:/programs/gnu/bin/../lib/gcc/arm-none-eabi/4.8.3/../../../../arm-none-eabi/lib/armv7-m\libg.a(lib_a-strcat.o) (strcpy)
 d:/programs/gnu/bin/../lib/gcc/arm-none-eabi/4.8.3/../../../../arm-none-eabi/lib/armv7-m\libg.a(lib_a-strlen.o)
                               ..\obj\communication.o (strlen)
+d:/programs/gnu/bin/../lib/gcc/arm-none-eabi/4.8.3/../../../../arm-none-eabi/lib/armv7-m\libg.a(lib_a-strncmp.o)
+                              ..\obj\communication.o (strncmp)
 d:/programs/gnu/bin/../lib/gcc/arm-none-eabi/4.8.3/../../../../arm-none-eabi/lib/armv7-m\libg.a(lib_a-strncpy.o)
                               ..\obj\tasks.o (strncpy)
 
@@ -54,6 +56,7 @@ Discarded input sections
  .bss           0x00000000        0x0 ..\obj\main.o
  .text          0x00000000        0x0 ..\obj\communication.o
  .data          0x00000000        0x0 ..\obj\communication.o
+ .bss           0x00000000        0x0 ..\obj\communication.o
  .text          0x00000000        0x0 ..\obj\gpio.o
  .data          0x00000000        0x0 ..\obj\gpio.o
  .bss           0x00000000        0x0 ..\obj\gpio.o
@@ -170,6 +173,9 @@ Discarded input sections
  .text          0x00000000        0x0 d:/programs/gnu/bin/../lib/gcc/arm-none-eabi/4.8.3/../../../../arm-none-eabi/lib/armv7-m\libg.a(lib_a-strlen.o)
  .data          0x00000000        0x0 d:/programs/gnu/bin/../lib/gcc/arm-none-eabi/4.8.3/../../../../arm-none-eabi/lib/armv7-m\libg.a(lib_a-strlen.o)
  .bss           0x00000000        0x0 d:/programs/gnu/bin/../lib/gcc/arm-none-eabi/4.8.3/../../../../arm-none-eabi/lib/armv7-m\libg.a(lib_a-strlen.o)
+ .text          0x00000000        0x0 d:/programs/gnu/bin/../lib/gcc/arm-none-eabi/4.8.3/../../../../arm-none-eabi/lib/armv7-m\libg.a(lib_a-strncmp.o)
+ .data          0x00000000        0x0 d:/programs/gnu/bin/../lib/gcc/arm-none-eabi/4.8.3/../../../../arm-none-eabi/lib/armv7-m\libg.a(lib_a-strncmp.o)
+ .bss           0x00000000        0x0 d:/programs/gnu/bin/../lib/gcc/arm-none-eabi/4.8.3/../../../../arm-none-eabi/lib/armv7-m\libg.a(lib_a-strncmp.o)
  .text          0x00000000        0x0 d:/programs/gnu/bin/../lib/gcc/arm-none-eabi/4.8.3/../../../../arm-none-eabi/lib/armv7-m\libg.a(lib_a-strncpy.o)
  .data          0x00000000        0x0 d:/programs/gnu/bin/../lib/gcc/arm-none-eabi/4.8.3/../../../../arm-none-eabi/lib/armv7-m\libg.a(lib_a-strncpy.o)
  .bss           0x00000000        0x0 d:/programs/gnu/bin/../lib/gcc/arm-none-eabi/4.8.3/../../../../arm-none-eabi/lib/armv7-m\libg.a(lib_a-strncpy.o)
@@ -185,7 +191,7 @@ Linker script and memory map
 
                 0x20010000                _eram = 0x20010000
 
-.text           0x00000000     0x24dc
+.text           0x00000000     0x2558
  *(.isr_vector)
  .isr_vector    0x00000000      0x100 ..\obj\startup_frt.o
                 0x00000000                g_pfnVectors
@@ -282,177 +288,176 @@ Linker script and memory map
                 0x000004b0                poleRegs
  .text.main     0x000004fc      0x1f0 ..\obj\main.o
                 0x000004fc                main
- .text.resetCharArray
-                0x000006ec       0x34 ..\obj\communication.o
-                0x000006ec                resetCharArray
  .text.decodeCommandTask
-                0x00000720      0x160 ..\obj\communication.o
-                0x00000720                decodeCommandTask
+                0x000006ec      0x158 ..\obj\communication.o
+                0x000006ec                decodeCommandTask
  .text.uart_init
-                0x00000880       0xc0 ..\obj\uartprintf.o
-                0x00000880                uart_init
+                0x00000844       0xc0 ..\obj\uartprintf.o
+                0x00000844                uart_init
  .text.UARTCharPut
-                0x00000940       0x28 ..\obj\uartprintf.o
-                0x00000940                UARTCharPut
+                0x00000904       0x28 ..\obj\uartprintf.o
+                0x00000904                UARTCharPut
  .text.UARTCharGet
-                0x00000968       0x18 ..\obj\uartprintf.o
-                0x00000968                UARTCharGet
+                0x0000092c       0x18 ..\obj\uartprintf.o
+                0x0000092c                UARTCharGet
  .text.UARTDataReady
-                0x00000980       0x50 ..\obj\uartprintf.o
-                0x00000980                UARTDataReady
+                0x00000944       0x50 ..\obj\uartprintf.o
+                0x00000944                UARTDataReady
  .text.UART_TX_task
-                0x000009d0       0x34 ..\obj\uartprintf.o
-                0x000009d0                UART_TX_task
+                0x00000994       0x34 ..\obj\uartprintf.o
+                0x00000994                UART_TX_task
  .text.UART_RX_task
-                0x00000a04       0x54 ..\obj\uartprintf.o
-                0x00000a04                UART_RX_task
+                0x000009c8       0x54 ..\obj\uartprintf.o
+                0x000009c8                UART_RX_task
  .text.xTaskGenericCreate
-                0x00000a58      0x148 ..\obj\tasks.o
-                0x00000a58                xTaskGenericCreate
+                0x00000a1c      0x148 ..\obj\tasks.o
+                0x00000a1c                xTaskGenericCreate
  .text.vTaskDelay
-                0x00000ba0       0x8c ..\obj\tasks.o
-                0x00000ba0                vTaskDelay
+                0x00000b64       0x8c ..\obj\tasks.o
+                0x00000b64                vTaskDelay
  .text.vTaskStartScheduler
-                0x00000c2c       0x58 ..\obj\tasks.o
-                0x00000c2c                vTaskStartScheduler
+                0x00000bf0       0x58 ..\obj\tasks.o
+                0x00000bf0                vTaskStartScheduler
  .text.vTaskSuspendAll
-                0x00000c84       0x1c ..\obj\tasks.o
-                0x00000c84                vTaskSuspendAll
+                0x00000c48       0x1c ..\obj\tasks.o
+                0x00000c48                vTaskSuspendAll
  .text.xTaskResumeAll
-                0x00000ca0      0x100 ..\obj\tasks.o
-                0x00000ca0                xTaskResumeAll
+                0x00000c64      0x100 ..\obj\tasks.o
+                0x00000c64                xTaskResumeAll
  .text.vTaskIncrementTick
-                0x00000da0       0xdc ..\obj\tasks.o
-                0x00000da0                vTaskIncrementTick
+                0x00000d64       0xdc ..\obj\tasks.o
+                0x00000d64                vTaskIncrementTick
  .text.vTaskSwitchContext
-                0x00000e7c       0x94 ..\obj\tasks.o
-                0x00000e7c                vTaskSwitchContext
+                0x00000e40       0x94 ..\obj\tasks.o
+                0x00000e40                vTaskSwitchContext
  .text.vTaskPlaceOnEventList
-                0x00000f10       0x7c ..\obj\tasks.o
-                0x00000f10                vTaskPlaceOnEventList
+                0x00000ed4       0x7c ..\obj\tasks.o
+                0x00000ed4                vTaskPlaceOnEventList
  .text.xTaskRemoveFromEventList
-                0x00000f8c       0xac ..\obj\tasks.o
-                0x00000f8c                xTaskRemoveFromEventList
+                0x00000f50       0xac ..\obj\tasks.o
+                0x00000f50                xTaskRemoveFromEventList
  .text.vTaskSetTimeOutState
-                0x00001038       0x2c ..\obj\tasks.o
-                0x00001038                vTaskSetTimeOutState
+                0x00000ffc       0x2c ..\obj\tasks.o
+                0x00000ffc                vTaskSetTimeOutState
  .text.xTaskCheckForTimeOut
-                0x00001064       0x78 ..\obj\tasks.o
-                0x00001064                xTaskCheckForTimeOut
+                0x00001028       0x78 ..\obj\tasks.o
+                0x00001028                xTaskCheckForTimeOut
  .text.vTaskMissedYield
-                0x000010dc       0x18 ..\obj\tasks.o
-                0x000010dc                vTaskMissedYield
+                0x000010a0       0x18 ..\obj\tasks.o
+                0x000010a0                vTaskMissedYield
  .text.prvIdleTask
-                0x000010f4       0x10 ..\obj\tasks.o
+                0x000010b8       0x10 ..\obj\tasks.o
  .text.prvInitialiseTCBVariables
-                0x00001104       0x6c ..\obj\tasks.o
+                0x000010c8       0x6c ..\obj\tasks.o
  .text.prvInitialiseTaskLists
-                0x00001170       0x68 ..\obj\tasks.o
+                0x00001134       0x68 ..\obj\tasks.o
  .text.prvCheckTasksWaitingTermination
-                0x000011d8        0xc ..\obj\tasks.o
+                0x0000119c        0xc ..\obj\tasks.o
  .text.prvAllocateTCBAndStack
-                0x000011e4       0x64 ..\obj\tasks.o
+                0x000011a8       0x64 ..\obj\tasks.o
  .text.xTaskGetCurrentTaskHandle
-                0x00001248       0x20 ..\obj\tasks.o
-                0x00001248                xTaskGetCurrentTaskHandle
+                0x0000120c       0x20 ..\obj\tasks.o
+                0x0000120c                xTaskGetCurrentTaskHandle
  .text.vTaskPriorityInherit
-                0x00001268       0xa4 ..\obj\tasks.o
-                0x00001268                vTaskPriorityInherit
+                0x0000122c       0xa4 ..\obj\tasks.o
+                0x0000122c                vTaskPriorityInherit
  .text.vTaskPriorityDisinherit
-                0x0000130c       0x7c ..\obj\tasks.o
-                0x0000130c                vTaskPriorityDisinherit
+                0x000012d0       0x7c ..\obj\tasks.o
+                0x000012d0                vTaskPriorityDisinherit
  .text.vListInitialise
-                0x00001388       0x40 ..\obj\list.o
-                0x00001388                vListInitialise
+                0x0000134c       0x40 ..\obj\list.o
+                0x0000134c                vListInitialise
  .text.vListInitialiseItem
-                0x000013c8       0x18 ..\obj\list.o
-                0x000013c8                vListInitialiseItem
+                0x0000138c       0x18 ..\obj\list.o
+                0x0000138c                vListInitialiseItem
  .text.vListInsertEnd
-                0x000013e0       0x50 ..\obj\list.o
-                0x000013e0                vListInsertEnd
+                0x000013a4       0x50 ..\obj\list.o
+                0x000013a4                vListInsertEnd
  .text.vListInsert
-                0x00001430       0x70 ..\obj\list.o
-                0x00001430                vListInsert
+                0x000013f4       0x70 ..\obj\list.o
+                0x000013f4                vListInsert
  .text.vListRemove
-                0x000014a0       0x50 ..\obj\list.o
-                0x000014a0                vListRemove
+                0x00001464       0x50 ..\obj\list.o
+                0x00001464                vListRemove
  .text.xQueueCreate
-                0x000014f0       0xb8 ..\obj\queue.o
-                0x000014f0                xQueueCreate
+                0x000014b4       0xb8 ..\obj\queue.o
+                0x000014b4                xQueueCreate
  .text.xQueueGenericSend
-                0x000015a8      0x10c ..\obj\queue.o
-                0x000015a8                xQueueGenericSend
+                0x0000156c      0x10c ..\obj\queue.o
+                0x0000156c                xQueueGenericSend
  .text.xQueueGenericReceive
-                0x000016b4      0x16c ..\obj\queue.o
-                0x000016b4                xQueueGenericReceive
+                0x00001678      0x16c ..\obj\queue.o
+                0x00001678                xQueueGenericReceive
  .text.prvCopyDataToQueue
-                0x00001820       0xb8 ..\obj\queue.o
+                0x000017e4       0xb8 ..\obj\queue.o
  .text.prvCopyDataFromQueue
-                0x000018d8       0x4c ..\obj\queue.o
+                0x0000189c       0x4c ..\obj\queue.o
  .text.prvUnlockQueue
-                0x00001924       0x98 ..\obj\queue.o
+                0x000018e8       0x98 ..\obj\queue.o
  .text.prvIsQueueEmpty
-                0x000019bc       0x2c ..\obj\queue.o
+                0x00001980       0x2c ..\obj\queue.o
  .text.prvIsQueueFull
-                0x000019e8       0x30 ..\obj\queue.o
+                0x000019ac       0x30 ..\obj\queue.o
  .text.pxPortInitialiseStack
-                0x00001a18       0x54 ..\obj\port.o
-                0x00001a18                pxPortInitialiseStack
+                0x000019dc       0x54 ..\obj\port.o
+                0x000019dc                pxPortInitialiseStack
  .text.vPortSVCHandler
-                0x00001a6c       0x20 ..\obj\port.o
-                0x00001a6c                vPortSVCHandler
+                0x00001a30       0x20 ..\obj\port.o
+                0x00001a30                vPortSVCHandler
  .text.vPortStartFirstTask
-                0x00001a8c       0x10 ..\obj\port.o
-                0x00001a8c                vPortStartFirstTask
+                0x00001a50       0x10 ..\obj\port.o
+                0x00001a50                vPortStartFirstTask
  .text.xPortStartScheduler
-                0x00001a9c       0x38 ..\obj\port.o
-                0x00001a9c                xPortStartScheduler
+                0x00001a60       0x38 ..\obj\port.o
+                0x00001a60                xPortStartScheduler
  .text.vPortYieldFromISR
-                0x00001ad4       0x18 ..\obj\port.o
-                0x00001ad4                vPortYieldFromISR
+                0x00001a98       0x18 ..\obj\port.o
+                0x00001a98                vPortYieldFromISR
  .text.vPortEnterCritical
-                0x00001aec       0x24 ..\obj\port.o
-                0x00001aec                vPortEnterCritical
+                0x00001ab0       0x24 ..\obj\port.o
+                0x00001ab0                vPortEnterCritical
  .text.vPortExitCritical
-                0x00001b10       0x2c ..\obj\port.o
-                0x00001b10                vPortExitCritical
+                0x00001ad4       0x2c ..\obj\port.o
+                0x00001ad4                vPortExitCritical
  .text.xPortPendSVHandler
-                0x00001b3c       0x3c ..\obj\port.o
-                0x00001b3c                xPortPendSVHandler
+                0x00001b00       0x3c ..\obj\port.o
+                0x00001b00                xPortPendSVHandler
  .text.xPortSysTickHandler
-                0x00001b78       0x30 ..\obj\port.o
-                0x00001b78                xPortSysTickHandler
+                0x00001b3c       0x30 ..\obj\port.o
+                0x00001b3c                xPortSysTickHandler
  .text.prvSetupTimerInterrupt
-                0x00001ba8       0x24 ..\obj\port.o
+                0x00001b6c       0x24 ..\obj\port.o
  .text.debug_pin
-                0x00001bcc       0x38 ..\obj\debug.o
-                0x00001bcc                debug_pin
+                0x00001b90       0x38 ..\obj\debug.o
+                0x00001b90                debug_pin
  .text.debug_pin_init
-                0x00001c04       0x48 ..\obj\debug.o
-                0x00001c04                debug_pin_init
+                0x00001bc8       0x48 ..\obj\debug.o
+                0x00001bc8                debug_pin_init
  .text.clk_system_init
-                0x00001c4c       0xbc ..\obj\cpu.o
-                0x00001c4c                clk_system_init
+                0x00001c10       0xbc ..\obj\cpu.o
+                0x00001c10                clk_system_init
  .text.pvPortMalloc
-                0x00001d08      0x14c ..\obj\heap_2.o
-                0x00001d08                pvPortMalloc
+                0x00001ccc      0x14c ..\obj\heap_2.o
+                0x00001ccc                pvPortMalloc
  .text.vPortFree
-                0x00001e54       0x70 ..\obj\heap_2.o
-                0x00001e54                vPortFree
- .text          0x00001ec4       0xec d:/programs/gnu/bin/../lib/gcc/arm-none-eabi/4.8.3/../../../../arm-none-eabi/lib/armv7-m\libg.a(lib_a-memcpy.o)
-                0x00001ec4                memcpy
- .text.memset   0x00001fb0       0x94 d:/programs/gnu/bin/../lib/gcc/arm-none-eabi/4.8.3/../../../../arm-none-eabi/lib/armv7-m\libg.a(lib_a-memset.o)
-                0x00001fb0                memset
- .text.strcat   0x00002044       0x4c d:/programs/gnu/bin/../lib/gcc/arm-none-eabi/4.8.3/../../../../arm-none-eabi/lib/armv7-m\libg.a(lib_a-strcat.o)
-                0x00002044                strcat
- .text          0x00002090      0x23c d:/programs/gnu/bin/../lib/gcc/arm-none-eabi/4.8.3/../../../../arm-none-eabi/lib/armv7-m\libg.a(lib_a-strcmp.o)
-                0x00002090                strcmp
- .text.strcpy   0x000022cc       0xbc d:/programs/gnu/bin/../lib/gcc/arm-none-eabi/4.8.3/../../../../arm-none-eabi/lib/armv7-m\libg.a(lib_a-strcpy.o)
-                0x000022cc                strcpy
- .text.strlen   0x00002388       0x60 d:/programs/gnu/bin/../lib/gcc/arm-none-eabi/4.8.3/../../../../arm-none-eabi/lib/armv7-m\libg.a(lib_a-strlen.o)
-                0x00002388                strlen
- .text.strncpy  0x000023e8       0x64 d:/programs/gnu/bin/../lib/gcc/arm-none-eabi/4.8.3/../../../../arm-none-eabi/lib/armv7-m\libg.a(lib_a-strncpy.o)
-                0x000023e8                strncpy
+                0x00001e18       0x70 ..\obj\heap_2.o
+                0x00001e18                vPortFree
+ .text          0x00001e88       0xec d:/programs/gnu/bin/../lib/gcc/arm-none-eabi/4.8.3/../../../../arm-none-eabi/lib/armv7-m\libg.a(lib_a-memcpy.o)
+                0x00001e88                memcpy
+ .text.memset   0x00001f74       0x94 d:/programs/gnu/bin/../lib/gcc/arm-none-eabi/4.8.3/../../../../arm-none-eabi/lib/armv7-m\libg.a(lib_a-memset.o)
+                0x00001f74                memset
+ .text.strcat   0x00002008       0x4c d:/programs/gnu/bin/../lib/gcc/arm-none-eabi/4.8.3/../../../../arm-none-eabi/lib/armv7-m\libg.a(lib_a-strcat.o)
+                0x00002008                strcat
+ .text          0x00002054      0x23c d:/programs/gnu/bin/../lib/gcc/arm-none-eabi/4.8.3/../../../../arm-none-eabi/lib/armv7-m\libg.a(lib_a-strcmp.o)
+                0x00002054                strcmp
+ .text.strcpy   0x00002290       0xbc d:/programs/gnu/bin/../lib/gcc/arm-none-eabi/4.8.3/../../../../arm-none-eabi/lib/armv7-m\libg.a(lib_a-strcpy.o)
+                0x00002290                strcpy
+ .text.strlen   0x0000234c       0x60 d:/programs/gnu/bin/../lib/gcc/arm-none-eabi/4.8.3/../../../../arm-none-eabi/lib/armv7-m\libg.a(lib_a-strlen.o)
+                0x0000234c                strlen
+ .text.strncmp  0x000023ac       0xb4 d:/programs/gnu/bin/../lib/gcc/arm-none-eabi/4.8.3/../../../../arm-none-eabi/lib/armv7-m\libg.a(lib_a-strncmp.o)
+                0x000023ac                strncmp
+ .text.strncpy  0x00002460       0x64 d:/programs/gnu/bin/../lib/gcc/arm-none-eabi/4.8.3/../../../../arm-none-eabi/lib/armv7-m\libg.a(lib_a-strncpy.o)
+                0x00002460                strncpy
  *(.init)
  *(.fini)
  *crtbegin.o(.ctors)
@@ -466,40 +471,40 @@ Linker script and memory map
  *(SORT(.dtors.*))
  *(.dtors)
  *(.rodata*)
- .rodata        0x0000244c       0x70 ..\obj\main.o
- .rodata        0x000024bc       0x18 ..\obj\communication.o
- .rodata        0x000024d4        0x8 ..\obj\tasks.o
+ .rodata        0x000024c4       0x70 ..\obj\main.o
+ .rodata        0x00002534       0x1c ..\obj\communication.o
+ .rodata        0x00002550        0x8 ..\obj\tasks.o
  *(.eh_fram e*)
 
-.glue_7         0x000024dc        0x0
+.glue_7         0x00002558        0x0
  .glue_7        0x00000000        0x0 linker stubs
 
-.glue_7t        0x000024dc        0x0
+.glue_7t        0x00002558        0x0
  .glue_7t       0x00000000        0x0 linker stubs
 
-.vfp11_veneer   0x000024dc        0x0
+.vfp11_veneer   0x00002558        0x0
  .vfp11_veneer  0x00000000        0x0 linker stubs
 
-.v4_bx          0x000024dc        0x0
+.v4_bx          0x00002558        0x0
  .v4_bx         0x00000000        0x0 linker stubs
 
-.iplt           0x000024dc        0x0
+.iplt           0x00002558        0x0
  .iplt          0x00000000        0x0 ..\obj\spi.o
 
-.rel.dyn        0x000024dc        0x0
+.rel.dyn        0x00002558        0x0
  .rel.iplt      0x00000000        0x0 ..\obj\spi.o
 
 .ARM.extab
  *(.ARM.extab* .gnu.linkonce.armextab.*)
-                0x000024dc                __exidx_start = .
+                0x00002558                __exidx_start = .
 
 .ARM.exidx
  *(.ARM.exidx* .gnu.linkonce.armexidx.*)
-                0x000024dc                __exidx_end = .
-                0x000024dc                __etext = .
-                0x000024dc                _sidata = __etext
+                0x00002558                __exidx_end = .
+                0x00002558                __etext = .
+                0x00002558                _sidata = __etext
 
-.data           0x20000000        0x4 load address 0x000024dc
+.data           0x20000000        0x4 load address 0x00002558
                 0x20000000                __data_start__ = .
                 0x20000000                _sdata = __data_start__
  *(vtable)
@@ -524,44 +529,42 @@ Linker script and memory map
                 0x20000004                __data_end__ = .
                 0x20000004                _edata = __data_end__
 
-.igot.plt       0x20000004        0x0 load address 0x000024e0
+.igot.plt       0x20000004        0x0 load address 0x0000255c
  .igot.plt      0x00000000        0x0 ..\obj\spi.o
 
-.bss            0x20000008     0x1c68 load address 0x000024e8
+.bss            0x20000008     0x1c60 load address 0x00002560
                 0x20000008                . = ALIGN (0x4)
                 0x20000008                __bss_start__ = .
                 0x20000008                _sbss = __bss_start__
  *(.bss*)
- .bss           0x20000008        0x8 ..\obj\communication.o
-                0x20000008                command
- .bss           0x20000010       0xd4 ..\obj\tasks.o
-                0x20000010                pxCurrentTCB
- *fill*         0x200000e4        0x4 
- .bss           0x200000e8     0x1b70 ..\obj\heap_2.o
+ .bss           0x20000008       0xd4 ..\obj\tasks.o
+                0x20000008                pxCurrentTCB
+ *fill*         0x200000dc        0x4 
+ .bss           0x200000e0     0x1b70 ..\obj\heap_2.o
  *(COMMON)
- COMMON         0x20001c58       0x18 ..\obj\spi.o
-                0x20001c58                UARTTXQueue
-                0x20001c5c                SPIRXSem
-                0x20001c60                UARTRXQueue
-                0x20001c64                UARTRXSem
-                0x20001c68                SPIRXQueue
-                0x20001c6c                SPITXQueue
-                0x20001c70                . = ALIGN (0x4)
-                0x20001c70                __bss_end__ = .
-                0x20001c70                _ebss = __bss_end__
+ COMMON         0x20001c50       0x18 ..\obj\spi.o
+                0x20001c50                UARTTXQueue
+                0x20001c54                SPIRXSem
+                0x20001c58                UARTRXQueue
+                0x20001c5c                UARTRXSem
+                0x20001c60                SPIRXQueue
+                0x20001c64                SPITXQueue
+                0x20001c68                . = ALIGN (0x4)
+                0x20001c68                __bss_end__ = .
+                0x20001c68                _ebss = __bss_end__
 
-.heap           0x20001c70        0x0
-                0x20001c70                __end__ = .
-                0x20001c70                _end = __end__
-                0x20001c70                end = __end__
+.heap           0x20001c68        0x0
+                0x20001c68                __end__ = .
+                0x20001c68                _end = __end__
+                0x20001c68                end = __end__
  *(.heap*)
-                0x20001c70                __HeapLimit = .
+                0x20001c68                __HeapLimit = .
 
-.co_stack       0x20001c70      0x400 load address 0x00004150
-                0x20001c70                . = ALIGN (0x8)
+.co_stack       0x20001c68      0x400 load address 0x000041c0
+                0x20001c68                . = ALIGN (0x8)
  *(.co_stack .co_stack.*)
- .co_stack      0x20001c70      0x400 ..\obj\startup_frt.o
-                0x20001c70                pulStack
+ .co_stack      0x20001c68      0x400 ..\obj\startup_frt.o
+                0x20001c68                pulStack
                 0x20010000                __StackTop = (ORIGIN (ram) + 0x10000)
                 0x2000fc00                __StackLimit = (__StackTop - SIZEOF (.co_stack))
                 0x20010000                PROVIDE (__stack, __StackTop)
@@ -588,35 +591,35 @@ LOAD d:/programs/gnu/bin/../lib/gcc/arm-none-eabi/4.8.3/../../../../arm-none-eab
 END GROUP
 OUTPUT(project_FreeRTOS.elf elf32-littlearm)
 
-.debug_info     0x00000000     0x20cc
+.debug_info     0x00000000     0x2089
  .debug_info    0x00000000      0x1e4 ..\obj\spi.o
  .debug_info    0x000001e4       0xe9 ..\obj\startup_frt.o
  .debug_info    0x000002cd      0x19d ..\obj\main.o
- .debug_info    0x0000046a      0x1b7 ..\obj\communication.o
- .debug_info    0x00000621      0x1b1 ..\obj\uartprintf.o
- .debug_info    0x000007d2      0x9b4 ..\obj\tasks.o
- .debug_info    0x00001186      0x27f ..\obj\list.o
- .debug_info    0x00001405      0x6e5 ..\obj\queue.o
- .debug_info    0x00001aea      0x1af ..\obj\port.o
- .debug_info    0x00001c99      0x101 ..\obj\debug.o
- .debug_info    0x00001d9a       0x90 ..\obj\cpu.o
- .debug_info    0x00001e2a      0x2a2 ..\obj\heap_2.o
+ .debug_info    0x0000046a      0x174 ..\obj\communication.o
+ .debug_info    0x000005de      0x1b1 ..\obj\uartprintf.o
+ .debug_info    0x0000078f      0x9b4 ..\obj\tasks.o
+ .debug_info    0x00001143      0x27f ..\obj\list.o
+ .debug_info    0x000013c2      0x6e5 ..\obj\queue.o
+ .debug_info    0x00001aa7      0x1af ..\obj\port.o
+ .debug_info    0x00001c56      0x101 ..\obj\debug.o
+ .debug_info    0x00001d57       0x90 ..\obj\cpu.o
+ .debug_info    0x00001de7      0x2a2 ..\obj\heap_2.o
 
-.debug_abbrev   0x00000000      0xb52
+.debug_abbrev   0x00000000      0xb17
  .debug_abbrev  0x00000000       0xb9 ..\obj\spi.o
  .debug_abbrev  0x000000b9       0xa7 ..\obj\startup_frt.o
  .debug_abbrev  0x00000160       0xd3 ..\obj\main.o
- .debug_abbrev  0x00000233       0xd2 ..\obj\communication.o
- .debug_abbrev  0x00000305       0xeb ..\obj\uartprintf.o
- .debug_abbrev  0x000003f0      0x1e5 ..\obj\tasks.o
- .debug_abbrev  0x000005d5       0xba ..\obj\list.o
- .debug_abbrev  0x0000068f      0x16c ..\obj\queue.o
- .debug_abbrev  0x000007fb      0x109 ..\obj\port.o
- .debug_abbrev  0x00000904       0x9b ..\obj\debug.o
- .debug_abbrev  0x0000099f       0x4d ..\obj\cpu.o
- .debug_abbrev  0x000009ec      0x166 ..\obj\heap_2.o
+ .debug_abbrev  0x00000233       0x97 ..\obj\communication.o
+ .debug_abbrev  0x000002ca       0xeb ..\obj\uartprintf.o
+ .debug_abbrev  0x000003b5      0x1e5 ..\obj\tasks.o
+ .debug_abbrev  0x0000059a       0xba ..\obj\list.o
+ .debug_abbrev  0x00000654      0x16c ..\obj\queue.o
+ .debug_abbrev  0x000007c0      0x109 ..\obj\port.o
+ .debug_abbrev  0x000008c9       0x9b ..\obj\debug.o
+ .debug_abbrev  0x00000964       0x4d ..\obj\cpu.o
+ .debug_abbrev  0x000009b1      0x166 ..\obj\heap_2.o
 
-.debug_aranges  0x00000000      0x3c0
+.debug_aranges  0x00000000      0x3b8
  .debug_aranges
                 0x00000000       0x48 ..\obj\spi.o
  .debug_aranges
@@ -624,51 +627,51 @@ OUTPUT(project_FreeRTOS.elf elf32-littlearm)
  .debug_aranges
                 0x00000070       0x38 ..\obj\main.o
  .debug_aranges
-                0x000000a8       0x28 ..\obj\communication.o
+                0x000000a8       0x20 ..\obj\communication.o
  .debug_aranges
-                0x000000d0       0x48 ..\obj\uartprintf.o
+                0x000000c8       0x48 ..\obj\uartprintf.o
  .debug_aranges
-                0x00000118       0xd8 ..\obj\tasks.o
+                0x00000110       0xd8 ..\obj\tasks.o
  .debug_aranges
-                0x000001f0       0x40 ..\obj\list.o
+                0x000001e8       0x40 ..\obj\list.o
  .debug_aranges
-                0x00000230       0x98 ..\obj\queue.o
+                0x00000228       0x98 ..\obj\queue.o
  .debug_aranges
-                0x000002c8       0x70 ..\obj\port.o
+                0x000002c0       0x70 ..\obj\port.o
  .debug_aranges
-                0x00000338       0x30 ..\obj\debug.o
+                0x00000330       0x30 ..\obj\debug.o
  .debug_aranges
-                0x00000368       0x20 ..\obj\cpu.o
+                0x00000360       0x20 ..\obj\cpu.o
  .debug_aranges
-                0x00000388       0x38 ..\obj\heap_2.o
+                0x00000380       0x38 ..\obj\heap_2.o
 
-.debug_ranges   0x00000000      0x300
+.debug_ranges   0x00000000      0x2f8
  .debug_ranges  0x00000000       0x38 ..\obj\spi.o
  .debug_ranges  0x00000038       0x18 ..\obj\startup_frt.o
  .debug_ranges  0x00000050       0x28 ..\obj\main.o
- .debug_ranges  0x00000078       0x18 ..\obj\communication.o
- .debug_ranges  0x00000090       0x38 ..\obj\uartprintf.o
- .debug_ranges  0x000000c8       0xc8 ..\obj\tasks.o
- .debug_ranges  0x00000190       0x30 ..\obj\list.o
- .debug_ranges  0x000001c0       0x88 ..\obj\queue.o
- .debug_ranges  0x00000248       0x60 ..\obj\port.o
- .debug_ranges  0x000002a8       0x20 ..\obj\debug.o
- .debug_ranges  0x000002c8       0x10 ..\obj\cpu.o
- .debug_ranges  0x000002d8       0x28 ..\obj\heap_2.o
+ .debug_ranges  0x00000078       0x10 ..\obj\communication.o
+ .debug_ranges  0x00000088       0x38 ..\obj\uartprintf.o
+ .debug_ranges  0x000000c0       0xc8 ..\obj\tasks.o
+ .debug_ranges  0x00000188       0x30 ..\obj\list.o
+ .debug_ranges  0x000001b8       0x88 ..\obj\queue.o
+ .debug_ranges  0x00000240       0x60 ..\obj\port.o
+ .debug_ranges  0x000002a0       0x20 ..\obj\debug.o
+ .debug_ranges  0x000002c0       0x10 ..\obj\cpu.o
+ .debug_ranges  0x000002d0       0x28 ..\obj\heap_2.o
 
-.debug_line     0x00000000     0x1ad1
+.debug_line     0x00000000     0x1aa2
  .debug_line    0x00000000      0x249 ..\obj\spi.o
  .debug_line    0x00000249       0xa3 ..\obj\startup_frt.o
  .debug_line    0x000002ec      0x2ef ..\obj\main.o
- .debug_line    0x000005db      0x243 ..\obj\communication.o
- .debug_line    0x0000081e      0x1f4 ..\obj\uartprintf.o
- .debug_line    0x00000a12      0x554 ..\obj\tasks.o
- .debug_line    0x00000f66      0x1fd ..\obj\list.o
- .debug_line    0x00001163      0x3f0 ..\obj\queue.o
- .debug_line    0x00001553      0x1f9 ..\obj\port.o
- .debug_line    0x0000174c      0x110 ..\obj\debug.o
- .debug_line    0x0000185c       0xf5 ..\obj\cpu.o
- .debug_line    0x00001951      0x180 ..\obj\heap_2.o
+ .debug_line    0x000005db      0x214 ..\obj\communication.o
+ .debug_line    0x000007ef      0x1f4 ..\obj\uartprintf.o
+ .debug_line    0x000009e3      0x554 ..\obj\tasks.o
+ .debug_line    0x00000f37      0x1fd ..\obj\list.o
+ .debug_line    0x00001134      0x3f0 ..\obj\queue.o
+ .debug_line    0x00001524      0x1f9 ..\obj\port.o
+ .debug_line    0x0000171d      0x110 ..\obj\debug.o
+ .debug_line    0x0000182d       0xf5 ..\obj\cpu.o
+ .debug_line    0x00001922      0x180 ..\obj\heap_2.o
 
 .debug_str      0x00000000     0x1386
  .debug_str     0x00000000      0x271 ..\obj\spi.o
@@ -678,7 +681,7 @@ OUTPUT(project_FreeRTOS.elf elf32-littlearm)
  .debug_str     0x00000323       0xa5 ..\obj\main.o
                                 0x283 (size before relaxing)
  .debug_str     0x000003c8       0xad ..\obj\communication.o
-                                0x271 (size before relaxing)
+                                0x26c (size before relaxing)
  .debug_str     0x00000475       0xb9 ..\obj\uartprintf.o
                                 0x29a (size before relaxing)
  .debug_str     0x0000052e      0x629 ..\obj\tasks.o
@@ -750,23 +753,26 @@ OUTPUT(project_FreeRTOS.elf elf32-littlearm)
  .ARM.attributes
                 0x00000321       0x2d d:/programs/gnu/bin/../lib/gcc/arm-none-eabi/4.8.3/../../../../arm-none-eabi/lib/armv7-m\libg.a(lib_a-strlen.o)
  .ARM.attributes
-                0x0000034e       0x2d d:/programs/gnu/bin/../lib/gcc/arm-none-eabi/4.8.3/../../../../arm-none-eabi/lib/armv7-m\libg.a(lib_a-strncpy.o)
+                0x0000034e       0x2d d:/programs/gnu/bin/../lib/gcc/arm-none-eabi/4.8.3/../../../../arm-none-eabi/lib/armv7-m\libg.a(lib_a-strncmp.o)
+ .ARM.attributes
+                0x0000037b       0x2d d:/programs/gnu/bin/../lib/gcc/arm-none-eabi/4.8.3/../../../../arm-none-eabi/lib/armv7-m\libg.a(lib_a-strncpy.o)
 
-.debug_frame    0x00000000      0xaf8
+.debug_frame    0x00000000      0xb04
  .debug_frame   0x00000000       0xbc ..\obj\spi.o
  .debug_frame   0x000000bc       0x48 ..\obj\startup_frt.o
  .debug_frame   0x00000104       0x88 ..\obj\main.o
- .debug_frame   0x0000018c       0x4c ..\obj\communication.o
- .debug_frame   0x000001d8       0xbc ..\obj\uartprintf.o
- .debug_frame   0x00000294      0x2e0 ..\obj\tasks.o
- .debug_frame   0x00000574       0x9c ..\obj\list.o
- .debug_frame   0x00000610      0x204 ..\obj\queue.o
- .debug_frame   0x00000814      0x110 ..\obj\port.o
- .debug_frame   0x00000924       0x68 ..\obj\debug.o
- .debug_frame   0x0000098c       0x28 ..\obj\cpu.o
- .debug_frame   0x000009b4       0x80 ..\obj\heap_2.o
- .debug_frame   0x00000a34       0x2c d:/programs/gnu/bin/../lib/gcc/arm-none-eabi/4.8.3/../../../../arm-none-eabi/lib/armv7-m\libg.a(lib_a-memset.o)
- .debug_frame   0x00000a60       0x2c d:/programs/gnu/bin/../lib/gcc/arm-none-eabi/4.8.3/../../../../arm-none-eabi/lib/armv7-m\libg.a(lib_a-strcat.o)
- .debug_frame   0x00000a8c       0x20 d:/programs/gnu/bin/../lib/gcc/arm-none-eabi/4.8.3/../../../../arm-none-eabi/lib/armv7-m\libg.a(lib_a-strcpy.o)
- .debug_frame   0x00000aac       0x20 d:/programs/gnu/bin/../lib/gcc/arm-none-eabi/4.8.3/../../../../arm-none-eabi/lib/armv7-m\libg.a(lib_a-strlen.o)
- .debug_frame   0x00000acc       0x2c d:/programs/gnu/bin/../lib/gcc/arm-none-eabi/4.8.3/../../../../arm-none-eabi/lib/armv7-m\libg.a(lib_a-strncpy.o)
+ .debug_frame   0x0000018c       0x30 ..\obj\communication.o
+ .debug_frame   0x000001bc       0xbc ..\obj\uartprintf.o
+ .debug_frame   0x00000278      0x2e0 ..\obj\tasks.o
+ .debug_frame   0x00000558       0x9c ..\obj\list.o
+ .debug_frame   0x000005f4      0x204 ..\obj\queue.o
+ .debug_frame   0x000007f8      0x110 ..\obj\port.o
+ .debug_frame   0x00000908       0x68 ..\obj\debug.o
+ .debug_frame   0x00000970       0x28 ..\obj\cpu.o
+ .debug_frame   0x00000998       0x80 ..\obj\heap_2.o
+ .debug_frame   0x00000a18       0x2c d:/programs/gnu/bin/../lib/gcc/arm-none-eabi/4.8.3/../../../../arm-none-eabi/lib/armv7-m\libg.a(lib_a-memset.o)
+ .debug_frame   0x00000a44       0x2c d:/programs/gnu/bin/../lib/gcc/arm-none-eabi/4.8.3/../../../../arm-none-eabi/lib/armv7-m\libg.a(lib_a-strcat.o)
+ .debug_frame   0x00000a70       0x20 d:/programs/gnu/bin/../lib/gcc/arm-none-eabi/4.8.3/../../../../arm-none-eabi/lib/armv7-m\libg.a(lib_a-strcpy.o)
+ .debug_frame   0x00000a90       0x20 d:/programs/gnu/bin/../lib/gcc/arm-none-eabi/4.8.3/../../../../arm-none-eabi/lib/armv7-m\libg.a(lib_a-strlen.o)
+ .debug_frame   0x00000ab0       0x28 d:/programs/gnu/bin/../lib/gcc/arm-none-eabi/4.8.3/../../../../arm-none-eabi/lib/armv7-m\libg.a(lib_a-strncmp.o)
+ .debug_frame   0x00000ad8       0x2c d:/programs/gnu/bin/../lib/gcc/arm-none-eabi/4.8.3/../../../../arm-none-eabi/lib/armv7-m\libg.a(lib_a-strncpy.o)

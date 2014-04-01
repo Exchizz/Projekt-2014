@@ -35,6 +35,12 @@
 #include "uart.h"
 /*****************************    Defines    *******************************/
 
+#define ST_GETCMD 	0
+#define ST_PARSECMD	1
+#define ST_RESET	2
+#define ST_START	3
+#define ST_ERROR	4
+#define ST_COORDS	5
 /*****************************   Constants   *******************************/
 
 /*****************************   Functions   *******************************/

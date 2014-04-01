@@ -65,7 +65,7 @@
          <include file="..\..\..\FRT_Library\FreeRTOS\Source\include\FreeRTOS.h"/>
          <include file="..\..\..\FRT_Library\FreeRTOS\Source\include\list.h"/>
       </source>
-      <source file="..\..\..\main.c" lastModified="145087bde32">
+      <source file="..\..\..\main.c" lastModified="14516d7e9fc">
          <include file="..\..\..\..\..\lm3s6965.h"/>
          <include file="..\..\..\FRT_Library\FreeRTOS\Source\include\FreeRTOS.h"/>
          <include file="..\..\..\FRT_Library\FreeRTOS\Source\include\task.h"/>
@@ -100,7 +100,7 @@
          <include file="..\..\..\FRT_Library\FreeRTOS\Source\include\semphr.h"/>
          <include file="..\..\..\uartprintf\uart.h"/>
       </source>
-      <source file="..\..\..\communication\communication.h" lastModified="14508819c7a">
+      <source file="..\..\..\communication\communication.h" lastModified="145177dde77">
          <include file="..\..\..\includes\emp_type.h"/>
          <include file="..\..\..\includes\lm3s6965.h"/>
          <include file="..\..\..\includes\binary.h"/>

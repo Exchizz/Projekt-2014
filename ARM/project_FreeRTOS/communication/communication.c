@@ -28,58 +28,69 @@
 
 /*****************************   Functions   *******************************/
 
-	INT8U command[6] = {0, 0, 0, 0, 0, 0};
-void resetCharArray(char * data, int length){
-	int i;
-	for(i = 0; i < length; i++)
-		data[i] = 0;
-}
 void decodeCommandTask(){
 	INT8U receiveCharCMD = 0;
-	//INT8U tmp[6] = {'r','e','s','e','t','\0'};
-	INT8U tmp[6] = "reset";
-	INT8U temp;
+	INT8U temp, majorState = ST_GETCMD, minorState;
+	INT8U message[] = "Error\n\r";
+
+	INT8U command[11];
+	memset(command, '\0', sizeof(command));
+
 	int i = 0;
 
 	while(TRUE){
-
-		if(xQueueReceive(UARTRXQueue, &receiveCharCMD, 20)){
-			if(receiveCharCMD == '\r'){
-				//Full command received.
-				if(strcmp(command, "reset") == 0){
-					debug_pin(ON);
-					//strcpy(command, "");
-					resetCharArray(command, strlen(command));
-
-				}
-				if(strcmp(command, "lukas") == 0){
-					debug_pin(OFF);
-					//strcpy(command, "");
-					resetCharArray(command, strlen(command));
-				}
-					for(i = 0; i < strlen(command); i++){
-						temp = command[i];
-						xQueueSend(UARTTXQueue, &temp, 20);
-					}
-			} else {
-				if(strlen(command) >= 6){
-					//resetCharArray(command, strlen(command));
-					//debug_pin(ON);
-					INT8U message[] = "Error\n\r";
-					for(i = 0; i < strlen(message); i++){
-						temp = message[i];
-						xQueueSend(UARTTXQueue, &temp, 20);
-					}
-					resetCharArray(command, strlen(command));
-					for(i = 0; i < 7; i++);
-//					for(i = 0; i < strlen(command); i++){
-//						temp = command[i];
-					//	xQueueSend(UARTTXQueue, &temp, 20);
-					//}
-				} else{
+		switch (majorState){
+			case ST_GETCMD:
+				if(receiveCharCMD == '\r'){
+					receiveCharCMD = 0;
+					majorState = ST_PARSECMD;
+				} else if (xQueueReceive(UARTRXQueue, &receiveCharCMD, 20)){
 					strcat(&command, &receiveCharCMD);
 				}
-			}
+				break;
+			case ST_PARSECMD:
+
+				if(strcmp(command, "reset\r") == 0){
+					minorState = ST_RESET;
+				} else if (strcmp(command, "start\r") == 0){
+					minorState = ST_START;
+				} else if (strncmp(command, "cod", 3) == 0){
+					minorState = ST_COORDS;
+				} else {
+					majorState = ST_ERROR;
+					break;
+				}
+
+				command[0] = '\0'; //Reset char array
+
+				switch (minorState) {
+					case ST_RESET:
+						debug_pin(OFF);
+						break;
+					case ST_START:
+						debug_pin(ON);
+						break;
+					case ST_COORDS:
+
+						debug_pin(ON);
+						break;
+					default:
+						break;
+				}
+
+				majorState = ST_GETCMD;
+				break;
+			case ST_ERROR:
+
+				for(i = 0; i < strlen(message); i++){
+					temp = message[i];
+					xQueueSend(UARTTXQueue, &temp, 20);
+				}
+
+				command[0] = '\0'; //Reset char array
+
+				majorState = ST_GETCMD;
+				break;
 		}
 	}
 }
