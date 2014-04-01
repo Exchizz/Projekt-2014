@@ -1,0 +1,44 @@
+NET "Seg<0>" LOC = P25;
+NET "Seg<1>" LOC = P16;
+NET "Seg<2>" LOC = P23;
+NET "Seg<3>" LOC = P21;
+NET "Seg<4>" LOC = P20;
+NET "Seg<5>" LOC = P17;
+NET "Seg<6>" LOC = P83;
+NET "Seg<7>" LOC = P22;
+
+NET "AN<0>" LOC = P34;
+NET "AN<1>" LOC = P33;
+NET "AN<2>" LOC = P32;
+NET "AN<3>" LOC = P26;
+
+NET "Clk" LOC = P54;
+
+NET "HallA<0>" LOC = P82; # JA3
+NET "HallA<1>" LOC = P92; # JA4
+NET "HallA<2>" LOC = P81; # JA1
+NET "HallB<0>" LOC = P87; # JB1
+NET "HallB<1>" LOC = P93; # JB2
+NET "HallB<2>" LOC = P91; # JA2
+
+NET "SW<0>" LOC = P38;
+NET "SW<1>" LOC = P36;
+NET "SW<2>" LOC = P29;
+NET "SW<3>" LOC = P24;
+NET "SW<4>" LOC = P18;
+NET "SW<5>" LOC = P12;
+NET "SW<6>" LOC = P10;
+NET "SW<7>" LOC = P6;
+
+NET "BTN<0>" LOC = P69;
+NET "BTN<1>" LOC = P48;
+NET "BTN<2>" LOC = P47;
+NET "BTN<3>" LOC = P41;
+
+NET "MotorA<0>" LOC = P88; # JB3
+NET "MotorA<1>" LOC = P94; # JB4
+NET "MotorA<2>" LOC = P77; # JC1
+NET "MotorB<0>" LOC = P86; # JC2
+NET "MotorB<1>" LOC = P76; # JC3
+NET "MotorB<2>" LOC = P85; # JC4
+

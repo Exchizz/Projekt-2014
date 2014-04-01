@@ -1,0 +1,3 @@
+max 330Hz signal -> 2s per omgang
+
+fsample 800Hz rundes op til 1kHz

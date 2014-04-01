@@ -1,11 +1,11 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <report-views version="2.0" >
  <header>
-  <DateModified>2014-03-28T14:31:05</DateModified>
+  <DateModified>2014-03-31T16:35:33</DateModified>
   <ModuleName>MCS</ModuleName>
-  <SummaryTimeStamp>Unknown</SummaryTimeStamp>
+  <SummaryTimeStamp>2014-03-31T16:35:03</SummaryTimeStamp>
   <SavedFilePath>C:/Users/Lukas Schwartz/Documents/GitHub/Projekt-2014/MotorControlSystem/iseconfig/MCS.xreport</SavedFilePath>
-  <ImplementationReportsDirectory>C:/Users/Lukas Schwartz/Documents/GitHub/Projekt-2014/MotorControlSystem</ImplementationReportsDirectory>
+  <ImplementationReportsDirectory>C:/Users/Lukas Schwartz/Documents/GitHub/Projekt-2014/MotorControlSystem\</ImplementationReportsDirectory>
   <DateInitialized>2014-03-28T14:31:05</DateInitialized>
   <EnableMessageFiltering>false</EnableMessageFiltering>
  </header>

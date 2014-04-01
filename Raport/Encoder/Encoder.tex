@@ -1,0 +1,30 @@
+\documentclass[12pt,a4paper]{report}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\begin{document}
+\subsection{Motor Encoder}
+The pan-and-tilt system provided for the project came with a set of encoders to decide the position of the frames. These encoders are made of hall sensors which provide us with a logic high-and-low signal. There are three sensors for each of the two frames. A rotary incremental encoders to decide the motors position and one index sensor which happens once every turn of the frame to enable absolute referencing.
+
+\subsubsection{Rotary Encoder}
+The two sensors creating the rotary encoder of the motor give a changing high and low as the frame turns. These two signals have a 90* phase difference resulting in a signal changing like in gray-code. The output of the incremental encoder on the motor shaft is shown below on figure ...
+
+% figure of the signal
+
+A requirement to the project is that the FPGA must decode the motor position. To decode this signal a statemachine can be made to count the position of the motor. This statemachine is shown below on figure ... 
+
+% statemashine of the encoder
+
+It works by saving it last state, which is also the two-bit output of the encoder, and compare it with the new input. Depending on the input from the encoder the FPGA can then decide if the motor has rotated clockwise or counter-clockwise.
+
+In order to decode the position probably, sample frequency of the encoder signal needs to be sufficiently high. The sample frequency can be find using Nyquist rule from which we have that we need to sample at a rate at least twice as high as highest frequency in the signal. 
+
+It 
+
+
+\subsubsection{Index Encoder}
+The single sensor provides a logic low when the frame passes the reference point and else a logic high.
+
+\end{document}

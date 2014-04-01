@@ -1,0 +1,6 @@
+vhdl work "../PWM/PWM.vhd"
+vhdl work "../Encoder/encoder.vhd"
+vhdl work "../MotorControlSystem/MCS.vhd"
+vhdl work "../Encoder/DisplaySelect_4.vhd"
+vhdl work "../Encoder/DisplayHex.vhd"
+vhdl work "fpga_main.vhd"

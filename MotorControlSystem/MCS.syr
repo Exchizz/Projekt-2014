@@ -4,13 +4,13 @@ Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
 
 
 Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.20 secs
+Total CPU time to Xst completion: 0.21 secs
  
 --> Parameter xsthdpdir set to xst
 
 
 Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.20 secs
+Total CPU time to Xst completion: 0.22 secs
  
 --> Reading design: MCS.prj
 
@@ -68,7 +68,7 @@ Automatic Register Balancing       : No
 
 ---- Target Options
 Add IO Buffers                     : YES
-Global Maximum Fanout              : 500
+Global Maximum Fanout              : 100000
 Add Generic Clock Buffer(BUFG)     : 24
 Register Duplication               : YES
 Slice Packing                      : YES
@@ -107,10 +107,10 @@ Slice Utilization Ratio Delta      : 5
 Compiling vhdl file "C:/Users/Lukas Schwartz/Documents/GitHub/Projekt-2014/PWM/PWM.vhd" in Library work.
 Architecture behavioral of Entity pwm is up to date.
 Compiling vhdl file "C:/Users/Lukas Schwartz/Documents/GitHub/Projekt-2014/Encoder/encoder.vhd" in Library work.
-Entity <encoder> compiled.
-Entity <encoder> (Architecture <behavioral>) compiled.
+Architecture behavioral of Entity encoder is up to date.
 Compiling vhdl file "C:/Users/Lukas Schwartz/Documents/GitHub/Projekt-2014/MotorControlSystem/MCS.vhd" in Library work.
-Architecture behavioral of Entity mcs is up to date.
+Entity <mcs> compiled.
+Entity <mcs> (Architecture <behavioral>) compiled.
 
 =========================================================================
 *                     Design Hierarchy Analysis                         *
@@ -153,28 +153,60 @@ Unit <PWM> synthesized.
 
 Synthesizing Unit <Encoder>.
     Related source file is "C:/Users/Lukas Schwartz/Documents/GitHub/Projekt-2014/Encoder/encoder.vhd".
+    Found 16-bit up counter for signal <clk_scaler>.
     Found 2-bit register for signal <last_hall>.
-    Found 2-bit comparator equal for signal <last_hall$cmp_eq0005> created at line 37.
-    Found 2-bit 4-to-1 multiplexer for signal <last_hall$mux0000> created at line 38.
-    Found 2-bit 4-to-1 multiplexer for signal <last_hall$mux0001> created at line 40.
-    Found 2-bit 4-to-1 multiplexer for signal <last_hall$mux0002> created at line 56.
-    Found 2-bit 4-to-1 multiplexer for signal <last_hall$mux0003> created at line 72.
-    Found 2-bit 4-to-1 multiplexer for signal <last_hall$mux0004> created at line 88.
+    Found 16-bit adder for signal <last_hall$add0000> created at line 32.
+    Found 2-bit comparator equal for signal <last_hall$cmp_eq0009> created at line 38.
+    Found 2-bit 4-to-1 multiplexer for signal <last_hall$mux0000> created at line 39.
+    Found 2-bit 4-to-1 multiplexer for signal <last_hall$mux0001> created at line 41.
+    Found 2-bit 4-to-1 multiplexer for signal <last_hall$mux0002> created at line 61.
+    Found 2-bit 4-to-1 multiplexer for signal <last_hall$mux0003> created at line 81.
+    Found 2-bit 4-to-1 multiplexer for signal <last_hall$mux0004> created at line 101.
     Found 11-bit register for signal <Motor_Position>.
-    Found 11-bit subtractor for signal <Motor_Position$addsub0000> created at line 50.
-    Found 11-bit adder for signal <Motor_Position$share0000> created at line 38.
+    Found 11-bit subtractor for signal <Motor_Position$addsub0000> created at line 55.
+    Found 11-bit adder for signal <Motor_Position$addsub0001> created at line 46.
+    Found 11-bit 4-to-1 multiplexer for signal <Motor_Position$mux0002> created at line 39.
+    Found 11-bit 4-to-1 multiplexer for signal <Motor_Position$mux0003> created at line 41.
+    Found 11-bit 4-to-1 multiplexer for signal <Motor_Position$mux0004> created at line 61.
+    Found 11-bit 4-to-1 multiplexer for signal <Motor_Position$mux0005> created at line 81.
+    Found 11-bit 4-to-1 multiplexer for signal <Motor_Position$mux0006> created at line 101.
     Summary:
+	inferred   1 Counter(s).
 	inferred  13 D-type flip-flop(s).
-	inferred   2 Adder/Subtractor(s).
+	inferred   3 Adder/Subtractor(s).
 	inferred   1 Comparator(s).
-	inferred  10 Multiplexer(s).
+	inferred  65 Multiplexer(s).
 Unit <Encoder> synthesized.
 
 
 Synthesizing Unit <MCS>.
     Related source file is "C:/Users/Lukas Schwartz/Documents/GitHub/Projekt-2014/MotorControlSystem/MCS.vhd".
-    Found 3-bit 4-to-1 multiplexer for signal <Motor_Direction_out>.
+    Found finite state machine <FSM_0> for signal <MotorState>.
+    -----------------------------------------------------------------------
+    | States             | 4                                              |
+    | Transitions        | 9                                              |
+    | Inputs             | 3                                              |
+    | Outputs            | 5                                              |
+    | Clock              | Clk                       (rising_edge)        |
+    | Power Up State     | 00                                             |
+    | Encoding           | automatic                                      |
+    | Implementation     | LUT                                            |
+    -----------------------------------------------------------------------
+    Found 23-bit register for signal <clk_scaler>.
+    Found 1-bit register for signal <direction>.
+    Found 23-bit adder for signal <direction$add0000> created at line 131.
+    Found 11-bit register for signal <last_position>.
+    Found 2-bit register for signal <Motor_Dir_out_reset>.
+    Found 3-bit 4-to-1 multiplexer for signal <Motor_Dir_out_run>.
+    Found 10-bit adder for signal <MotorState$add0000> created at line 114.
+    Found 11-bit subtractor for signal <position_change$mux0000> created at line 147.
+    Found 1-bit register for signal <ResetNow>.
+    Found 10-bit up counter for signal <wait_signal>.
     Summary:
+	inferred   1 Finite State Machine(s).
+	inferred   1 Counter(s).
+	inferred  38 D-type flip-flop(s).
+	inferred   3 Adder/Subtractor(s).
 	inferred   3 Multiplexer(s).
 Unit <MCS> synthesized.
 
@@ -184,18 +216,26 @@ INFO:Xst:1767 - HDL ADVISOR - Resource sharing has identified that some arithmet
 HDL Synthesis Report
 
 Macro Statistics
-# Adders/Subtractors                                   : 2
+# Adders/Subtractors                                   : 6
+ 10-bit adder                                          : 1
  11-bit adder                                          : 1
- 11-bit subtractor                                     : 1
-# Counters                                             : 1
+ 11-bit subtractor                                     : 2
+ 16-bit adder                                          : 1
+ 23-bit adder                                          : 1
+# Counters                                             : 3
+ 10-bit up counter                                     : 1
  11-bit up counter                                     : 1
-# Registers                                            : 2
- 11-bit register                                       : 1
- 2-bit register                                        : 1
+ 16-bit up counter                                     : 1
+# Registers                                            : 7
+ 1-bit register                                        : 2
+ 11-bit register                                       : 2
+ 2-bit register                                        : 2
+ 23-bit register                                       : 1
 # Comparators                                          : 2
  11-bit comparator greater                             : 1
  2-bit comparator equal                                : 1
-# Multiplexers                                         : 6
+# Multiplexers                                         : 11
+ 11-bit 4-to-1 multiplexer                             : 5
  2-bit 4-to-1 multiplexer                              : 5
  3-bit 4-to-1 multiplexer                              : 1
 
@@ -205,22 +245,39 @@ Macro Statistics
 *                       Advanced HDL Synthesis                          *
 =========================================================================
 
+Analyzing FSM <FSM_0> for best encoding.
+Optimizing FSM <MotorState/FSM> on signal <MotorState[1:2]> with sequential encoding.
+-------------------
+ State | Encoding
+-------------------
+ 00    | 00
+ 01    | 10
+ 10    | 11
+ 11    | 01
+-------------------
 
 =========================================================================
 Advanced HDL Synthesis Report
 
 Macro Statistics
-# Adders/Subtractors                                   : 2
+# FSMs                                                 : 1
+# Adders/Subtractors                                   : 6
+ 10-bit adder                                          : 1
  11-bit adder                                          : 1
- 11-bit subtractor                                     : 1
-# Counters                                             : 1
+ 11-bit subtractor                                     : 2
+ 16-bit adder                                          : 1
+ 23-bit adder                                          : 1
+# Counters                                             : 3
+ 10-bit up counter                                     : 1
  11-bit up counter                                     : 1
-# Registers                                            : 13
- Flip-Flops                                            : 13
+ 16-bit up counter                                     : 1
+# Registers                                            : 51
+ Flip-Flops                                            : 51
 # Comparators                                          : 2
  11-bit comparator greater                             : 1
  2-bit comparator equal                                : 1
-# Multiplexers                                         : 5
+# Multiplexers                                         : 10
+ 11-bit 4-to-1 multiplexer                             : 5
  2-bit 4-to-1 multiplexer                              : 5
 
 =========================================================================
@@ -235,7 +292,7 @@ Optimizing unit <Encoder> ...
 
 Mapping all equations...
 Building and optimizing final netlist ...
-Found area constraint ratio of 100 (+ 5) on block MCS, actual ratio is 5.
+Found area constraint ratio of 100 (+ 5) on block MCS, actual ratio is 16.
 
 Final Macro Processing ...
 
@@ -243,8 +300,8 @@ Final Macro Processing ...
 Final Register Report
 
 Macro Statistics
-# Registers                                            : 24
- Flip-Flops                                            : 24
+# Registers                                            : 90
+ Flip-Flops                                            : 90
 
 =========================================================================
 
@@ -270,30 +327,36 @@ Optimization Goal                  : Speed
 Keep Hierarchy                     : No
 
 Design Statistics
-# IOs                              : 28
+# IOs                              : 29
 
 Cell Usage :
-# BELS                             : 161
+# BELS                             : 529
 #      GND                         : 1
-#      INV                         : 12
-#      LUT1                        : 21
-#      LUT2                        : 18
+#      INV                         : 17
+#      LUT1                        : 69
+#      LUT2                        : 19
 #      LUT2_D                      : 1
-#      LUT3                        : 5
-#      LUT3_L                      : 8
-#      LUT4                        : 17
-#      LUT4_D                      : 2
-#      LUT4_L                      : 3
-#      MUXCY                       : 39
+#      LUT2_L                      : 4
+#      LUT3                        : 54
+#      LUT4                        : 94
+#      LUT4_D                      : 3
+#      LUT4_L                      : 12
+#      MULT_AND                    : 7
+#      MUXCY                       : 125
+#      MUXF5                       : 3
 #      VCC                         : 1
-#      XORCY                       : 33
-# FlipFlops/Latches                : 24
-#      FD                          : 11
-#      FDE                         : 13
+#      XORCY                       : 119
+# FlipFlops/Latches                : 90
+#      FD                          : 48
+#      FDCE                        : 11
+#      FDE                         : 5
+#      FDR                         : 15
+#      FDRE                        : 10
+#      FDS                         : 1
 # Clock Buffers                    : 1
 #      BUFGP                       : 1
-# IO Buffers                       : 27
-#      IBUF                        : 13
+# IO Buffers                       : 28
+#      IBUF                        : 14
 #      OBUF                        : 14
 =========================================================================
 
@@ -302,11 +365,11 @@ Device utilization summary:
 
 Selected Device : 3s100etq144-4 
 
- Number of Slices:                       47  out of    960     4%  
- Number of Slice Flip Flops:             24  out of   1920     1%  
- Number of 4 input LUTs:                 87  out of   1920     4%  
- Number of IOs:                          28
- Number of bonded IOBs:                  28  out of    108    25%  
+ Number of Slices:                      143  out of    960    14%  
+ Number of Slice Flip Flops:             90  out of   1920     4%  
+ Number of 4 input LUTs:                273  out of   1920    14%  
+ Number of IOs:                          29
+ Number of bonded IOBs:                  29  out of    108    26%  
  Number of GCLKs:                         1  out of     24     4%  
 
 ---------------------------
@@ -330,21 +393,25 @@ Clock Information:
 -----------------------------------+------------------------+-------+
 Clock Signal                       | Clock buffer(FF name)  | Load  |
 -----------------------------------+------------------------+-------+
-Clk                                | BUFGP                  | 24    |
+Clk                                | BUFGP                  | 90    |
 -----------------------------------+------------------------+-------+
 
 Asynchronous Control Signals Information:
 ----------------------------------------
-No asynchronous control signals found in this design
+-----------------------------------+------------------------------------+-------+
+Control Signal                     | Buffer(FF name)                    | Load  |
+-----------------------------------+------------------------------------+-------+
+ResetNow(ResetNow:Q)               | NONE(ENCODER_part/Motor_Position_0)| 11    |
+-----------------------------------+------------------------------------+-------+
 
 Timing Summary:
 ---------------
 Speed Grade: -4
 
-   Minimum period: 6.199ns (Maximum Frequency: 161.316MHz)
-   Minimum input arrival time before clock: 7.337ns
-   Maximum output required time after clock: 8.175ns
-   Maximum combinational path delay: 8.716ns
+   Minimum period: 10.211ns (Maximum Frequency: 97.933MHz)
+   Minimum input arrival time before clock: 6.990ns
+   Maximum output required time after clock: 12.494ns
+   Maximum combinational path delay: 10.366ns
 
 Timing Detail:
 --------------
@@ -352,95 +419,109 @@ All values displayed in nanoseconds (ns)
 
 =========================================================================
 Timing constraint: Default period analysis for Clock 'Clk'
-  Clock period: 6.199ns (frequency: 161.316MHz)
-  Total number of paths / destination ports: 426 / 37
+  Clock period: 10.211ns (frequency: 97.933MHz)
+  Total number of paths / destination ports: 24510 / 142
 -------------------------------------------------------------------------
-Delay:               6.199ns (Levels of Logic = 12)
-  Source:            ENCODER_part/Motor_Position_0 (FF)
-  Destination:       ENCODER_part/Motor_Position_8 (FF)
+Delay:               10.211ns (Levels of Logic = 25)
+  Source:            MotorState_FSM_FFd2 (FF)
+  Destination:       direction (FF)
   Source Clock:      Clk rising
   Destination Clock: Clk rising
 
-  Data Path: ENCODER_part/Motor_Position_0 to ENCODER_part/Motor_Position_8
+  Data Path: MotorState_FSM_FFd2 to direction
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     FDE:C->Q              5   0.591   0.808  ENCODER_part/Motor_Position_0 (ENCODER_part/Motor_Position_0)
-     LUT1:I0->O            1   0.704   0.000  ENCODER_part/Msub_Motor_Position_addsub0000_cy<0>_rt (ENCODER_part/Msub_Motor_Position_addsub0000_cy<0>_rt)
-     MUXCY:S->O            1   0.464   0.000  ENCODER_part/Msub_Motor_Position_addsub0000_cy<0> (ENCODER_part/Msub_Motor_Position_addsub0000_cy<0>)
-     MUXCY:CI->O           1   0.059   0.000  ENCODER_part/Msub_Motor_Position_addsub0000_cy<1> (ENCODER_part/Msub_Motor_Position_addsub0000_cy<1>)
-     MUXCY:CI->O           1   0.059   0.000  ENCODER_part/Msub_Motor_Position_addsub0000_cy<2> (ENCODER_part/Msub_Motor_Position_addsub0000_cy<2>)
-     MUXCY:CI->O           1   0.059   0.000  ENCODER_part/Msub_Motor_Position_addsub0000_cy<3> (ENCODER_part/Msub_Motor_Position_addsub0000_cy<3>)
-     MUXCY:CI->O           1   0.059   0.000  ENCODER_part/Msub_Motor_Position_addsub0000_cy<4> (ENCODER_part/Msub_Motor_Position_addsub0000_cy<4>)
-     MUXCY:CI->O           1   0.059   0.000  ENCODER_part/Msub_Motor_Position_addsub0000_cy<5> (ENCODER_part/Msub_Motor_Position_addsub0000_cy<5>)
-     MUXCY:CI->O           1   0.059   0.000  ENCODER_part/Msub_Motor_Position_addsub0000_cy<6> (ENCODER_part/Msub_Motor_Position_addsub0000_cy<6>)
-     MUXCY:CI->O           1   0.059   0.000  ENCODER_part/Msub_Motor_Position_addsub0000_cy<7> (ENCODER_part/Msub_Motor_Position_addsub0000_cy<7>)
-     XORCY:CI->O           1   0.804   0.595  ENCODER_part/Msub_Motor_Position_addsub0000_xor<8> (ENCODER_part/Motor_Position_addsub0000<8>)
-     LUT3_L:I0->LO         1   0.704   0.104  ENCODER_part/Motor_Position_mux0001<2>6 (ENCODER_part/Motor_Position_mux0001<2>6)
-     LUT4:I3->O            1   0.704   0.000  ENCODER_part/Motor_Position_mux0001<2>15 (ENCODER_part/Motor_Position_mux0001<2>)
-     FDE:D                     0.308          ENCODER_part/Motor_Position_8
+     FD:C->Q              76   0.591   1.355  MotorState_FSM_FFd2 (MotorState_FSM_FFd2)
+     LUT3:I1->O            1   0.704   0.000  Madd_direction_add0000_lut<0> (Madd_direction_add0000_lut<0>)
+     MUXCY:S->O            1   0.464   0.000  Madd_direction_add0000_cy<0> (Madd_direction_add0000_cy<0>)
+     MUXCY:CI->O           1   0.059   0.000  Madd_direction_add0000_cy<1> (Madd_direction_add0000_cy<1>)
+     MUXCY:CI->O           1   0.059   0.000  Madd_direction_add0000_cy<2> (Madd_direction_add0000_cy<2>)
+     MUXCY:CI->O           1   0.059   0.000  Madd_direction_add0000_cy<3> (Madd_direction_add0000_cy<3>)
+     MUXCY:CI->O           1   0.059   0.000  Madd_direction_add0000_cy<4> (Madd_direction_add0000_cy<4>)
+     MUXCY:CI->O           1   0.059   0.000  Madd_direction_add0000_cy<5> (Madd_direction_add0000_cy<5>)
+     MUXCY:CI->O           1   0.059   0.000  Madd_direction_add0000_cy<6> (Madd_direction_add0000_cy<6>)
+     MUXCY:CI->O           1   0.059   0.000  Madd_direction_add0000_cy<7> (Madd_direction_add0000_cy<7>)
+     MUXCY:CI->O           1   0.059   0.000  Madd_direction_add0000_cy<8> (Madd_direction_add0000_cy<8>)
+     MUXCY:CI->O           1   0.059   0.000  Madd_direction_add0000_cy<9> (Madd_direction_add0000_cy<9>)
+     MUXCY:CI->O           1   0.059   0.000  Madd_direction_add0000_cy<10> (Madd_direction_add0000_cy<10>)
+     MUXCY:CI->O           1   0.059   0.000  Madd_direction_add0000_cy<11> (Madd_direction_add0000_cy<11>)
+     MUXCY:CI->O           1   0.059   0.000  Madd_direction_add0000_cy<12> (Madd_direction_add0000_cy<12>)
+     MUXCY:CI->O           1   0.059   0.000  Madd_direction_add0000_cy<13> (Madd_direction_add0000_cy<13>)
+     MUXCY:CI->O           1   0.059   0.000  Madd_direction_add0000_cy<14> (Madd_direction_add0000_cy<14>)
+     XORCY:CI->O           2   0.804   0.622  Madd_direction_add0000_xor<15> (direction_add0000<15>)
+     LUT3:I0->O            1   0.704   0.000  clk_scaler_cmp_eq0000_wg_lut<0> (clk_scaler_cmp_eq0000_wg_lut<0>)
+     MUXCY:S->O            1   0.464   0.000  clk_scaler_cmp_eq0000_wg_cy<0> (clk_scaler_cmp_eq0000_wg_cy<0>)
+     MUXCY:CI->O           1   0.059   0.000  clk_scaler_cmp_eq0000_wg_cy<1> (clk_scaler_cmp_eq0000_wg_cy<1>)
+     MUXCY:CI->O           1   0.059   0.000  clk_scaler_cmp_eq0000_wg_cy<2> (clk_scaler_cmp_eq0000_wg_cy<2>)
+     MUXCY:CI->O           1   0.059   0.000  clk_scaler_cmp_eq0000_wg_cy<3> (clk_scaler_cmp_eq0000_wg_cy<3>)
+     MUXCY:CI->O           1   0.059   0.000  clk_scaler_cmp_eq0000_wg_cy<4> (clk_scaler_cmp_eq0000_wg_cy<4>)
+     MUXCY:CI->O          21   0.459   1.303  clk_scaler_cmp_eq0000_wg_cy<5> (clk_scaler_cmp_eq0000)
+     LUT4:I0->O            1   0.704   0.420  direction_not000274 (direction_not0002)
+     FDE:CE                    0.555          direction
     ----------------------------------------
-    Total                      6.199ns (4.692ns logic, 1.507ns route)
-                                       (75.7% logic, 24.3% route)
+    Total                     10.211ns (6.511ns logic, 3.700ns route)
+                                       (63.8% logic, 36.2% route)
 
 =========================================================================
 Timing constraint: Default OFFSET IN BEFORE for Clock 'Clk'
-  Total number of paths / destination ports: 129 / 26
+  Total number of paths / destination ports: 134 / 31
 -------------------------------------------------------------------------
-Offset:              7.337ns (Levels of Logic = 5)
-  Source:            Hall_sensors<1> (PAD)
-  Destination:       ENCODER_part/Motor_Position_10 (FF)
+Offset:              6.990ns (Levels of Logic = 5)
+  Source:            Hall_sensors<0> (PAD)
+  Destination:       ENCODER_part/Motor_Position_3 (FF)
   Destination Clock: Clk rising
 
-  Data Path: Hall_sensors<1> to ENCODER_part/Motor_Position_10
+  Data Path: Hall_sensors<0> to ENCODER_part/Motor_Position_3
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     IBUF:I->O             6   1.218   0.844  Hall_sensors_1_IBUF (Hall_sensors_1_IBUF)
-     LUT2:I0->O            1   0.704   0.595  ENCODER_part/Motor_Position_mux0001<0>121_SW0 (N4)
-     LUT4_D:I0->O         10   0.704   0.961  ENCODER_part/Motor_Position_mux0001<0>41 (ENCODER_part/N3)
-     LUT2:I1->O            1   0.704   0.595  ENCODER_part/Motor_Position_mux0001<6>1 (ENCODER_part/Motor_Position_mux0001<6>1)
-     LUT4:I0->O            1   0.704   0.000  ENCODER_part/Motor_Position_mux0001<6>8 (ENCODER_part/Motor_Position_mux0001<6>)
-     FDE:D                     0.308          ENCODER_part/Motor_Position_4
+     IBUF:I->O             7   1.218   0.883  Hall_sensors_0_IBUF (Hall_sensors_0_IBUF)
+     LUT2:I0->O            6   0.704   0.704  ENCODER_part/Mmux_Motor_Position_mux00021421 (ENCODER_part/N11)
+     LUT4:I2->O            5   0.704   0.637  ENCODER_part/Mmux_Motor_Position_mux00022111 (ENCODER_part/N71)
+     LUT4:I3->O            1   0.704   0.424  ENCODER_part/Mmux_Motor_Position_mux00026325_SW0 (N80)
+     LUT4:I3->O            1   0.704   0.000  ENCODER_part/Mmux_Motor_Position_mux00026325 (ENCODER_part/Motor_Position_mux0002<7>)
+     FDCE:D                    0.308          ENCODER_part/Motor_Position_3
     ----------------------------------------
-    Total                      7.337ns (4.342ns logic, 2.995ns route)
-                                       (59.2% logic, 40.8% route)
+    Total                      6.990ns (4.342ns logic, 2.648ns route)
+                                       (62.1% logic, 37.9% route)
 
 =========================================================================
 Timing constraint: Default OFFSET OUT AFTER for Clock 'Clk'
-  Total number of paths / destination ports: 33 / 13
+  Total number of paths / destination ports: 105 / 14
 -------------------------------------------------------------------------
-Offset:              8.175ns (Levels of Logic = 12)
-  Source:            PWM_part/prescaler_0 (FF)
+Offset:              12.494ns (Levels of Logic = 13)
+  Source:            MotorState_FSM_FFd1 (FF)
   Destination:       Motor_Direction_out<1> (PAD)
   Source Clock:      Clk rising
 
-  Data Path: PWM_part/prescaler_0 to Motor_Direction_out<1>
+  Data Path: MotorState_FSM_FFd1 to Motor_Direction_out<1>
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     FD:C->Q               2   0.591   0.622  PWM_part/prescaler_0 (PWM_part/prescaler_0)
-     LUT3:I0->O            1   0.704   0.000  PWM_part/Mcompar_Pin_cmp_gt0000_lut<0> (PWM_part/Mcompar_Pin_cmp_gt0000_lut<0>)
-     MUXCY:S->O            1   0.464   0.000  PWM_part/Mcompar_Pin_cmp_gt0000_cy<0> (PWM_part/Mcompar_Pin_cmp_gt0000_cy<0>)
-     MUXCY:CI->O           1   0.059   0.000  PWM_part/Mcompar_Pin_cmp_gt0000_cy<1> (PWM_part/Mcompar_Pin_cmp_gt0000_cy<1>)
+     FD:C->Q              84   0.591   1.454  MotorState_FSM_FFd1 (MotorState_FSM_FFd1)
+     LUT2:I0->O           15   0.704   1.017  PWM_signal<0>11 (PWM_signal<0>_mand)
+     MULT_AND:I1->LO       0   0.741   0.000  PWM_signal<0>_mand (PWM_signal<0>_mand1)
+     MUXCY:DI->O           1   0.888   0.000  PWM_part/Mcompar_Pin_cmp_gt0000_cy<1> (PWM_part/Mcompar_Pin_cmp_gt0000_cy<1>)
      MUXCY:CI->O           1   0.059   0.000  PWM_part/Mcompar_Pin_cmp_gt0000_cy<2> (PWM_part/Mcompar_Pin_cmp_gt0000_cy<2>)
      MUXCY:CI->O           1   0.059   0.000  PWM_part/Mcompar_Pin_cmp_gt0000_cy<3> (PWM_part/Mcompar_Pin_cmp_gt0000_cy<3>)
      MUXCY:CI->O           1   0.059   0.000  PWM_part/Mcompar_Pin_cmp_gt0000_cy<4> (PWM_part/Mcompar_Pin_cmp_gt0000_cy<4>)
      MUXCY:CI->O           1   0.059   0.000  PWM_part/Mcompar_Pin_cmp_gt0000_cy<5> (PWM_part/Mcompar_Pin_cmp_gt0000_cy<5>)
      MUXCY:CI->O           1   0.059   0.000  PWM_part/Mcompar_Pin_cmp_gt0000_cy<6> (PWM_part/Mcompar_Pin_cmp_gt0000_cy<6>)
      MUXCY:CI->O           1   0.059   0.000  PWM_part/Mcompar_Pin_cmp_gt0000_cy<7> (PWM_part/Mcompar_Pin_cmp_gt0000_cy<7>)
-     MUXCY:CI->O           2   0.459   0.526  PWM_part/Mcompar_Pin_cmp_gt0000_cy<8> (PWM_part/Mcompar_Pin_cmp_gt0000_cy<8>)
-     LUT3:I1->O            1   0.704   0.420  Mmux_Motor_Direction_out21 (Motor_Direction_out_1_OBUF)
+     MUXCY:CI->O           4   0.459   0.762  PWM_part/Mcompar_Pin_cmp_gt0000_cy<8> (PWM_part/Mcompar_Pin_cmp_gt0000_cy<8>)
+     LUT3:I0->O            1   0.704   0.424  Motor_Direction_out<1>_SW2 (N74)
+     LUT4:I3->O            1   0.704   0.420  Motor_Direction_out<1> (Motor_Direction_out_1_OBUF)
      OBUF:I->O                 3.272          Motor_Direction_out_1_OBUF (Motor_Direction_out<1>)
     ----------------------------------------
-    Total                      8.175ns (6.607ns logic, 1.568ns route)
-                                       (80.8% logic, 19.2% route)
+    Total                     12.494ns (8.417ns logic, 4.077ns route)
+                                       (67.4% logic, 32.6% route)
 
 =========================================================================
 Timing constraint: Default path analysis
   Total number of paths / destination ports: 38 / 3
 -------------------------------------------------------------------------
-Delay:               8.716ns (Levels of Logic = 12)
+Delay:               10.366ns (Levels of Logic = 13)
   Source:            PWM_duty<0> (PAD)
   Destination:       Motor_Direction_out<1> (PAD)
 
@@ -448,31 +529,32 @@ Delay:               8.716ns (Levels of Logic = 12)
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     IBUF:I->O             1   1.218   0.595  PWM_duty_0_IBUF (PWM_duty_0_IBUF)
-     LUT2:I0->O            1   0.704   0.000  PWM_part/Mcompar_Pin_cmp_gt0000_lut<1> (PWM_part/Mcompar_Pin_cmp_gt0000_lut<1>)
-     MUXCY:S->O            1   0.464   0.000  PWM_part/Mcompar_Pin_cmp_gt0000_cy<1> (PWM_part/Mcompar_Pin_cmp_gt0000_cy<1>)
+     IBUF:I->O             1   1.218   0.420  PWM_duty_0_IBUF (PWM_duty_0_IBUF)
+     MULT_AND:I0->LO       0   0.741   0.000  PWM_signal<0>_mand (PWM_signal<0>_mand1)
+     MUXCY:DI->O           1   0.888   0.000  PWM_part/Mcompar_Pin_cmp_gt0000_cy<1> (PWM_part/Mcompar_Pin_cmp_gt0000_cy<1>)
      MUXCY:CI->O           1   0.059   0.000  PWM_part/Mcompar_Pin_cmp_gt0000_cy<2> (PWM_part/Mcompar_Pin_cmp_gt0000_cy<2>)
      MUXCY:CI->O           1   0.059   0.000  PWM_part/Mcompar_Pin_cmp_gt0000_cy<3> (PWM_part/Mcompar_Pin_cmp_gt0000_cy<3>)
      MUXCY:CI->O           1   0.059   0.000  PWM_part/Mcompar_Pin_cmp_gt0000_cy<4> (PWM_part/Mcompar_Pin_cmp_gt0000_cy<4>)
      MUXCY:CI->O           1   0.059   0.000  PWM_part/Mcompar_Pin_cmp_gt0000_cy<5> (PWM_part/Mcompar_Pin_cmp_gt0000_cy<5>)
      MUXCY:CI->O           1   0.059   0.000  PWM_part/Mcompar_Pin_cmp_gt0000_cy<6> (PWM_part/Mcompar_Pin_cmp_gt0000_cy<6>)
      MUXCY:CI->O           1   0.059   0.000  PWM_part/Mcompar_Pin_cmp_gt0000_cy<7> (PWM_part/Mcompar_Pin_cmp_gt0000_cy<7>)
-     MUXCY:CI->O           2   0.459   0.526  PWM_part/Mcompar_Pin_cmp_gt0000_cy<8> (PWM_part/Mcompar_Pin_cmp_gt0000_cy<8>)
-     LUT3:I1->O            1   0.704   0.420  Mmux_Motor_Direction_out21 (Motor_Direction_out_1_OBUF)
+     MUXCY:CI->O           4   0.459   0.762  PWM_part/Mcompar_Pin_cmp_gt0000_cy<8> (PWM_part/Mcompar_Pin_cmp_gt0000_cy<8>)
+     LUT3:I0->O            1   0.704   0.424  Motor_Direction_out<1>_SW2 (N74)
+     LUT4:I3->O            1   0.704   0.420  Motor_Direction_out<1> (Motor_Direction_out_1_OBUF)
      OBUF:I->O                 3.272          Motor_Direction_out_1_OBUF (Motor_Direction_out<1>)
     ----------------------------------------
-    Total                      8.716ns (7.175ns logic, 1.541ns route)
-                                       (82.3% logic, 17.7% route)
+    Total                     10.366ns (8.340ns logic, 2.026ns route)
+                                       (80.5% logic, 19.5% route)
 
 =========================================================================
 
 
-Total REAL time to Xst completion: 9.00 secs
-Total CPU time to Xst completion: 9.70 secs
+Total REAL time to Xst completion: 12.00 secs
+Total CPU time to Xst completion: 11.75 secs
  
 --> 
 
-Total memory usage is 263012 kilobytes
+Total memory usage is 270180 kilobytes
 
 Number of errors   :    0 (   0 filtered)
 Number of warnings :    0 (   0 filtered)

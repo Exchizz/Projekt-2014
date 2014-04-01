@@ -1,0 +1,616 @@
+Release 14.7 - xst P.20131013 (nt64)
+Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+--> Parameter TMPDIR set to xst/projnav.tmp
+
+
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.11 secs
+ 
+--> Parameter xsthdpdir set to xst
+
+
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.11 secs
+ 
+--> Reading design: fpga_main.prj
+
+TABLE OF CONTENTS
+  1) Synthesis Options Summary
+  2) HDL Compilation
+  3) Design Hierarchy Analysis
+  4) HDL Analysis
+  5) HDL Synthesis
+     5.1) HDL Synthesis Report
+  6) Advanced HDL Synthesis
+     6.1) Advanced HDL Synthesis Report
+  7) Low Level Synthesis
+  8) Partition Report
+  9) Final Report
+	9.1) Device utilization summary
+	9.2) Partition Resource Summary
+	9.3) TIMING REPORT
+
+
+=========================================================================
+*                      Synthesis Options Summary                        *
+=========================================================================
+---- Source Parameters
+Input File Name                    : "fpga_main.prj"
+Input Format                       : mixed
+Ignore Synthesis Constraint File   : NO
+
+---- Target Parameters
+Output File Name                   : "fpga_main"
+Output Format                      : NGC
+Target Device                      : xc3s100e-4-tq144
+
+---- Source Options
+Top Module Name                    : fpga_main
+Automatic FSM Extraction           : YES
+FSM Encoding Algorithm             : Auto
+Safe Implementation                : No
+FSM Style                          : LUT
+RAM Extraction                     : Yes
+RAM Style                          : Auto
+ROM Extraction                     : Yes
+Mux Style                          : Auto
+Decoder Extraction                 : YES
+Priority Encoder Extraction        : Yes
+Shift Register Extraction          : YES
+Logical Shifter Extraction         : YES
+XOR Collapsing                     : YES
+ROM Style                          : Auto
+Mux Extraction                     : Yes
+Resource Sharing                   : YES
+Asynchronous To Synchronous        : NO
+Multiplier Style                   : Auto
+Automatic Register Balancing       : No
+
+---- Target Options
+Add IO Buffers                     : YES
+Global Maximum Fanout              : 100000
+Add Generic Clock Buffer(BUFG)     : 24
+Register Duplication               : YES
+Slice Packing                      : YES
+Optimize Instantiated Primitives   : NO
+Use Clock Enable                   : Yes
+Use Synchronous Set                : Yes
+Use Synchronous Reset              : Yes
+Pack IO Registers into IOBs        : Auto
+Equivalent register Removal        : YES
+
+---- General Options
+Optimization Goal                  : Speed
+Optimization Effort                : 1
+Keep Hierarchy                     : No
+Netlist Hierarchy                  : As_Optimized
+RTL Output                         : Yes
+Global Optimization                : AllClockNets
+Read Cores                         : YES
+Write Timing Constraints           : NO
+Cross Clock Analysis               : NO
+Hierarchy Separator                : /
+Bus Delimiter                      : <>
+Case Specifier                     : Maintain
+Slice Utilization Ratio            : 100
+BRAM Utilization Ratio             : 100
+Verilog 2001                       : YES
+Auto BRAM Packing                  : NO
+Slice Utilization Ratio Delta      : 5
+
+=========================================================================
+
+
+=========================================================================
+*                          HDL Compilation                              *
+=========================================================================
+Compiling vhdl file "C:/Users/Lukas Schwartz/Documents/GitHub/Projekt-2014/PWM/PWM.vhd" in Library work.
+Architecture behavioral of Entity pwm is up to date.
+Compiling vhdl file "C:/Users/Lukas Schwartz/Documents/GitHub/Projekt-2014/Encoder/encoder.vhd" in Library work.
+Architecture behavioral of Entity encoder is up to date.
+Compiling vhdl file "C:/Users/Lukas Schwartz/Documents/GitHub/Projekt-2014/MotorControlSystem/MCS.vhd" in Library work.
+Entity <mcs> compiled.
+Entity <mcs> (Architecture <behavioral>) compiled.
+Compiling vhdl file "C:/Users/Lukas Schwartz/Documents/GitHub/Projekt-2014/Encoder/DisplayHex.vhd" in Library work.
+Architecture behavioral of Entity displayhex is up to date.
+Compiling vhdl file "C:/Users/Lukas Schwartz/Documents/GitHub/Projekt-2014/Encoder/DisplaySelect_4.vhd" in Library work.
+Architecture behavioral of Entity displayselect_4_7segdisp is up to date.
+Compiling vhdl file "C:/Users/Lukas Schwartz/Documents/GitHub/Projekt-2014/FPGA/fpga_main.vhd" in Library work.
+Architecture behavioral of Entity fpga_main is up to date.
+
+=========================================================================
+*                     Design Hierarchy Analysis                         *
+=========================================================================
+Analyzing hierarchy for entity <fpga_main> in library <work> (architecture <behavioral>).
+
+Analyzing hierarchy for entity <MCS> in library <work> (architecture <behavioral>).
+
+Analyzing hierarchy for entity <DisplayHex> in library <work> (architecture <behavioral>).
+
+Analyzing hierarchy for entity <DisplaySelect_4_7segDisp> in library <work> (architecture <behavioral>).
+
+Analyzing hierarchy for entity <PWM> in library <work> (architecture <behavioral>).
+
+Analyzing hierarchy for entity <Encoder> in library <work> (architecture <behavioral>).
+
+
+=========================================================================
+*                            HDL Analysis                               *
+=========================================================================
+Analyzing Entity <fpga_main> in library <work> (Architecture <behavioral>).
+Entity <fpga_main> analyzed. Unit <fpga_main> generated.
+
+Analyzing Entity <MCS> in library <work> (Architecture <behavioral>).
+Entity <MCS> analyzed. Unit <MCS> generated.
+
+Analyzing Entity <PWM> in library <work> (Architecture <behavioral>).
+Entity <PWM> analyzed. Unit <PWM> generated.
+
+Analyzing Entity <Encoder> in library <work> (Architecture <behavioral>).
+Entity <Encoder> analyzed. Unit <Encoder> generated.
+
+Analyzing Entity <DisplayHex> in library <work> (Architecture <behavioral>).
+Entity <DisplayHex> analyzed. Unit <DisplayHex> generated.
+
+Analyzing Entity <DisplaySelect_4_7segDisp> in library <work> (Architecture <behavioral>).
+Entity <DisplaySelect_4_7segDisp> analyzed. Unit <DisplaySelect_4_7segDisp> generated.
+
+
+=========================================================================
+*                           HDL Synthesis                               *
+=========================================================================
+
+Performing bidirectional port resolution...
+
+Synthesizing Unit <DisplayHex>.
+    Related source file is "C:/Users/Lukas Schwartz/Documents/GitHub/Projekt-2014/Encoder/DisplayHex.vhd".
+    Found 1-bit xor2 for signal <Segment_0$xor0000> created at line 35.
+    Found 1-bit xor2 for signal <Segment_0$xor0001> created at line 35.
+    Found 1-bit xor2 for signal <Segment_1$xor0000> created at line 38.
+    Found 1-bit xor2 for signal <Segment_2$xor0000> created at line 42.
+Unit <DisplayHex> synthesized.
+
+
+Synthesizing Unit <DisplaySelect_4_7segDisp>.
+    Related source file is "C:/Users/Lukas Schwartz/Documents/GitHub/Projekt-2014/Encoder/DisplaySelect_4.vhd".
+    Found 1-of-4 decoder for signal <DisplayAN>.
+    Found 5-bit 4-to-1 multiplexer for signal <DisplayPart>.
+    Found 2-bit up counter for signal <Display_State>.
+    Found 10-bit adder for signal <Display_State$addsub0000> created at line 43.
+    Found 10-bit up counter for signal <time_count>.
+    Summary:
+	inferred   2 Counter(s).
+	inferred   1 Adder/Subtractor(s).
+	inferred   5 Multiplexer(s).
+	inferred   1 Decoder(s).
+Unit <DisplaySelect_4_7segDisp> synthesized.
+
+
+Synthesizing Unit <PWM>.
+    Related source file is "C:/Users/Lukas Schwartz/Documents/GitHub/Projekt-2014/PWM/PWM.vhd".
+    Found 11-bit comparator greater for signal <Pin$cmp_gt0000> created at line 70.
+    Found 11-bit up counter for signal <prescaler>.
+    Summary:
+	inferred   1 Counter(s).
+	inferred   1 Comparator(s).
+Unit <PWM> synthesized.
+
+
+Synthesizing Unit <Encoder>.
+    Related source file is "C:/Users/Lukas Schwartz/Documents/GitHub/Projekt-2014/Encoder/encoder.vhd".
+    Found 16-bit up counter for signal <clk_scaler>.
+    Found 2-bit register for signal <last_hall>.
+    Found 16-bit adder for signal <last_hall$add0000> created at line 32.
+    Found 2-bit comparator equal for signal <last_hall$cmp_eq0009> created at line 38.
+    Found 2-bit 4-to-1 multiplexer for signal <last_hall$mux0000> created at line 39.
+    Found 2-bit 4-to-1 multiplexer for signal <last_hall$mux0001> created at line 41.
+    Found 2-bit 4-to-1 multiplexer for signal <last_hall$mux0002> created at line 61.
+    Found 2-bit 4-to-1 multiplexer for signal <last_hall$mux0003> created at line 81.
+    Found 2-bit 4-to-1 multiplexer for signal <last_hall$mux0004> created at line 101.
+    Found 11-bit register for signal <Motor_Position>.
+    Found 11-bit subtractor for signal <Motor_Position$addsub0000> created at line 55.
+    Found 11-bit adder for signal <Motor_Position$addsub0001> created at line 46.
+    Found 11-bit 4-to-1 multiplexer for signal <Motor_Position$mux0002> created at line 39.
+    Found 11-bit 4-to-1 multiplexer for signal <Motor_Position$mux0003> created at line 41.
+    Found 11-bit 4-to-1 multiplexer for signal <Motor_Position$mux0004> created at line 61.
+    Found 11-bit 4-to-1 multiplexer for signal <Motor_Position$mux0005> created at line 81.
+    Found 11-bit 4-to-1 multiplexer for signal <Motor_Position$mux0006> created at line 101.
+    Summary:
+	inferred   1 Counter(s).
+	inferred  13 D-type flip-flop(s).
+	inferred   3 Adder/Subtractor(s).
+	inferred   1 Comparator(s).
+	inferred  65 Multiplexer(s).
+Unit <Encoder> synthesized.
+
+
+Synthesizing Unit <MCS>.
+    Related source file is "C:/Users/Lukas Schwartz/Documents/GitHub/Projekt-2014/MotorControlSystem/MCS.vhd".
+    Found finite state machine <FSM_0> for signal <MotorState>.
+    -----------------------------------------------------------------------
+    | States             | 4                                              |
+    | Transitions        | 9                                              |
+    | Inputs             | 3                                              |
+    | Outputs            | 5                                              |
+    | Clock              | Clk                       (rising_edge)        |
+    | Power Up State     | 00                                             |
+    | Encoding           | automatic                                      |
+    | Implementation     | LUT                                            |
+    -----------------------------------------------------------------------
+    Found 23-bit register for signal <clk_scaler>.
+    Found 1-bit register for signal <direction>.
+    Found 23-bit adder for signal <direction$add0000> created at line 132.
+    Found 11-bit comparator greatequal for signal <direction$cmp_ge0000> created at line 155.
+    Found 11-bit register for signal <last_position>.
+    Found 2-bit register for signal <Motor_Dir_out_reset>.
+    Found 3-bit 4-to-1 multiplexer for signal <Motor_Dir_out_run>.
+    Found 10-bit adder for signal <MotorState$add0000> created at line 114.
+    Found 11-bit subtractor for signal <position_change$mux0000> created at line 149.
+    Found 1-bit register for signal <ResetNow>.
+    Found 10-bit up counter for signal <wait_signal>.
+    Summary:
+	inferred   1 Finite State Machine(s).
+	inferred   1 Counter(s).
+	inferred  38 D-type flip-flop(s).
+	inferred   3 Adder/Subtractor(s).
+	inferred   1 Comparator(s).
+	inferred   3 Multiplexer(s).
+Unit <MCS> synthesized.
+
+
+Synthesizing Unit <fpga_main>.
+    Related source file is "C:/Users/Lukas Schwartz/Documents/GitHub/Projekt-2014/FPGA/fpga_main.vhd".
+Unit <fpga_main> synthesized.
+
+INFO:Xst:1767 - HDL ADVISOR - Resource sharing has identified that some arithmetic operations in this design can share the same physical resources for reduced device utilization. For improved clock frequency you may try to disable resource sharing.
+
+=========================================================================
+HDL Synthesis Report
+
+Macro Statistics
+# Adders/Subtractors                                   : 13
+ 10-bit adder                                          : 3
+ 11-bit adder                                          : 2
+ 11-bit subtractor                                     : 4
+ 16-bit adder                                          : 2
+ 23-bit adder                                          : 2
+# Counters                                             : 8
+ 10-bit up counter                                     : 3
+ 11-bit up counter                                     : 2
+ 16-bit up counter                                     : 2
+ 2-bit up counter                                      : 1
+# Registers                                            : 14
+ 1-bit register                                        : 4
+ 11-bit register                                       : 4
+ 2-bit register                                        : 4
+ 23-bit register                                       : 2
+# Comparators                                          : 6
+ 11-bit comparator greatequal                          : 2
+ 11-bit comparator greater                             : 2
+ 2-bit comparator equal                                : 2
+# Multiplexers                                         : 23
+ 11-bit 4-to-1 multiplexer                             : 10
+ 2-bit 4-to-1 multiplexer                              : 10
+ 3-bit 4-to-1 multiplexer                              : 2
+ 5-bit 4-to-1 multiplexer                              : 1
+# Decoders                                             : 1
+ 1-of-4 decoder                                        : 1
+# Xors                                                 : 4
+ 1-bit xor2                                            : 4
+
+=========================================================================
+
+=========================================================================
+*                       Advanced HDL Synthesis                          *
+=========================================================================
+
+Analyzing FSM <FSM_0> for best encoding.
+Optimizing FSM <MCS_A/MotorState/FSM> on signal <MotorState[1:2]> with sequential encoding.
+Optimizing FSM <MCS_B/MotorState/FSM> on signal <MotorState[1:2]> with sequential encoding.
+-------------------
+ State | Encoding
+-------------------
+ 00    | 00
+ 01    | 10
+ 10    | 11
+ 11    | 01
+-------------------
+
+=========================================================================
+Advanced HDL Synthesis Report
+
+Macro Statistics
+# FSMs                                                 : 1
+# Adders/Subtractors                                   : 13
+ 10-bit adder                                          : 3
+ 11-bit adder                                          : 2
+ 11-bit subtractor                                     : 4
+ 16-bit adder                                          : 2
+ 23-bit adder                                          : 2
+# Counters                                             : 8
+ 10-bit up counter                                     : 3
+ 11-bit up counter                                     : 2
+ 16-bit up counter                                     : 2
+ 2-bit up counter                                      : 1
+# Registers                                            : 102
+ Flip-Flops                                            : 102
+# Comparators                                          : 6
+ 11-bit comparator greatequal                          : 2
+ 11-bit comparator greater                             : 2
+ 2-bit comparator equal                                : 2
+# Multiplexers                                         : 21
+ 11-bit 4-to-1 multiplexer                             : 10
+ 2-bit 4-to-1 multiplexer                              : 10
+ 5-bit 4-to-1 multiplexer                              : 1
+# Decoders                                             : 1
+ 1-of-4 decoder                                        : 1
+# Xors                                                 : 4
+ 1-bit xor2                                            : 4
+
+=========================================================================
+
+=========================================================================
+*                         Low Level Synthesis                           *
+=========================================================================
+
+Optimizing unit <fpga_main> ...
+
+Optimizing unit <Encoder> ...
+
+Optimizing unit <MCS> ...
+
+Mapping all equations...
+Building and optimizing final netlist ...
+Found area constraint ratio of 100 (+ 5) on block fpga_main, actual ratio is 35.
+
+Final Macro Processing ...
+
+=========================================================================
+Final Register Report
+
+Macro Statistics
+# Registers                                            : 192
+ Flip-Flops                                            : 192
+
+=========================================================================
+
+=========================================================================
+*                           Partition Report                            *
+=========================================================================
+
+Partition Implementation Status
+-------------------------------
+
+  No Partitions were found in this design.
+
+-------------------------------
+
+=========================================================================
+*                            Final Report                               *
+=========================================================================
+Final Results
+RTL Top Level Output File Name     : fpga_main.ngr
+Top Level Output File Name         : fpga_main
+Output Format                      : NGC
+Optimization Goal                  : Speed
+Keep Hierarchy                     : No
+
+Design Statistics
+# IOs                              : 37
+
+Cell Usage :
+# BELS                             : 1162
+#      GND                         : 1
+#      INV                         : 39
+#      LUT1                        : 156
+#      LUT2                        : 47
+#      LUT2_D                      : 2
+#      LUT2_L                      : 4
+#      LUT3                        : 110
+#      LUT3_L                      : 2
+#      LUT4                        : 215
+#      LUT4_D                      : 4
+#      LUT4_L                      : 23
+#      MULT_AND                    : 14
+#      MUXCY                       : 276
+#      MUXF5                       : 10
+#      VCC                         : 1
+#      XORCY                       : 258
+# FlipFlops/Latches                : 192
+#      FD                          : 106
+#      FDCE                        : 22
+#      FDE                         : 8
+#      FDR                         : 30
+#      FDRE                        : 20
+#      FDS                         : 6
+# Clock Buffers                    : 1
+#      BUFGP                       : 1
+# IO Buffers                       : 36
+#      IBUF                        : 18
+#      OBUF                        : 18
+=========================================================================
+
+Device utilization summary:
+---------------------------
+
+Selected Device : 3s100etq144-4 
+
+ Number of Slices:                      314  out of    960    32%  
+ Number of Slice Flip Flops:            192  out of   1920    10%  
+ Number of 4 input LUTs:                602  out of   1920    31%  
+ Number of IOs:                          37
+ Number of bonded IOBs:                  37  out of    108    34%  
+ Number of GCLKs:                         1  out of     24     4%  
+
+---------------------------
+Partition Resource Summary:
+---------------------------
+
+  No Partitions were found in this design.
+
+---------------------------
+
+
+=========================================================================
+TIMING REPORT
+
+NOTE: THESE TIMING NUMBERS ARE ONLY A SYNTHESIS ESTIMATE.
+      FOR ACCURATE TIMING INFORMATION PLEASE REFER TO THE TRACE REPORT
+      GENERATED AFTER PLACE-and-ROUTE.
+
+Clock Information:
+------------------
+-----------------------------------+------------------------+-------+
+Clock Signal                       | Clock buffer(FF name)  | Load  |
+-----------------------------------+------------------------+-------+
+Clk                                | BUFGP                  | 192   |
+-----------------------------------+------------------------+-------+
+
+Asynchronous Control Signals Information:
+----------------------------------------
+-----------------------------------+------------------------------------------+-------+
+Control Signal                     | Buffer(FF name)                          | Load  |
+-----------------------------------+------------------------------------------+-------+
+MCS_A/ResetNow(MCS_A/ResetNow:Q)   | NONE(MCS_A/ENCODER_part/Motor_Position_0)| 11    |
+MCS_B/ResetNow(MCS_B/ResetNow:Q)   | NONE(MCS_B/ENCODER_part/Motor_Position_0)| 11    |
+-----------------------------------+------------------------------------------+-------+
+
+Timing Summary:
+---------------
+Speed Grade: -4
+
+   Minimum period: 10.795ns (Maximum Frequency: 92.639MHz)
+   Minimum input arrival time before clock: 7.051ns
+   Maximum output required time after clock: 12.388ns
+   Maximum combinational path delay: 10.253ns
+
+Timing Detail:
+--------------
+All values displayed in nanoseconds (ns)
+
+=========================================================================
+Timing constraint: Default period analysis for Clock 'Clk'
+  Clock period: 10.795ns (frequency: 92.639MHz)
+  Total number of paths / destination ports: 49418 / 298
+-------------------------------------------------------------------------
+Delay:               10.795ns (Levels of Logic = 8)
+  Source:            MCS_B/MotorState_FSM_FFd1 (FF)
+  Destination:       MCS_B/direction (FF)
+  Source Clock:      Clk rising
+  Destination Clock: Clk rising
+
+  Data Path: MCS_B/MotorState_FSM_FFd1 to MCS_B/direction
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FD:C->Q              84   0.591   1.454  MCS_B/MotorState_FSM_FFd1 (MCS_B/MotorState_FSM_FFd1)
+     LUT2_D:I0->O          9   0.704   0.824  MCS_B/MotorState_FSM_FFd2-In11 (MCS_B/N10)
+     LUT4:I3->O            1   0.704   0.424  MCS_B/position_change_mux0001<9>1 (MCS_B/position_change_mux0001<9>)
+     LUT4:I3->O            1   0.704   0.000  MCS_B/Msub_position_change_mux0000_lut<9> (MCS_B/Msub_position_change_mux0000_lut<9>)
+     MUXCY:S->O            0   0.464   0.000  MCS_B/Msub_position_change_mux0000_cy<9> (MCS_B/Msub_position_change_mux0000_cy<9>)
+     XORCY:CI->O           1   0.804   0.420  MCS_B/Msub_position_change_mux0000_xor<10> (MCS_B/position_change_mux0000<10>)
+     INV:I->O              1   0.704   0.000  MCS_B/Mcompar_direction_cmp_ge0000_lut<3>_INV_0 (MCS_B/Mcompar_direction_cmp_ge0000_lut<3>)
+     MUXCY:S->O            1   0.864   0.455  MCS_B/Mcompar_direction_cmp_ge0000_cy<3> (MCS_B/direction_cmp_ge0000)
+     LUT3:I2->O            1   0.704   0.420  MCS_B/direction_not00021 (MCS_B/direction_not0002)
+     FDE:CE                    0.555          MCS_B/direction
+    ----------------------------------------
+    Total                     10.795ns (6.798ns logic, 3.997ns route)
+                                       (63.0% logic, 37.0% route)
+
+=========================================================================
+Timing constraint: Default OFFSET IN BEFORE for Clock 'Clk'
+  Total number of paths / destination ports: 276 / 62
+-------------------------------------------------------------------------
+Offset:              7.051ns (Levels of Logic = 5)
+  Source:            HallB<1> (PAD)
+  Destination:       MCS_B/ENCODER_part/Motor_Position_0 (FF)
+  Destination Clock: Clk rising
+
+  Data Path: HallB<1> to MCS_B/ENCODER_part/Motor_Position_0
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     IBUF:I->O             6   1.218   0.844  HallB_1_IBUF (HallB_1_IBUF)
+     LUT2:I0->O            6   0.704   0.704  MCS_B/ENCODER_part/Mmux_Motor_Position_mux00021411 (MCS_B/ENCODER_part/N01)
+     LUT4_D:I2->O         10   0.704   0.886  MCS_B/ENCODER_part/Mmux_Motor_Position_mux000214542 (MCS_B/ENCODER_part/N6)
+     LUT4_L:I3->LO         1   0.704   0.275  MCS_B/ENCODER_part/Mmux_Motor_Position_mux0002568_SW0 (N140)
+     LUT4:I0->O            1   0.704   0.000  MCS_B/ENCODER_part/Mmux_Motor_Position_mux0002568 (MCS_B/ENCODER_part/Motor_Position_mux0002<6>)
+     FDCE:D                    0.308          MCS_B/ENCODER_part/Motor_Position_4
+    ----------------------------------------
+    Total                      7.051ns (4.342ns logic, 2.709ns route)
+                                       (61.6% logic, 38.4% route)
+
+=========================================================================
+Timing constraint: Default OFFSET OUT AFTER for Clock 'Clk'
+  Total number of paths / destination ports: 539 / 17
+-------------------------------------------------------------------------
+Offset:              12.388ns (Levels of Logic = 13)
+  Source:            MCS_A/MotorState_FSM_FFd1 (FF)
+  Destination:       MotorA<1> (PAD)
+  Source Clock:      Clk rising
+
+  Data Path: MCS_A/MotorState_FSM_FFd1 to MotorA<1>
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FD:C->Q              84   0.591   1.454  MCS_A/MotorState_FSM_FFd1 (MCS_A/MotorState_FSM_FFd1)
+     LUT2:I0->O           17   0.704   1.051  MCS_A/PWM_signal<0>11 (MCS_A/PWM_signal<0>_mand)
+     MULT_AND:I1->LO       0   0.741   0.000  MCS_A/PWM_signal<0>_mand (MCS_A/PWM_signal<0>_mand1)
+     MUXCY:DI->O           1   0.888   0.000  MCS_A/PWM_part/Mcompar_Pin_cmp_gt0000_cy<1> (MCS_A/PWM_part/Mcompar_Pin_cmp_gt0000_cy<1>)
+     MUXCY:CI->O           1   0.059   0.000  MCS_A/PWM_part/Mcompar_Pin_cmp_gt0000_cy<2> (MCS_A/PWM_part/Mcompar_Pin_cmp_gt0000_cy<2>)
+     MUXCY:CI->O           1   0.059   0.000  MCS_A/PWM_part/Mcompar_Pin_cmp_gt0000_cy<3> (MCS_A/PWM_part/Mcompar_Pin_cmp_gt0000_cy<3>)
+     MUXCY:CI->O           1   0.059   0.000  MCS_A/PWM_part/Mcompar_Pin_cmp_gt0000_cy<4> (MCS_A/PWM_part/Mcompar_Pin_cmp_gt0000_cy<4>)
+     MUXCY:CI->O           1   0.059   0.000  MCS_A/PWM_part/Mcompar_Pin_cmp_gt0000_cy<5> (MCS_A/PWM_part/Mcompar_Pin_cmp_gt0000_cy<5>)
+     MUXCY:CI->O           1   0.059   0.000  MCS_A/PWM_part/Mcompar_Pin_cmp_gt0000_cy<6> (MCS_A/PWM_part/Mcompar_Pin_cmp_gt0000_cy<6>)
+     MUXCY:CI->O           1   0.059   0.000  MCS_A/PWM_part/Mcompar_Pin_cmp_gt0000_cy<7> (MCS_A/PWM_part/Mcompar_Pin_cmp_gt0000_cy<7>)
+     MUXCY:CI->O           4   0.459   0.622  MCS_A/PWM_part/Mcompar_Pin_cmp_gt0000_cy<8> (MCS_A/PWM_part/Mcompar_Pin_cmp_gt0000_cy<8>)
+     LUT3:I2->O            1   0.704   0.424  MCS_A/Motor_Direction_out<1>_SW2 (N164)
+     LUT4:I3->O            1   0.704   0.420  MCS_A/Motor_Direction_out<1> (MotorA_1_OBUF)
+     OBUF:I->O                 3.272          MotorA_1_OBUF (MotorA<1>)
+    ----------------------------------------
+    Total                     12.388ns (8.417ns logic, 3.971ns route)
+                                       (67.9% logic, 32.1% route)
+
+=========================================================================
+Timing constraint: Default path analysis
+  Total number of paths / destination ports: 111 / 13
+-------------------------------------------------------------------------
+Delay:               10.253ns (Levels of Logic = 13)
+  Source:            SW<0> (PAD)
+  Destination:       MotorA<1> (PAD)
+
+  Data Path: SW<0> to MotorA<1>
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     IBUF:I->O             2   1.218   0.447  SW_0_IBUF (SW_0_IBUF)
+     MULT_AND:I0->LO       0   0.741   0.000  MCS_B/PWM_signal<0>_mand (MCS_B/PWM_signal<0>_mand1)
+     MUXCY:DI->O           1   0.888   0.000  MCS_B/PWM_part/Mcompar_Pin_cmp_gt0000_cy<1> (MCS_B/PWM_part/Mcompar_Pin_cmp_gt0000_cy<1>)
+     MUXCY:CI->O           1   0.059   0.000  MCS_B/PWM_part/Mcompar_Pin_cmp_gt0000_cy<2> (MCS_B/PWM_part/Mcompar_Pin_cmp_gt0000_cy<2>)
+     MUXCY:CI->O           1   0.059   0.000  MCS_B/PWM_part/Mcompar_Pin_cmp_gt0000_cy<3> (MCS_B/PWM_part/Mcompar_Pin_cmp_gt0000_cy<3>)
+     MUXCY:CI->O           1   0.059   0.000  MCS_B/PWM_part/Mcompar_Pin_cmp_gt0000_cy<4> (MCS_B/PWM_part/Mcompar_Pin_cmp_gt0000_cy<4>)
+     MUXCY:CI->O           1   0.059   0.000  MCS_B/PWM_part/Mcompar_Pin_cmp_gt0000_cy<5> (MCS_B/PWM_part/Mcompar_Pin_cmp_gt0000_cy<5>)
+     MUXCY:CI->O           1   0.059   0.000  MCS_B/PWM_part/Mcompar_Pin_cmp_gt0000_cy<6> (MCS_B/PWM_part/Mcompar_Pin_cmp_gt0000_cy<6>)
+     MUXCY:CI->O           1   0.059   0.000  MCS_B/PWM_part/Mcompar_Pin_cmp_gt0000_cy<7> (MCS_B/PWM_part/Mcompar_Pin_cmp_gt0000_cy<7>)
+     MUXCY:CI->O           4   0.459   0.622  MCS_B/PWM_part/Mcompar_Pin_cmp_gt0000_cy<8> (MCS_B/PWM_part/Mcompar_Pin_cmp_gt0000_cy<8>)
+     LUT3:I2->O            1   0.704   0.424  MCS_B/Motor_Direction_out<1>_SW2 (N160)
+     LUT4:I3->O            1   0.704   0.420  MCS_B/Motor_Direction_out<1> (MotorB_1_OBUF)
+     OBUF:I->O                 3.272          MotorB_1_OBUF (MotorB<1>)
+    ----------------------------------------
+    Total                     10.253ns (8.340ns logic, 1.913ns route)
+                                       (81.3% logic, 18.7% route)
+
+=========================================================================
+
+
+Total REAL time to Xst completion: 7.00 secs
+Total CPU time to Xst completion: 7.05 secs
+ 
+--> 
+
+Total memory usage is 274852 kilobytes
+
+Number of errors   :    0 (   0 filtered)
+Number of warnings :    0 (   0 filtered)
+Number of infos    :    1 (   0 filtered)
+

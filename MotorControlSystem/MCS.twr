@@ -44,9 +44,18 @@ Setup/Hold to clock Clk
                |Max Setup to|Max Hold to |                  | Clock  |
 Source         | clk (edge) | clk (edge) |Internal Clock(s) | Phase  |
 ---------------+------------+------------+------------------+--------+
-Hall_sensors<0>|    5.313(R)|    0.377(R)|Clk_BUFGP         |   0.000|
-Hall_sensors<1>|    5.485(R)|   -0.040(R)|Clk_BUFGP         |   0.000|
-Hall_sensors<2>|    4.577(R)|   -0.723(R)|Clk_BUFGP         |   0.000|
+Hall_sensors<0>|    4.647(R)|   -0.172(R)|Clk_BUFGP         |   0.000|
+Hall_sensors<1>|    4.287(R)|    0.093(R)|Clk_BUFGP         |   0.000|
+Hall_sensors<2>|    2.251(R)|   -0.061(R)|Clk_BUFGP         |   0.000|
+PWM_duty<0>    |    4.084(R)|   -1.970(R)|Clk_BUFGP         |   0.000|
+PWM_duty<1>    |    4.167(R)|   -1.956(R)|Clk_BUFGP         |   0.000|
+PWM_duty<2>    |    3.602(R)|   -1.585(R)|Clk_BUFGP         |   0.000|
+PWM_duty<3>    |    3.421(R)|   -1.360(R)|Clk_BUFGP         |   0.000|
+PWM_duty<4>    |    3.302(R)|   -1.346(R)|Clk_BUFGP         |   0.000|
+PWM_duty<5>    |    3.391(R)|   -1.336(R)|Clk_BUFGP         |   0.000|
+PWM_duty<6>    |    5.662(R)|   -1.545(R)|Clk_BUFGP         |   0.000|
+PWM_duty<7>    |    3.326(R)|   -1.284(R)|Clk_BUFGP         |   0.000|
+ResetPosition  |    2.302(R)|   -0.654(R)|Clk_BUFGP         |   0.000|
 ---------------+------------+------------+------------------+--------+
 
 Clock Clk to Pad
@@ -54,19 +63,20 @@ Clock Clk to Pad
                       | clk (edge) |                  | Clock  |
 Destination           |   to PAD   |Internal Clock(s) | Phase  |
 ----------------------+------------+------------------+--------+
-Motor_Direction_out<0>|   12.442(R)|Clk_BUFGP         |   0.000|
-Motor_Direction_out<1>|   12.782(R)|Clk_BUFGP         |   0.000|
-Position<0>           |    8.547(R)|Clk_BUFGP         |   0.000|
-Position<1>           |    8.540(R)|Clk_BUFGP         |   0.000|
-Position<2>           |    8.092(R)|Clk_BUFGP         |   0.000|
-Position<3>           |    8.911(R)|Clk_BUFGP         |   0.000|
-Position<4>           |    8.526(R)|Clk_BUFGP         |   0.000|
-Position<5>           |    8.548(R)|Clk_BUFGP         |   0.000|
-Position<6>           |    8.701(R)|Clk_BUFGP         |   0.000|
-Position<7>           |    9.512(R)|Clk_BUFGP         |   0.000|
-Position<8>           |   10.973(R)|Clk_BUFGP         |   0.000|
-Position<9>           |    9.150(R)|Clk_BUFGP         |   0.000|
-Position<10>          |    9.522(R)|Clk_BUFGP         |   0.000|
+Motor_Direction_out<0>|   16.424(R)|Clk_BUFGP         |   0.000|
+Motor_Direction_out<1>|   17.262(R)|Clk_BUFGP         |   0.000|
+Motor_Direction_out<2>|    9.642(R)|Clk_BUFGP         |   0.000|
+Position<0>           |    9.007(R)|Clk_BUFGP         |   0.000|
+Position<1>           |    9.979(R)|Clk_BUFGP         |   0.000|
+Position<2>           |    8.487(R)|Clk_BUFGP         |   0.000|
+Position<3>           |    8.757(R)|Clk_BUFGP         |   0.000|
+Position<4>           |    9.005(R)|Clk_BUFGP         |   0.000|
+Position<5>           |    8.983(R)|Clk_BUFGP         |   0.000|
+Position<6>           |    9.198(R)|Clk_BUFGP         |   0.000|
+Position<7>           |    9.551(R)|Clk_BUFGP         |   0.000|
+Position<8>           |    9.988(R)|Clk_BUFGP         |   0.000|
+Position<9>           |    9.705(R)|Clk_BUFGP         |   0.000|
+Position<10>          |   10.022(R)|Clk_BUFGP         |   0.000|
 ----------------------+------------+------------------+--------+
 
 Clock to Setup on destination clock Clk
@@ -74,46 +84,46 @@ Clock to Setup on destination clock Clk
                | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
 Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
 ---------------+---------+---------+---------+---------+
-Clk            |    5.377|         |         |         |
+Clk            |    9.345|         |         |         |
 ---------------+---------+---------+---------+---------+
 
 Pad to Pad
 ---------------------+----------------------+---------+
 Source Pad           |Destination Pad       |  Delay  |
 ---------------------+----------------------+---------+
-Motor_Direction_in<0>|Motor_Direction_out<0>|    7.590|
-Motor_Direction_in<0>|Motor_Direction_out<1>|    7.872|
-Motor_Direction_in<0>|Motor_Direction_out<2>|    7.412|
-Motor_Direction_in<1>|Motor_Direction_out<0>|    7.806|
-Motor_Direction_in<1>|Motor_Direction_out<1>|    8.081|
-Motor_Direction_in<1>|Motor_Direction_out<2>|    7.752|
-PWM_duty<0>          |Motor_Direction_out<0>|   10.342|
-PWM_duty<0>          |Motor_Direction_out<1>|   10.682|
-PWM_duty<1>          |Motor_Direction_out<0>|   10.711|
-PWM_duty<1>          |Motor_Direction_out<1>|   11.051|
-PWM_duty<2>          |Motor_Direction_out<0>|    9.860|
-PWM_duty<2>          |Motor_Direction_out<1>|   10.200|
-PWM_duty<3>          |Motor_Direction_out<0>|    9.691|
-PWM_duty<3>          |Motor_Direction_out<1>|   10.031|
-PWM_duty<4>          |Motor_Direction_out<0>|    9.995|
-PWM_duty<4>          |Motor_Direction_out<1>|   10.335|
-PWM_duty<5>          |Motor_Direction_out<0>|   10.188|
-PWM_duty<5>          |Motor_Direction_out<1>|   10.528|
-PWM_duty<6>          |Motor_Direction_out<0>|   10.400|
-PWM_duty<6>          |Motor_Direction_out<1>|   10.740|
-PWM_duty<7>          |Motor_Direction_out<0>|   10.097|
-PWM_duty<7>          |Motor_Direction_out<1>|   10.437|
+Motor_Direction_in<0>|Motor_Direction_out<0>|    8.674|
+Motor_Direction_in<0>|Motor_Direction_out<1>|    8.953|
+Motor_Direction_in<0>|Motor_Direction_out<2>|    7.435|
+Motor_Direction_in<1>|Motor_Direction_out<0>|    8.541|
+Motor_Direction_in<1>|Motor_Direction_out<1>|    9.156|
+Motor_Direction_in<1>|Motor_Direction_out<2>|    7.275|
+PWM_duty<0>          |Motor_Direction_out<0>|   11.856|
+PWM_duty<0>          |Motor_Direction_out<1>|   12.694|
+PWM_duty<1>          |Motor_Direction_out<0>|   11.939|
+PWM_duty<1>          |Motor_Direction_out<1>|   12.777|
+PWM_duty<2>          |Motor_Direction_out<0>|   11.374|
+PWM_duty<2>          |Motor_Direction_out<1>|   12.212|
+PWM_duty<3>          |Motor_Direction_out<0>|   11.193|
+PWM_duty<3>          |Motor_Direction_out<1>|   12.031|
+PWM_duty<4>          |Motor_Direction_out<0>|   11.074|
+PWM_duty<4>          |Motor_Direction_out<1>|   11.912|
+PWM_duty<5>          |Motor_Direction_out<0>|   11.163|
+PWM_duty<5>          |Motor_Direction_out<1>|   12.001|
+PWM_duty<6>          |Motor_Direction_out<0>|   13.434|
+PWM_duty<6>          |Motor_Direction_out<1>|   14.272|
+PWM_duty<7>          |Motor_Direction_out<0>|   11.098|
+PWM_duty<7>          |Motor_Direction_out<1>|   11.936|
 ---------------------+----------------------+---------+
 
 
-Analysis completed Fri Mar 28 15:29:49 2014 
+Analysis completed Mon Mar 31 16:46:51 2014 
 --------------------------------------------------------------------------------
 
 Trace Settings:
 -------------------------
 Trace Settings 
 
-Peak Memory Usage: 155 MB
+Peak Memory Usage: 159 MB
 
 
 

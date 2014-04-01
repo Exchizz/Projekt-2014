@@ -1,0 +1,12 @@
+AR encoder behavioral "C:/Users/Lukas Schwartz/Documents/GitHub/Projekt-2014/Encoder/encoder.vhd" sub00/vhpl03 1396330240
+EN pwm NULL "C:/Users/Lukas Schwartz/Documents/GitHub/Projekt-2014/PWM/PWM.vhd" sub00/vhpl00 1396330237
+AR fpga_main behavioral "C:/Users/Lukas Schwartz/Documents/GitHub/Projekt-2014/FPGA/fpga_main.vhd" sub00/vhpl11 1396330248
+EN mcs NULL "C:/Users/Lukas Schwartz/Documents/GitHub/Projekt-2014/MotorControlSystem/MCS.vhd" sub00/vhpl04 1396330241
+EN displayselect_4_7segdisp NULL "C:/Users/Lukas Schwartz/Documents/GitHub/Projekt-2014/Encoder/DisplaySelect_4.vhd" sub00/vhpl08 1396330245
+EN displayhex NULL "C:/Users/Lukas Schwartz/Documents/GitHub/Projekt-2014/Encoder/DisplayHex.vhd" sub00/vhpl06 1396330243
+EN fpga_main NULL "C:/Users/Lukas Schwartz/Documents/GitHub/Projekt-2014/FPGA/fpga_main.vhd" sub00/vhpl10 1396330247
+EN encoder NULL "C:/Users/Lukas Schwartz/Documents/GitHub/Projekt-2014/Encoder/encoder.vhd" sub00/vhpl02 1396330239
+AR pwm behavioral "C:/Users/Lukas Schwartz/Documents/GitHub/Projekt-2014/PWM/PWM.vhd" sub00/vhpl01 1396330238
+AR mcs behavioral "C:/Users/Lukas Schwartz/Documents/GitHub/Projekt-2014/MotorControlSystem/MCS.vhd" sub00/vhpl05 1396330242
+AR displayhex behavioral "C:/Users/Lukas Schwartz/Documents/GitHub/Projekt-2014/Encoder/DisplayHex.vhd" sub00/vhpl07 1396330244
+AR displayselect_4_7segdisp behavioral "C:/Users/Lukas Schwartz/Documents/GitHub/Projekt-2014/Encoder/DisplaySelect_4.vhd" sub00/vhpl09 1396330246

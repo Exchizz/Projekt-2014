@@ -6,6 +6,7 @@
 #			  Hall_sensors : in STD_LOGIC_VECTOR (2 downto 0);
 #			  Clk : in STD_LOGIC);
 
+# switches
 NET "PWM_duty<0>" LOC = "P38";
 NET "PWM_duty<1>" LOC = "P36";
 NET "PWM_duty<2>" LOC = "P29";
@@ -15,17 +16,21 @@ NET "PWM_duty<5>" LOC = "P12";
 NET "PWM_duty<6>" LOC = "P10";
 NET "PWM_duty<7>" LOC = "P6";
 
+# btn0/1
 NET "Motor_Direction_in<0>" LOC = "P69";
 NET "Motor_Direction_in<1>" LOC = "P48";
 
+# JB1-3, 3 = ENABLE
 NET "Motor_Direction_out<0>" LOC = "P87";
 NET "Motor_Direction_out<1>" LOC = "P93";
 NET "Motor_Direction_out<2>" LOC = "P88";
 
+# JA1-3, 3 = reset
 NET "Hall_sensors<0>" LOC = "P81";
 NET "Hall_sensors<1>" LOC = "P91";
 NET "Hall_sensors<2>" LOC = "P82";
 
+# LED og 7seg
 NET "Position<0>" LOC = "P33";
 NET "Position<1>" LOC = "P32";
 NET "Position<2>" LOC = "P26";
@@ -38,5 +43,7 @@ NET "Position<8>" LOC = "P4";
 NET "Position<9>" LOC = "P3";
 NET "Position<10>" LOC = "P2";
 
+# btn3
+NET "ResetPosition" LOC = "P41";
 
 NET "Clk" LOC = "P54";
