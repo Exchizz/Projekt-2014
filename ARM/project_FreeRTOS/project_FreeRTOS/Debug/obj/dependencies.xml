@@ -129,9 +129,6 @@
          <include file="..\..\..\includes\glob_def.h"/>
          <include file="..\..\..\includes\binary.h"/>
       </source>
-      <source file="..\..\..\communication\communication.c" lastModified="1451d7911e4">
-         <include file="..\..\..\communication\communication.h"/>
-      </source>
       <source file="..\..\..\includes\glob_def.h" lastModified="14507ca0b7a">
       </source>
       <source file="..\..\..\FRT_Library\FreeRTOS\Source\include\StackMacros.h" lastModified="14502f99eeb">
