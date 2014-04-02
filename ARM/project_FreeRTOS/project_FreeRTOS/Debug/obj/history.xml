@@ -1,49 +1,49 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <history>
    <processor signature="arm-none-eabi-gcc noversion nomachine -mcpu=cortex-m3 -mthumb -Wall -ffunction-sections -g -O0 -c -DLM3S6965 -IC:\Users\Thomas\Documents\GitHub\Projekt-2014\ARM\project_FreeRTOS\FRT_Library\FreeRTOS\Source -IC:\Users\Thomas\Documents\GitHub\Projekt-2014\ARM\project_FreeRTOS\FRT_Library\FreeRTOS\Source\portable\GCC -IC:\Users\Thomas\Documents\GitHub\Projekt-2014\ARM\project_FreeRTOS\uartprintf -IC:\Users\Thomas\Documents\GitHub\Projekt-2014\ARM\project_FreeRTOS\FRT_Library\FreeRTOS -IC:\Users\Thomas\Documents\GitHub\Projekt-2014\ARM\project_FreeRTOS\FRT_Library\FreeRTOS\Source\portable\GCC\ARM_CM3 -IC:\Users\Thomas\Documents\GitHub\Projekt-2014 -IC:\Users\Thomas\Documents\GitHub\Projekt-2014\ARM\project_FreeRTOS\spi -IC:\Users\Thomas\Documents\GitHub\Projekt-2014\ARM\project_FreeRTOS -IC:\Users\Thomas\Documents\GitHub\Projekt-2014\ARM\project_FreeRTOS\communication -IC:\Users\Thomas\Documents\GitHub\Projekt-2014\ARM -IC:\Users\Thomas\Documents\GitHub\Projekt-2014\ARM\project_FreeRTOS\includes -IC:\Users\Thomas\Documents\GitHub\Projekt-2014\ARM\project_FreeRTOS\gpio -IC:\Users\Thomas\Documents\GitHub\Projekt-2014\ARM\project_FreeRTOS\debug -IC:\Users\Thomas\Documents\GitHub\Projekt-2014\ARM\project_FreeRTOS\FRT_Library\FreeRTOS\Source\include -IC:\Users\Thomas\Documents\GitHub\Projekt-2014\ARM\project_FreeRTOS\FRT_Library\FreeRTOS\Source\portable -IC:\Users\Thomas\Documents\GitHub\Projekt-2014\ARM\project_FreeRTOS\cpu">
-      <target file="queue.o" lastModified="1451799bdf1">
+      <target file="queue.o" lastModified="1451d76431d">
          <source file="..\..\..\FRT_Library\FreeRTOS\Source\queue.c" lastModified="14502f99ef5"/>
       </target>
-      <target file="port.o" lastModified="1451799be39">
+      <target file="port.o" lastModified="1451d76436b">
          <source file="..\..\..\FRT_Library\FreeRTOS\Source\portable\GCC\ARM_CM3\port.c" lastModified="14502f99ef3"/>
       </target>
-      <target file="heap_2.o" lastModified="1451799bf8f">
+      <target file="heap_2.o" lastModified="1451d7644a8">
          <source file="..\..\..\FRT_Library\FreeRTOS\Source\portable\MemMang\heap_2.c" lastModified="14502f99ef4"/>
       </target>
-      <target file="list.o" lastModified="1451799bd61">
+      <target file="list.o" lastModified="1451d7642a0">
          <source file="..\..\..\FRT_Library\FreeRTOS\Source\list.c" lastModified="14502f99ef1"/>
       </target>
-      <target file="common.o" lastModified="1451799b7f1">
+      <target file="common.o" lastModified="1451d763f2c">
          <source file="..\..\..\FRT_Library\FreeRTOS\Source\portable\GCC\ARM_CM3\common.c" lastModified="14502f99ef2"/>
       </target>
-      <target file="communication.o" lastModified="14517a0c4f9">
-         <source file="..\..\..\communication\communication.c" lastModified="14517a0bc56"/>
+      <target file="communication.o" lastModified="1451d791bea">
+         <source file="..\..\..\communication\communication.c" lastModified="1451d7911e4"/>
       </target>
-      <target file="croutine.o" lastModified="1451799bede">
+      <target file="croutine.o" lastModified="1451d764410">
          <source file="..\..\..\FRT_Library\FreeRTOS\Source\croutine.c" lastModified="14502f99eea"/>
       </target>
-      <target file="debug.o" lastModified="1451799be7d">
+      <target file="main.o" lastModified="1451d763fcf">
+         <source file="..\..\..\main.c" lastModified="1451d3ca713"/>
+      </target>
+      <target file="debug.o" lastModified="1451d7643af">
          <source file="..\..\..\debug\debug.c" lastModified="14502f99efc"/>
       </target>
-      <target file="main.o" lastModified="1451799b889">
-         <source file="..\..\..\main.c" lastModified="14516d7e9fc"/>
+      <target file="uartprintf.o" lastModified="1451d7641aa">
+         <source file="..\..\..\uartprintf\uartprintf.c" lastModified="1451d0ac495"/>
       </target>
-      <target file="uartprintf.o" lastModified="1451799bc46">
-         <source file="..\..\..\uartprintf\uartprintf.c" lastModified="14507e2af5f"/>
-      </target>
-      <target file="cpu.o" lastModified="1451799bf25">
-         <source file="..\..\..\cpu\cpu.c" lastModified="14502f99ef9"/>
-      </target>
-      <target file="spi.o" lastModified="1451799b760">
-         <source file="..\..\..\spi\spi.c" lastModified="14508793963"/>
-      </target>
-      <target file="gpio.o" lastModified="1451799bbeb">
+      <target file="gpio.o" lastModified="1451d76413a">
          <source file="..\..\..\gpio\gpio.c" lastModified="14502f99efd"/>
       </target>
-      <target file="startup_frt.o" lastModified="1451799b7ad">
+      <target file="spi.o" lastModified="1451d763e93">
+         <source file="..\..\..\spi\spi.c" lastModified="14508793963"/>
+      </target>
+      <target file="cpu.o" lastModified="1451d764455">
+         <source file="..\..\..\cpu\cpu.c" lastModified="14502f99ef9"/>
+      </target>
+      <target file="startup_frt.o" lastModified="1451d763ee7">
          <source file="..\..\..\startup_frt.c" lastModified="14502f99f10"/>
       </target>
-      <target file="tasks.o" lastModified="1451799bcf3">
+      <target file="tasks.o" lastModified="1451d764251">
          <source file="..\..\..\FRT_Library\FreeRTOS\Source\tasks.c" lastModified="14502f99ef7"/>
       </target>
    </processor>
