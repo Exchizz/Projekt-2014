@@ -1,12 +1,12 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <history>
-   <processor signature="4.8.3 -mcpu=cortex-m3 -mthumb -g -nostartfiles -Map=LM3S6965_SPI_Master_noScheduler.map -O0 --gc-sections -LC:\CooCox\CoIDE\configuration\ProgramData\LM3S6965_SPI_Master_noScheduler -TC:\CooCox\CoIDE\configuration\ProgramData\LM3S6965_SPI_Master_noScheduler/arm-gcc-link.ld -g">
-      <target file="LM3S6965_SPI_Master_noScheduler.elf" lastModified="144d4501cb3">
-         <source file="..\obj\spi.o" lastModified="144d44f5cd5"/>
-         <source file="..\obj\main.o" lastModified="144d4501ac3"/>
-         <source file="..\obj\gpio.o" lastModified="144bb5b8bf5"/>
-         <source file="..\obj\startup_lm3s.o" lastModified="144bb5b8c24"/>
-         <source file="..\obj\systick.o" lastModified="144bb5b8c63"/>
+   <processor signature="4.8.3 -mcpu=cortex-m3 -mthumb -g -nostartfiles -Map=LM3S6965_SPI_Master_noScheduler.map -O0 --gc-sections -LD:\Programs\CoIDE\configuration\ProgramData\LM3S6965_SPI_Master_noScheduler -TD:\Programs\CoIDE\configuration\ProgramData\LM3S6965_SPI_Master_noScheduler/arm-gcc-link.ld -g">
+      <target file="LM3S6965_SPI_Master_noScheduler.elf" lastModified="1451d4a1f1f">
+         <source file="..\obj\spi.o" lastModified="1451d4a1b5e"/>
+         <source file="..\obj\main.o" lastModified="1451d4a1c55"/>
+         <source file="..\obj\gpio.o" lastModified="1451d4a1c9c"/>
+         <source file="..\obj\startup_lm3s.o" lastModified="1451d4a1ce6"/>
+         <source file="..\obj\systick.o" lastModified="1451d4a1d39"/>
       </target>
    </processor>
 </history>

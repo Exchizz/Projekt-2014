@@ -1,0 +1,6 @@
+AR fifo fifo_a "C:/Users/Lukas Schwartz/Documents/GitHub/Projekt-2014/SPI/ipcore_dir/Fifo.vhd" sub00/vhpl03 1396343756
+EN test_spi NULL "C:/Users/Lukas Schwartz/Documents/GitHub/Projekt-2014/SPI/test_SPI.vhd" sub00/vhpl04 1396451778
+EN spi NULL "C:/Users/Lukas Schwartz/Documents/GitHub/Projekt-2014/SPI/SPI.vhd" sub00/vhpl00 1396452288
+AR spi behavioral "C:/Users/Lukas Schwartz/Documents/GitHub/Projekt-2014/SPI/SPI.vhd" sub00/vhpl01 1396452289
+EN fifo NULL "C:/Users/Lukas Schwartz/Documents/GitHub/Projekt-2014/SPI/ipcore_dir/Fifo.vhd" sub00/vhpl02 1396343755
+AR test_spi behavioral "C:/Users/Lukas Schwartz/Documents/GitHub/Projekt-2014/SPI/test_SPI.vhd" sub00/vhpl05 1396451779

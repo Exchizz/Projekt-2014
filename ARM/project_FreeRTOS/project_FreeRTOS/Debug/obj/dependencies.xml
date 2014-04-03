@@ -20,7 +20,7 @@
       <source file="..\..\..\FRT_Library\FreeRTOS\Source\include\semphr.h" lastModified="14502f99ef0">
          <include file="..\..\..\FRT_Library\FreeRTOS\Source\include\queue.h"/>
       </source>
-      <source file="..\..\..\uartprintf\uartprintf.c" lastModified="14507e2af5f">
+      <source file="..\..\..\uartprintf\uartprintf.c" lastModified="1451d0ac495">
          <include file="..\..\..\uartprintf\uart.h"/>
       </source>
       <source file="..\..\..\FRT_Library\FreeRTOS\Source\include\queue.h" lastModified="14502f99eef">
@@ -65,7 +65,7 @@
          <include file="..\..\..\FRT_Library\FreeRTOS\Source\include\FreeRTOS.h"/>
          <include file="..\..\..\FRT_Library\FreeRTOS\Source\include\list.h"/>
       </source>
-      <source file="..\..\..\main.c" lastModified="145087bde32">
+      <source file="..\..\..\main.c" lastModified="1451d3ca713">
          <include file="..\..\..\..\..\lm3s6965.h"/>
          <include file="..\..\..\FRT_Library\FreeRTOS\Source\include\FreeRTOS.h"/>
          <include file="..\..\..\FRT_Library\FreeRTOS\Source\include\task.h"/>
@@ -100,7 +100,7 @@
          <include file="..\..\..\FRT_Library\FreeRTOS\Source\include\semphr.h"/>
          <include file="..\..\..\uartprintf\uart.h"/>
       </source>
-      <source file="..\..\..\communication\communication.h" lastModified="14508819c7a">
+      <source file="..\..\..\communication\communication.h" lastModified="1451bfada2f">
          <include file="..\..\..\includes\emp_type.h"/>
          <include file="..\..\..\includes\lm3s6965.h"/>
          <include file="..\..\..\includes\binary.h"/>

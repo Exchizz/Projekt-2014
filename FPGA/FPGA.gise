@@ -138,6 +138,8 @@
     <transform xil_pn:end_ts="1396330255" xil_pn:in_ck="-1738728219409013619" xil_pn:name="TRANEXT_map_spartan3" xil_pn:prop_ck="7557559725430926307" xil_pn:start_ts="1396330250">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
+      <status xil_pn:value="OutOfDateForOutputs"/>
+      <status xil_pn:value="OutputChanged"/>
       <outfile xil_pn:name="_xmsgs/map.xmsgs"/>
       <outfile xil_pn:name="fpga_main.pcf"/>
       <outfile xil_pn:name="fpga_main_map.map"/>
@@ -162,7 +164,7 @@
       <outfile xil_pn:name="fpga_main_pad.txt"/>
       <outfile xil_pn:name="fpga_main_par.xrpt"/>
     </transform>
-    <transform xil_pn:end_ts="1396330278" xil_pn:in_ck="-8519601349141564731" xil_pn:name="TRANEXT_bitFile_spartan3e" xil_pn:prop_ck="-7817169320884990698" xil_pn:start_ts="1396330269">
+    <transform xil_pn:end_ts="1396334545" xil_pn:in_ck="-8519601349141564731" xil_pn:name="TRANEXT_bitFile_spartan3e" xil_pn:prop_ck="2969983391363831627" xil_pn:start_ts="1396334529">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
       <outfile xil_pn:name="_xmsgs/bitgen.xmsgs"/>

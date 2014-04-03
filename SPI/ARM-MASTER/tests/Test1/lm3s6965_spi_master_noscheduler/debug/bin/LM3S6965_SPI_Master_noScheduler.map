@@ -26,7 +26,7 @@ Linker script and memory map
 
                 0x20010000                _eram = 0x20010000
 
-.text           0x00000000      0x65c
+.text           0x00000000      0x664
  *(.isr_vector)
  .isr_vector    0x00000000      0x100 ..\obj\startup_lm3s.o
                 0x00000000                g_pfnVectors
@@ -40,91 +40,91 @@ Linker script and memory map
  .text.init_spi
                 0x00000138      0x1c0 ..\obj\spi.o
                 0x00000138                init_spi
- .text.main     0x000002f8       0x80 ..\obj\main.o
+ .text.main     0x000002f8       0x88 ..\obj\main.o
                 0x000002f8                main
  .text.init_gpio
-                0x00000378       0x80 ..\obj\gpio.o
-                0x00000378                init_gpio
+                0x00000380       0x80 ..\obj\gpio.o
+                0x00000380                init_gpio
  .text.Default_Reset_Handler
-                0x000003f8       0x5c ..\obj\startup_lm3s.o
-                0x000003f8                Default_Reset_Handler
-                0x000003f8                Reset_Handler
+                0x00000400       0x5c ..\obj\startup_lm3s.o
+                0x00000400                Default_Reset_Handler
+                0x00000400                Reset_Handler
  .text.Default_Handler
-                0x00000454        0x8 ..\obj\startup_lm3s.o
-                0x00000454                DebugMon_Handler
-                0x00000454                FlashCtrl_IRQHandler
-                0x00000454                Timer0B_IRQHandler
-                0x00000454                I2C0_IRQHandler
-                0x00000454                HardFault_Handler
-                0x00000454                PendSV_Handler
-                0x00000454                NMI_Handler
-                0x00000454                I2C1_IRQHandler
-                0x00000454                PWMGen0_IRQHandler
-                0x00000454                UART1_IRQHandler
-                0x00000454                CAN1_IRQHandler
-                0x00000454                Timer1B_IRQHandler
-                0x00000454                Watchdog_IRQHandler
-                0x00000454                UART0_IRQHandler
-                0x00000454                SSI0_IRQHandler
-                0x00000454                UsageFault_Handler
-                0x00000454                ADCSeq1_IRQHandler
-                0x00000454                PWMFault_IRQHandler
-                0x00000454                PWMGen1_IRQHandler
-                0x00000454                SSI1_IRQHandler
-                0x00000454                uDMA_IRQHandler
-                0x00000454                GPIOPortC_IRQHandler
-                0x00000454                ADCSeq2_IRQHandler
-                0x00000454                PWMGen2_IRQHandler
-                0x00000454                UART2_IRQHandler
-                0x00000454                uDMAErr_IRQHandler
-                0x00000454                QEI1_IRQHandler
-                0x00000454                QEI0_IRQHandler
-                0x00000454                PWMGen3_IRQHandler
-                0x00000454                GPIOPortD_IRQHandler
-                0x00000454                USB0_IRQHandler
-                0x00000454                MemManage_Handler
-                0x00000454                Ethernet_IRQHandler
-                0x00000454                SVC_Handler
-                0x00000454                Timer3B_IRQHandler
-                0x00000454                Timer3A_IRQHandler
-                0x00000454                GPIOPortA_IRQHandler
-                0x00000454                Timer0A_IRQHandler
-                0x00000454                ADCSeq0_IRQHandler
-                0x00000454                Timer1A_IRQHandler
-                0x00000454                GPIOPortG_IRQHandler
-                0x00000454                ADCSeq3_IRQHandler
-                0x00000454                GPIOPortE_IRQHandler
-                0x00000454                CAN0_IRQHandler
-                0x00000454                Comp0_IRQHandler
-                0x00000454                Comp1_IRQHandler
-                0x00000454                Comp2_IRQHandler
-                0x00000454                GPIOPortF_IRQHandler
-                0x00000454                GPIOPortB_IRQHandler
-                0x00000454                CAN2_IRQHandler
-                0x00000454                GPIOPortH_IRQHandler
-                0x00000454                BusFault_Handler
-                0x00000454                Timer2A_IRQHandler
-                0x00000454                Timer2B_IRQHandler
-                0x00000454                SysCtrl_IRQHandler
-                0x00000454                Hibernate_IRQHandler
+                0x0000045c        0x8 ..\obj\startup_lm3s.o
+                0x0000045c                DebugMon_Handler
+                0x0000045c                FlashCtrl_IRQHandler
+                0x0000045c                Timer0B_IRQHandler
+                0x0000045c                I2C0_IRQHandler
+                0x0000045c                HardFault_Handler
+                0x0000045c                PendSV_Handler
+                0x0000045c                NMI_Handler
+                0x0000045c                I2C1_IRQHandler
+                0x0000045c                PWMGen0_IRQHandler
+                0x0000045c                UART1_IRQHandler
+                0x0000045c                CAN1_IRQHandler
+                0x0000045c                Timer1B_IRQHandler
+                0x0000045c                Watchdog_IRQHandler
+                0x0000045c                UART0_IRQHandler
+                0x0000045c                SSI0_IRQHandler
+                0x0000045c                UsageFault_Handler
+                0x0000045c                ADCSeq1_IRQHandler
+                0x0000045c                PWMFault_IRQHandler
+                0x0000045c                PWMGen1_IRQHandler
+                0x0000045c                SSI1_IRQHandler
+                0x0000045c                uDMA_IRQHandler
+                0x0000045c                GPIOPortC_IRQHandler
+                0x0000045c                ADCSeq2_IRQHandler
+                0x0000045c                PWMGen2_IRQHandler
+                0x0000045c                UART2_IRQHandler
+                0x0000045c                uDMAErr_IRQHandler
+                0x0000045c                QEI1_IRQHandler
+                0x0000045c                QEI0_IRQHandler
+                0x0000045c                PWMGen3_IRQHandler
+                0x0000045c                GPIOPortD_IRQHandler
+                0x0000045c                USB0_IRQHandler
+                0x0000045c                MemManage_Handler
+                0x0000045c                Ethernet_IRQHandler
+                0x0000045c                SVC_Handler
+                0x0000045c                Timer3B_IRQHandler
+                0x0000045c                Timer3A_IRQHandler
+                0x0000045c                GPIOPortA_IRQHandler
+                0x0000045c                Timer0A_IRQHandler
+                0x0000045c                ADCSeq0_IRQHandler
+                0x0000045c                Timer1A_IRQHandler
+                0x0000045c                GPIOPortG_IRQHandler
+                0x0000045c                ADCSeq3_IRQHandler
+                0x0000045c                GPIOPortE_IRQHandler
+                0x0000045c                CAN0_IRQHandler
+                0x0000045c                Comp0_IRQHandler
+                0x0000045c                Comp1_IRQHandler
+                0x0000045c                Comp2_IRQHandler
+                0x0000045c                GPIOPortF_IRQHandler
+                0x0000045c                GPIOPortB_IRQHandler
+                0x0000045c                CAN2_IRQHandler
+                0x0000045c                GPIOPortH_IRQHandler
+                0x0000045c                BusFault_Handler
+                0x0000045c                Timer2A_IRQHandler
+                0x0000045c                Timer2B_IRQHandler
+                0x0000045c                SysCtrl_IRQHandler
+                0x0000045c                Hibernate_IRQHandler
  .text.init_clk_system
-                0x0000045c       0xe4 ..\obj\systick.o
-                0x0000045c                init_clk_system
+                0x00000464       0xe4 ..\obj\systick.o
+                0x00000464                init_clk_system
  .text.init_status_led
-                0x00000540       0x58 ..\obj\systick.o
-                0x00000540                init_status_led
+                0x00000548       0x58 ..\obj\systick.o
+                0x00000548                init_status_led
  .text.systick_init
-                0x00000598       0x84 ..\obj\systick.o
-                0x00000598                systick_init
+                0x000005a0       0x84 ..\obj\systick.o
+                0x000005a0                systick_init
  .text.SysTick_Handler
-                0x0000061c       0x20 ..\obj\systick.o
-                0x0000061c                SysTick_Handler
+                0x00000624       0x20 ..\obj\systick.o
+                0x00000624                SysTick_Handler
  .text.enable_global_int
-                0x0000063c       0x10 ..\obj\systick.o
-                0x0000063c                enable_global_int
+                0x00000644       0x10 ..\obj\systick.o
+                0x00000644                enable_global_int
  .text.disable_global_int
-                0x0000064c       0x10 ..\obj\systick.o
-                0x0000064c                disable_global_int
+                0x00000654       0x10 ..\obj\systick.o
+                0x00000654                disable_global_int
  *(.init)
  *(.fini)
  *crtbegin.o(.ctors)
@@ -140,35 +140,35 @@ Linker script and memory map
  *(.rodata*)
  *(.eh_fram e*)
 
-.glue_7         0x0000065c        0x0
+.glue_7         0x00000664        0x0
  .glue_7        0x00000000        0x0 linker stubs
 
-.glue_7t        0x0000065c        0x0
+.glue_7t        0x00000664        0x0
  .glue_7t       0x00000000        0x0 linker stubs
 
-.vfp11_veneer   0x0000065c        0x0
+.vfp11_veneer   0x00000664        0x0
  .vfp11_veneer  0x00000000        0x0 linker stubs
 
-.v4_bx          0x0000065c        0x0
+.v4_bx          0x00000664        0x0
  .v4_bx         0x00000000        0x0 linker stubs
 
-.iplt           0x0000065c        0x0
+.iplt           0x00000664        0x0
  .iplt          0x00000000        0x0 ..\obj\spi.o
 
-.rel.dyn        0x0000065c        0x0
+.rel.dyn        0x00000664        0x0
  .rel.iplt      0x00000000        0x0 ..\obj\spi.o
 
 .ARM.extab
  *(.ARM.extab* .gnu.linkonce.armextab.*)
-                0x0000065c                __exidx_start = .
+                0x00000664                __exidx_start = .
 
 .ARM.exidx
  *(.ARM.exidx* .gnu.linkonce.armexidx.*)
-                0x0000065c                __exidx_end = .
-                0x0000065c                __etext = .
-                0x0000065c                _sidata = __etext
+                0x00000664                __exidx_end = .
+                0x00000664                __etext = .
+                0x00000664                _sidata = __etext
 
-.data           0x20000000        0x4 load address 0x0000065c
+.data           0x20000000        0x4 load address 0x00000664
                 0x20000000                __data_start__ = .
                 0x20000000                _sdata = __data_start__
  *(vtable)
@@ -195,10 +195,10 @@ Linker script and memory map
                 0x20000004                __data_end__ = .
                 0x20000004                _edata = __data_end__
 
-.igot.plt       0x20000004        0x0 load address 0x00000660
+.igot.plt       0x20000004        0x0 load address 0x00000668
  .igot.plt      0x00000000        0x0 ..\obj\spi.o
 
-.bss            0x20000004        0x4 load address 0x00000660
+.bss            0x20000004        0x4 load address 0x00000668
                 0x20000004                . = ALIGN (0x4)
                 0x20000004                __bss_start__ = .
                 0x20000004                _sbss = __bss_start__
@@ -218,7 +218,7 @@ Linker script and memory map
  *(.heap*)
                 0x20000008                __HeapLimit = .
 
-.co_stack       0x20000008      0x400 load address 0x00000664
+.co_stack       0x20000008      0x400 load address 0x0000066c
                 0x20000008                . = ALIGN (0x8)
  *(.co_stack .co_stack.*)
  .co_stack      0x20000008      0x400 ..\obj\startup_lm3s.o
@@ -233,25 +233,25 @@ LOAD ..\obj\gpio.o
 LOAD ..\obj\startup_lm3s.o
 LOAD ..\obj\systick.o
 START GROUP
-LOAD c:/program files (x86)/gnu tools arm embedded/4.8 2013q4/bin/../lib/gcc/arm-none-eabi/4.8.3/armv7-m\libgcc.a
-LOAD c:/program files (x86)/gnu tools arm embedded/4.8 2013q4/bin/../lib/gcc/arm-none-eabi/4.8.3/../../../../arm-none-eabi/lib/armv7-m\libg.a
-LOAD c:/program files (x86)/gnu tools arm embedded/4.8 2013q4/bin/../lib/gcc/arm-none-eabi/4.8.3/../../../../arm-none-eabi/lib/armv7-m\libc.a
+LOAD d:/programs/gnu/bin/../lib/gcc/arm-none-eabi/4.8.3/armv7-m\libgcc.a
+LOAD d:/programs/gnu/bin/../lib/gcc/arm-none-eabi/4.8.3/../../../../arm-none-eabi/lib/armv7-m\libg.a
+LOAD d:/programs/gnu/bin/../lib/gcc/arm-none-eabi/4.8.3/../../../../arm-none-eabi/lib/armv7-m\libc.a
 END GROUP
 OUTPUT(LM3S6965_SPI_Master_noScheduler.elf elf32-littlearm)
 
-.debug_info     0x00000000      0x484
+.debug_info     0x00000000      0x4a1
  .debug_info    0x00000000       0xb5 ..\obj\spi.o
- .debug_info    0x000000b5      0x128 ..\obj\main.o
- .debug_info    0x000001dd       0x93 ..\obj\gpio.o
- .debug_info    0x00000270       0xe9 ..\obj\startup_lm3s.o
- .debug_info    0x00000359      0x12b ..\obj\systick.o
+ .debug_info    0x000000b5      0x145 ..\obj\main.o
+ .debug_info    0x000001fa       0x93 ..\obj\gpio.o
+ .debug_info    0x0000028d       0xe9 ..\obj\startup_lm3s.o
+ .debug_info    0x00000376      0x12b ..\obj\systick.o
 
-.debug_abbrev   0x00000000      0x2b3
+.debug_abbrev   0x00000000      0x2b1
  .debug_abbrev  0x00000000       0x67 ..\obj\spi.o
- .debug_abbrev  0x00000067       0xa3 ..\obj\main.o
- .debug_abbrev  0x0000010a       0x51 ..\obj\gpio.o
- .debug_abbrev  0x0000015b       0xa7 ..\obj\startup_lm3s.o
- .debug_abbrev  0x00000202       0xb1 ..\obj\systick.o
+ .debug_abbrev  0x00000067       0xa1 ..\obj\main.o
+ .debug_abbrev  0x00000108       0x51 ..\obj\gpio.o
+ .debug_abbrev  0x00000159       0xa7 ..\obj\startup_lm3s.o
+ .debug_abbrev  0x00000200       0xb1 ..\obj\systick.o
 
 .debug_aranges  0x00000000       0xe0
  .debug_aranges
@@ -272,24 +272,24 @@ OUTPUT(LM3S6965_SPI_Master_noScheduler.elf elf32-littlearm)
  .debug_ranges  0x00000040       0x18 ..\obj\startup_lm3s.o
  .debug_ranges  0x00000058       0x38 ..\obj\systick.o
 
-.debug_line     0x00000000      0x47d
- .debug_line    0x00000000       0xf4 ..\obj\spi.o
- .debug_line    0x000000f4       0xca ..\obj\main.o
- .debug_line    0x000001be       0xb1 ..\obj\gpio.o
- .debug_line    0x0000026f       0xcd ..\obj\startup_lm3s.o
- .debug_line    0x0000033c      0x141 ..\obj\systick.o
+.debug_line     0x00000000      0x3f7
+ .debug_line    0x00000000       0xd9 ..\obj\spi.o
+ .debug_line    0x000000d9       0xb0 ..\obj\main.o
+ .debug_line    0x00000189       0x96 ..\obj\gpio.o
+ .debug_line    0x0000021f       0xb2 ..\obj\startup_lm3s.o
+ .debug_line    0x000002d1      0x126 ..\obj\systick.o
 
-.debug_str      0x00000000      0x437
- .debug_str     0x00000000      0x16f ..\obj\spi.o
-                                0x196 (size before relaxing)
- .debug_str     0x0000016f       0xe3 ..\obj\main.o
-                                0x1ec (size before relaxing)
- .debug_str     0x00000252       0x7b ..\obj\gpio.o
-                                0x181 (size before relaxing)
- .debug_str     0x000002cd       0xe5 ..\obj\startup_lm3s.o
-                                0x173 (size before relaxing)
- .debug_str     0x000003b2       0x85 ..\obj\systick.o
-                                0x1f0 (size before relaxing)
+.debug_str      0x00000000      0x3b0
+ .debug_str     0x00000000      0x154 ..\obj\spi.o
+                                0x17b (size before relaxing)
+ .debug_str     0x00000154       0xc8 ..\obj\main.o
+                                0x1d7 (size before relaxing)
+ .debug_str     0x0000021c       0x60 ..\obj\gpio.o
+                                0x166 (size before relaxing)
+ .debug_str     0x0000027c       0xca ..\obj\startup_lm3s.o
+                                0x158 (size before relaxing)
+ .debug_str     0x00000346       0x6a ..\obj\systick.o
+                                0x1d5 (size before relaxing)
 
 .comment        0x00000000       0x70
  .comment       0x00000000       0x70 ..\obj\spi.o
@@ -312,9 +312,9 @@ OUTPUT(LM3S6965_SPI_Master_noScheduler.elf elf32-littlearm)
  .ARM.attributes
                 0x000000cc       0x33 ..\obj\systick.o
 
-.debug_frame    0x00000000      0x1a8
+.debug_frame    0x00000000      0x1ac
  .debug_frame   0x00000000       0x60 ..\obj\spi.o
- .debug_frame   0x00000060       0x2c ..\obj\main.o
- .debug_frame   0x0000008c       0x2c ..\obj\gpio.o
- .debug_frame   0x000000b8       0x48 ..\obj\startup_lm3s.o
- .debug_frame   0x00000100       0xa8 ..\obj\systick.o
+ .debug_frame   0x00000060       0x30 ..\obj\main.o
+ .debug_frame   0x00000090       0x2c ..\obj\gpio.o
+ .debug_frame   0x000000bc       0x48 ..\obj\startup_lm3s.o
+ .debug_frame   0x00000104       0xa8 ..\obj\systick.o

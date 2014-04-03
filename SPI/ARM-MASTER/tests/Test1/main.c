@@ -41,6 +41,7 @@ int main(void)
 	init_spi();
 	systick_init();
 	enable_global_int();
+	INT8U counter = 0;
 
 	while(1)
 	{
@@ -48,11 +49,12 @@ int main(void)
 		while(!ticks);
 		// The following will be executed every 5mS
 		ticks--;
-		SSI0_DR_R = 0xFFFF;		// Send this through SPI
+		
 		if (!--alive_timer)
 		{
 			alive_timer = TIM_500_MSEC;
 			GPIO_PORTF_DATA_R ^= 0x01;
+			SSI0_DR_R = counter++;		// Send this through SPI
 		}
 		/* Application part of the super loop. */
 		//counter = SSI0_SR_R;
