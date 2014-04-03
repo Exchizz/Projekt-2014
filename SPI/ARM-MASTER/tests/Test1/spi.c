@@ -145,7 +145,7 @@ void init_spi()
 		// FRF:	[5:4] 	FrameFormat, 0x0 for Freescale (SPI)
 		// DSS:	[3:0] 	Datasize
 		// SSI0_CR0_R = 0b00000000 0 0 00 0000
-	SSI0_CR0_R = 0b0000100111001111;
+	SSI0_CR0_R = 0b0000100111000111;
 
 	// 5 Enable SSI
 			// Set SSI bit in SSICR1

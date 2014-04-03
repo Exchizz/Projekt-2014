@@ -1,20 +1,20 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <history>
-   <processor signature="arm-none-eabi-gcc 4.8.1 mingw32 -mcpu=cortex-m3 -mthumb -Wall -ffunction-sections -g -O0 -c -DLM3S6965 -I..\..\..\..\..\Users\Nicolai\Dropbox\RobTek\4. Semester\PRO\Microcontroller\SPI\LM3S6965_SPI_Master_noScheduler -I..\..\..\..\..\Users\Nicolai\Dropbox\RobTek\4. Semester\PRO\Microcontroller -I..\..\..\..\..\Users\Nicolai\Dropbox\RobTek\4. Semester\PRO\Microcontroller\SPI">
-      <target file="startup_lm3s.o" lastModified="144bb5b8c24">
-         <source file="..\..\..\startup\startup_lm3s.c" lastModified="144b0c6a005"/>
+   <processor signature="arm-none-eabi-gcc noversion nomachine -mcpu=cortex-m3 -mthumb -Wall -ffunction-sections -g -O0 -c -DLM3S6965 -IC:\Users\Thomas\Documents\GitHub\Projekt-2014\SPI\ARM-MASTER\tests -IC:\Users\Thomas\Documents\GitHub\Projekt-2014\SPI\ARM-MASTER -IC:\Users\Thomas\Documents\GitHub\Projekt-2014\SPI\ARM-MASTER\tests\Test1">
+      <target file="startup_lm3s.o" lastModified="1451d4a1ce6">
+         <source file="..\..\..\startup\startup_lm3s.c" lastModified="14502f99f1f"/>
       </target>
-      <target file="gpio.o" lastModified="144bb5b8bf5">
-         <source file="..\..\..\gpio.c" lastModified="144b1318d4b"/>
+      <target file="gpio.o" lastModified="1451d4a1c9c">
+         <source file="..\..\..\gpio.c" lastModified="14502f99f16"/>
       </target>
-      <target file="spi.o" lastModified="144d44f5cd5">
-         <source file="..\..\..\spi.c" lastModified="144d44f39a3"/>
+      <target file="spi.o" lastModified="1451d4a1b5e">
+         <source file="..\..\..\spi.c" lastModified="1451d3f395e"/>
       </target>
-      <target file="systick.o" lastModified="144bb5b8c63">
-         <source file="..\..\..\systick.c" lastModified="144b1148a4c"/>
+      <target file="systick.o" lastModified="1451d4a1d39">
+         <source file="..\..\..\systick.c" lastModified="14502f99f1f"/>
       </target>
-      <target file="main.o" lastModified="144d4501ac3">
-         <source file="..\..\..\main.c" lastModified="144d45013c8"/>
+      <target file="main.o" lastModified="1451d4a1c55">
+         <source file="..\..\..\main.c" lastModified="1451d49201d"/>
       </target>
    </processor>
 </history>
