@@ -30,7 +30,7 @@
           <Memory name="IROM2" type="ReadOnly" size="" startValue=""/>
           <Memory name="IRAM2" type="ReadWrite" size="" startValue=""/>
         </MemoryAreas>
-        <LocateLinkFile path="d:/programs/coide/configuration/programdata/project_freertos/arm-gcc-link.ld" type="0"/>
+        <LocateLinkFile path="c:/coocox/coide/configuration/programdata/project_freertos/arm-gcc-link.ld" type="0"/>
       </Link>
       <Output>
         <Option name="OutputFileType" value="0"/>
@@ -70,6 +70,7 @@
     <Component id="1135" name="FRT_FreeRTOS" path="" type="2"/>
   </Components>
   <Files>
+<<<<<<< Updated upstream
     <File name="includes/emp_type.h" path="includes/emp_type.h" type="1"/>
     <File name="communication/communication.h" path="communication/communication.h" type="1"/>
     <File name="gpio" path="" type="2"/>
@@ -82,22 +83,43 @@
     <File name="FRT_Library/FreeRTOS/Source/include/mpu_wrappers.h" path="FRT_Library/FreeRTOS/Source/include/mpu_wrappers.h" type="1"/>
     <File name="communication" path="" type="2"/>
     <File name="FRT_Library/FreeRTOS/Source/portable/MemMang/heap_2.c" path="FRT_Library/FreeRTOS/Source/portable/MemMang/heap_2.c" type="1"/>
+=======
+    <File name="includes/emp_type.h" path="../../../../../../vmware-host/Shared Folders/Projektgit/ARM/project_FreeRTOS/includes/emp_type.h" type="1"/>
+    <File name="uart/uart.h" path="../../../../../../vmware-host/Shared Folders/Projektgit/ARM/project_FreeRTOS/uartprintf/uart.h" type="1"/>
+    <File name="gpio" path="" type="2"/>
+    <File name="FRT_Library/FreeRTOS/Source/readme.txt" path="../../../../../../vmware-host/Shared Folders/Projektgit/ARM/project_FreeRTOS/FRT_Library/FreeRTOS/Source/readme.txt" type="1"/>
+    <File name="FRT_Library/FreeRTOS/Source/portable/GCC/ARM_CM3/port.c" path="../../../../../../vmware-host/Shared Folders/Projektgit/ARM/project_FreeRTOS/FRT_Library/FreeRTOS/Source/portable/GCC/ARM_CM3/port.c" type="1"/>
+    <File name="startup/startup_frt.c" path="../../../../../../vmware-host/Shared Folders/Projektgit/ARM/project_FreeRTOS/startup_frt.c" type="1"/>
+    <File name="spi/spi.h" path="../../../../../../vmware-host/Shared Folders/Projektgit/ARM/project_FreeRTOS/spi/spi.h" type="1"/>
+    <File name="FRT_Library/FreeRTOS/Source/queue.c" path="../../../../../../vmware-host/Shared Folders/Projektgit/ARM/project_FreeRTOS/FRT_Library/FreeRTOS/Source/queue.c" type="1"/>
+    <File name="FRT_Library/FreeRTOS/Source/include/mpu_wrappers.h" path="../../../../../../vmware-host/Shared Folders/Projektgit/ARM/project_FreeRTOS/FRT_Library/FreeRTOS/Source/include/mpu_wrappers.h" type="1"/>
+    <File name="FRT_Library/FreeRTOS/Source/portable/MemMang/heap_2.c" path="../../../../../../vmware-host/Shared Folders/Projektgit/ARM/project_FreeRTOS/FRT_Library/FreeRTOS/Source/portable/MemMang/heap_2.c" type="1"/>
+>>>>>>> Stashed changes
     <File name="FRT_Library/FreeRTOS" path="" type="2"/>
     <File name="debug" path="" type="2"/>
-    <File name="uart/uart.c" path="uartprintf/uartprintf.c" type="1"/>
-    <File name="cpu/cpu.h" path="cpu/cpu.h" type="1"/>
+    <File name="uart/uart.c" path="../../../../../../vmware-host/Shared Folders/Projektgit/ARM/project_FreeRTOS/uartprintf/uartprintf.c" type="1"/>
+    <File name="cpu/cpu.h" path="../../../../../../vmware-host/Shared Folders/Projektgit/ARM/project_FreeRTOS/cpu/cpu.h" type="1"/>
     <File name="FRT_Library/FreeRTOS/Source/portable/GCC/ARM_CM3" path="" type="2"/>
+<<<<<<< Updated upstream
     <File name="includes/glob_def.h" path="includes/glob_def.h" type="1"/>
     <File name="FRT_Library/FreeRTOS/Source/include" path="" type="2"/>
     <File name="FRT_Library" path="" type="2"/>
     <File name="FRT_Library/FreeRTOS/Source/include/StackMacros.h" path="FRT_Library/FreeRTOS/Source/include/StackMacros.h" type="1"/>
     <File name="communication/communication.c" path="communication/communication.c" type="1"/>
     <File name="FRT_Library/FreeRTOS/Source/portable/GCC/ARM_CM3/common.c" path="FRT_Library/FreeRTOS/Source/portable/GCC/ARM_CM3/common.c" type="1"/>
+=======
+    <File name="FRT_Library/FreeRTOS/Source/include" path="" type="2"/>
+    <File name="includes/glob_def.h" path="../../../../../../vmware-host/Shared Folders/Projektgit/ARM/project_FreeRTOS/includes/glob_def.h" type="1"/>
+    <File name="FRT_Library" path="" type="2"/>
+    <File name="FRT_Library/FreeRTOS/Source/include/StackMacros.h" path="../../../../../../vmware-host/Shared Folders/Projektgit/ARM/project_FreeRTOS/FRT_Library/FreeRTOS/Source/include/StackMacros.h" type="1"/>
+    <File name="FRT_Library/FreeRTOS/Source/portable/GCC/ARM_CM3/common.c" path="../../../../../../vmware-host/Shared Folders/Projektgit/ARM/project_FreeRTOS/FRT_Library/FreeRTOS/Source/portable/GCC/ARM_CM3/common.c" type="1"/>
+>>>>>>> Stashed changes
     <File name="uart" path="" type="2"/>
-    <File name="FRT_Library/FreeRTOS/Source/portable/GCC/ARM_CM3/portmacro.h" path="FRT_Library/FreeRTOS/Source/portable/GCC/ARM_CM3/portmacro.h" type="1"/>
+    <File name="FRT_Library/FreeRTOS/Source/portable/GCC/ARM_CM3/portmacro.h" path="../../../../../../vmware-host/Shared Folders/Projektgit/ARM/project_FreeRTOS/FRT_Library/FreeRTOS/Source/portable/GCC/ARM_CM3/portmacro.h" type="1"/>
     <File name="startup" path="" type="2"/>
-    <File name="FRT_Library/FreeRTOS/Source/include/portable.h" path="FRT_Library/FreeRTOS/Source/include/portable.h" type="1"/>
+    <File name="FRT_Library/FreeRTOS/Source/include/portable.h" path="../../../../../../vmware-host/Shared Folders/Projektgit/ARM/project_FreeRTOS/FRT_Library/FreeRTOS/Source/include/portable.h" type="1"/>
     <File name="includes" path="" type="2"/>
+<<<<<<< Updated upstream
     <File name="cpu/cpu.c" path="cpu/cpu.c" type="1"/>
     <File name="FRT_Library/FreeRTOS/Source/include/queue.h" path="FRT_Library/FreeRTOS/Source/include/queue.h" type="1"/>
     <File name="FRT_Library/FreeRTOS/Source/portable/readme.txt" path="FRT_Library/FreeRTOS/Source/portable/readme.txt" type="1"/>
@@ -111,19 +133,34 @@
     <File name="FRT_Library/FreeRTOS/Source/croutine.c" path="FRT_Library/FreeRTOS/Source/croutine.c" type="1"/>
     <File name="includes/lm3s6965.h" path="includes/lm3s6965.h" type="1"/>
     <File name="spi/spi.c" path="spi/spi.c" type="1"/>
+=======
+    <File name="cpu/cpu.c" path="../../../../../../vmware-host/Shared Folders/Projektgit/ARM/project_FreeRTOS/cpu/cpu.c" type="1"/>
+    <File name="FRT_Library/FreeRTOS/Source/include/queue.h" path="../../../../../../vmware-host/Shared Folders/Projektgit/ARM/project_FreeRTOS/FRT_Library/FreeRTOS/Source/include/queue.h" type="1"/>
+    <File name="FRT_Library/FreeRTOS/Source/portable/readme.txt" path="../../../../../../vmware-host/Shared Folders/Projektgit/ARM/project_FreeRTOS/FRT_Library/FreeRTOS/Source/portable/readme.txt" type="1"/>
+    <File name="FRT_Library/FreeRTOS/Source/include/semphr.h" path="../../../../../../vmware-host/Shared Folders/Projektgit/ARM/project_FreeRTOS/FRT_Library/FreeRTOS/Source/include/semphr.h" type="1"/>
+    <File name="debug/debug.h" path="../../../../../../vmware-host/Shared Folders/Projektgit/ARM/project_FreeRTOS/debug/debug.h" type="1"/>
+    <File name="FRT_Library/FreeRTOS/Source/include/projdefs.h" path="../../../../../../vmware-host/Shared Folders/Projektgit/ARM/project_FreeRTOS/FRT_Library/FreeRTOS/Source/include/projdefs.h" type="1"/>
+    <File name="gpio/gpio.h" path="../../../../../../vmware-host/Shared Folders/Projektgit/ARM/project_FreeRTOS/gpio/gpio.h" type="1"/>
+    <File name="FRT_Library/FreeRTOS/Source" path="" type="2"/>
+    <File name="FRT_Library/FreeRTOS/Source/tasks.c" path="../../../../../../vmware-host/Shared Folders/Projektgit/ARM/project_FreeRTOS/FRT_Library/FreeRTOS/Source/tasks.c" type="1"/>
+    <File name="FRT_Library/FreeRTOS/Source/include/task.h" path="../../../../../../vmware-host/Shared Folders/Projektgit/ARM/project_FreeRTOS/FRT_Library/FreeRTOS/Source/include/task.h" type="1"/>
+    <File name="FRT_Library/FreeRTOS/Source/croutine.c" path="../../../../../../vmware-host/Shared Folders/Projektgit/ARM/project_FreeRTOS/FRT_Library/FreeRTOS/Source/croutine.c" type="1"/>
+    <File name="includes/lm3s6965.h" path="../../../../../../vmware-host/Shared Folders/Projektgit/ARM/project_FreeRTOS/includes/lm3s6965.h" type="1"/>
+    <File name="spi/spi.c" path="../../../../../../vmware-host/Shared Folders/Projektgit/ARM/project_FreeRTOS/spi/spi.c" type="1"/>
+>>>>>>> Stashed changes
     <File name="FRT_Library/FreeRTOS/Source/portable/MemMang" path="" type="2"/>
     <File name="cpu" path="" type="2"/>
-    <File name="FRT_Library/FreeRTOS/Source/include/FreeRTOS.h" path="FRT_Library/FreeRTOS/Source/include/FreeRTOS.h" type="1"/>
+    <File name="FRT_Library/FreeRTOS/Source/include/FreeRTOS.h" path="../../../../../../vmware-host/Shared Folders/Projektgit/ARM/project_FreeRTOS/FRT_Library/FreeRTOS/Source/include/FreeRTOS.h" type="1"/>
     <File name="FRT_Library/FreeRTOS/Source/portable/GCC" path="" type="2"/>
-    <File name="FRT_Library/FreeRTOS/Source/list.c" path="FRT_Library/FreeRTOS/Source/list.c" type="1"/>
-    <File name="includes/binary.h" path="includes/binary.h" type="1"/>
+    <File name="FRT_Library/FreeRTOS/Source/list.c" path="../../../../../../vmware-host/Shared Folders/Projektgit/ARM/project_FreeRTOS/FRT_Library/FreeRTOS/Source/list.c" type="1"/>
+    <File name="includes/binary.h" path="../../../../../../vmware-host/Shared Folders/Projektgit/ARM/project_FreeRTOS/includes/binary.h" type="1"/>
     <File name="FRT_Library/FreeRTOS/Source/portable" path="" type="2"/>
     <File name="spi" path="" type="2"/>
-    <File name="FRT_Library/FreeRTOS/Source/include/list.h" path="FRT_Library/FreeRTOS/Source/include/list.h" type="1"/>
-    <File name="debug/debug.c" path="debug/debug.c" type="1"/>
-    <File name="FreeRTOSConfig.h" path="FreeRTOSConfig.h" type="1"/>
-    <File name="gpio/gpio.c" path="gpio/gpio.c" type="1"/>
-    <File name="FRT_Library/FreeRTOS/Source/include/croutine.h" path="FRT_Library/FreeRTOS/Source/include/croutine.h" type="1"/>
-    <File name="main.c" path="main.c" type="1"/>
+    <File name="FRT_Library/FreeRTOS/Source/include/list.h" path="../../../../../../vmware-host/Shared Folders/Projektgit/ARM/project_FreeRTOS/FRT_Library/FreeRTOS/Source/include/list.h" type="1"/>
+    <File name="FreeRTOSConfig.h" path="../../../../../../vmware-host/Shared Folders/Projektgit/ARM/project_FreeRTOS/FreeRTOSConfig.h" type="1"/>
+    <File name="debug/debug.c" path="../../../../../../vmware-host/Shared Folders/Projektgit/ARM/project_FreeRTOS/debug/debug.c" type="1"/>
+    <File name="gpio/gpio.c" path="../../../../../../vmware-host/Shared Folders/Projektgit/ARM/project_FreeRTOS/gpio/gpio.c" type="1"/>
+    <File name="FRT_Library/FreeRTOS/Source/include/croutine.h" path="../../../../../../vmware-host/Shared Folders/Projektgit/ARM/project_FreeRTOS/FRT_Library/FreeRTOS/Source/include/croutine.h" type="1"/>
+    <File name="main.c" path="../../../../../../vmware-host/Shared Folders/Projektgit/ARM/project_FreeRTOS/main.c" type="1"/>
   </Files>
 </Project>
