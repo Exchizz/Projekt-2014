@@ -1,5 +1,6 @@
 vhdl work "C:\Users\Lukas Schwartz\Documents\GitHub\Projekt-2014\PWM\PWM.vhd"
 vhdl work "C:\Users\Lukas Schwartz\Documents\GitHub\Projekt-2014\Encoder\encoder.vhd"
+vhdl work "C:\Users\Lukas Schwartz\Documents\GitHub\Projekt-2014\SPI\SPI.vhd"
 vhdl work "C:\Users\Lukas Schwartz\Documents\GitHub\Projekt-2014\MotorControlSystem\MCS.vhd"
 vhdl work "C:\Users\Lukas Schwartz\Documents\GitHub\Projekt-2014\Encoder\DisplaySelect_4.vhd"
 vhdl work "C:\Users\Lukas Schwartz\Documents\GitHub\Projekt-2014\Encoder\DisplayHex.vhd"

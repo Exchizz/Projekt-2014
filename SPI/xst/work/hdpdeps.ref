@@ -6,14 +6,14 @@ EN work/Fifo 1396343755 \
 AR work/Fifo/Fifo_a 1396343756 \
       FL "C:/Users/Lukas Schwartz/Documents/GitHub/Projekt-2014/SPI/ipcore_dir/Fifo.vhd" \
       EN work/Fifo 1396343755
-FL "C:/Users/Lukas Schwartz/Documents/GitHub/Projekt-2014/SPI/SPI.vhd" 2014/04/02.17:24:44 P.20131013
-EN work/SPI 1396452288 \
+FL "C:/Users/Lukas Schwartz/Documents/GitHub/Projekt-2014/SPI/SPI.vhd" 2014/04/03.19:30:00 P.20131013
+EN work/SPI 1396546204 \
       FL "C:/Users/Lukas Schwartz/Documents/GitHub/Projekt-2014/SPI/SPI.vhd" \
       PB ieee/std_logic_1164 1381692176 PB ieee/std_logic_arith 1381692177 \
       PB ieee/STD_LOGIC_UNSIGNED 1381692179
-AR work/SPI/Behavioral 1396452289 \
+AR work/SPI/Behavioral 1396546205 \
       FL "C:/Users/Lukas Schwartz/Documents/GitHub/Projekt-2014/SPI/SPI.vhd" \
-      EN work/SPI 1396452288
+      EN work/SPI 1396546204
 FL "C:/Users/Lukas Schwartz/Documents/GitHub/Projekt-2014/SPI/test_SPI.vhd" 2014/04/02.17:10:34 P.20131013
 EN work/test_SPI 1396451778 \
       FL "C:/Users/Lukas Schwartz/Documents/GitHub/Projekt-2014/SPI/test_SPI.vhd" \

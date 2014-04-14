@@ -1,7 +1,7 @@
 Release 14.7 par P.20131013 (nt64)
 Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
 
-LUKASSCHWARTZ::  Tue Apr 01 07:30:57 2014
+LUKASSCHWARTZ::  Mon Apr 14 10:06:01 2014
 
 par -w -intstyle ise -ol high -t 1 fpga_main_map.ncd fpga_main.ncd
 fpga_main.pcf 
@@ -25,25 +25,25 @@ Device speed data version:  "PRODUCTION 1.27 2013-10-13".
 
 Design Summary Report:
 
- Number of External IOBs                          37 out of 108    34%
+ Number of External IOBs                          33 out of 108    30%
 
-   Number of External Input IOBs                 19
+   Number of External Input IOBs                 14
 
-      Number of External Input IBUFs             19
-        Number of LOCed External Input IBUFs     19 out of 19    100%
+      Number of External Input IBUFs             14
+        Number of LOCed External Input IBUFs     14 out of 14    100%
 
 
-   Number of External Output IOBs                18
+   Number of External Output IOBs                19
 
-      Number of External Output IOBs             18
-        Number of LOCed External Output IOBs     18 out of 18    100%
+      Number of External Output IOBs             19
+        Number of LOCed External Output IOBs     19 out of 19    100%
 
 
    Number of External Bidir IOBs                  0
 
 
-   Number of BUFGMUXs                        1 out of 24      4%
-   Number of Slices                        314 out of 960    32%
+   Number of BUFGMUXs                        3 out of 24     12%
+   Number of Slices                        342 out of 960    35%
       Number of SLICEMs                      0 out of 480     0%
 
 
@@ -53,87 +53,50 @@ Placer effort level (-pl):    High
 Placer cost table entry (-t): 1
 Router effort level (-rl):    High 
 
-Starting initial Timing Analysis.  REAL time: 1 secs 
-Finished initial Timing Analysis.  REAL time: 1 secs 
+Starting initial Timing Analysis.  REAL time: 3 secs 
+Finished initial Timing Analysis.  REAL time: 3 secs 
 
+WARNING:Par:288 - The signal BTN<0>_IBUF has no load.  PAR will not attempt to route this signal.
+WARNING:Par:288 - The signal BTN<1>_IBUF has no load.  PAR will not attempt to route this signal.
 
 Starting Placer
-Total REAL time at the beginning of Placer: 1 secs 
-Total CPU  time at the beginning of Placer: 1 secs 
+Total REAL time at the beginning of Placer: 3 secs 
+Total CPU  time at the beginning of Placer: 2 secs 
 
 Phase 1.1  Initial Placement Analysis
-Phase 1.1  Initial Placement Analysis (Checksum:18511f38) REAL time: 1 secs 
+Phase 1.1  Initial Placement Analysis (Checksum:6aa85fb9) REAL time: 6 secs 
 
 Phase 2.7  Design Feasibility Check
-Phase 2.7  Design Feasibility Check (Checksum:18511f38) REAL time: 1 secs 
+Phase 2.7  Design Feasibility Check (Checksum:6aa85fb9) REAL time: 6 secs 
 
 Phase 3.31  Local Placement Optimization
-Phase 3.31  Local Placement Optimization (Checksum:18511f38) REAL time: 1 secs 
+Phase 3.31  Local Placement Optimization (Checksum:6aa85fb9) REAL time: 6 secs 
 
 Phase 4.2  Initial Clock and IO Placement
 
-Phase 4.2  Initial Clock and IO Placement (Checksum:20a60f4b) REAL time: 2 secs 
-
-Phase 5.30  Global Clock Region Assignment
-Phase 5.30  Global Clock Region Assignment (Checksum:20a60f4b) REAL time: 2 secs 
-
-Phase 6.36  Local Placement Optimization
-Phase 6.36  Local Placement Optimization (Checksum:20a60f4b) REAL time: 2 secs 
-
-Phase 7.8  Global Placement
-.................................
-...
-................................
-.......
 ......
-Phase 7.8  Global Placement (Checksum:c5812197) REAL time: 2 secs 
+ERROR:Place:1018 - A clock IOB / clock component pair have been found that are not placed at an optimal clock IOB /
+   clock site pair. The clock component <Clk_BUFGP/BUFG> is placed at site <BUFGMUX_X2Y10>. The IO component <Clk> is
+   placed at site <P54>.  This will not allow the use of the fast path between the IO and the Clock buffer. If this sub
+   optimal condition is acceptable for this design, you may use the CLOCK_DEDICATED_ROUTE constraint in the .ucf file to
+   demote this message to a WARNING and allow your design to continue. However, the use of this override is highly
+   discouraged as it may lead to very poor timing results. It is recommended that this error condition be corrected in
+   the design. A list of all the COMP.PINs used in this clock placement rule is listed below. These examples can be used
+   directly in the .ucf file to override this clock rule.
+   < NET "Clk" CLOCK_DEDICATED_ROUTE = FALSE; >
 
-Phase 8.5  Local Placement Optimization
-Phase 8.5  Local Placement Optimization (Checksum:c5812197) REAL time: 2 secs 
+WARNING:Place:1019 - A clock IOB / clock component pair have been found that are not placed at an optimal clock IOB /
+   clock site pair. The clock component <SPI_MClk_BUFGP/BUFG> is placed at site <BUFGMUX_X2Y1>. The IO component
+   <SPI_MClk> is placed at site <P75>.  This will not allow the use of the fast path between the IO and the Clock
+   buffer. This is normally an ERROR but the CLOCK_DEDICATED_ROUTE constraint was applied on COMP.PIN <SPI_MClk.PAD>
+   allowing your design to continue. This constraint disables all clock placer rules related to the specified COMP.PIN.
+   The use of this override is highly discouraged as it may lead to very poor timing results. It is recommended that
+   this error condition be corrected in the design.
+Phase 4.2  Initial Clock and IO Placement (Checksum:83812f58) REAL time: 8 secs 
 
-Phase 9.18  Placement Optimization
-Phase 9.18  Placement Optimization (Checksum:8c6c0f26) REAL time: 3 secs 
+Total REAL time to Placer completion: 8 secs 
+Total CPU  time to Placer completion: 5 secs 
 
-Phase 10.5  Local Placement Optimization
-Phase 10.5  Local Placement Optimization (Checksum:8c6c0f26) REAL time: 3 secs 
-
-Total REAL time to Placer completion: 3 secs 
-Total CPU  time to Placer completion: 3 secs 
-Writing design to file fpga_main.ncd
-
-
-
-Starting Router
-
-
-Phase  1  : 2016 unrouted;      REAL time: 4 secs 
-
-Phase  2  : 1859 unrouted;      REAL time: 4 secs 
-
-Phase  3  : 400 unrouted;      REAL time: 4 secs 
-
-Phase  4  : 445 unrouted; (Par is working to improve performance)     REAL time: 4 secs 
-
-Phase  5  : 0 unrouted; (Par is working to improve performance)     REAL time: 4 secs 
-
-Updating file: fpga_main.ncd with current fully routed design.
-
-Phase  6  : 0 unrouted; (Par is working to improve performance)     REAL time: 4 secs 
-
-Phase  7  : 0 unrouted; (Par is working to improve performance)     REAL time: 6 secs 
-
-Phase  8  : 0 unrouted; (Par is working to improve performance)     REAL time: 6 secs 
-
-Phase  9  : 0 unrouted; (Par is working to improve performance)     REAL time: 6 secs 
-
-Phase 10  : 0 unrouted; (Par is working to improve performance)     REAL time: 6 secs 
-
-Phase 11  : 0 unrouted; (Par is working to improve performance)     REAL time: 6 secs 
-
-Phase 12  : 0 unrouted; (Par is working to improve performance)     REAL time: 7 secs 
-
-Total REAL time to Router completion: 7 secs 
-Total CPU time to Router completion: 7 secs 
 
 Partition Implementation Status
 -------------------------------
@@ -151,8 +114,13 @@ Generating Clock Report
 +---------------------+--------------+------+------+------------+-------------+
 |        Clock Net    |   Resource   |Locked|Fanout|Net Skew(ns)|Max Delay(ns)|
 +---------------------+--------------+------+------+------------+-------------+
-|           Clk_BUFGP |  BUFGMUX_X1Y0| No   |  128 |  0.034     |  0.071      |
+|          Clk_BUFGP* | BUFGMUX_X2Y10| No   |  128 |  0.000     |             |
 +---------------------+--------------+------+------+------------+-------------+
+|     SPI_MClk_BUFGP* |  BUFGMUX_X2Y1| No   |    8 |  0.000     |             |
++---------------------+--------------+------+------+------------+-------------+
+|        SPI_SS_IBUF* |  BUFGMUX_X1Y1| No   |   23 |  0.000     |             |
++---------------------+--------------+------+------+------------+-------------+
+* Some of the Clock networks are NOT completely routed
 
 * Net Skew is the difference between the minimum and maximum routing
 only delays for the net. Note this is different from Clock Skew which
@@ -164,40 +132,28 @@ for example SLICE loads not FF loads.
 
 Timing Score: 0 (Setup: 0, Hold: 0)
 
-Asterisk (*) preceding a constraint indicates it was not met.
-   This may be due to a setup or hold violation.
-
-----------------------------------------------------------------------------------------------------------
-  Constraint                                |    Check    | Worst Case |  Best Case | Timing |   Timing   
-                                            |             |    Slack   | Achievable | Errors |    Score   
-----------------------------------------------------------------------------------------------------------
-  Autotimespec constraint for clock net Clk | SETUP       |         N/A|     9.775ns|     N/A|           0
-  _BUFGP                                    | HOLD        |     1.317ns|            |       0|           0
-----------------------------------------------------------------------------------------------------------
-
-
-All constraints were met.
-INFO:Timing:2761 - N/A entries in the Constraints List may indicate that the 
-   constraint is not analyzed due to the following: No paths covered by this 
-   constraint; Other constraints intersect with this constraint; or This 
-   constraint was disabled by a Path Tracing Control. Please run the Timespec 
-   Interaction Report (TSI) via command line (trce tsi) or Timing Analyzer GUI.
-
-
 Generating Pad Report.
 
-All signals are completely routed.
+764 signals are not completely routed. See the fpga_main.unroutes file for a list of all unrouted signals.
 
-Total REAL time to PAR completion: 7 secs 
-Total CPU time to PAR completion: 7 secs 
+WARNING:Par:100 - Design is not completely routed. There are 764 signals that are not
+   completely routed in this design. See the "fpga_main.unroutes" file for a list of
+   all unrouted signals. Check for other warnings in your PAR report that might
+   indicate why these nets are unroutable. These nets can also be evaluated
+   in FPGA Editor by selecting "Unrouted Nets" in the List Window.
 
-Peak Memory Usage:  264 MB
+WARNING:Par:283 - There are 2 loadless signals in this design. This design will cause Bitgen to issue DRC warnings.
 
-Placement: Completed - No errors found.
-Routing: Completed - No errors found.
+Total REAL time to PAR completion: 9 secs 
+Total CPU time to PAR completion: 5 secs 
 
-Number of error messages: 0
-Number of warning messages: 0
+Peak Memory Usage:  256 MB
+
+Placement: Completed - errors found.
+Routing: Completed - errors found.
+
+Number of error messages: 1
+Number of warning messages: 7
 Number of info messages: 1
 
 Writing design to file fpga_main.ncd

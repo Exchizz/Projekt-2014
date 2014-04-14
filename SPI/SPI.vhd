@@ -36,9 +36,9 @@ entity SPI is
 	Generic (DataWidth : Integer := 8);
 	
 	Port( MClk : in  STD_LOGIC;
-			Clk : in  STD_LOGIC;
+			--Clk : in  STD_LOGIC;
 			SS : in  STD_LOGIC;
-         MISO : out  STD_LOGIC := '0';
+         MISO : out  STD_LOGIC;
          MOSI : in  STD_LOGIC;
 			DataOut : out  STD_LOGIC_VECTOR(DataWidth-1 downto 0);
 			DataIn : in  STD_LOGIC_VECTOR(DataWidth-1 downto 0);
@@ -47,42 +47,74 @@ entity SPI is
 end SPI;
 
 architecture Behavioral of SPI is
+Shared variable DataBuffer : STD_LOGIC_VECTOR(DataWidth-1 downto 0);
+	
 begin
 
--- recieves information through SPI. A SS pulse is requires inbetween all datapackages. When a Package is recieved the SignalPackageEnd goes high to signal a datapackages has been recieved/send and nextdata should be supplied on the ports/new data taken on rising edge.
-PROCESS (Clk)
-	variable DataBuffer : STD_LOGIC_VECTOR(DataWidth-1 downto 0);
-	Variable pSS : STD_LOGIC := '1';
-	variable pMClk : STD_LOGIC := '1';
-BEGIN 
-	if rising_edge(Clk) then 
-		if SS = '0' AND pSS = '1' then
-			-- SS falling edge --
-			DataBuffer := DataIn;
-			SignalPackageEnd <= '0';
-		elsif SS = '0' AND pSS = '0' then
-			-- SS = 0 --
-			-- test for edges on MClk
-			if MClk = '0' AND pMClk = '1' then
-				-- rising edge --
-				-- recieve data bit --
-				DataBuffer := DataBuffer(DataWidth-2 downto 0) & MOSI;
-			elsif MClk = '1' AND pMClk = '0' then
-				-- falling edge --
-				-- send databit --
-				MISO <= DataBuffer(DataWidth-1);
+--recieves information through SPI. A SS pulse is requires inbetween all datapackages. When a Package is recieved the SignalPackageEnd goes high to signal a datapackages has been recieved/send and nextdata should be supplied on the ports/new data taken on rising edge.
+SignalPackageEnd <= SS;
+
+Process (MClk,SS)
+variable start : STD_LOGIC := '0';
+begin
+	if SS = '0' then
+		if rising_edge(MClk) then
+			if start = '0' then
+				start := '1';
+				DataBuffer := DataIn;
 			end if;
-		elsif SS = '1' AND pSS = '0' then
-			-- SS rising edge --
-			-- put data out --
-			DataOut <= DataBuffer;
-			-- signal new data in buffer --
-			SignalPackageEnd <= '1';
-		else 
-			-- SS = 1 --
+			DataBuffer := DataBuffer(DataWidth-2 downto 0) & MOSI;
 		end if;
+		if falling_edge(MClk) then
+			MISO <= DataBuffer(DataWidth-1);
+		end if;
+	elsif SS = '1' then
+		start := '0';
 	end if;
-END PROCESS;
+end process;
+
+Process (SS)
+begin
+	if rising_edge(SS) then
+		DataOut <= DataBuffer;
+	end if;
+end process;
+
+
+--- vX, seems to have flaws...
+--PROCESS (Clk)
+--	variable DataBuffer : STD_LOGIC_VECTOR(DataWidth-1 downto 0);
+--	Variable pSS : STD_LOGIC := '1';
+--	variable pMClk : STD_LOGIC := '1';
+--BEGIN 
+--	if rising_edge(Clk) then 
+--		if SS = '0' AND pSS = '1' then
+--			-- SS falling edge --
+--			DataBuffer := DataIn;
+--			SignalPackageEnd <= '0';
+--		elsif SS = '0' AND pSS = '0' then
+--			-- SS = 0 --
+--			-- test for edges on MClk
+--			if MClk = '0' AND pMClk = '1' then
+--				-- rising edge --
+--				-- recieve data bit --
+--				DataBuffer := DataBuffer(DataWidth-2 downto 0) & MOSI;
+--			elsif MClk = '1' AND pMClk = '0' then
+--				-- falling edge --
+--				-- send databit --
+--				MISO <= DataBuffer(DataWidth-1);
+--			end if;
+--		elsif SS = '1' AND pSS = '0' then
+--			-- SS rising edge --
+--			-- put data out --
+--			DataOut <= DataBuffer;
+--			-- signal new data in buffer --
+--			SignalPackageEnd <= '1';
+--		else 
+--			-- SS = 1 --
+--		end if;
+--	end if;
+--END PROCESS;
 
 end Behavioral;
 

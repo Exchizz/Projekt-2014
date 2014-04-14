@@ -9,35 +9,35 @@ Target Device  : xc3s100e
 Target Package : tq144
 Target Speed   : -4
 Mapper Version : spartan3e -- $Revision: 1.55 $
-Mapped Date    : Tue Apr 01 07:30:52 2014
+Mapped Date    : Mon Apr 14 10:05:47 2014
 
 Design Summary
 --------------
 Number of errors:      0
-Number of warnings:    0
+Number of warnings:    2
 Logic Utilization:
-  Number of Slice Flip Flops:           192 out of   1,920   10%
-  Number of 4 input LUTs:               443 out of   1,920   23%
+  Number of Slice Flip Flops:           250 out of   1,920   13%
+  Number of 4 input LUTs:               466 out of   1,920   24%
 Logic Distribution:
-  Number of occupied Slices:            314 out of     960   32%
-    Number of Slices containing only related logic:     314 out of     314 100%
-    Number of Slices containing unrelated logic:          0 out of     314   0%
+  Number of occupied Slices:            342 out of     960   35%
+    Number of Slices containing only related logic:     342 out of     342 100%
+    Number of Slices containing unrelated logic:          0 out of     342   0%
       *See NOTES below for an explanation of the effects of unrelated logic.
-  Total Number of 4 input LUTs:         599 out of   1,920   31%
-    Number used as logic:               443
+  Total Number of 4 input LUTs:         622 out of   1,920   32%
+    Number used as logic:               466
     Number used as a route-thru:        156
 
   The Slice Logic Distribution report is not meaningful if the design is
   over-mapped for a non-slice resource or if Placement fails.
 
-  Number of bonded IOBs:                 37 out of     108   34%
-  Number of BUFGMUXs:                     1 out of      24    4%
+  Number of bonded IOBs:                 33 out of     108   30%
+  Number of BUFGMUXs:                     3 out of      24   12%
 
-Average Fanout of Non-Clock Nets:                2.70
+Average Fanout of Non-Clock Nets:                2.68
 
-Peak Memory Usage:  258 MB
-Total REAL time to MAP completion:  1 secs 
-Total CPU time to MAP completion:   1 secs 
+Peak Memory Usage:  259 MB
+Total REAL time to MAP completion:  9 secs 
+Total CPU time to MAP completion:   3 secs 
 
 NOTES:
 
@@ -78,9 +78,18 @@ Section 1 - Errors
 
 Section 2 - Warnings
 --------------------
+WARNING:PhysDesignRules:367 - The signal <BTN<0>_IBUF> is incomplete. The signal
+   does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal <BTN<1>_IBUF> is incomplete. The signal
+   does not drive any load pins in the design.
 
 Section 3 - Informational
 -------------------------
+INFO:LIT:243 - Logical network BTN<1>_IBUF has no load.
+INFO:LIT:395 - The above info message is repeated 1 more times for the following
+   (max. 5 shown):
+   BTN<0>_IBUF
+   To see the details of these info messages, please use the -detail switch.
 INFO:MapLib:562 - No environment variables are currently set.
 INFO:LIT:244 - All of the single ended outputs in this design are using slew
    rate limited output drivers. The delay on speed critical single ended outputs
@@ -129,14 +138,10 @@ Section 6 - IOB Properties
 | MotorB<0>                          | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          | 0 / 0    |
 | MotorB<1>                          | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          | 0 / 0    |
 | MotorB<2>                          | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          | 0 / 0    |
-| SW<0>                              | IBUF             | INPUT     | LVCMOS25             |       |          |      |              |          | 0 / 0    |
-| SW<1>                              | IBUF             | INPUT     | LVCMOS25             |       |          |      |              |          | 0 / 0    |
-| SW<2>                              | IBUF             | INPUT     | LVCMOS25             |       |          |      |              |          | 0 / 0    |
-| SW<3>                              | IBUF             | INPUT     | LVCMOS25             |       |          |      |              |          | 0 / 0    |
-| SW<4>                              | IBUF             | INPUT     | LVCMOS25             |       |          |      |              |          | 0 / 0    |
-| SW<5>                              | IBUF             | INPUT     | LVCMOS25             |       |          |      |              |          | 0 / 0    |
-| SW<6>                              | IBUF             | INPUT     | LVCMOS25             |       |          |      |              |          | 0 / 0    |
-| SW<7>                              | IBUF             | INPUT     | LVCMOS25             |       |          |      |              |          | 0 / 0    |
+| SPI_MClk                           | IBUF             | INPUT     | LVCMOS25             |       |          |      |              |          | 0 / 0    |
+| SPI_MISO                           | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          | 0 / 0    |
+| SPI_MOSI                           | IBUF             | INPUT     | LVCMOS25             |       |          |      |              |          | 0 / 0    |
+| SPI_SS                             | IBUF             | INPUT     | LVCMOS25             |       |          |      |              |          | 0 / 0    |
 | Seg<0>                             | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          | 0 / 0    |
 | Seg<1>                             | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          | 0 / 0    |
 | Seg<2>                             | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          | 0 / 0    |

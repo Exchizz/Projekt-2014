@@ -1,0 +1,167 @@
+--------------------------------------------------------------------------------
+Release 14.7 Trace  (nt64)
+Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+
+C:\Xilinx\14.7\ISE_DS\ISE\bin\nt64\unwrapped\trce.exe
+C:\Users\Lukas Schwartz\Documents\GitHub\Projekt-2014\FPGA\smartxplorer_results\run6\fpga_main.ncd
+C:\Users\Lukas Schwartz\Documents\GitHub\Projekt-2014\FPGA\smartxplorer_results\run6\fpga_main.pcf
+-xml
+C:\Users\Lukas Schwartz\Documents\GitHub\Projekt-2014\FPGA\smartxplorer_results\run6\fpga_main.twx
+-v 3 -s 4 -n 3 -fastpaths -ucf ports.ucf -o
+C:\Users\Lukas Schwartz\Documents\GitHub\Projekt-2014\FPGA\smartxplorer_results\run6\fpga_main.twr
+
+Design file:              fpga_main.ncd
+Physical constraint file: fpga_main.pcf
+Device,package,speed:     xc3s100e,tq144,-4 (PRODUCTION 1.27 2013-10-13)
+Report level:             verbose report
+
+Environment Variable      Effect 
+--------------------      ------ 
+NONE                      No environment variables were set
+--------------------------------------------------------------------------------
+
+INFO:Timing:2698 - No timing constraints found, doing default enumeration.
+INFO:Timing:3412 - To improve timing, see the Timing Closure User Guide (UG612).
+INFO:Timing:2752 - To get complete path coverage, use the unconstrained paths 
+   option. All paths that are not constrained will be reported in the 
+   unconstrained paths section(s) of the report.
+INFO:Timing:3339 - The clock-to-out numbers in this timing report are based on 
+   a 50 Ohm transmission line loading model.  For the details of this model, 
+   and for more information on accounting for different loading conditions, 
+   please see the device datasheet.
+INFO:Timing:3390 - This architecture does not support a default System Jitter 
+   value, please add SYSTEM_JITTER constraint to the UCF to modify the Clock 
+   Uncertainty calculation.
+INFO:Timing:3389 - This architecture does not support 'Discrete Jitter' and 
+   'Phase Error' calculations, these terms will be zero in the Clock 
+   Uncertainty calculation.  Please make appropriate modification to 
+   SYSTEM_JITTER to account for the unsupported Discrete Jitter and Phase 
+   Error.
+
+
+
+Data Sheet report:
+-----------------
+All values displayed in nanoseconds (ns)
+
+Setup/Hold to clock Clk
+------------+------------+------------+------------------+--------+
+            |Max Setup to|Max Hold to |                  | Clock  |
+Source      | clk (edge) | clk (edge) |Internal Clock(s) | Phase  |
+------------+------------+------------+------------------+--------+
+BTN<2>      |    2.412(R)|   -0.716(R)|Clk_BUFGP         |   0.000|
+BTN<3>      |    1.822(R)|    0.214(R)|Clk_BUFGP         |   0.000|
+HallA<0>    |    5.081(R)|   -0.067(R)|Clk_BUFGP         |   0.000|
+HallA<1>    |    5.359(R)|    0.237(R)|Clk_BUFGP         |   0.000|
+HallA<2>    |    1.737(R)|    0.266(R)|Clk_BUFGP         |   0.000|
+HallB<0>    |    7.303(R)|   -1.297(R)|Clk_BUFGP         |   0.000|
+HallB<1>    |    7.167(R)|   -0.540(R)|Clk_BUFGP         |   0.000|
+HallB<2>    |    1.874(R)|    0.261(R)|Clk_BUFGP         |   0.000|
+------------+------------+------------+------------------+--------+
+
+Setup/Hold to clock SPI_MClk
+------------+------------+------------+------------------+--------+
+            |Max Setup to|Max Hold to |                  | Clock  |
+Source      | clk (edge) | clk (edge) |Internal Clock(s) | Phase  |
+------------+------------+------------+------------------+--------+
+SPI_MOSI    |    0.318(R)|    0.926(R)|SPI_MClk_BUFGP    |   0.000|
+------------+------------+------------+------------------+--------+
+
+Clock Clk to Pad
+------------+------------+------------------+--------+
+            | clk (edge) |                  | Clock  |
+Destination |   to PAD   |Internal Clock(s) | Phase  |
+------------+------------+------------------+--------+
+AN<0>       |   10.402(R)|Clk_BUFGP         |   0.000|
+AN<1>       |   10.046(R)|Clk_BUFGP         |   0.000|
+AN<2>       |   10.036(R)|Clk_BUFGP         |   0.000|
+AN<3>       |    9.887(R)|Clk_BUFGP         |   0.000|
+MotorA<0>   |   16.651(R)|Clk_BUFGP         |   0.000|
+MotorA<1>   |   17.858(R)|Clk_BUFGP         |   0.000|
+MotorA<2>   |   11.156(R)|Clk_BUFGP         |   0.000|
+MotorB<0>   |   15.930(R)|Clk_BUFGP         |   0.000|
+MotorB<1>   |   16.001(R)|Clk_BUFGP         |   0.000|
+MotorB<2>   |   11.088(R)|Clk_BUFGP         |   0.000|
+Seg<0>      |   13.472(R)|Clk_BUFGP         |   0.000|
+Seg<1>      |   13.348(R)|Clk_BUFGP         |   0.000|
+Seg<2>      |   13.073(R)|Clk_BUFGP         |   0.000|
+Seg<3>      |   13.223(R)|Clk_BUFGP         |   0.000|
+Seg<4>      |   13.213(R)|Clk_BUFGP         |   0.000|
+Seg<5>      |   13.136(R)|Clk_BUFGP         |   0.000|
+Seg<6>      |   15.150(R)|Clk_BUFGP         |   0.000|
+------------+------------+------------------+--------+
+
+Clock SPI_MClk to Pad
+------------+------------+------------------+--------+
+            | clk (edge) |                  | Clock  |
+Destination |   to PAD   |Internal Clock(s) | Phase  |
+------------+------------+------------------+--------+
+SPI_MISO    |    8.264(F)|SPI_MClk_BUFGP    |   0.000|
+------------+------------+------------------+--------+
+
+Clock SPI_SS to Pad
+------------+------------+------------------+--------+
+            | clk (edge) |                  | Clock  |
+Destination |   to PAD   |Internal Clock(s) | Phase  |
+------------+------------+------------------+--------+
+MotorA<0>   |   14.887(R)|SPI_SS_IBUF       |   0.000|
+MotorA<1>   |   16.094(R)|SPI_SS_IBUF       |   0.000|
+MotorA<2>   |    9.757(R)|SPI_SS_IBUF       |   0.000|
+MotorB<0>   |   13.400(R)|SPI_SS_IBUF       |   0.000|
+MotorB<1>   |   13.471(R)|SPI_SS_IBUF       |   0.000|
+MotorB<2>   |    9.925(R)|SPI_SS_IBUF       |   0.000|
+------------+------------+------------------+--------+
+
+Clock to Setup on destination clock Clk
+---------------+---------+---------+---------+---------+
+               | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
+Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
+---------------+---------+---------+---------+---------+
+Clk            |    9.913|         |         |         |
+SPI_SS         |    7.938|         |         |         |
+---------------+---------+---------+---------+---------+
+
+Clock to Setup on destination clock SPI_MClk
+---------------+---------+---------+---------+---------+
+               | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
+Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
+---------------+---------+---------+---------+---------+
+SPI_MClk       |    3.385|         |    1.776|         |
+SPI_SS         |    2.586|    2.489|    2.480|    2.480|
+---------------+---------+---------+---------+---------+
+
+Clock to Setup on destination clock SPI_SS
+---------------+---------+---------+---------+---------+
+               | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
+Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
+---------------+---------+---------+---------+---------+
+Clk            |    4.602|         |         |         |
+SPI_MClk       |    2.648|         |         |         |
+SPI_SS         |    3.465|         |         |         |
+---------------+---------+---------+---------+---------+
+
+Pad to Pad
+---------------+---------------+---------+
+Source Pad     |Destination Pad|  Delay  |
+---------------+---------------+---------+
+BTN<2>         |Seg<0>         |   10.909|
+BTN<2>         |Seg<1>         |   10.735|
+BTN<2>         |Seg<2>         |   10.553|
+BTN<2>         |Seg<3>         |   10.355|
+BTN<2>         |Seg<4>         |   10.385|
+BTN<2>         |Seg<5>         |   10.385|
+BTN<2>         |Seg<6>         |   12.698|
+---------------+---------------+---------+
+
+
+Analysis completed Thu Apr 10 17:30:00 2014 
+--------------------------------------------------------------------------------
+
+Trace Settings:
+-------------------------
+Trace Settings 
+
+Peak Memory Usage: 165 MB
+
+
+

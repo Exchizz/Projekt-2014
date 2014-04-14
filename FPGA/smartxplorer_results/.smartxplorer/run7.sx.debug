@@ -1,0 +1,40 @@
+strategySpecString = ':oc:sqmap:sq:cl:sp:sq:sp:dstiming:sp:dsol:sphigh:sp:dspr:spb:sp:sq:cm:sp:sqpower:sq:cl:sp:sqoff:sq:cm:sp:sqbitgen:sq:cl:sp:sqon:sq:cm:sp:sqsynplify:sq:cl:sp:sq:sq:cm:sp:sqngdbuild:sq:cl:sp:sq:dssd:spC:clcl:clbslUsers:clbslLukas:clspSchwartz:clbslDocuments:clbslGitHub:clbslProjekt:clds2014:clbslFPGA:sp:dsp:spxc3s100e:dstq144:ds4:sq:cm:sp:sqtrce:sq:cl:sp:sq:dsv:sp3:sp:dss:sp4:sp:dsn:sp3:sp:dsfastpaths:sp:dsxml:spfpga_main.twx:sp:dsucf:spports.ucf:sq:cm:sp:sqmax_score:sq:cl:spNone:cm:sp:sqindex:sq:cl:sp7:cm:sp:sqpar:sq:cl:sp:sq:sp:dsol:sphigh:sp:sq:cm:sp:sqname:sq:cl:sp:sqMapUseIOReg:sq:cm:sp:sqxst:sq:cl:sp:sq:sq:cm:sp:sqarea:sq:cl:sp:os:sqlut:sq:cm:sp:sqslice_reg:sq:cs:cm:sp:sqversion:sq:cl:sp:sq14.7:sq:cm:sp:sqenv:sq:cl:sp:sq:oc:cc:sq:cm:sp:sqsxLaunchDir:sq:cl:sp:sqC:cl:bsl:bslUsers:bsl:bslLukas:spSchwartz:bsl:bslDocuments:bsl:bslGitHub:bsl:bslProjekt:ds2014:bsl:bslFPGA:sq:cc'
+Xilinx Environment Variables:
+
+{'XILINX': 'C:\\Xilinx\\14.7\\ISE_DS\\ISE\\'
+'PATH': 'C:\\Xilinx\\14.7\\ISE_DS\\ISE\\\\lib\\nt64;C:\\Xilinx\\14.7\\ISE_DS\\ISE\\\\bin\\nt64;C:\\Program Files (x86)\\NVIDIA Corporation\\PhysX\\Common;C:\\Program Files (x86)\\Intel\\iCLS Client\\;C:\\Program Files\\Intel\\iCLS Client\\;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files (x86)\\Intel\\OpenCL SDK\\2.0\\bin\\x86;C:\\Program Files (x86)\\Intel\\OpenCL SDK\\2.0\\bin\\x64;C:\\Program Files\\Intel\\Intel(R) Management Engine Components\\DAL;C:\\Program Files\\Intel\\Intel(R) Management Engine Components\\IPT;C:\\Program Files (x86)\\Intel\\Intel(R) Management Engine Components\\DAL;C:\\Program Files (x86)\\Intel\\Intel(R) Management Engine Components\\IPT;C:\\CooCox\\CoIDE\\gcc\\bin;C:\\Program Files (x86)\\MiKTeX 2.9\\miktex\\bin\\;C:\\Program Files\\MATLAB\\R2013a\\runtime\\win64;C:\\Program Files\\MATLAB\\R2013a\\bin'}
+envDict = {}
+LukasSchwartz_6.stat:C:\Users\Lukas Schwartz\Documents\GitHub\Projekt-2014\FPGA\smartxplorer_results\.smartxplorer\.sx.keepAlive.LukasSchwartz_6
+INFO: total number of threads running this host None
+...searching for file: mapuseioreg.xds
+Creating XDS file ... mapuseioreg.xds
+###################################
+
+      <property name = "Map:Perform Timing-Driven Packing and Placement"
+               value = "true" />
+      <property name = "Map:Map Effort Level"
+               value = "High" />
+      <property name = "Map:Pack I/O Registers/Latches into IOBs"
+               value = "For Inputs and Outputs" />
+      <property name = "Place &amp; Route:Place &amp; Route Effort Level (Overall)"
+               value = "High" />
+      <property name = "Generate Post-Place &amp; Route Static Timing:Number of Paths in Error/Verbose Report"
+               value = "3" />
+      <property name = "Generate Post-Place &amp; Route Static Timing:Report Type"
+               value = "Verbose Report" />
+      <property name = "Generate Post-Place &amp; Route Static Timing:Change Device Speed To"
+               value = "-4" />
+      <property name = "Generate Post-Place &amp; Route Static Timing:Report Paths by Endpoint"
+               value = "3" />
+      <property name = "Generate Post-Place &amp; Route Static Timing:Report Fastest Path(s) in Each Constraint"
+               value = "true" />
+###################################
+launching map with options  -timing -ol high -pr b  -p xc3s100e-tq144-4 -o fpga_main_map.ncd  C:cl:bslUsers:bslLukas:spSchwartz:bslDocuments:bslGitHub:bslProjekt:ds2014:bslFPGA:bslsmartxplorer_results:bslrun7:bslfpga_main.pcf...
+runTask: map fpga_main.ngd -timing -ol high -pr b -p xc3s100e-tq144-4 -o fpga_main_map.ncd C:\Users\Lukas Schwartz\Documents\GitHub\Projekt-2014\FPGA\smartxplorer_results\run7\fpga_main.pcf
+args = ['map', 'fpga_main.ngd', '-timing', '-ol', 'high', '-pr', 'b', '-p', 'xc3s100e-tq144-4', '-o', 'fpga_main_map.ncd', 'C:\\Users\\Lukas Schwartz\\Documents\\GitHub\\Projekt-2014\\FPGA\\smartxplorer_results\\run7\\fpga_main.pcf']
+launching par with options  -ol high  -w fpga_main.ncd  C:cl:bslUsers:bslLukas:spSchwartz:bslDocuments:bslGitHub:bslProjekt:ds2014:bslFPGA:bslsmartxplorer_results:bslrun7:bslfpga_main.pcf...
+runTask: par fpga_main_map.ncd -ol high -w fpga_main.ncd C:\Users\Lukas Schwartz\Documents\GitHub\Projekt-2014\FPGA\smartxplorer_results\run7\fpga_main.pcf
+args = ['par', 'fpga_main_map.ncd', '-ol', 'high', '-w', 'fpga_main.ncd', 'C:\\Users\\Lukas Schwartz\\Documents\\GitHub\\Projekt-2014\\FPGA\\smartxplorer_results\\run7\\fpga_main.pcf']
+launching trce...
+runTask: trce C:\Users\Lukas Schwartz\Documents\GitHub\Projekt-2014\FPGA\smartxplorer_results\run7\fpga_main.ncd C:\Users\Lukas Schwartz\Documents\GitHub\Projekt-2014\FPGA\smartxplorer_results\run7\fpga_main.pcf -xml C:\Users\Lukas Schwartz\Documents\GitHub\Projekt-2014\FPGA\smartxplorer_results\run7\fpga_main.twx -v 3 -s 4 -n 3 -fastpaths -ucf ports.ucf -o C:\Users\Lukas Schwartz\Documents\GitHub\Projekt-2014\FPGA\smartxplorer_results\run7\fpga_main.twr
+args = ['trce', 'C:\\Users\\Lukas Schwartz\\Documents\\GitHub\\Projekt-2014\\FPGA\\smartxplorer_results\\run7\\fpga_main.ncd', 'C:\\Users\\Lukas Schwartz\\Documents\\GitHub\\Projekt-2014\\FPGA\\smartxplorer_results\\run7\\fpga_main.pcf', '-xml', 'C:\\Users\\Lukas Schwartz\\Documents\\GitHub\\Projekt-2014\\FPGA\\smartxplorer_results\\run7\\fpga_main.twx', '-v', '3', '-s', '4', '-n', '3', '-fastpaths', '-ucf', 'ports.ucf', '-o', 'C:\\Users\\Lukas Schwartz\\Documents\\GitHub\\Projekt-2014\\FPGA\\smartxplorer_results\\run7\\fpga_main.twr']

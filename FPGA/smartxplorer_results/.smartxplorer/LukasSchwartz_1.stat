@@ -1,0 +1,13 @@
+START:Strategy:2:MapPhysSynthesis
+REMOTE_PID:5628
+RUNNING:5628:5196:MapPhysSynthesis:map:fpga_main.ngd: -timing -ol high -xe n -register_duplication on -logic_opt on  -p xc3s100e-tq144-4 -o fpga_main_map.ncd  C:cl:bslUsers:bslLukas:spSchwartz:bslDocuments:bslGitHub:bslProjekt:ds2014:bslFPGA:bslsmartxplorer_results:bslrun2:bslfpga_main.pcf
+STATUS:MapPhysSynthesis:map:Score:None:lut:None:slice_reg:251 (13%):slice:None:bram:None:dsp48:None:mult18x18:None:Power:None:wnsInfo:None:Time:15.07 secs 
+STATUS:MapPhysSynthesis:map:Score:None:lut:467 (24%):slice_reg:251 (13%):slice:None:bram:None:dsp48:None:mult18x18:None:Power:None:wnsInfo:None:Time:15.07 secs 
+STATUS:MapPhysSynthesis:map:Score:None:lut:467 (24%):slice_reg:251 (13%):slice:389 (40%):bram:None:dsp48:None:mult18x18:None:Power:None:wnsInfo:None:Time:15.07 secs 
+STATUS:MapPhysSynthesis:map:Score:None:lut:623 (32%):slice_reg:251 (13%):slice:389 (40%):bram:None:dsp48:None:mult18x18:None:Power:None:wnsInfo:None:Time:15.07 secs 
+DONE:map:0
+RUNNING:5628:5748:MapPhysSynthesis:par:fpga_main_map.ncd: -ol high  -w fpga_main.ncd  C:cl:bslUsers:bslLukas:spSchwartz:bslDocuments:bslGitHub:bslProjekt:ds2014:bslFPGA:bslsmartxplorer_results:bslrun2:bslfpga_main.pcf
+STATUS:MapPhysSynthesis:par:Score:None:lut:None:slice_reg:None:slice:None:bram:None:dsp48:None:mult18x18:None:Power:None:wnsInfo:N/A:Time:30.18 secs 
+DONE:par:0
+RUNNING:5628:2412:MapPhysSynthesis:trce:C:\Users\Lukas Schwartz\Documents\GitHub\Projekt-2014\FPGA\smartxplorer_results\run2\fpga_main.ncd:C:cl:bslUsers:bslLukas:spSchwartz:bslDocuments:bslGitHub:bslProjekt:ds2014:bslFPGA:bslsmartxplorer_results:bslrun2:bslfpga_main.pcf -xml C:cl:bslUsers:bslLukas:spSchwartz:bslDocuments:bslGitHub:bslProjekt:ds2014:bslFPGA:bslsmartxplorer_results:bslrun2:bslfpga_main.twx -v 3 -s 4 -n 3 -fastpaths   -ucf ports.ucf -o C:cl:bslUsers:bslLukas:spSchwartz:bslDocuments:bslGitHub:bslProjekt:ds2014:bslFPGA:bslsmartxplorer_results:bslrun2:bslfpga_main.twr
+DONE:trce:0

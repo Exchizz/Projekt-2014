@@ -1,0 +1,339 @@
+
+WARNING: The Trce option "-ucf" is either illegal or not supported by projNav and hence will not be added in the strategy file(mapuseioreg.xds) created by Smartxplorer.
+
+Command Line : 
+-------------
+map C:\Users\Lukas Schwartz\Documents\GitHub\Projekt-2014\FPGA\smartxplorer_results\run7\fpga_main.ngd -timing -ol high -pr b -p xc3s100e-tq144-4 -o fpga_main_map.ncd C:\Users\Lukas Schwartz\Documents\GitHub\Projekt-2014\FPGA\smartxplorer_results\run7\fpga_main.pcf
+
+Release 14.7 - Map P.20131013 (nt64)
+Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+Using target part "3s100etq144-4".
+Mapping design into LUTs...
+Writing file fpga_main_map.ngm...
+Running directed packing...
+Running delay-based LUT packing...
+Updating timing models...
+Running timing-driven placement...
+Total REAL time at the beginning of Placer: 3 secs 
+Total CPU  time at the beginning of Placer: 3 secs 
+
+Phase 1.1  Initial Placement Analysis
+Phase 1.1  Initial Placement Analysis (Checksum:74a78202) REAL time: 3 secs 
+
+Phase 2.7  Design Feasibility Check
+INFO:Place:834 - Only a subset of IOs are locked. Out of 19 IOs, 18 are locked
+   and 1 are not locked. If you would like to print the names of these IOs,
+   please set the environment variable XIL_PAR_DESIGN_CHECK_VERBOSE to 1. 
+Phase 2.7  Design Feasibility Check (Checksum:74a78202) REAL time: 3 secs 
+
+Phase 3.31  Local Placement Optimization
+Phase 3.31  Local Placement Optimization (Checksum:74a78202) REAL time: 3 secs 
+
+Phase 4.2  Initial Clock and IO Placement
+........
+Phase 4.2  Initial Clock and IO Placement (Checksum:74343eee) REAL time: 5 secs 
+
+Phase 5.30  Global Clock Region Assignment
+Phase 5.30  Global Clock Region Assignment (Checksum:74343eee) REAL time: 5 secs 
+
+Phase 6.36  Local Placement Optimization
+Phase 6.36  Local Placement Optimization (Checksum:74343eee) REAL time: 5 secs 
+
+Phase 7.3  Local Placement Optimization
+.......
+Phase 7.3  Local Placement Optimization (Checksum:e04466bb) REAL time: 5 secs 
+
+Phase 8.5  Local Placement Optimization
+Phase 8.5  Local Placement Optimization (Checksum:e04466bb) REAL time: 5 secs 
+
+Phase 9.8  Global Placement
+.........................
+..
+....................................................................................................................
+................
+................
+Phase 9.8  Global Placement (Checksum:97cbc2b8) REAL time: 6 secs 
+
+Phase 10.5  Local Placement Optimization
+Phase 10.5  Local Placement Optimization (Checksum:97cbc2b8) REAL time: 6 secs 
+
+Phase 11.18  Placement Optimization
+Phase 11.18  Placement Optimization (Checksum:9a044636) REAL time: 9 secs 
+
+Phase 12.5  Local Placement Optimization
+Phase 12.5  Local Placement Optimization (Checksum:9a044636) REAL time: 9 secs 
+
+Total REAL time to Placer completion: 9 secs 
+Total CPU  time to Placer completion: 9 secs 
+Running post-placement packing...
+
+Design Summary:
+Number of errors:      0
+Number of warnings:    2
+Logic Utilization:
+  Number of Slice Flip Flops:           248 out of   1,920   12%
+  Number of 4 input LUTs:               466 out of   1,920   24%
+Logic Distribution:
+  Number of occupied Slices:            368 out of     960   38%
+    Number of Slices containing only related logic:     368 out of     368 100%
+    Number of Slices containing unrelated logic:          0 out of     368   0%
+      *See NOTES below for an explanation of the effects of unrelated logic.
+  Total Number of 4 input LUTs:         622 out of   1,920   32%
+    Number used as logic:               466
+    Number used as a route-thru:        156
+
+  The Slice Logic Distribution report is not meaningful if the design is
+  over-mapped for a non-slice resource or if Placement fails.
+
+  Number of bonded IOBs:                 33 out of     108   30%
+    IOB Flip Flops:                       2
+  Number of BUFGMUXs:                     3 out of      24   12%
+
+Average Fanout of Non-Clock Nets:                2.69
+
+Peak Memory Usage:  287 MB
+Total REAL time to MAP completion:  10 secs 
+Total CPU time to MAP completion:   10 secs 
+
+Mapping completed.
+See MAP report file "fpga_main_map.mrp" for details.
+
+Command Line : 
+-------------
+par C:\Users\Lukas Schwartz\Documents\GitHub\Projekt-2014\FPGA\smartxplorer_results\run7\fpga_main.ngd -ol high -w fpga_main.ncd C:\Users\Lukas Schwartz\Documents\GitHub\Projekt-2014\FPGA\smartxplorer_results\run7\fpga_main.pcf
+
+Release 14.7 - par P.20131013 (nt64)
+Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+
+
+
+Constraints file: C:\Users\Lukas Schwartz\Documents\GitHub\Projekt-2014\FPGA\smartxplorer_results\run7\fpga_main.pcf.
+Loading device for application Rf_Device from file '3s100e.nph' in environment C:\Xilinx\14.7\ISE_DS\ISE\.
+   "fpga_main" is an NCD, version 3.2, device xc3s100e, package tq144, speed -4
+
+Initializing temperature to 85.000 Celsius. (default - Range: -40.000 to 100.000 Celsius)
+Initializing voltage to 1.140 Volts. (default - Range: 1.140 to 1.320 Volts)
+
+INFO:Par:282 - No user timing constraints were detected or you have set the option to ignore timing constraints ("par
+   -x"). Place and Route will run in "Performance Evaluation Mode" to automatically improve the performance of all
+   internal clocks in this design. Because there are not defined timing requirements, a timing score will not be
+   reported in the PAR report in this mode. The PAR timing summary will list the performance achieved for each clock.
+   Note: For the fastest runtime, set the effort level to "std".  For best performance, set the effort level to "high".
+
+Device speed data version:  "PRODUCTION 1.27 2013-10-13".
+
+
+
+Design Summary Report:
+
+ Number of External IOBs                          33 out of 108    30%
+
+   Number of External Input IOBs                 14
+
+      Number of External Input IBUFs             14
+        Number of LOCed External Input IBUFs     11 out of 14     78%
+
+
+   Number of External Output IOBs                19
+
+      Number of External Output IOBs             19
+        Number of LOCed External Output IOBs     18 out of 19     94%
+
+
+   Number of External Bidir IOBs                  0
+
+
+   Number of BUFGMUXs                        3 out of 24     12%
+   Number of Slices                        368 out of 960    38%
+      Number of SLICEMs                      0 out of 480     0%
+
+
+
+Overall effort level (-ol):   High 
+Router effort level (-rl):    High 
+
+Starting initial Timing Analysis.  REAL time: 3 secs 
+Finished initial Timing Analysis.  REAL time: 3 secs 
+
+WARNING:Par:288 - The signal BTN<0>_IBUF has no load.  PAR will not attempt to route this signal.
+WARNING:Par:288 - The signal BTN<1>_IBUF has no load.  PAR will not attempt to route this signal.
+Starting Router
+
+
+Phase  1  : 2207 unrouted;      REAL time: 4 secs 
+
+Phase  2  : 1986 unrouted;      REAL time: 4 secs 
+
+Phase  3  : 434 unrouted;      REAL time: 4 secs 
+
+Phase  4  : 473 unrouted; (Par is working to improve performance)     REAL time: 5 secs 
+
+Phase  5  : 0 unrouted; (Par is working to improve performance)     REAL time: 5 secs 
+
+Updating file: fpga_main.ncd with current fully routed design.
+
+Phase  6  : 0 unrouted; (Par is working to improve performance)     REAL time: 6 secs 
+
+Phase  7  : 0 unrouted; (Par is working to improve performance)     REAL time: 11 secs 
+
+Updating file: fpga_main.ncd with current fully routed design.
+
+Phase  8  : 0 unrouted; (Par is working to improve performance)     REAL time: 11 secs 
+
+Phase  9  : 0 unrouted; (Par is working to improve performance)     REAL time: 11 secs 
+
+Phase 10  : 0 unrouted; (Par is working to improve performance)     REAL time: 11 secs 
+
+Phase 11  : 0 unrouted; (Par is working to improve performance)     REAL time: 11 secs 
+
+Phase 12  : 0 unrouted; (Par is working to improve performance)     REAL time: 11 secs 
+
+Total REAL time to Router completion: 12 secs 
+Total CPU time to Router completion: 11 secs 
+
+Partition Implementation Status
+-------------------------------
+
+  No Partitions were found in this design.
+
+-------------------------------
+
+Generating "PAR" statistics.
+
+**************************
+Generating Clock Report
+**************************
+
++---------------------+--------------+------+------+------------+-------------+
+|        Clock Net    |   Resource   |Locked|Fanout|Net Skew(ns)|Max Delay(ns)|
++---------------------+--------------+------+------+------------+-------------+
+|           Clk_BUFGP |  BUFGMUX_X1Y0| No   |  140 |  0.034     |  0.071      |
++---------------------+--------------+------+------+------------+-------------+
+|      SPI_MClk_BUFGP |  BUFGMUX_X2Y1| No   |   12 |  0.021     |  0.065      |
++---------------------+--------------+------+------+------------+-------------+
+|         SPI_SS_IBUF | BUFGMUX_X2Y10| No   |   34 |  0.017     |  0.061      |
++---------------------+--------------+------+------+------------+-------------+
+
+* Net Skew is the difference between the minimum and maximum routing
+only delays for the net. Note this is different from Clock Skew which
+is reported in TRCE timing report. Clock Skew is the difference between
+the minimum and maximum path delays which includes logic delays.
+
+* The fanout is the number of component pins not the individual BEL loads,
+for example SLICE loads not FF loads.
+
+Timing Score: 0 (Setup: 0, Hold: 0)
+
+Asterisk (*) preceding a constraint indicates it was not met.
+   This may be due to a setup or hold violation.
+
+----------------------------------------------------------------------------------------------------------
+  Constraint                                |    Check    | Worst Case |  Best Case | Timing |   Timing   
+                                            |             |    Slack   | Achievable | Errors |    Score   
+----------------------------------------------------------------------------------------------------------
+  Autotimespec constraint for clock net Clk | SETUP       |         N/A|    10.257ns|     N/A|           0
+  _BUFGP                                    | HOLD        |     1.317ns|            |       0|           0
+----------------------------------------------------------------------------------------------------------
+  Autotimespec constraint for clock net SPI | SETUP       |         N/A|     4.570ns|     N/A|           0
+  _MClk_BUFGP                               | HOLD        |     1.378ns|            |       0|           0
+----------------------------------------------------------------------------------------------------------
+  Autotimespec constraint for clock net SPI | SETUP       |         N/A|     3.570ns|     N/A|           0
+  _SS_IBUF                                  | HOLD        |     0.973ns|            |       0|           0
+----------------------------------------------------------------------------------------------------------
+
+
+All constraints were met.
+INFO:Timing:2761 - N/A entries in the Constraints List may indicate that the 
+   constraint is not analyzed due to the following: No paths covered by this 
+   constraint; Other constraints intersect with this constraint; or This 
+   constraint was disabled by a Path Tracing Control. Please run the Timespec 
+   Interaction Report (TSI) via command line (trce tsi) or Timing Analyzer GUI.
+
+
+Generating Pad Report.
+
+All signals are completely routed.
+
+WARNING:Par:283 - There are 2 loadless signals in this design. This design will cause Bitgen to issue DRC warnings.
+
+Total REAL time to PAR completion: 12 secs 
+Total CPU time to PAR completion: 12 secs 
+
+Peak Memory Usage:  266 MB
+
+Placer: Placement generated during map.
+Routing: Completed - No errors found.
+
+Number of error messages: 0
+Number of warning messages: 4
+Number of info messages: 1
+
+Writing design to file fpga_main.ncd
+
+
+
+PAR done!
+
+Command Line : 
+-------------
+trce C:\Users\Lukas Schwartz\Documents\GitHub\Projekt-2014\FPGA\smartxplorer_results\run7\fpga_main.ngd C:\Users\Lukas Schwartz\Documents\GitHub\Projekt-2014\FPGA\smartxplorer_results\run7\fpga_main.pcf -xml C:\Users\Lukas Schwartz\Documents\GitHub\Projekt-2014\FPGA\smartxplorer_results\run7\fpga_main.twx -v 3 -s 4 -n 3 -fastpaths -ucf ports.ucf -o C:\Users\Lukas Schwartz\Documents\GitHub\Projekt-2014\FPGA\smartxplorer_results\run7\fpga_main.twr
+
+Release 14.7 - Trace  (nt64)
+Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+
+
+Loading device for application Rf_Device from file '3s100e.nph' in environment
+C:\Xilinx\14.7\ISE_DS\ISE\.
+   "fpga_main" is an NCD, version 3.2, device xc3s100e, package tq144, speed -4
+INFO:Timing:2698 - No timing constraints found, doing default enumeration.
+--------------------------------------------------------------------------------
+Release 14.7 Trace  (nt64)
+Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+
+C:\Xilinx\14.7\ISE_DS\ISE\bin\nt64\unwrapped\trce.exe
+C:\Users\Lukas
+Schwartz\Documents\GitHub\Projekt-2014\FPGA\smartxplorer_results\run7\fpga_main.
+ncd
+C:\Users\Lukas
+Schwartz\Documents\GitHub\Projekt-2014\FPGA\smartxplorer_results\run7\fpga_main.
+pcf
+-xml
+C:\Users\Lukas
+Schwartz\Documents\GitHub\Projekt-2014\FPGA\smartxplorer_results\run7\fpga_main.
+twx
+-v 3 -s 4 -n 3 -fastpaths -ucf ports.ucf -o
+C:\Users\Lukas
+Schwartz\Documents\GitHub\Projekt-2014\FPGA\smartxplorer_results\run7\fpga_main.
+twr
+
+
+Design file:              fpga_main.ncd
+Physical constraint file: fpga_main.pcf
+Device,speed:             xc3s100e,-4 (PRODUCTION 1.27 2013-10-13)
+Report level:             verbose report
+--------------------------------------------------------------------------------
+
+INFO:Timing:3412 - To improve timing, see the Timing Closure User Guide (UG612).
+INFO:Timing:2752 - To get complete path coverage, use the unconstrained paths
+   option. All paths that are not constrained will be reported in the
+   unconstrained paths section(s) of the report.
+INFO:Timing:3339 - The clock-to-out numbers in this timing report are based on a
+   50 Ohm transmission line loading model.  For the details of this model, and
+   for more information on accounting for different loading conditions, please
+   see the device datasheet.
+INFO:Timing:3390 - This architecture does not support a default System Jitter
+   value, please add SYSTEM_JITTER constraint to the UCF to modify the Clock
+   Uncertainty calculation.
+INFO:Timing:3389 - This architecture does not support 'Discrete Jitter' and
+   'Phase Error' calculations, these terms will be zero in the Clock Uncertainty
+   calculation.  Please make appropriate modification to SYSTEM_JITTER to
+   account for the unsupported Discrete Jitter and Phase Error.
+
+Analysis completed Thu Apr 10 17:30:00 2014
+--------------------------------------------------------------------------------
+
+Generating Report ...
+
+Number of warnings: 0
+Number of info messages: 6
+Total time: 1 secs 

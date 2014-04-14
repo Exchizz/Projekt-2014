@@ -1,0 +1,13 @@
+START:Strategy:7:MapUseIOReg
+REMOTE_PID:6216
+RUNNING:6216:6244:MapUseIOReg:map:fpga_main.ngd: -timing -ol high -pr b  -p xc3s100e-tq144-4 -o fpga_main_map.ncd  C:cl:bslUsers:bslLukas:spSchwartz:bslDocuments:bslGitHub:bslProjekt:ds2014:bslFPGA:bslsmartxplorer_results:bslrun7:bslfpga_main.pcf
+STATUS:MapUseIOReg:map:Score:None:lut:None:slice_reg:248 (12%):slice:None:bram:None:dsp48:None:mult18x18:None:Power:None:wnsInfo:None:Time:15.05 secs 
+STATUS:MapUseIOReg:map:Score:None:lut:466 (24%):slice_reg:248 (12%):slice:None:bram:None:dsp48:None:mult18x18:None:Power:None:wnsInfo:None:Time:15.05 secs 
+STATUS:MapUseIOReg:map:Score:None:lut:466 (24%):slice_reg:248 (12%):slice:368 (38%):bram:None:dsp48:None:mult18x18:None:Power:None:wnsInfo:None:Time:15.05 secs 
+STATUS:MapUseIOReg:map:Score:None:lut:622 (32%):slice_reg:248 (12%):slice:368 (38%):bram:None:dsp48:None:mult18x18:None:Power:None:wnsInfo:None:Time:15.05 secs 
+DONE:map:0
+RUNNING:6216:540:MapUseIOReg:par:fpga_main_map.ncd: -ol high  -w fpga_main.ncd  C:cl:bslUsers:bslLukas:spSchwartz:bslDocuments:bslGitHub:bslProjekt:ds2014:bslFPGA:bslsmartxplorer_results:bslrun7:bslfpga_main.pcf
+STATUS:MapUseIOReg:par:Score:None:lut:None:slice_reg:None:slice:None:bram:None:dsp48:None:mult18x18:None:Power:None:wnsInfo:N/A:Time:30.06 secs 
+DONE:par:0
+RUNNING:6216:4000:MapUseIOReg:trce:C:\Users\Lukas Schwartz\Documents\GitHub\Projekt-2014\FPGA\smartxplorer_results\run7\fpga_main.ncd:C:cl:bslUsers:bslLukas:spSchwartz:bslDocuments:bslGitHub:bslProjekt:ds2014:bslFPGA:bslsmartxplorer_results:bslrun7:bslfpga_main.pcf -xml C:cl:bslUsers:bslLukas:spSchwartz:bslDocuments:bslGitHub:bslProjekt:ds2014:bslFPGA:bslsmartxplorer_results:bslrun7:bslfpga_main.twx -v 3 -s 4 -n 3 -fastpaths   -ucf ports.ucf -o C:cl:bslUsers:bslLukas:spSchwartz:bslDocuments:bslGitHub:bslProjekt:ds2014:bslFPGA:bslsmartxplorer_results:bslrun7:bslfpga_main.twr
+DONE:trce:0

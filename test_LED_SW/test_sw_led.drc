@@ -1,0 +1,8 @@
+Release 14.7 Drc P.20131013 (nt64)
+Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+
+Mon Apr 07 10:04:43 2014
+
+drc -z test_SW_LED.ncd test_SW_LED.pcf
+
+DRC detected 0 errors and 0 warnings.

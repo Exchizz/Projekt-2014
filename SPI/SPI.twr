@@ -37,18 +37,79 @@ INFO:Timing:3389 - This architecture does not support 'Discrete Jitter' and
 
 Data Sheet report:
 -----------------
-No constraints were found to generate data for the Data Sheet Report section.
-Use the Advanced Analysis (-a) option or generate global constraints for each
-clock, its pad to setup and clock to pad paths, and a pad to pad constraint.
+All values displayed in nanoseconds (ns)
 
-Analysis completed Thu Apr 03 12:41:55 2014 
+Setup/Hold to clock MClk
+------------+------------+------------+------------------+--------+
+            |Max Setup to|Max Hold to |                  | Clock  |
+Source      | clk (edge) | clk (edge) |Internal Clock(s) | Phase  |
+------------+------------+------------+------------------+--------+
+DataIn<0>   |    0.795(R)|    0.821(R)|MClk_BUFGP        |   0.000|
+DataIn<1>   |    0.911(R)|    0.728(R)|MClk_BUFGP        |   0.000|
+DataIn<2>   |    0.360(R)|    1.169(R)|MClk_BUFGP        |   0.000|
+DataIn<3>   |    0.508(R)|    1.050(R)|MClk_BUFGP        |   0.000|
+DataIn<4>   |    0.199(R)|    1.297(R)|MClk_BUFGP        |   0.000|
+DataIn<5>   |    0.785(R)|    0.825(R)|MClk_BUFGP        |   0.000|
+DataIn<6>   |    0.763(R)|    0.842(R)|MClk_BUFGP        |   0.000|
+MOSI        |    0.357(R)|    1.171(R)|MClk_BUFGP        |   0.000|
+------------+------------+------------+------------------+--------+
+
+Clock MClk to Pad
+------------+------------+------------------+--------+
+            | clk (edge) |                  | Clock  |
+Destination |   to PAD   |Internal Clock(s) | Phase  |
+------------+------------+------------------+--------+
+MISO        |    8.739(F)|MClk_BUFGP        |   0.000|
+------------+------------+------------------+--------+
+
+Clock SS to Pad
+------------+------------+---------------------+--------+
+            | clk (edge) |                     | Clock  |
+Destination |   to PAD   |Internal Clock(s)    | Phase  |
+------------+------------+---------------------+--------+
+DataOut<0>  |    9.725(R)|SignalPackageEnd_OBUF|   0.000|
+DataOut<1>  |    9.725(R)|SignalPackageEnd_OBUF|   0.000|
+DataOut<2>  |    9.732(R)|SignalPackageEnd_OBUF|   0.000|
+DataOut<3>  |    9.732(R)|SignalPackageEnd_OBUF|   0.000|
+DataOut<4>  |    9.738(R)|SignalPackageEnd_OBUF|   0.000|
+DataOut<5>  |    9.738(R)|SignalPackageEnd_OBUF|   0.000|
+DataOut<6>  |    9.741(R)|SignalPackageEnd_OBUF|   0.000|
+DataOut<7>  |    9.741(R)|SignalPackageEnd_OBUF|   0.000|
+------------+------------+---------------------+--------+
+
+Clock to Setup on destination clock MClk
+---------------+---------+---------+---------+---------+
+               | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
+Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
+---------------+---------+---------+---------+---------+
+MClk           |    3.693|         |    1.718|         |
+SS             |    1.345|    1.345|    0.415|    0.415|
+---------------+---------+---------+---------+---------+
+
+Clock to Setup on destination clock SS
+---------------+---------+---------+---------+---------+
+               | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
+Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
+---------------+---------+---------+---------+---------+
+MClk           |    3.599|         |         |         |
+---------------+---------+---------+---------+---------+
+
+Pad to Pad
+---------------+----------------+---------+
+Source Pad     |Destination Pad |  Delay  |
+---------------+----------------+---------+
+SS             |SignalPackageEnd|    5.195|
+---------------+----------------+---------+
+
+
+Analysis completed Mon Apr 07 10:18:48 2014 
 --------------------------------------------------------------------------------
 
 Trace Settings:
 -------------------------
 Trace Settings 
 
-Peak Memory Usage: 152 MB
+Peak Memory Usage: 154 MB
 
 
 

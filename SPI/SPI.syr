@@ -131,12 +131,10 @@ Performing bidirectional port resolution...
 
 Synthesizing Unit <SPI>.
     Related source file is "C:/Users/Lukas Schwartz/Documents/GitHub/Projekt-2014/SPI/SPI.vhd".
-WARNING:Xst:653 - Signal <pSS> is used but never assigned. This sourceless signal will be automatically connected to value 1.
-WARNING:Xst:653 - Signal <pMClk> is used but never assigned. This sourceless signal will be automatically connected to value 1.
     Found 1-bit register for signal <MISO>.
     Found 8-bit register for signal <DataOut>.
-    Found 1-bit register for signal <SignalPackageEnd>.
     Found 8-bit register for signal <DataBuffer>.
+    Found 1-bit register for signal <start>.
     Summary:
 	inferred  18 D-type flip-flop(s).
 Unit <SPI> synthesized.
@@ -156,24 +154,6 @@ Macro Statistics
 *                       Advanced HDL Synthesis                          *
 =========================================================================
 
-WARNING:Xst:1710 - FF/Latch <SignalPackageEnd> (without init value) has a constant value of 0 in block <SPI>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <DataOut_0> (without init value) has a constant value of 0 in block <SPI>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <DataOut_1> (without init value) has a constant value of 0 in block <SPI>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <DataOut_2> (without init value) has a constant value of 0 in block <SPI>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <DataOut_3> (without init value) has a constant value of 0 in block <SPI>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <DataOut_4> (without init value) has a constant value of 0 in block <SPI>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <DataOut_5> (without init value) has a constant value of 0 in block <SPI>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <DataOut_6> (without init value) has a constant value of 0 in block <SPI>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <DataOut_7> (without init value) has a constant value of 0 in block <SPI>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <MISO> has a constant value of 0 in block <SPI>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1898 - Due to constant pushing, FF/Latch <DataBuffer_0> is unconnected in block <SPI>.
-WARNING:Xst:1898 - Due to constant pushing, FF/Latch <DataBuffer_1> is unconnected in block <SPI>.
-WARNING:Xst:1898 - Due to constant pushing, FF/Latch <DataBuffer_2> is unconnected in block <SPI>.
-WARNING:Xst:1898 - Due to constant pushing, FF/Latch <DataBuffer_3> is unconnected in block <SPI>.
-WARNING:Xst:1898 - Due to constant pushing, FF/Latch <DataBuffer_4> is unconnected in block <SPI>.
-WARNING:Xst:1898 - Due to constant pushing, FF/Latch <DataBuffer_5> is unconnected in block <SPI>.
-WARNING:Xst:1898 - Due to constant pushing, FF/Latch <DataBuffer_6> is unconnected in block <SPI>.
-WARNING:Xst:1898 - Due to constant pushing, FF/Latch <DataBuffer_7> is unconnected in block <SPI>.
 
 =========================================================================
 Advanced HDL Synthesis Report
@@ -187,37 +167,22 @@ Macro Statistics
 =========================================================================
 *                         Low Level Synthesis                           *
 =========================================================================
-WARNING:Xst:1710 - FF/Latch <SignalPackageEnd> (without init value) has a constant value of 0 in block <SPI>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <DataOut_0> (without init value) has a constant value of 0 in block <SPI>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <DataOut_1> (without init value) has a constant value of 0 in block <SPI>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <DataOut_2> (without init value) has a constant value of 0 in block <SPI>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <DataOut_3> (without init value) has a constant value of 0 in block <SPI>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <DataOut_4> (without init value) has a constant value of 0 in block <SPI>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <DataOut_5> (without init value) has a constant value of 0 in block <SPI>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <DataOut_6> (without init value) has a constant value of 0 in block <SPI>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <DataOut_7> (without init value) has a constant value of 0 in block <SPI>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <MISO> has a constant value of 0 in block <SPI>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1898 - Due to constant pushing, FF/Latch <DataBuffer_0> is unconnected in block <SPI>.
-WARNING:Xst:1898 - Due to constant pushing, FF/Latch <DataBuffer_1> is unconnected in block <SPI>.
-WARNING:Xst:1898 - Due to constant pushing, FF/Latch <DataBuffer_2> is unconnected in block <SPI>.
-WARNING:Xst:1898 - Due to constant pushing, FF/Latch <DataBuffer_3> is unconnected in block <SPI>.
-WARNING:Xst:1898 - Due to constant pushing, FF/Latch <DataBuffer_4> is unconnected in block <SPI>.
-WARNING:Xst:1898 - Due to constant pushing, FF/Latch <DataBuffer_5> is unconnected in block <SPI>.
-WARNING:Xst:1898 - Due to constant pushing, FF/Latch <DataBuffer_6> is unconnected in block <SPI>.
-WARNING:Xst:1898 - Due to constant pushing, FF/Latch <DataBuffer_7> is unconnected in block <SPI>.
 
 Optimizing unit <SPI> ...
 
 Mapping all equations...
 Building and optimizing final netlist ...
-Found area constraint ratio of 100 (+ 5) on block SPI, actual ratio is 0.
+Found area constraint ratio of 100 (+ 5) on block SPI, actual ratio is 1.
 
 Final Macro Processing ...
 
 =========================================================================
 Final Register Report
 
-Found no macro
+Macro Statistics
+# Registers                                            : 18
+ Flip-Flops                                            : 18
+
 =========================================================================
 
 =========================================================================
@@ -242,12 +207,23 @@ Optimization Goal                  : Speed
 Keep Hierarchy                     : No
 
 Design Statistics
-# IOs                              : 22
+# IOs                              : 21
 
 Cell Usage :
-# BELS                             : 1
-#      GND                         : 1
-# IO Buffers                       : 10
+# BELS                             : 10
+#      INV                         : 2
+#      LUT3                        : 7
+#      VCC                         : 1
+# FlipFlops/Latches                : 18
+#      FD                          : 8
+#      FDCE                        : 1
+#      FDE                         : 8
+#      FDE_1                       : 1
+# Clock Buffers                    : 2
+#      BUFG                        : 1
+#      BUFGP                       : 1
+# IO Buffers                       : 19
+#      IBUF                        : 9
 #      OBUF                        : 10
 =========================================================================
 
@@ -256,9 +232,13 @@ Device utilization summary:
 
 Selected Device : 3s100etq144-4 
 
- Number of Slices:                        0  out of    960     0%  
- Number of IOs:                          22
- Number of bonded IOBs:                  10  out of    108     9%  
+ Number of Slices:                        6  out of    960     0%  
+ Number of Slice Flip Flops:             10  out of   1920     0%  
+ Number of 4 input LUTs:                  9  out of   1920     0%  
+ Number of IOs:                          21
+ Number of bonded IOBs:                  20  out of    108    18%  
+    IOB Flip Flops:                       8
+ Number of GCLKs:                         2  out of     24     8%  
 
 ---------------------------
 Partition Resource Summary:
@@ -278,36 +258,143 @@ NOTE: THESE TIMING NUMBERS ARE ONLY A SYNTHESIS ESTIMATE.
 
 Clock Information:
 ------------------
-No clock signals found in this design
+-----------------------------------+------------------------+-------+
+Clock Signal                       | Clock buffer(FF name)  | Load  |
+-----------------------------------+------------------------+-------+
+MClk                               | BUFGP                  | 10    |
+SS                                 | IBUF+BUFG              | 8     |
+-----------------------------------+------------------------+-------+
 
 Asynchronous Control Signals Information:
 ----------------------------------------
-No asynchronous control signals found in this design
+-----------------------------------+------------------------+-------+
+Control Signal                     | Buffer(FF name)        | Load  |
+-----------------------------------+------------------------+-------+
+SS                                 | IBUF                   | 1     |
+-----------------------------------+------------------------+-------+
 
 Timing Summary:
 ---------------
 Speed Grade: -4
 
-   Minimum period: No path found
-   Minimum input arrival time before clock: No path found
-   Maximum output required time after clock: No path found
-   Maximum combinational path delay: No path found
+   Minimum period: 3.027ns (Maximum Frequency: 330.360MHz)
+   Minimum input arrival time before clock: 3.884ns
+   Maximum output required time after clock: 4.283ns
+   Maximum combinational path delay: 5.077ns
 
 Timing Detail:
 --------------
 All values displayed in nanoseconds (ns)
 
 =========================================================================
+Timing constraint: Default period analysis for Clock 'MClk'
+  Clock period: 3.027ns (frequency: 330.360MHz)
+  Total number of paths / destination ports: 16 / 9
+-------------------------------------------------------------------------
+Delay:               3.027ns (Levels of Logic = 1)
+  Source:            start (FF)
+  Destination:       start (FF)
+  Source Clock:      MClk rising
+  Destination Clock: MClk rising
+
+  Data Path: start to start
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDCE:C->Q             8   0.591   0.757  start (start)
+     INV:I->O              1   0.704   0.420  start_inv1_INV_0 (start_inv)
+     FDCE:CE                   0.555          start
+    ----------------------------------------
+    Total                      3.027ns (1.850ns logic, 1.177ns route)
+                                       (61.1% logic, 38.9% route)
+
+=========================================================================
+Timing constraint: Default OFFSET IN BEFORE for Clock 'MClk'
+  Total number of paths / destination ports: 17 / 17
+-------------------------------------------------------------------------
+Offset:              3.884ns (Levels of Logic = 2)
+  Source:            SS (PAD)
+  Destination:       DataBuffer_0 (FF)
+  Destination Clock: MClk rising
+
+  Data Path: SS to DataBuffer_0
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     IBUF:I->O             4   1.218   0.587  SS_IBUF (SignalPackageEnd_OBUF1)
+     INV:I->O              9   0.704   0.820  SignalPackageEnd_inv1_INV_0 (SignalPackageEnd_inv)
+     FDE:CE                    0.555          DataBuffer_0
+    ----------------------------------------
+    Total                      3.884ns (2.477ns logic, 1.407ns route)
+                                       (63.8% logic, 36.2% route)
+
+=========================================================================
+Timing constraint: Default OFFSET OUT AFTER for Clock 'MClk'
+  Total number of paths / destination ports: 1 / 1
+-------------------------------------------------------------------------
+Offset:              4.283ns (Levels of Logic = 1)
+  Source:            MISO (FF)
+  Destination:       MISO (PAD)
+  Source Clock:      MClk falling
+
+  Data Path: MISO to MISO
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDE_1:C->Q            1   0.591   0.420  MISO (MISO_OBUF)
+     OBUF:I->O                 3.272          MISO_OBUF (MISO)
+    ----------------------------------------
+    Total                      4.283ns (3.863ns logic, 0.420ns route)
+                                       (90.2% logic, 9.8% route)
+
+=========================================================================
+Timing constraint: Default OFFSET OUT AFTER for Clock 'SS'
+  Total number of paths / destination ports: 8 / 8
+-------------------------------------------------------------------------
+Offset:              4.283ns (Levels of Logic = 1)
+  Source:            DataOut_7 (FF)
+  Destination:       DataOut<7> (PAD)
+  Source Clock:      SS rising
+
+  Data Path: DataOut_7 to DataOut<7>
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FD:C->Q               1   0.591   0.420  DataOut_7 (DataOut_7)
+     OBUF:I->O                 3.272          DataOut_7_OBUF (DataOut<7>)
+    ----------------------------------------
+    Total                      4.283ns (3.863ns logic, 0.420ns route)
+                                       (90.2% logic, 9.8% route)
+
+=========================================================================
+Timing constraint: Default path analysis
+  Total number of paths / destination ports: 1 / 1
+-------------------------------------------------------------------------
+Delay:               5.077ns (Levels of Logic = 2)
+  Source:            SS (PAD)
+  Destination:       SignalPackageEnd (PAD)
+
+  Data Path: SS to SignalPackageEnd
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     IBUF:I->O             4   1.218   0.587  SS_IBUF (SignalPackageEnd_OBUF1)
+     OBUF:I->O                 3.272          SignalPackageEnd_OBUF (SignalPackageEnd)
+    ----------------------------------------
+    Total                      5.077ns (4.490ns logic, 0.587ns route)
+                                       (88.4% logic, 11.6% route)
+
+=========================================================================
 
 
-Total REAL time to Xst completion: 4.00 secs
-Total CPU time to Xst completion: 4.45 secs
+Total REAL time to Xst completion: 5.00 secs
+Total CPU time to Xst completion: 4.67 secs
  
 --> 
 
-Total memory usage is 258020 kilobytes
+Total memory usage is 257892 kilobytes
 
 Number of errors   :    0 (   0 filtered)
-Number of warnings :   38 (   0 filtered)
+Number of warnings :    0 (   0 filtered)
 Number of infos    :    0 (   0 filtered)
 

@@ -1,0 +1,6 @@
+xst -intstyle ise -ifn "C:/Users/Lukas Schwartz/Documents/GitHub/Projekt-2014/test_LED_SW/test_SW_LED.xst" -ofn "C:/Users/Lukas Schwartz/Documents/GitHub/Projekt-2014/test_LED_SW/test_SW_LED.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc ports.ucf -p xc3s100e-tq144-4 "test_SW_LED.ngc" test_SW_LED.ngd  
+map -intstyle ise -p xc3s100e-tq144-4 -cm area -ir off -pr off -c 100 -o test_SW_LED_map.ncd test_SW_LED.ngd test_SW_LED.pcf 
+par -w -intstyle ise -ol high -t 1 test_SW_LED_map.ncd test_SW_LED.ncd test_SW_LED.pcf 
+trce -intstyle ise -v 3 -s 4 -n 3 -fastpaths -xml test_SW_LED.twx test_SW_LED.ncd -o test_SW_LED.twr test_SW_LED.pcf -ucf ports.ucf 
+bitgen -intstyle ise -f test_SW_LED.ut test_SW_LED.ncd 

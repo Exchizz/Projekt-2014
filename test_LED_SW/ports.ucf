@@ -1,0 +1,17 @@
+NET "SW<0>" LOC = P38;
+NET "SW<1>" LOC = P36;
+NET "SW<2>" LOC = P29;
+NET "SW<3>" LOC = P24;
+NET "SW<4>" LOC = P18;
+NET "SW<5>" LOC = P12;
+NET "SW<6>" LOC = P10;
+NET "SW<7>" LOC = P6;
+
+NET "LED<0>" LOC = P15;
+NET "LED<1>" LOC = P14;
+NET "LED<2>" LOC = P8;
+NET "LED<3>" LOC = P7;
+NET "LED<4>" LOC = P5;
+NET "LED<5>" LOC = P4;
+NET "LED<6>" LOC = P3;
+NET "LED<7>" LOC = P2;
