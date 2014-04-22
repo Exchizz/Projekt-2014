@@ -1,0 +1,11 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<history>
+   <processor signature="arm-none-eabi-gcc noversion nomachine -mcpu=cortex-m3 -mthumb -Wall -ffunction-sections -g -O0 -c -DLM3S6965 -I..\..\..\workspace -I..\..\..\workspace\SIT_test -I..\..\..">
+      <target file="startup_lm3s.o" lastModified="1455f3443d3">
+         <source file="..\..\..\startup\startup_lm3s.c" lastModified="1455f2f2032"/>
+      </target>
+      <target file="main.o" lastModified="1456af16e62">
+         <source file="..\..\..\main.c" lastModified="1456af167cb"/>
+      </target>
+   </processor>
+</history>

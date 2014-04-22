@@ -1,0 +1,15 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<dependencies>
+   <includePath signature="/I..\..\..\workspace /I..\..\..\workspace\SIT_test /I..\..\..">
+      <source file="..\..\..\main.c" lastModified="1456af167cb">
+         <include file="..\..\..\lm3s6965.h"/>
+         <include file="..\..\..\emp_type.h"/>
+      </source>
+      <source file="..\..\..\emp_type.h" lastModified="1455f3388df">
+      </source>
+      <source file="..\..\..\startup\startup_lm3s.c" lastModified="1455f2f2032">
+      </source>
+      <source file="..\..\..\lm3s6965.h" lastModified="1455f3388f6">
+      </source>
+   </includePath>
+</dependencies>
