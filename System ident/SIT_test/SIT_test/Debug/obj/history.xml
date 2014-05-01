@@ -1,11 +1,11 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <history>
-   <processor signature="arm-none-eabi-gcc noversion nomachine -mcpu=cortex-m3 -mthumb -Wall -ffunction-sections -g -O0 -c -DLM3S6965 -I..\..\..\workspace -I..\..\..\workspace\SIT_test -I..\..\..">
-      <target file="startup_lm3s.o" lastModified="1455f3443d3">
-         <source file="..\..\..\startup\startup_lm3s.c" lastModified="1455f2f2032"/>
+   <processor signature="arm-none-eabi-gcc noversion nomachine -mcpu=cortex-m3 -mthumb -Wall -ffunction-sections -g -O0 -c -DLM3S6965 -IC:\Users\Thomas\Documents\GitHub\Projekt-2014\System ident -IC:\Users\Thomas\Documents\GitHub\Projekt-2014 -IC:\Users\Thomas\Documents\GitHub\Projekt-2014\System ident\SIT_test">
+      <target file="startup_lm3s.o" lastModified="145b7e2ff0f">
+         <source file="..\..\..\startup\startup_lm3s.c" lastModified="145b7a6c394"/>
       </target>
-      <target file="main.o" lastModified="1456af16e62">
-         <source file="..\..\..\main.c" lastModified="1456af167cb"/>
+      <target file="main.o" lastModified="145b8063949">
+         <source file="..\..\..\main.c" lastModified="145b80607b3"/>
       </target>
    </processor>
 </history>

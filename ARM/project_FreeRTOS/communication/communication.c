@@ -33,6 +33,7 @@
 			codX[3],codY[3],
 			subState,
 			cmdError = FALSE;
+			commStat;
 			char receiveCharCMD = 0;
 
 void decodeCommandTask(){
@@ -51,20 +52,12 @@ void decodeCommandTask(){
 
 				break;
 			case ST_PARSECMD:
-
-				for (i = 0; i < strlen(command); i++) {
-					xQueueSend(UARTTXQueue, &command[i], 20);
-				}
-
-				//debug_pin(ON);
 				if(strncmp(command,"cod",3)==0){
 					subState = ST_COORDS;
 				} else if (strcmp(command, "start\r") == 0){
 					subState = ST_START;
-					//debug_pin(ON);
 				} else if (strcmp(command, "reset\r") == 0) {
 					subState = ST_RESET;
-					//debug_pin(OFF);
 				} else {
 					cmdError = TRUE;
 				}
@@ -75,6 +68,8 @@ void decodeCommandTask(){
 						break;
 					case ST_RESET:
 						debug_pin(OFF);
+						commStat = RESET;
+						xQueueSend(SPITXQueue, &commStat, 20);
 						break;
 					case ST_COORDS:
 						strncpy(codX,command+4,3);
@@ -86,7 +81,6 @@ void decodeCommandTask(){
 
 						i = (100*(codY[0]-'0') + 10*(codY[1]-'0') + codY[2]-'0');
 						xQueueSend(UARTTXQueue, &i, 20);
-						debug_pin(ON);
 						break;
 					default:
 						break;
@@ -103,12 +97,13 @@ void decodeCommandTask(){
 
 				break;
 			case ST_ERROR:
-				strcpy(command, "ERROR!\n\r");
+				//strcpy(command, "ERROR!\n\r");
 
-				for (i = 0; i < strlen(command); i++) {
-					xQueueSend(UARTTXQueue, &command[i], 20);
-				}
-
+				//for (i = 0; i < strlen(command); i++) {
+					//xQueueSend(UARTTXQueue, &command[i], 20);
+				//}
+				commStat = ERROR;
+				xQueueSend(UARTTXQueue, &commStat, 20);
 				strcpy(command, "");
 
 				state = ST_GETCMD;

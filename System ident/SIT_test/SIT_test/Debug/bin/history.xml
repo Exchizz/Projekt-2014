@@ -1,9 +1,9 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <history>
-   <processor signature="arm-none-eabi-gcc -mcpu=cortex-m3 -mthumb -g -nostartfiles -Map=SIT_test.map -O0 --gc-sections -LC:\CooCox\CoIDE\configuration\ProgramData\SIT_test -TC:\CooCox\CoIDE\configuration\ProgramData\SIT_test/arm-gcc-link.ld -g">
-      <target file="SIT_test.elf" lastModified="1456af17086">
-         <source file="..\obj\main.o" lastModified="1456af16e62"/>
-         <source file="..\obj\startup_lm3s.o" lastModified="1455f3443d3"/>
+   <processor signature="4.8.3 -mcpu=cortex-m3 -mthumb -g -nostartfiles -Map=SIT_test.map -O0 --gc-sections -LD:\Programs\CoIDE\configuration\ProgramData\SIT_test -TD:\Programs\CoIDE\configuration\ProgramData\SIT_test/arm-gcc-link.ld -g">
+      <target file="SIT_test.elf" lastModified="145b8063b30">
+         <source file="..\obj\main.o" lastModified="145b8063949"/>
+         <source file="..\obj\startup_lm3s.o" lastModified="145b7e2ff0f"/>
       </target>
    </processor>
 </history>

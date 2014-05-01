@@ -78,7 +78,7 @@ extern void uart_init(void)
 
 void UARTCharPut(INT8U data)
 {
-	if(UARTDataReady(TX))
+	while(UART0_FR_R & UART_FR_TXFF);
 		UART0_DR_R = data; // Send the char.
 }
 
@@ -104,8 +104,9 @@ void UART_TX_task()
 	INT8U dataToSend = 0;
 	while(TRUE)
 	{
-		if(xQueueReceive(UARTTXQueue, &dataToSend, 20))
+		if(xQueueReceive(UARTTXQueue, &dataToSend, 20)){
 			UARTCharPut(dataToSend);
+		}
 	}
 }
 
@@ -115,6 +116,7 @@ void UART_RX_task()
 	while(TRUE)
 	{
 		if(xSemaphoreTake(UARTRXSem, 20)){
+
 			if(UARTDataReady(RX)){
 				receivedChar = UARTCharGet();
 				xQueueSend(UARTRXQueue, &receivedChar, 100);

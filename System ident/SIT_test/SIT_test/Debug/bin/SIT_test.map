@@ -22,20 +22,20 @@ Linker script and memory map
  .isr_vector    0x00000000      0x100 ..\obj\startup_lm3s.o
                 0x00000000                g_pfnVectors
  *(.text*)
- .text.main     0x00000100       0x84 ..\obj\main.o
+ .text.main     0x00000100       0xdc ..\obj\main.o
                 0x00000100                main
  .text.get_encoder_direction
-                0x00000184      0x140 ..\obj\main.o
-                0x00000184                get_encoder_direction
+                0x000001dc       0xe4 ..\obj\main.o
+                0x000001dc                get_encoder_direction
  .text.sample_time_init
-                0x000002c4       0x3c ..\obj\main.o
-                0x000002c4                sample_time_init
+                0x000002c0       0x3c ..\obj\main.o
+                0x000002c0                sample_time_init
  .text.encoder_init
-                0x00000300       0x3c ..\obj\main.o
-                0x00000300                encoder_init
+                0x000002fc       0x3c ..\obj\main.o
+                0x000002fc                encoder_init
  .text.PWM_init
-                0x0000033c       0xe0 ..\obj\main.o
-                0x0000033c                PWM_init
+                0x00000338       0xe4 ..\obj\main.o
+                0x00000338                PWM_init
  .text.UART_put_char
                 0x0000041c       0x3c ..\obj\main.o
                 0x0000041c                UART_put_char
@@ -148,61 +148,62 @@ Linker script and memory map
                 0x00000564                __etext = .
                 0x00000564                _sidata = __etext
 
-.data           0x20000000        0x4 load address 0x00000564
+.data           0x20000000      0x3e8 load address 0x00000564
                 0x20000000                __data_start__ = .
                 0x20000000                _sdata = __data_start__
  *(vtable)
  *(.data*)
- .data          0x20000000        0x2 ..\obj\main.o
-                0x20000000                ticks
-                0x20000004                . = ALIGN (0x4)
- *fill*         0x20000002        0x2 
-                0x20000004                PROVIDE (__preinit_array_start, .)
+ .data          0x20000000      0x3e8 ..\obj\main.o
+                0x20000000                array
+                0x200003e8                . = ALIGN (0x4)
+                0x200003e8                PROVIDE (__preinit_array_start, .)
  *(.preinit_array)
-                0x20000004                PROVIDE (__preinit_array_end, .)
-                0x20000004                . = ALIGN (0x4)
-                0x20000004                PROVIDE (__init_array_start, .)
+                0x200003e8                PROVIDE (__preinit_array_end, .)
+                0x200003e8                . = ALIGN (0x4)
+                0x200003e8                PROVIDE (__init_array_start, .)
  *(SORT(.init_array.*))
  *(.init_array)
-                0x20000004                PROVIDE (__init_array_end, .)
-                0x20000004                . = ALIGN (0x4)
-                0x20000004                PROVIDE (__fini_array_start, .)
+                0x200003e8                PROVIDE (__init_array_end, .)
+                0x200003e8                . = ALIGN (0x4)
+                0x200003e8                PROVIDE (__fini_array_start, .)
  *(SORT(.fini_array.*))
  *(.fini_array)
-                0x20000004                PROVIDE (__fini_array_end, .)
+                0x200003e8                PROVIDE (__fini_array_end, .)
  *(.jcr*)
-                0x20000004                . = ALIGN (0x4)
-                0x20000004                __data_end__ = .
-                0x20000004                _edata = __data_end__
+                0x200003e8                . = ALIGN (0x4)
+                0x200003e8                __data_end__ = .
+                0x200003e8                _edata = __data_end__
 
-.igot.plt       0x20000004        0x0 load address 0x00000568
+.igot.plt       0x200003e8        0x0 load address 0x0000094c
  .igot.plt      0x00000000        0x0 ..\obj\main.o
 
-.bss            0x20000004        0x4 load address 0x00000568
-                0x20000004                . = ALIGN (0x4)
-                0x20000004                __bss_start__ = .
-                0x20000004                _sbss = __bss_start__
+.bss            0x200003e8        0x8 load address 0x0000094c
+                0x200003e8                . = ALIGN (0x4)
+                0x200003e8                __bss_start__ = .
+                0x200003e8                _sbss = __bss_start__
  *(.bss*)
- .bss           0x20000004        0x3 ..\obj\main.o
-                0x20000004                direction
+ .bss           0x200003e8        0x6 ..\obj\main.o
+                0x200003e8                ticks
+                0x200003ea                direction
+                0x200003eb                n
  *(COMMON)
-                0x20000008                . = ALIGN (0x4)
- *fill*         0x20000007        0x1 
-                0x20000008                __bss_end__ = .
-                0x20000008                _ebss = __bss_end__
+                0x200003f0                . = ALIGN (0x4)
+ *fill*         0x200003ee        0x2 
+                0x200003f0                __bss_end__ = .
+                0x200003f0                _ebss = __bss_end__
 
-.heap           0x20000008        0x0
-                0x20000008                __end__ = .
-                0x20000008                _end = __end__
-                0x20000008                end = __end__
+.heap           0x200003f0        0x0
+                0x200003f0                __end__ = .
+                0x200003f0                _end = __end__
+                0x200003f0                end = __end__
  *(.heap*)
-                0x20000008                __HeapLimit = .
+                0x200003f0                __HeapLimit = .
 
-.co_stack       0x20000008      0x400 load address 0x0000056c
-                0x20000008                . = ALIGN (0x8)
+.co_stack       0x200003f0      0x400 load address 0x00000954
+                0x200003f0                . = ALIGN (0x8)
  *(.co_stack .co_stack.*)
- .co_stack      0x20000008      0x400 ..\obj\startup_lm3s.o
-                0x20000008                pulStack
+ .co_stack      0x200003f0      0x400 ..\obj\startup_lm3s.o
+                0x200003f0                pulStack
                 0x20010000                __StackTop = (ORIGIN (ram) + 0x10000)
                 0x2000fc00                __StackLimit = (__StackTop - SIZEOF (.co_stack))
                 0x20010000                PROVIDE (__stack, __StackTop)
@@ -210,19 +211,19 @@ Linker script and memory map
 LOAD ..\obj\main.o
 LOAD ..\obj\startup_lm3s.o
 START GROUP
-LOAD c:/program files (x86)/gnu tools arm embedded/4.8 2013q4/bin/../lib/gcc/arm-none-eabi/4.8.3/armv7-m\libgcc.a
-LOAD c:/program files (x86)/gnu tools arm embedded/4.8 2013q4/bin/../lib/gcc/arm-none-eabi/4.8.3/../../../../arm-none-eabi/lib/armv7-m\libg.a
-LOAD c:/program files (x86)/gnu tools arm embedded/4.8 2013q4/bin/../lib/gcc/arm-none-eabi/4.8.3/../../../../arm-none-eabi/lib/armv7-m\libc.a
+LOAD d:/programs/gnu/bin/../lib/gcc/arm-none-eabi/4.8.3/armv7-m\libgcc.a
+LOAD d:/programs/gnu/bin/../lib/gcc/arm-none-eabi/4.8.3/../../../../arm-none-eabi/lib/armv7-m\libg.a
+LOAD d:/programs/gnu/bin/../lib/gcc/arm-none-eabi/4.8.3/../../../../arm-none-eabi/lib/armv7-m\libc.a
 END GROUP
 OUTPUT(SIT_test.elf elf32-littlearm)
 
-.debug_info     0x00000000      0x2b0
- .debug_info    0x00000000      0x1c7 ..\obj\main.o
- .debug_info    0x000001c7       0xe9 ..\obj\startup_lm3s.o
+.debug_info     0x00000000      0x2e9
+ .debug_info    0x00000000      0x200 ..\obj\main.o
+ .debug_info    0x00000200       0xe9 ..\obj\startup_lm3s.o
 
-.debug_abbrev   0x00000000      0x191
- .debug_abbrev  0x00000000       0xea ..\obj\main.o
- .debug_abbrev  0x000000ea       0xa7 ..\obj\startup_lm3s.o
+.debug_abbrev   0x00000000      0x1cc
+ .debug_abbrev  0x00000000      0x125 ..\obj\main.o
+ .debug_abbrev  0x00000125       0xa7 ..\obj\startup_lm3s.o
 
 .debug_aranges  0x00000000       0x78
  .debug_aranges
@@ -234,15 +235,15 @@ OUTPUT(SIT_test.elf elf32-littlearm)
  .debug_ranges  0x00000000       0x40 ..\obj\main.o
  .debug_ranges  0x00000040       0x18 ..\obj\startup_lm3s.o
 
-.debug_line     0x00000000      0x1df
- .debug_line    0x00000000      0x153 ..\obj\main.o
- .debug_line    0x00000153       0x8c ..\obj\startup_lm3s.o
+.debug_line     0x00000000      0x20d
+ .debug_line    0x00000000      0x160 ..\obj\main.o
+ .debug_line    0x00000160       0xad ..\obj\startup_lm3s.o
 
-.debug_str      0x00000000      0x244
- .debug_str     0x00000000      0x1a0 ..\obj\main.o
-                                0x1d1 (size before relaxing)
- .debug_str     0x000001a0       0xa4 ..\obj\startup_lm3s.o
-                                0x132 (size before relaxing)
+.debug_str      0x00000000      0x28c
+ .debug_str     0x00000000      0x1d0 ..\obj\main.o
+                                0x201 (size before relaxing)
+ .debug_str     0x000001d0       0xbc ..\obj\startup_lm3s.o
+                                0x153 (size before relaxing)
 
 .comment        0x00000000       0x70
  .comment       0x00000000       0x70 ..\obj\main.o
