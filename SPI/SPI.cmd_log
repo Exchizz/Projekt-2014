@@ -395,3 +395,11 @@ ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc ports.ucf -p xc3s100e-tq144-4 
 map -intstyle ise -p xc3s100e-tq144-4 -cm area -ir off -pr off -c 100 -o SPI_map.ncd SPI.ngd SPI.pcf 
 par -w -intstyle ise -ol high -t 1 SPI_map.ncd SPI.ncd SPI.pcf 
 trce -intstyle ise -v 3 -s 4 -n 3 -fastpaths -xml SPI.twx SPI.ncd -o SPI.twr SPI.pcf -ucf ports.ucf 
+xst -intstyle ise -ifn "C:/Users/Lukas Schwartz/Documents/GitHub/Projekt-2014/SPI/SPI.xst" -ofn "C:/Users/Lukas Schwartz/Documents/GitHub/Projekt-2014/SPI/SPI.syr" 
+xst -intstyle ise -ifn "C:/Users/Lukas Schwartz/Documents/GitHub/Projekt-2014/SPI/SPI.xst" -ofn "C:/Users/Lukas Schwartz/Documents/GitHub/Projekt-2014/SPI/SPI.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc ports.ucf -p xc3s100e-tq144-4 "SPI.ngc" SPI.ngd  
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc ports.ucf -p xc3s100e-tq144-4 "SPI.ngc" SPI.ngd  
+map -intstyle ise -p xc3s100e-tq144-4 -cm area -ir off -pr off -c 100 -o SPI_map.ncd SPI.ngd SPI.pcf 
+par -w -intstyle ise -ol high -t 1 SPI_map.ncd SPI.ncd SPI.pcf 
+trce -intstyle ise -v 3 -s 4 -n 3 -fastpaths -xml SPI.twx SPI.ncd -o SPI.twr SPI.pcf -ucf ports.ucf 
+bitgen -intstyle ise -f SPI.ut SPI.ncd 

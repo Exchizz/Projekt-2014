@@ -1,9 +1,9 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <report-views version="2.0" >
  <header>
-  <DateModified>2014-04-14T09:58:34</DateModified>
+  <DateModified>2014-05-06T16:12:22</DateModified>
   <ModuleName>fpga_main</ModuleName>
-  <SummaryTimeStamp>2014-03-31T17:20:14</SummaryTimeStamp>
+  <SummaryTimeStamp>2014-04-14T11:29:57</SummaryTimeStamp>
   <SavedFilePath>C:/Users/Lukas Schwartz/Documents/GitHub/Projekt-2014/FPGA/iseconfig/fpga_main.xreport</SavedFilePath>
   <ImplementationReportsDirectory>C:/Users/Lukas Schwartz/Documents/GitHub/Projekt-2014/FPGA\</ImplementationReportsDirectory>
   <DateInitialized>2014-03-31T17:22:25</DateInitialized>

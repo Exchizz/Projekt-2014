@@ -1,13 +1,13 @@
 //! **************************************************************************
-// Written by: Map P.20131013 on Mon Apr 07 10:18:33 2014
+// Written by: Map P.20131013 on Mon Apr 14 11:32:34 2014
 //! **************************************************************************
 
 SCHEMATIC START;
-COMP "MISO" LOCATE = SITE "P91" LEVEL 1;
-COMP "SS" LOCATE = SITE "P92" LEVEL 1;
+COMP "MISO" LOCATE = SITE "P59" LEVEL 1;
+COMP "SS" LOCATE = SITE "P58" LEVEL 1;
 PIN SS_pin<0> = BEL "SS" PINNAME PAD;
 PIN "SS_pin<0>" CLOCK_DEDICATED_ROUTE = FALSE;
-COMP "MOSI" LOCATE = SITE "P82" LEVEL 1;
+COMP "MOSI" LOCATE = SITE "P74" LEVEL 1;
 COMP "SignalPackageEnd" LOCATE = SITE "P83" LEVEL 1;
 COMP "DataOut<0>" LOCATE = SITE "P15" LEVEL 1;
 COMP "DataIn<0>" LOCATE = SITE "P38" LEVEL 1;
@@ -25,7 +25,7 @@ COMP "DataOut<6>" LOCATE = SITE "P3" LEVEL 1;
 COMP "DataIn<6>" LOCATE = SITE "P10" LEVEL 1;
 COMP "DataIn<7>" LOCATE = SITE "P6" LEVEL 1;
 COMP "DataOut<7>" LOCATE = SITE "P2" LEVEL 1;
-COMP "MClk" LOCATE = SITE "P81" LEVEL 1;
+COMP "MClk" LOCATE = SITE "P75" LEVEL 1;
 PIN MClk_pin<0> = BEL "MClk" PINNAME PAD;
 PIN "MClk_pin<0>" CLOCK_DEDICATED_ROUTE = FALSE;
 NET "MClk_BUFGP/IBUFG" BEL "MClk_BUFGP/BUFG.GCLKMUX" USELOCALCONNECT;

@@ -45,14 +45,14 @@ Setup/Hold to clock Clk
             |Max Setup to|Max Hold to |                  | Clock  |
 Source      | clk (edge) | clk (edge) |Internal Clock(s) | Phase  |
 ------------+------------+------------+------------------+--------+
-BTN<2>      |    2.239(R)|   -0.064(R)|Clk_BUFGP         |   0.000|
-BTN<3>      |    1.701(R)|    0.202(R)|Clk_BUFGP         |   0.000|
-HallA<0>    |    6.430(R)|   -0.527(R)|Clk_BUFGP         |   0.000|
-HallA<1>    |    6.470(R)|    0.133(R)|Clk_BUFGP         |   0.000|
-HallA<2>    |    1.935(R)|    0.521(R)|Clk_BUFGP         |   0.000|
-HallB<0>    |    5.829(R)|    0.437(R)|Clk_BUFGP         |   0.000|
-HallB<1>    |    5.835(R)|    0.433(R)|Clk_BUFGP         |   0.000|
-HallB<2>    |    1.918(R)|    1.041(R)|Clk_BUFGP         |   0.000|
+BTN<2>      |    1.797(R)|   -0.080(R)|Clk_BUFGP         |   0.000|
+BTN<3>      |    1.816(R)|   -0.218(R)|Clk_BUFGP         |   0.000|
+HallA<0>    |    5.459(R)|    0.707(R)|Clk_BUFGP         |   0.000|
+HallA<1>    |    5.365(R)|    0.479(R)|Clk_BUFGP         |   0.000|
+HallA<2>    |    3.111(R)|    0.148(R)|Clk_BUFGP         |   0.000|
+HallB<0>    |    6.048(R)|   -0.145(R)|Clk_BUFGP         |   0.000|
+HallB<1>    |    4.836(R)|   -0.142(R)|Clk_BUFGP         |   0.000|
+HallB<2>    |    2.586(R)|    0.276(R)|Clk_BUFGP         |   0.000|
 ------------+------------+------------+------------------+--------+
 
 Setup/Hold to clock SPI_MClk
@@ -60,7 +60,7 @@ Setup/Hold to clock SPI_MClk
             |Max Setup to|Max Hold to |                  | Clock  |
 Source      | clk (edge) | clk (edge) |Internal Clock(s) | Phase  |
 ------------+------------+------------+------------------+--------+
-SPI_MOSI    |    1.756(R)|   -0.222(R)|SPI_MClk_BUFGP    |   0.000|
+SPI_MOSI    |    0.885(R)|    0.865(R)|SPI_MClk_BUFGP    |   0.000|
 ------------+------------+------------+------------------+--------+
 
 Clock Clk to Pad
@@ -68,23 +68,23 @@ Clock Clk to Pad
             | clk (edge) |                  | Clock  |
 Destination |   to PAD   |Internal Clock(s) | Phase  |
 ------------+------------+------------------+--------+
-AN<0>       |    9.014(R)|Clk_BUFGP         |   0.000|
-AN<1>       |    8.790(R)|Clk_BUFGP         |   0.000|
-AN<2>       |    9.014(R)|Clk_BUFGP         |   0.000|
-AN<3>       |    9.810(R)|Clk_BUFGP         |   0.000|
-MotorA<0>   |   16.814(R)|Clk_BUFGP         |   0.000|
-MotorA<1>   |   16.831(R)|Clk_BUFGP         |   0.000|
-MotorA<2>   |   11.411(R)|Clk_BUFGP         |   0.000|
-MotorB<0>   |   14.545(R)|Clk_BUFGP         |   0.000|
-MotorB<1>   |   15.171(R)|Clk_BUFGP         |   0.000|
-MotorB<2>   |   10.432(R)|Clk_BUFGP         |   0.000|
-Seg<0>      |   15.934(R)|Clk_BUFGP         |   0.000|
-Seg<1>      |   14.559(R)|Clk_BUFGP         |   0.000|
-Seg<2>      |   15.680(R)|Clk_BUFGP         |   0.000|
-Seg<3>      |   15.435(R)|Clk_BUFGP         |   0.000|
-Seg<4>      |   15.435(R)|Clk_BUFGP         |   0.000|
-Seg<5>      |   14.529(R)|Clk_BUFGP         |   0.000|
-Seg<6>      |   17.382(R)|Clk_BUFGP         |   0.000|
+AN<0>       |    8.939(R)|Clk_BUFGP         |   0.000|
+AN<1>       |    9.221(R)|Clk_BUFGP         |   0.000|
+AN<2>       |    9.156(R)|Clk_BUFGP         |   0.000|
+AN<3>       |   11.498(R)|Clk_BUFGP         |   0.000|
+MotorA<0>   |   16.617(R)|Clk_BUFGP         |   0.000|
+MotorA<1>   |   17.264(R)|Clk_BUFGP         |   0.000|
+MotorA<2>   |   10.734(R)|Clk_BUFGP         |   0.000|
+MotorB<0>   |   16.471(R)|Clk_BUFGP         |   0.000|
+MotorB<1>   |   17.070(R)|Clk_BUFGP         |   0.000|
+MotorB<2>   |   10.923(R)|Clk_BUFGP         |   0.000|
+Seg<0>      |   15.499(R)|Clk_BUFGP         |   0.000|
+Seg<1>      |   15.148(R)|Clk_BUFGP         |   0.000|
+Seg<2>      |   15.071(R)|Clk_BUFGP         |   0.000|
+Seg<3>      |   15.383(R)|Clk_BUFGP         |   0.000|
+Seg<4>      |   15.719(R)|Clk_BUFGP         |   0.000|
+Seg<5>      |   15.153(R)|Clk_BUFGP         |   0.000|
+Seg<6>      |   14.990(R)|Clk_BUFGP         |   0.000|
 ------------+------------+------------------+--------+
 
 Clock SPI_MClk to Pad
@@ -92,7 +92,7 @@ Clock SPI_MClk to Pad
             | clk (edge) |                  | Clock  |
 Destination |   to PAD   |Internal Clock(s) | Phase  |
 ------------+------------+------------------+--------+
-SPI_MISO    |    8.072(F)|SPI_MClk_BUFGP    |   0.000|
+SPI_MISO    |    8.724(F)|SPI_MClk_BUFGP    |   0.000|
 ------------+------------+------------------+--------+
 
 Clock SPI_SS to Pad
@@ -100,12 +100,20 @@ Clock SPI_SS to Pad
             | clk (edge) |                  | Clock  |
 Destination |   to PAD   |Internal Clock(s) | Phase  |
 ------------+------------+------------------+--------+
-MotorA<0>   |   15.744(R)|SPI_SS_IBUF       |   0.000|
-MotorA<1>   |   15.761(R)|SPI_SS_IBUF       |   0.000|
-MotorA<2>   |    9.413(R)|SPI_SS_IBUF       |   0.000|
-MotorB<0>   |   14.193(R)|SPI_SS_IBUF       |   0.000|
-MotorB<1>   |   14.819(R)|SPI_SS_IBUF       |   0.000|
-MotorB<2>   |    9.446(R)|SPI_SS_IBUF       |   0.000|
+LED<0>      |    6.021(R)|SPI_SS_IBUF       |   0.000|
+LED<1>      |    6.021(R)|SPI_SS_IBUF       |   0.000|
+LED<2>      |    6.028(R)|SPI_SS_IBUF       |   0.000|
+LED<3>      |    6.028(R)|SPI_SS_IBUF       |   0.000|
+LED<4>      |    6.034(R)|SPI_SS_IBUF       |   0.000|
+LED<5>      |    6.034(R)|SPI_SS_IBUF       |   0.000|
+LED<6>      |    6.037(R)|SPI_SS_IBUF       |   0.000|
+LED<7>      |    6.037(R)|SPI_SS_IBUF       |   0.000|
+MotorA<0>   |   15.054(R)|SPI_SS_IBUF       |   0.000|
+MotorA<1>   |   15.700(R)|SPI_SS_IBUF       |   0.000|
+MotorA<2>   |   10.496(R)|SPI_SS_IBUF       |   0.000|
+MotorB<0>   |   14.177(R)|SPI_SS_IBUF       |   0.000|
+MotorB<1>   |   14.776(R)|SPI_SS_IBUF       |   0.000|
+MotorB<2>   |   10.480(R)|SPI_SS_IBUF       |   0.000|
 ------------+------------+------------------+--------+
 
 Clock to Setup on destination clock Clk
@@ -113,8 +121,8 @@ Clock to Setup on destination clock Clk
                | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
 Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
 ---------------+---------+---------+---------+---------+
-Clk            |   10.225|         |         |         |
-SPI_SS         |    8.892|         |         |         |
+Clk            |    9.977|         |         |         |
+SPI_SS         |    7.916|         |         |         |
 ---------------+---------+---------+---------+---------+
 
 Clock to Setup on destination clock SPI_MClk
@@ -122,8 +130,8 @@ Clock to Setup on destination clock SPI_MClk
                | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
 Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
 ---------------+---------+---------+---------+---------+
-SPI_MClk       |    2.997|         |    1.832|         |
-SPI_SS         |    1.986|    1.335|    1.959|    1.959|
+SPI_MClk       |    1.802|         |         |    1.667|
+SPI_SS         |    1.755|    1.755|    0.986|    0.986|
 ---------------+---------+---------+---------+---------+
 
 Clock to Setup on destination clock SPI_SS
@@ -131,33 +139,33 @@ Clock to Setup on destination clock SPI_SS
                | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
 Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
 ---------------+---------+---------+---------+---------+
-Clk            |    3.565|         |         |         |
-SPI_MClk       |    2.573|         |         |         |
-SPI_SS         |    4.014|         |         |         |
+Clk            |    3.891|         |         |         |
+SPI_MClk       |    5.481|         |         |         |
+SPI_SS         |    6.857|         |         |         |
 ---------------+---------+---------+---------+---------+
 
 Pad to Pad
 ---------------+---------------+---------+
 Source Pad     |Destination Pad|  Delay  |
 ---------------+---------------+---------+
-BTN<2>         |Seg<0>         |   10.562|
-BTN<2>         |Seg<1>         |    9.266|
-BTN<2>         |Seg<2>         |   10.308|
-BTN<2>         |Seg<3>         |   10.063|
-BTN<2>         |Seg<4>         |   10.063|
-BTN<2>         |Seg<5>         |    9.236|
-BTN<2>         |Seg<6>         |   12.010|
+BTN<2>         |Seg<0>         |   10.805|
+BTN<2>         |Seg<1>         |   10.402|
+BTN<2>         |Seg<2>         |   10.025|
+BTN<2>         |Seg<3>         |   10.654|
+BTN<2>         |Seg<4>         |   10.973|
+BTN<2>         |Seg<5>         |   10.372|
+BTN<2>         |Seg<6>         |    9.984|
 ---------------+---------------+---------+
 
 
-Analysis completed Thu Apr 10 17:16:10 2014 
+Analysis completed Tue May 06 16:47:29 2014 
 --------------------------------------------------------------------------------
 
 Trace Settings:
 -------------------------
 Trace Settings 
 
-Peak Memory Usage: 166 MB
+Peak Memory Usage: 163 MB
 
 
 

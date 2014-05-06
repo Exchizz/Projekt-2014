@@ -12,7 +12,17 @@ NET "AN<1>" LOC = P33;
 NET "AN<2>" LOC = P32;
 NET "AN<3>" LOC = P26;
 
+NET "LED<0>" LOC = P15;
+NET "LED<1>" LOC = P14;
+NET "LED<2>" LOC = P8;
+NET "LED<3>" LOC = P7;
+NET "LED<4>" LOC = P5;
+NET "LED<5>" LOC = P4;
+NET "LED<6>" LOC = P3;
+NET "LED<7>" LOC = P2;
+
 NET "Clk" LOC = P54;
+NET "Clk" CLOCK_DEDICATED_ROUTE = FALSE;
 
 NET "HallA<0>" LOC = P82; # JA3
 NET "HallA<1>" LOC = P92; # JA4
@@ -42,9 +52,9 @@ NET "MotorB<0>" LOC = P86; # JC2
 NET "MotorB<1>" LOC = P76; # JC3
 NET "MotorB<2>" LOC = P85; # JC4
 
-NET "SPI_MClk" LOC = P75; # JD1
+NET "SPI_MClk" LOC = P75; # JD1 (pink / orange)
 NET "SPI_MClk" CLOCK_DEDICATED_ROUTE = FALSE;
-NET "SPI_MISO" LOC = P59; # JD2
-NET "SPI_MOSI" LOC = P74; # JD3
-NET "SPI_SS" LOC = P58; # JD4
+NET "SPI_MISO" LOC = P59; # JD2 (sort / pink)
+NET "SPI_MOSI" LOC = P74; # JD3 (pink / sort)
+NET "SPI_SS" LOC = P58; # JD4 (grøn / lilla)
 NET "SPI_SS" CLOCK_DEDICATED_ROUTE = FALSE;

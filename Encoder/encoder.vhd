@@ -26,12 +26,12 @@ Position <= Motor_Position(10 downto 0);
 -- position counter --
 PROCESS (Clk,ResetPosition)
 	variable last_hall : STD_LOGIC_VECTOR (1 downto 0);
-	variable clk_scaler : Integer range 1 to 50000;
+	variable clk_scaler : Integer range 1 to 5000;
 BEGIN
 	if rising_edge(Clk) then
 		clk_scaler := clk_scaler + 1;
 		
-		if clk_scaler = 50000 then
+		if clk_scaler = 5000 then
 			clk_scaler := 1;
 	
 		-- count position --

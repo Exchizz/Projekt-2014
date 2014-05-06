@@ -1,7 +1,7 @@
 Release 14.7 - par P.20131013 (nt64)
 Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
 
-Mon Apr 14 10:06:10 2014
+Tue May 06 16:47:26 2014
 
 
 INFO: The IO information is provided in three file formats as part of the Place and Route (PAR) process.  These formats are:
@@ -21,20 +21,20 @@ Pinout by Pin Number:
 |Pin Number|Signal Name|Pin Usage|Pin Name                 |Direction|IO Standard|IO Bank Number|Drive (mA)|Slew Rate|Termination|IOB Delay|Voltage  |Constraint|IO Register|Signal Integrity|
 +--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 |P1        |           |         |PROG_B                   |         |           |              |          |         |           |         |         |          |           |                |
-|P2        |           |DIFFM    |IO_L01P_3                |UNUSED   |           |3             |          |         |           |         |         |          |           |                |
-|P3        |           |DIFFS    |IO_L01N_3                |UNUSED   |           |3             |          |         |           |         |         |          |           |                |
-|P4        |           |DIFFM    |IO_L02P_3                |UNUSED   |           |3             |          |         |           |         |         |          |           |                |
-|P5        |           |DIFFS    |IO_L02N_3/VREF_3         |UNUSED   |           |3             |          |         |           |         |         |          |           |                |
+|P2        |LED<7>     |IOB      |IO_L01P_3                |OUTPUT   |LVCMOS25*  |3             |12        |SLOW     |NONE**     |         |         |LOCATED   |YES        |NONE            |
+|P3        |LED<6>     |IOB      |IO_L01N_3                |OUTPUT   |LVCMOS25*  |3             |12        |SLOW     |NONE**     |         |         |LOCATED   |YES        |NONE            |
+|P4        |LED<5>     |IOB      |IO_L02P_3                |OUTPUT   |LVCMOS25*  |3             |12        |SLOW     |NONE**     |         |         |LOCATED   |YES        |NONE            |
+|P5        |LED<4>     |IOB      |IO_L02N_3/VREF_3         |OUTPUT   |LVCMOS25*  |3             |12        |SLOW     |NONE**     |         |         |LOCATED   |YES        |NONE            |
 |P6        |           |IBUF     |IP                       |UNUSED   |           |3             |          |         |           |         |         |          |           |                |
-|P7        |           |DIFFM    |IO_L03P_3                |UNUSED   |           |3             |          |         |           |         |         |          |           |                |
-|P8        |           |DIFFS    |IO_L03N_3                |UNUSED   |           |3             |          |         |           |         |         |          |           |                |
+|P7        |LED<3>     |IOB      |IO_L03P_3                |OUTPUT   |LVCMOS25*  |3             |12        |SLOW     |NONE**     |         |         |LOCATED   |YES        |NONE            |
+|P8        |LED<2>     |IOB      |IO_L03N_3                |OUTPUT   |LVCMOS25*  |3             |12        |SLOW     |NONE**     |         |         |LOCATED   |YES        |NONE            |
 |P9        |           |         |VCCINT                   |         |           |              |          |         |           |         |1.2      |          |           |                |
 |P10       |           |IOB      |IO                       |UNUSED   |           |3             |          |         |           |         |         |          |           |                |
 |P11       |           |         |GND                      |         |           |              |          |         |           |         |         |          |           |                |
 |P12       |           |IBUF     |IP/VREF_3                |UNUSED   |           |3             |          |         |           |         |         |          |           |                |
 |P13       |           |         |VCCO_3                   |         |           |3             |          |         |           |         |2.50     |          |           |                |
-|P14       |           |DIFFM    |IO_L04P_3/LHCLK0         |UNUSED   |           |3             |          |         |           |         |         |          |           |                |
-|P15       |           |DIFFS    |IO_L04N_3/LHCLK1         |UNUSED   |           |3             |          |         |           |         |         |          |           |                |
+|P14       |LED<1>     |IOB      |IO_L04P_3/LHCLK0         |OUTPUT   |LVCMOS25*  |3             |12        |SLOW     |NONE**     |         |         |LOCATED   |YES        |NONE            |
+|P15       |LED<0>     |IOB      |IO_L04N_3/LHCLK1         |OUTPUT   |LVCMOS25*  |3             |12        |SLOW     |NONE**     |         |         |LOCATED   |YES        |NONE            |
 |P16       |Seg<1>     |IOB      |IO_L05P_3/LHCLK2         |OUTPUT   |LVCMOS25*  |3             |12        |SLOW     |NONE**     |         |         |LOCATED   |NO         |NONE            |
 |P17       |Seg<5>     |IOB      |IO_L05N_3/LHCLK3/IRDY2   |OUTPUT   |LVCMOS25*  |3             |12        |SLOW     |NONE**     |         |         |LOCATED   |NO         |NONE            |
 |P18       |           |IBUF     |IP                       |UNUSED   |           |3             |          |         |           |         |         |          |           |                |

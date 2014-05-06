@@ -22,6 +22,8 @@ use IEEE.STD_LOGIC_1164.ALL;
 use IEEE.STD_LOGIC_ARITH.ALL;
 use IEEE.STD_LOGIC_UNSIGNED.ALL;
 
+-- follows the standard of 
+
 
 -- Uncomment the following library declaration if using
 -- arithmetic functions with Signed or Unsigned values
@@ -47,36 +49,42 @@ entity SPI is
 end SPI;
 
 architecture Behavioral of SPI is
-Shared variable DataBuffer : STD_LOGIC_VECTOR(DataWidth-1 downto 0);
+Shared variable DataBufferS : STD_LOGIC_VECTOR(DataWidth-1 downto 0);
+Shared variable DataBufferR : STD_LOGIC_VECTOR(DataWidth-1 downto 0);
 	
 begin
 
---recieves information through SPI. A SS pulse is requires inbetween all datapackages. When a Package is recieved the SignalPackageEnd goes high to signal a datapackages has been recieved/send and nextdata should be supplied on the ports/new data taken on rising edge.
+--recieves information through SPI. 
+-- follows SPI: SPO = 0, SPH = 0
+-- Master: transmits on rising and recieves on falling edge
+-- Slave:  sends MSB when SS goes low, thereafter updates the send bit at falling edge. Recieves bit on rising edge.
+-- SS is driven high between 2 datatransmissions
+
+
 SignalPackageEnd <= SS;
+
 
 Process (MClk,SS)
 variable start : STD_LOGIC := '0';
 begin
 	if SS = '0' then
-		if rising_edge(MClk) then
-			if start = '0' then
-				start := '1';
-				DataBuffer := DataIn;
+		if start = '0' then
+			DataBufferS := DataIn;
+			MISO <= DataBufferS(DataWidth-1);
+			DataBufferS := DataBufferS(DataWidth-2 downto 0) & '0';
+			start := '1';
+		elsif start = '1' then
+			if falling_edge(MClk) then
+				MISO <= DataBufferS(DataWidth-1);
+				DataBufferS := DataBufferS(DataWidth-2 downto 0) & '0';
 			end if;
-			DataBuffer := DataBuffer(DataWidth-2 downto 0) & MOSI;
 		end if;
-		if falling_edge(MClk) then
-			MISO <= DataBuffer(DataWidth-1);
-		end if;
+		if rising_edge(MClk) then
+				DataBufferR := DataBufferR(DataWidth-2 downto 0) & MOSI;
+				DataOut <= DataBufferR;
+			end if;
 	elsif SS = '1' then
 		start := '0';
-	end if;
-end process;
-
-Process (SS)
-begin
-	if rising_edge(SS) then
-		DataOut <= DataBuffer;
 	end if;
 end process;
 

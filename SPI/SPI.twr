@@ -44,14 +44,14 @@ Setup/Hold to clock MClk
             |Max Setup to|Max Hold to |                  | Clock  |
 Source      | clk (edge) | clk (edge) |Internal Clock(s) | Phase  |
 ------------+------------+------------+------------------+--------+
-DataIn<0>   |    0.795(R)|    0.821(R)|MClk_BUFGP        |   0.000|
-DataIn<1>   |    0.911(R)|    0.728(R)|MClk_BUFGP        |   0.000|
-DataIn<2>   |    0.360(R)|    1.169(R)|MClk_BUFGP        |   0.000|
-DataIn<3>   |    0.508(R)|    1.050(R)|MClk_BUFGP        |   0.000|
-DataIn<4>   |    0.199(R)|    1.297(R)|MClk_BUFGP        |   0.000|
-DataIn<5>   |    0.785(R)|    0.825(R)|MClk_BUFGP        |   0.000|
-DataIn<6>   |    0.763(R)|    0.842(R)|MClk_BUFGP        |   0.000|
-MOSI        |    0.357(R)|    1.171(R)|MClk_BUFGP        |   0.000|
+DataIn<0>   |   -0.216(R)|    1.746(R)|MClk_BUFGP        |   0.000|
+DataIn<1>   |    0.036(R)|    1.546(R)|MClk_BUFGP        |   0.000|
+DataIn<2>   |   -0.156(R)|    1.700(R)|MClk_BUFGP        |   0.000|
+DataIn<3>   |   -0.101(R)|    1.655(R)|MClk_BUFGP        |   0.000|
+DataIn<4>   |   -0.132(R)|    1.680(R)|MClk_BUFGP        |   0.000|
+DataIn<5>   |   -0.476(R)|    1.957(R)|MClk_BUFGP        |   0.000|
+DataIn<6>   |   -0.364(R)|    1.867(R)|MClk_BUFGP        |   0.000|
+MOSI        |    0.879(R)|    0.871(R)|MClk_BUFGP        |   0.000|
 ------------+------------+------------+------------------+--------+
 
 Clock MClk to Pad
@@ -59,7 +59,7 @@ Clock MClk to Pad
             | clk (edge) |                  | Clock  |
 Destination |   to PAD   |Internal Clock(s) | Phase  |
 ------------+------------+------------------+--------+
-MISO        |    8.739(F)|MClk_BUFGP        |   0.000|
+MISO        |    9.853(F)|MClk_BUFGP        |   0.000|
 ------------+------------+------------------+--------+
 
 Clock SS to Pad
@@ -67,14 +67,14 @@ Clock SS to Pad
             | clk (edge) |                     | Clock  |
 Destination |   to PAD   |Internal Clock(s)    | Phase  |
 ------------+------------+---------------------+--------+
-DataOut<0>  |    9.725(R)|SignalPackageEnd_OBUF|   0.000|
-DataOut<1>  |    9.725(R)|SignalPackageEnd_OBUF|   0.000|
-DataOut<2>  |    9.732(R)|SignalPackageEnd_OBUF|   0.000|
-DataOut<3>  |    9.732(R)|SignalPackageEnd_OBUF|   0.000|
-DataOut<4>  |    9.738(R)|SignalPackageEnd_OBUF|   0.000|
-DataOut<5>  |    9.738(R)|SignalPackageEnd_OBUF|   0.000|
-DataOut<6>  |    9.741(R)|SignalPackageEnd_OBUF|   0.000|
-DataOut<7>  |    9.741(R)|SignalPackageEnd_OBUF|   0.000|
+DataOut<0>  |    6.021(R)|SignalPackageEnd_OBUF|   0.000|
+DataOut<1>  |    6.021(R)|SignalPackageEnd_OBUF|   0.000|
+DataOut<2>  |    6.028(R)|SignalPackageEnd_OBUF|   0.000|
+DataOut<3>  |    6.028(R)|SignalPackageEnd_OBUF|   0.000|
+DataOut<4>  |    6.034(R)|SignalPackageEnd_OBUF|   0.000|
+DataOut<5>  |    6.034(R)|SignalPackageEnd_OBUF|   0.000|
+DataOut<6>  |    6.037(R)|SignalPackageEnd_OBUF|   0.000|
+DataOut<7>  |    6.037(R)|SignalPackageEnd_OBUF|   0.000|
 ------------+------------+---------------------+--------+
 
 Clock to Setup on destination clock MClk
@@ -82,8 +82,8 @@ Clock to Setup on destination clock MClk
                | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
 Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
 ---------------+---------+---------+---------+---------+
-MClk           |    3.693|         |    1.718|         |
-SS             |    1.345|    1.345|    0.415|    0.415|
+MClk           |    3.037|         |    1.479|         |
+SS             |    1.708|    1.708|    1.999|    1.999|
 ---------------+---------+---------+---------+---------+
 
 Clock to Setup on destination clock SS
@@ -91,18 +91,18 @@ Clock to Setup on destination clock SS
                | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
 Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
 ---------------+---------+---------+---------+---------+
-MClk           |    3.599|         |         |         |
+MClk           |    4.026|         |         |         |
 ---------------+---------+---------+---------+---------+
 
 Pad to Pad
 ---------------+----------------+---------+
 Source Pad     |Destination Pad |  Delay  |
 ---------------+----------------+---------+
-SS             |SignalPackageEnd|    5.195|
+SS             |SignalPackageEnd|    5.809|
 ---------------+----------------+---------+
 
 
-Analysis completed Mon Apr 07 10:18:48 2014 
+Analysis completed Mon Apr 14 11:32:43 2014 
 --------------------------------------------------------------------------------
 
 Trace Settings:

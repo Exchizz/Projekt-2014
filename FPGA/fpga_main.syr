@@ -4,13 +4,13 @@ Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
 
 
 Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.12 secs
+Total CPU time to Xst completion: 0.13 secs
  
 --> Parameter xsthdpdir set to xst
 
 
 Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.12 secs
+Total CPU time to Xst completion: 0.13 secs
  
 --> Reading design: fpga_main.prj
 
@@ -158,6 +158,8 @@ Entity <Encoder> analyzed. Unit <Encoder> generated.
 
 Analyzing generic Entity <SPI> in library <work> (Architecture <behavioral>).
 	DataWidth = 12
+WARNING:Xst:819 - "C:/Users/Lukas Schwartz/Documents/GitHub/Projekt-2014/SPI/SPI.vhd" line 67: One or more signals are missing in the process sensitivity list. To enable synthesis of FPGA/CPLD hardware, XST will assume that all necessary signals are present in the sensitivity list. Please note that the result of the synthesis may differ from the initial design specification. The missing signals are:
+   <DataIn>
 Entity <SPI> analyzed. Unit <SPI> generated.
 
 Analyzing Entity <DisplayHex> in library <work> (Architecture <behavioral>).
@@ -175,12 +177,14 @@ Performing bidirectional port resolution...
 
 Synthesizing Unit <SPI>.
     Related source file is "C:/Users/Lukas Schwartz/Documents/GitHub/Projekt-2014/SPI/SPI.vhd".
-    Found 12-bit register for signal <DataOut>.
+WARNING:Xst:646 - Signal <DataBufferR<11>> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+    Register <DataOut> equivalent to <DataBufferR> has been removed
+WARNING:Xst:737 - Found 1-bit latch for signal <start>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
     Found 1-bit register for signal <MISO>.
-    Found 12-bit register for signal <DataBuffer>.
-    Found 1-bit register for signal <start>.
+    Found 12-bit register for signal <DataBufferR>.
+    Found 12-bit register for signal <DataBufferS>.
     Summary:
-	inferred  26 D-type flip-flop(s).
+	inferred  25 D-type flip-flop(s).
 Unit <SPI> synthesized.
 
 
@@ -220,9 +224,9 @@ Unit <PWM> synthesized.
 
 Synthesizing Unit <Encoder>.
     Related source file is "C:/Users/Lukas Schwartz/Documents/GitHub/Projekt-2014/Encoder/encoder.vhd".
-    Found 16-bit up counter for signal <clk_scaler>.
+    Found 13-bit up counter for signal <clk_scaler>.
     Found 2-bit register for signal <last_hall>.
-    Found 16-bit adder for signal <last_hall$add0000> created at line 32.
+    Found 13-bit adder for signal <last_hall$add0000> created at line 32.
     Found 2-bit comparator equal for signal <last_hall$cmp_eq0009> created at line 38.
     Found 2-bit 4-to-1 multiplexer for signal <last_hall$mux0000> created at line 39.
     Found 2-bit 4-to-1 multiplexer for signal <last_hall$mux0001> created at line 41.
@@ -283,14 +287,18 @@ Unit <MCS> synthesized.
 Synthesizing Unit <fpga_main>.
     Related source file is "C:/Users/Lukas Schwartz/Documents/GitHub/Projekt-2014/FPGA/fpga_main.vhd".
 WARNING:Xst:647 - Input <BTN<1:0>> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
-    Found T flip-flop for signal <dataToSend<0>>.
-    Found 20-bit register for signal <MC>.
+    Found 1-bit register for signal <dataToSend<0>>.
+    Found 10-bit register for signal <MC_A>.
+    Found 10-bit register for signal <MC_B>.
     Found 12-bit register for signal <SPI_DI>.
-    Found 1-bit adder for signal <SPI_DI$addsub0000> created at line 158.
+    Found 11-bit up counter for signal <testInc>.
+    Found 11-bit adder for signal <testInc$addsub0000> created at line 166.
+    Found 11-bit comparator greatequal for signal <testInc$cmp_ge0000> created at line 167.
     Summary:
-	inferred   1 T-type flip-flop(s).
-	inferred  32 D-type flip-flop(s).
+	inferred   1 Counter(s).
+	inferred  33 D-type flip-flop(s).
 	inferred   1 Adder/Subtractor(s).
+	inferred   1 Comparator(s).
 Unit <fpga_main> synthesized.
 
 INFO:Xst:1767 - HDL ADVISOR - Resource sharing has identified that some arithmetic operations in this design can share the same physical resources for reduced device utilization. For improved clock frequency you may try to disable resource sharing.
@@ -300,28 +308,27 @@ HDL Synthesis Report
 
 Macro Statistics
 # Adders/Subtractors                                   : 14
- 1-bit adder                                           : 1
  10-bit adder                                          : 3
- 11-bit adder                                          : 2
+ 11-bit adder                                          : 3
  11-bit subtractor                                     : 4
- 16-bit adder                                          : 2
+ 13-bit adder                                          : 2
  23-bit adder                                          : 2
-# Counters                                             : 8
+# Counters                                             : 9
  10-bit up counter                                     : 3
- 11-bit up counter                                     : 2
- 16-bit up counter                                     : 2
+ 11-bit up counter                                     : 3
+ 13-bit up counter                                     : 2
  2-bit up counter                                      : 1
-# Registers                                            : 21
- 1-bit register                                        : 6
+# Registers                                            : 32
+ 1-bit register                                        : 18
  10-bit register                                       : 2
  11-bit register                                       : 4
- 12-bit register                                       : 3
+ 12-bit register                                       : 2
  2-bit register                                        : 4
  23-bit register                                       : 2
-# Toggle Registers                                     : 1
- T flip-flop                                           : 1
-# Comparators                                          : 6
- 11-bit comparator greatequal                          : 2
+# Latches                                              : 1
+ 1-bit latch                                           : 1
+# Comparators                                          : 7
+ 11-bit comparator greatequal                          : 3
  11-bit comparator greater                             : 2
  2-bit comparator equal                                : 2
 # Multiplexers                                         : 23
@@ -351,7 +358,7 @@ Optimizing FSM <MCS_B/MotorState/FSM> on signal <MotorState[1:2]> with sequentia
  10    | 11
  11    | 01
 -------------------
-WARNING:Xst:2677 - Node <SPI_DI_11> of sequential type is unconnected in block <fpga_main>.
+WARNING:Xst:1710 - FF/Latch <DataBufferS_0> (without init value) has a constant value of 0 in block <SPI_Slave>. This FF/Latch will be trimmed during the optimization process.
 
 =========================================================================
 Advanced HDL Synthesis Report
@@ -359,21 +366,22 @@ Advanced HDL Synthesis Report
 Macro Statistics
 # FSMs                                                 : 1
 # Adders/Subtractors                                   : 14
- 1-bit adder                                           : 1
  10-bit adder                                          : 3
- 11-bit adder                                          : 2
+ 11-bit adder                                          : 3
  11-bit subtractor                                     : 4
- 16-bit adder                                          : 2
+ 13-bit adder                                          : 2
  23-bit adder                                          : 2
-# Counters                                             : 8
+# Counters                                             : 9
  10-bit up counter                                     : 3
- 11-bit up counter                                     : 2
- 16-bit up counter                                     : 2
+ 11-bit up counter                                     : 3
+ 13-bit up counter                                     : 2
  2-bit up counter                                      : 1
-# Registers                                            : 161
- Flip-Flops                                            : 161
-# Comparators                                          : 6
- 11-bit comparator greatequal                          : 2
+# Registers                                            : 160
+ Flip-Flops                                            : 160
+# Latches                                              : 1
+ 1-bit latch                                           : 1
+# Comparators                                          : 7
+ 11-bit comparator greatequal                          : 3
  11-bit comparator greater                             : 2
  2-bit comparator equal                                : 2
 # Multiplexers                                         : 21
@@ -390,7 +398,7 @@ Macro Statistics
 =========================================================================
 *                         Low Level Synthesis                           *
 =========================================================================
-INFO:Xst:2261 - The FF/Latch <dataToSend_0_0> in Unit <fpga_main> is equivalent to the following FF/Latch, which will be removed : <SPI_DI_11> 
+WARNING:Xst:1710 - FF/Latch <DataBufferS_0> (without init value) has a constant value of 0 in block <SPI>. This FF/Latch will be trimmed during the optimization process.
 
 Optimizing unit <fpga_main> ...
 
@@ -402,7 +410,15 @@ Optimizing unit <MCS> ...
 
 Mapping all equations...
 Building and optimizing final netlist ...
-Found area constraint ratio of 100 (+ 5) on block fpga_main, actual ratio is 37.
+Found area constraint ratio of 100 (+ 5) on block fpga_main, actual ratio is 39.
+FlipFlop MC_A_7 has been replicated 1 time(s) to handle iob=true attribute.
+FlipFlop MC_A_6 has been replicated 1 time(s) to handle iob=true attribute.
+FlipFlop MC_A_5 has been replicated 1 time(s) to handle iob=true attribute.
+FlipFlop MC_A_4 has been replicated 1 time(s) to handle iob=true attribute.
+FlipFlop MC_A_3 has been replicated 1 time(s) to handle iob=true attribute.
+FlipFlop MC_A_2 has been replicated 1 time(s) to handle iob=true attribute.
+FlipFlop MC_A_1 has been replicated 1 time(s) to handle iob=true attribute.
+FlipFlop MC_A_0 has been replicated 1 time(s) to handle iob=true attribute.
 
 Final Macro Processing ...
 
@@ -410,8 +426,8 @@ Final Macro Processing ...
 Final Register Report
 
 Macro Statistics
-# Registers                                            : 250
- Flip-Flops                                            : 250
+# Registers                                            : 262
+ Flip-Flops                                            : 262
 
 =========================================================================
 
@@ -437,40 +453,41 @@ Optimization Goal                  : Speed
 Keep Hierarchy                     : No
 
 Design Statistics
-# IOs                              : 33
+# IOs                              : 41
 
 Cell Usage :
-# BELS                             : 1187
+# BELS                             : 1225
 #      GND                         : 1
-#      INV                         : 41
-#      LUT1                        : 156
-#      LUT2                        : 47
+#      INV                         : 43
+#      LUT1                        : 164
+#      LUT2                        : 69
 #      LUT2_D                      : 2
 #      LUT2_L                      : 4
-#      LUT3                        : 131
-#      LUT3_L                      : 3
+#      LUT3                        : 122
+#      LUT3_L                      : 2
 #      LUT4                        : 216
-#      LUT4_D                      : 2
+#      LUT4_D                      : 3
 #      LUT4_L                      : 25
 #      MULT_AND                    : 14
-#      MUXCY                       : 276
+#      MUXCY                       : 284
 #      MUXF5                       : 10
 #      VCC                         : 1
-#      XORCY                       : 258
-# FlipFlops/Latches                : 250
-#      FD                          : 130
-#      FDCE                        : 23
-#      FDE                         : 40
-#      FDE_1                       : 1
-#      FDR                         : 31
-#      FDRE                        : 20
-#      FDS                         : 5
+#      XORCY                       : 265
+# FlipFlops/Latches                : 263
+#      FD                          : 120
+#      FDCE                        : 22
+#      FDCPE_1                     : 12
+#      FDE                         : 48
+#      FDR                         : 25
+#      FDRE                        : 31
+#      FDS                         : 4
+#      LDC_1                       : 1
 # Clock Buffers                    : 3
 #      BUFG                        : 1
 #      BUFGP                       : 2
-# IO Buffers                       : 29
+# IO Buffers                       : 37
 #      IBUF                        : 10
-#      OBUF                        : 19
+#      OBUF                        : 27
 =========================================================================
 
 Device utilization summary:
@@ -478,11 +495,12 @@ Device utilization summary:
 
 Selected Device : 3s100etq144-4 
 
- Number of Slices:                      337  out of    960    35%  
- Number of Slice Flip Flops:            250  out of   1920    13%  
- Number of 4 input LUTs:                627  out of   1920    32%  
- Number of IOs:                          33
- Number of bonded IOBs:                  31  out of    108    28%  
+ Number of Slices:                      348  out of    960    36%  
+ Number of Slice Flip Flops:            255  out of   1920    13%  
+ Number of 4 input LUTs:                650  out of   1920    33%  
+ Number of IOs:                          41
+ Number of bonded IOBs:                  39  out of    108    36%  
+    IOB Flip Flops:                       8
  Number of GCLKs:                         3  out of     24    12%  
 
 ---------------------------
@@ -506,27 +524,53 @@ Clock Information:
 -----------------------------------+------------------------+-------+
 Clock Signal                       | Clock buffer(FF name)  | Load  |
 -----------------------------------+------------------------+-------+
-SPI_SS                             | IBUF+BUFG              | 44    |
-Clk                                | BUFGP                  | 192   |
-SPI_MClk                           | BUFGP                  | 14    |
+SPI_SS                             | IBUF+BUFG              | 52    |
+Clk                                | BUFGP                  | 186   |
+SPI_Slave/start                    | NONE(SPI_Slave/start)  | 1     |
+SPI_MClk                           | BUFGP                  | 24    |
 -----------------------------------+------------------------+-------+
+INFO:Xst:2169 - HDL ADVISOR - Some clock signals were not automatically buffered by XST with BUFG/BUFR resources. Please use the buffer_type constraint in order to insert these buffers to the clock signals to help prevent skew problems.
 
 Asynchronous Control Signals Information:
 ----------------------------------------
------------------------------------+------------------------------------------+-------+
-Control Signal                     | Buffer(FF name)                          | Load  |
------------------------------------+------------------------------------------+-------+
-MCS_A/ResetNow(MCS_A/ResetNow:Q)   | NONE(MCS_A/ENCODER_part/Motor_Position_0)| 11    |
-MCS_B/ResetNow(MCS_B/ResetNow:Q)   | NONE(MCS_B/ENCODER_part/Motor_Position_0)| 11    |
-SPI_SS                             | IBUF                                     | 1     |
------------------------------------+------------------------------------------+-------+
+---------------------------------------------------------------------+------------------------------------------+-------+
+Control Signal                                                       | Buffer(FF name)                          | Load  |
+---------------------------------------------------------------------+------------------------------------------+-------+
+MCS_A/ResetNow(MCS_A/ResetNow:Q)                                     | NONE(MCS_A/ENCODER_part/Motor_Position_0)| 11    |
+MCS_B/ResetNow(MCS_B/ResetNow:Q)                                     | NONE(MCS_B/ENCODER_part/Motor_Position_0)| 11    |
+SPI_SS                                                               | IBUF                                     | 1     |
+SPI_Slave/DataBufferS_10_and0000(SPI_Slave/DataBufferS_10_and00001:O)| NONE(SPI_Slave/DataBufferS_10)           | 1     |
+SPI_Slave/DataBufferS_10_and0001(SPI_Slave/DataBufferS_10_and00011:O)| NONE(SPI_Slave/DataBufferS_10)           | 1     |
+SPI_Slave/DataBufferS_11_and0000(SPI_Slave/DataBufferS_11_and00001:O)| NONE(SPI_Slave/DataBufferS_11)           | 1     |
+SPI_Slave/DataBufferS_11_and0001(SPI_Slave/DataBufferS_11_and00011:O)| NONE(SPI_Slave/DataBufferS_11)           | 1     |
+SPI_Slave/DataBufferS_1_and0000(SPI_Slave/DataBufferS_1_and00001:O)  | NONE(SPI_Slave/DataBufferS_1)            | 1     |
+SPI_Slave/DataBufferS_1_and0001(SPI_Slave/DataBufferS_1_and00011:O)  | NONE(SPI_Slave/DataBufferS_1)            | 1     |
+SPI_Slave/DataBufferS_2_and0000(SPI_Slave/DataBufferS_2_and00001:O)  | NONE(SPI_Slave/DataBufferS_2)            | 1     |
+SPI_Slave/DataBufferS_2_and0001(SPI_Slave/DataBufferS_2_and00011:O)  | NONE(SPI_Slave/DataBufferS_2)            | 1     |
+SPI_Slave/DataBufferS_3_and0000(SPI_Slave/DataBufferS_3_and00001:O)  | NONE(SPI_Slave/DataBufferS_3)            | 1     |
+SPI_Slave/DataBufferS_3_and0001(SPI_Slave/DataBufferS_3_and00011:O)  | NONE(SPI_Slave/DataBufferS_3)            | 1     |
+SPI_Slave/DataBufferS_4_and0000(SPI_Slave/DataBufferS_4_and00001:O)  | NONE(SPI_Slave/DataBufferS_4)            | 1     |
+SPI_Slave/DataBufferS_4_and0001(SPI_Slave/DataBufferS_4_and00011:O)  | NONE(SPI_Slave/DataBufferS_4)            | 1     |
+SPI_Slave/DataBufferS_5_and0000(SPI_Slave/DataBufferS_5_and00001:O)  | NONE(SPI_Slave/DataBufferS_5)            | 1     |
+SPI_Slave/DataBufferS_5_and0001(SPI_Slave/DataBufferS_5_and00011:O)  | NONE(SPI_Slave/DataBufferS_5)            | 1     |
+SPI_Slave/DataBufferS_6_and0000(SPI_Slave/DataBufferS_6_and00001:O)  | NONE(SPI_Slave/DataBufferS_6)            | 1     |
+SPI_Slave/DataBufferS_6_and0001(SPI_Slave/DataBufferS_6_and00011:O)  | NONE(SPI_Slave/DataBufferS_6)            | 1     |
+SPI_Slave/DataBufferS_7_and0000(SPI_Slave/DataBufferS_7_and00001:O)  | NONE(SPI_Slave/DataBufferS_7)            | 1     |
+SPI_Slave/DataBufferS_7_and0001(SPI_Slave/DataBufferS_7_and00011:O)  | NONE(SPI_Slave/DataBufferS_7)            | 1     |
+SPI_Slave/DataBufferS_8_and0000(SPI_Slave/DataBufferS_8_and00001:O)  | NONE(SPI_Slave/DataBufferS_8)            | 1     |
+SPI_Slave/DataBufferS_8_and0001(SPI_Slave/DataBufferS_8_and00011:O)  | NONE(SPI_Slave/DataBufferS_8)            | 1     |
+SPI_Slave/DataBufferS_9_and0000(SPI_Slave/DataBufferS_9_and00001:O)  | NONE(SPI_Slave/DataBufferS_9)            | 1     |
+SPI_Slave/DataBufferS_9_and0001(SPI_Slave/DataBufferS_9_and00011:O)  | NONE(SPI_Slave/DataBufferS_9)            | 1     |
+SPI_Slave/MISO_and0000(SPI_Slave/MISO_and00001:O)                    | NONE(SPI_Slave/MISO)                     | 1     |
+SPI_Slave/MISO_and0001(SPI_Slave/MISO_and00011:O)                    | NONE(SPI_Slave/MISO)                     | 1     |
+---------------------------------------------------------------------+------------------------------------------+-------+
 
 Timing Summary:
 ---------------
 Speed Grade: -4
 
-   Minimum period: 10.795ns (Maximum Frequency: 92.639MHz)
-   Minimum input arrival time before clock: 6.962ns
+   Minimum period: 10.792ns (Maximum Frequency: 92.663MHz)
+   Minimum input arrival time before clock: 7.051ns
    Maximum output required time after clock: 12.432ns
    Maximum combinational path delay: 8.517ns
 
@@ -536,42 +580,49 @@ All values displayed in nanoseconds (ns)
 
 =========================================================================
 Timing constraint: Default period analysis for Clock 'SPI_SS'
-  Clock period: 3.354ns (frequency: 298.151MHz)
-  Total number of paths / destination ports: 72 / 52
+  Clock period: 7.717ns (frequency: 129.584MHz)
+  Total number of paths / destination ports: 772 / 46
 -------------------------------------------------------------------------
-Delay:               3.354ns (Levels of Logic = 1)
-  Source:            SPI_Slave/DataOut_10 (FF)
-  Destination:       MC_1_0 (FF)
+Delay:               7.717ns (Levels of Logic = 8)
+  Source:            testInc_1 (FF)
+  Destination:       testInc_0 (FF)
   Source Clock:      SPI_SS rising
   Destination Clock: SPI_SS rising
 
-  Data Path: SPI_Slave/DataOut_10 to MC_1_0
+  Data Path: testInc_1 to testInc_0
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     FD:C->Q               2   0.591   0.622  SPI_Slave/DataOut_10 (SPI_Slave/DataOut_10)
-     LUT2:I0->O           10   0.704   0.882  MC_1_cmp_eq00001 (MC_1_cmp_eq0000)
-     FDE:CE                    0.555          MC_1_0
+     FDRE:C->Q             3   0.591   0.706  testInc_1 (testInc_1)
+     LUT1:I0->O            1   0.704   0.000  Madd_testInc_addsub0000_cy<1>_rt (Madd_testInc_addsub0000_cy<1>_rt)
+     MUXCY:S->O            1   0.464   0.000  Madd_testInc_addsub0000_cy<1> (Madd_testInc_addsub0000_cy<1>)
+     MUXCY:CI->O           1   0.059   0.000  Madd_testInc_addsub0000_cy<2> (Madd_testInc_addsub0000_cy<2>)
+     MUXCY:CI->O           1   0.059   0.000  Madd_testInc_addsub0000_cy<3> (Madd_testInc_addsub0000_cy<3>)
+     MUXCY:CI->O           1   0.059   0.000  Madd_testInc_addsub0000_cy<4> (Madd_testInc_addsub0000_cy<4>)
+     XORCY:CI->O           1   0.804   0.595  Madd_testInc_addsub0000_xor<5> (testInc_addsub0000<5>)
+     LUT3:I0->O            1   0.704   0.424  testInc_and00007 (testInc_and00007)
+     LUT4:I3->O           11   0.704   0.933  testInc_and000018 (testInc_and0000)
+     FDRE:R                    0.911          testInc_0
     ----------------------------------------
-    Total                      3.354ns (1.850ns logic, 1.504ns route)
-                                       (55.2% logic, 44.8% route)
+    Total                      7.717ns (5.059ns logic, 2.658ns route)
+                                       (65.6% logic, 34.4% route)
 
 =========================================================================
 Timing constraint: Default period analysis for Clock 'Clk'
-  Clock period: 10.795ns (frequency: 92.639MHz)
-  Total number of paths / destination ports: 49418 / 297
+  Clock period: 10.792ns (frequency: 92.663MHz)
+  Total number of paths / destination ports: 46172 / 284
 -------------------------------------------------------------------------
-Delay:               10.795ns (Levels of Logic = 8)
-  Source:            MCS_B/MotorState_FSM_FFd1 (FF)
+Delay:               10.792ns (Levels of Logic = 8)
+  Source:            MCS_B/MotorState_FSM_FFd2 (FF)
   Destination:       MCS_B/direction (FF)
   Source Clock:      Clk rising
   Destination Clock: Clk rising
 
-  Data Path: MCS_B/MotorState_FSM_FFd1 to MCS_B/direction
+  Data Path: MCS_B/MotorState_FSM_FFd2 to MCS_B/direction
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     FD:C->Q              84   0.591   1.454  MCS_B/MotorState_FSM_FFd1 (MCS_B/MotorState_FSM_FFd1)
+     FD:C->Q              75   0.591   1.451  MCS_B/MotorState_FSM_FFd2 (MCS_B/MotorState_FSM_FFd2)
      LUT2_D:I0->O          9   0.704   0.824  MCS_B/MotorState_FSM_FFd2-In11 (MCS_B/N10)
      LUT4:I3->O            1   0.704   0.424  MCS_B/position_change_mux0001<9>1 (MCS_B/position_change_mux0001<9>)
      LUT4:I3->O            1   0.704   0.000  MCS_B/Msub_position_change_mux0000_lut<9> (MCS_B/Msub_position_change_mux0000_lut<9>)
@@ -582,36 +633,35 @@ Delay:               10.795ns (Levels of Logic = 8)
      LUT3:I2->O            1   0.704   0.420  MCS_B/direction_not00021 (MCS_B/direction_not0002)
      FDE:CE                    0.555          MCS_B/direction
     ----------------------------------------
-    Total                     10.795ns (6.798ns logic, 3.997ns route)
+    Total                     10.792ns (6.798ns logic, 3.994ns route)
                                        (63.0% logic, 37.0% route)
 
 =========================================================================
 Timing constraint: Default period analysis for Clock 'SPI_MClk'
-  Clock period: 3.231ns (frequency: 309.502MHz)
-  Total number of paths / destination ports: 24 / 13
+  Clock period: 1.486ns (frequency: 672.948MHz)
+  Total number of paths / destination ports: 22 / 22
 -------------------------------------------------------------------------
-Delay:               3.231ns (Levels of Logic = 1)
-  Source:            SPI_Slave/start (FF)
-  Destination:       SPI_Slave/start (FF)
+Delay:               1.486ns (Levels of Logic = 0)
+  Source:            SPI_Slave/DataBufferR_7 (FF)
+  Destination:       SPI_Slave/DataBufferR_8 (FF)
   Source Clock:      SPI_MClk rising
   Destination Clock: SPI_MClk rising
 
-  Data Path: SPI_Slave/start to SPI_Slave/start
+  Data Path: SPI_Slave/DataBufferR_7 to SPI_Slave/DataBufferR_8
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     FDCE:C->Q            12   0.591   0.961  SPI_Slave/start (SPI_Slave/start)
-     INV:I->O              1   0.704   0.420  SPI_Slave/start_inv1_INV_0 (SPI_Slave/start_inv)
-     FDCE:CE                   0.555          SPI_Slave/start
+     FDE:C->Q              4   0.591   0.587  SPI_Slave/DataBufferR_7 (SPI_Slave/DataBufferR_7)
+     FDE:D                     0.308          SPI_Slave/DataBufferR_8
     ----------------------------------------
-    Total                      3.231ns (1.850ns logic, 1.381ns route)
-                                       (57.3% logic, 42.7% route)
+    Total                      1.486ns (0.899ns logic, 0.587ns route)
+                                       (60.5% logic, 39.5% route)
 
 =========================================================================
 Timing constraint: Default OFFSET IN BEFORE for Clock 'SPI_MClk'
-  Total number of paths / destination ports: 14 / 14
+  Total number of paths / destination ports: 25 / 25
 -------------------------------------------------------------------------
-Offset:              3.991ns (Levels of Logic = 2)
+Offset:              4.260ns (Levels of Logic = 2)
   Source:            SPI_SS (PAD)
   Destination:       SPI_Slave/MISO (FF)
   Destination Clock: SPI_MClk falling
@@ -621,34 +671,34 @@ Offset:              3.991ns (Levels of Logic = 2)
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
      IBUF:I->O             3   1.218   0.531  SPI_SS_IBUF (SPI_SS_IBUF1)
-     INV:I->O             13   0.704   0.983  SPI_Slave/SS_inv1_INV_0 (SPI_Slave/SS_inv)
-     FDE_1:CE                  0.555          SPI_Slave/MISO
+     INV:I->O             24   0.704   1.252  SPI_Slave/SS_inv1_INV_0 (SPI_Slave/SS_inv)
+     FDCPE_1:CE                0.555          SPI_Slave/DataBufferS_8
     ----------------------------------------
-    Total                      3.991ns (2.477ns logic, 1.514ns route)
-                                       (62.1% logic, 37.9% route)
+    Total                      4.260ns (2.477ns logic, 1.783ns route)
+                                       (58.1% logic, 41.9% route)
 
 =========================================================================
 Timing constraint: Default OFFSET IN BEFORE for Clock 'Clk'
   Total number of paths / destination ports: 212 / 62
 -------------------------------------------------------------------------
-Offset:              6.962ns (Levels of Logic = 5)
-  Source:            HallB<1> (PAD)
-  Destination:       MCS_B/ENCODER_part/Motor_Position_3 (FF)
+Offset:              7.051ns (Levels of Logic = 5)
+  Source:            HallA<0> (PAD)
+  Destination:       MCS_A/ENCODER_part/Motor_Position_0 (FF)
   Destination Clock: Clk rising
 
-  Data Path: HallB<1> to MCS_B/ENCODER_part/Motor_Position_3
+  Data Path: HallA<0> to MCS_A/ENCODER_part/Motor_Position_0
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     IBUF:I->O             6   1.218   0.844  HallB_1_IBUF (HallB_1_IBUF)
-     LUT2:I0->O            6   0.704   0.704  MCS_B/ENCODER_part/Mmux_Motor_Position_mux00021411 (MCS_B/ENCODER_part/N01)
-     LUT4:I2->O           11   0.704   0.968  MCS_B/ENCODER_part/Mmux_Motor_Position_mux000214542 (MCS_B/ENCODER_part/N6)
-     LUT4_L:I2->LO         1   0.704   0.104  MCS_B/ENCODER_part/Mmux_Motor_Position_mux00026325_SW0 (N184)
-     LUT4:I3->O            1   0.704   0.000  MCS_B/ENCODER_part/Mmux_Motor_Position_mux00026325 (MCS_B/ENCODER_part/Motor_Position_mux0002<7>)
-     FDCE:D                    0.308          MCS_B/ENCODER_part/Motor_Position_3
+     IBUF:I->O             6   1.218   0.844  HallA_0_IBUF (HallA_0_IBUF)
+     LUT2:I0->O            6   0.704   0.704  MCS_A/ENCODER_part/Mmux_Motor_Position_mux00021421 (MCS_A/ENCODER_part/N11)
+     LUT4_D:I2->O         10   0.704   0.886  MCS_A/ENCODER_part/Mmux_Motor_Position_mux000214542 (MCS_A/ENCODER_part/N6)
+     LUT4_L:I3->LO         1   0.704   0.275  MCS_A/ENCODER_part/Mmux_Motor_Position_mux0002568_SW0 (N150)
+     LUT4:I0->O            1   0.704   0.000  MCS_A/ENCODER_part/Mmux_Motor_Position_mux0002568 (MCS_A/ENCODER_part/Motor_Position_mux0002<6>)
+     FDCE:D                    0.308          MCS_A/ENCODER_part/Motor_Position_4
     ----------------------------------------
-    Total                      6.962ns (4.342ns logic, 2.620ns route)
-                                       (62.4% logic, 37.6% route)
+    Total                      7.051ns (4.342ns logic, 2.709ns route)
+                                       (61.6% logic, 38.4% route)
 
 =========================================================================
 Timing constraint: Default OFFSET OUT AFTER for Clock 'SPI_MClk'
@@ -663,7 +713,7 @@ Offset:              4.283ns (Levels of Logic = 1)
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     FDE_1:C->Q            1   0.591   0.420  SPI_Slave/MISO (SPI_Slave/MISO)
+     FDCPE_1:C->Q          1   0.591   0.420  SPI_Slave/MISO (SPI_Slave/MISO)
      OBUF:I->O                 3.272          SPI_MISO_OBUF (SPI_MISO)
     ----------------------------------------
     Total                      4.283ns (3.863ns logic, 0.420ns route)
@@ -693,7 +743,7 @@ Offset:              12.432ns (Levels of Logic = 13)
      MUXCY:CI->O           1   0.059   0.000  MCS_A/PWM_part/Mcompar_Pin_cmp_gt0000_cy<6> (MCS_A/PWM_part/Mcompar_Pin_cmp_gt0000_cy<6>)
      MUXCY:CI->O           1   0.059   0.000  MCS_A/PWM_part/Mcompar_Pin_cmp_gt0000_cy<7> (MCS_A/PWM_part/Mcompar_Pin_cmp_gt0000_cy<7>)
      MUXCY:CI->O           4   0.459   0.666  MCS_A/PWM_part/Mcompar_Pin_cmp_gt0000_cy<8> (MCS_A/PWM_part/Mcompar_Pin_cmp_gt0000_cy<8>)
-     LUT3:I1->O            1   0.704   0.424  MCS_A/Motor_Direction_out<1>_SW2 (N168)
+     LUT3:I1->O            1   0.704   0.424  MCS_A/Motor_Direction_out<1>_SW2 (N172)
      LUT4:I3->O            1   0.704   0.420  MCS_A/Motor_Direction_out<1> (MotorA_1_OBUF)
      OBUF:I->O                 3.272          MotorA_1_OBUF (MotorA<1>)
     ----------------------------------------
@@ -702,18 +752,18 @@ Offset:              12.432ns (Levels of Logic = 13)
 
 =========================================================================
 Timing constraint: Default OFFSET OUT AFTER for Clock 'SPI_SS'
-  Total number of paths / destination ports: 76 / 6
+  Total number of paths / destination ports: 84 / 14
 -------------------------------------------------------------------------
 Offset:              9.643ns (Levels of Logic = 12)
-  Source:            MC_0_0 (FF)
+  Source:            MC_A_0 (FF)
   Destination:       MotorA<1> (PAD)
   Source Clock:      SPI_SS rising
 
-  Data Path: MC_0_0 to MotorA<1>
+  Data Path: MC_A_0 to MotorA<1>
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     FDE:C->Q              1   0.591   0.420  MC_0_0 (MC_0_0)
+     FDE:C->Q              1   0.591   0.420  MC_A_0 (MC_A_0)
      MULT_AND:I0->LO       0   0.741   0.000  MCS_A/PWM_signal<0>_mand (MCS_A/PWM_signal<0>_mand1)
      MUXCY:DI->O           1   0.888   0.000  MCS_A/PWM_part/Mcompar_Pin_cmp_gt0000_cy<1> (MCS_A/PWM_part/Mcompar_Pin_cmp_gt0000_cy<1>)
      MUXCY:CI->O           1   0.059   0.000  MCS_A/PWM_part/Mcompar_Pin_cmp_gt0000_cy<2> (MCS_A/PWM_part/Mcompar_Pin_cmp_gt0000_cy<2>)
@@ -723,7 +773,7 @@ Offset:              9.643ns (Levels of Logic = 12)
      MUXCY:CI->O           1   0.059   0.000  MCS_A/PWM_part/Mcompar_Pin_cmp_gt0000_cy<6> (MCS_A/PWM_part/Mcompar_Pin_cmp_gt0000_cy<6>)
      MUXCY:CI->O           1   0.059   0.000  MCS_A/PWM_part/Mcompar_Pin_cmp_gt0000_cy<7> (MCS_A/PWM_part/Mcompar_Pin_cmp_gt0000_cy<7>)
      MUXCY:CI->O           4   0.459   0.666  MCS_A/PWM_part/Mcompar_Pin_cmp_gt0000_cy<8> (MCS_A/PWM_part/Mcompar_Pin_cmp_gt0000_cy<8>)
-     LUT3:I1->O            1   0.704   0.424  MCS_A/Motor_Direction_out<1>_SW2 (N168)
+     LUT3:I1->O            1   0.704   0.424  MCS_A/Motor_Direction_out<1>_SW2 (N172)
      LUT4:I3->O            1   0.704   0.420  MCS_A/Motor_Direction_out<1> (MotorA_1_OBUF)
      OBUF:I->O                 3.272          MotorA_1_OBUF (MotorA<1>)
     ----------------------------------------
@@ -743,7 +793,7 @@ Delay:               8.517ns (Levels of Logic = 5)
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
      IBUF:I->O             9   1.218   0.995  BTN_2_IBUF (BTN_2_IBUF)
-     LUT4:I0->O            1   0.704   0.000  DispSelect/Mmux_DisplayPart830_F (N230)
+     LUT4:I0->O            1   0.704   0.000  DispSelect/Mmux_DisplayPart830_F (N234)
      MUXF5:I0->O           7   0.321   0.883  DispSelect/Mmux_DisplayPart830 (DisplayThis_DisplayPart_connect<3>)
      LUT4:I0->O            1   0.704   0.420  DispHex/Segment_4_or00001 (Seg_4_OBUF)
      OBUF:I->O                 3.272          Seg_4_OBUF (Seg<4>)
@@ -754,14 +804,14 @@ Delay:               8.517ns (Levels of Logic = 5)
 =========================================================================
 
 
-Total REAL time to Xst completion: 7.00 secs
-Total CPU time to Xst completion: 7.56 secs
+Total REAL time to Xst completion: 8.00 secs
+Total CPU time to Xst completion: 7.54 secs
  
 --> 
 
-Total memory usage is 276260 kilobytes
+Total memory usage is 272340 kilobytes
 
 Number of errors   :    0 (   0 filtered)
-Number of warnings :    2 (   0 filtered)
+Number of warnings :    6 (   0 filtered)
 Number of infos    :    2 (   0 filtered)
 

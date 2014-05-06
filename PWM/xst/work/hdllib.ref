@@ -1,2 +1,4 @@
 AR main behavioral "C:/Users/Lukas Schwartz/Documents/GitHub/Projekt-2014/PWM/Main.vhd" sub00/vhpl01 1396012211
+EN pwm NULL "C:/Users/Lukas Schwartz/Documents/GitHub/Projekt-2014/PWM/PWM.vhd" sub00/vhpl02 1398780017
 EN main NULL "C:/Users/Lukas Schwartz/Documents/GitHub/Projekt-2014/PWM/Main.vhd" sub00/vhpl00 1396012210
+AR pwm behavioral "C:/Users/Lukas Schwartz/Documents/GitHub/Projekt-2014/PWM/PWM.vhd" sub00/vhpl03 1398780018

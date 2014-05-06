@@ -19,6 +19,7 @@
 ----------------------------------------------------------------------------------
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
+use ieee.std_logic_arith.all;
 
 -- Uncomment the following library declaration if using
 -- arithmetic functions with Signed or Unsigned values
@@ -32,6 +33,7 @@ use IEEE.STD_LOGIC_1164.ALL;
 entity fpga_main is
 generic (DataSize : Integer := 12);
 Port (--SW : in STD_LOGIC_VECTOR (7 downto 0);
+		LED : out  STD_LOGIC_VECTOR (7 downto 0);
 		AN : out STD_LOGIC_VECTOR (3 downto 0);
 		Seg : out STD_LOGIC_VECTOR (7 downto 0);
 		BTN : in STD_LOGIC_VECTOR (3 downto 0);
@@ -51,29 +53,29 @@ end fpga_main;
 architecture Behavioral of fpga_main is
 ---- Components ----
 COMPONENT MCS is
-    Port ( PWM_duty : in  STD_LOGIC_VECTOR (7 downto 0);
-			  Motor_Direction_in : in  STD_LOGIC_VECTOR (1 downto 0);
-			  Motor_Direction_out : out  STD_LOGIC_VECTOR (2 downto 0);
-           Position : out  STD_LOGIC_VECTOR (10 downto 0);
-			  Hall_sensors : in STD_LOGIC_VECTOR (2 downto 0);
-			  Clk : in STD_LOGIC;
-			  ResetPosition : in STD_LOGIC);
+Port(	PWM_duty : in  STD_LOGIC_VECTOR (7 downto 0);
+		Motor_Direction_in : in  STD_LOGIC_VECTOR (1 downto 0);
+		Motor_Direction_out : out  STD_LOGIC_VECTOR (2 downto 0);
+      Position : out  STD_LOGIC_VECTOR (10 downto 0);
+		Hall_sensors : in STD_LOGIC_VECTOR (2 downto 0);
+		Clk : in STD_LOGIC;
+		ResetPosition : in STD_LOGIC);
 end component;
 
 COMPONENT DisplayHex is
-    Port ( Segment : out  STD_LOGIC_VECTOR (7 downto 0);
-			  DisplayThis : in STD_LOGIC_VECTOR (4 downto 0));
+Port( Segment : out  STD_LOGIC_VECTOR (7 downto 0);
+		DisplayThis : in STD_LOGIC_VECTOR (4 downto 0));
 end COMPONENT;
 
 COMPONENT DisplaySelect_4_7segDisp is
-    Port ( DisplayData : in  STD_LOGIC_VECTOR (19 downto 0);
-           DisplayAN : out  STD_LOGIC_VECTOR (3 downto 0);
-           DisplayPart : out  STD_LOGIC_VECTOR (4 downto 0);
-			  ClkSignal : in STD_LOGIC);
+Port( DisplayData : in  STD_LOGIC_VECTOR (19 downto 0);
+		DisplayAN : out  STD_LOGIC_VECTOR (3 downto 0);
+		DisplayPart : out  STD_LOGIC_VECTOR (4 downto 0);
+		ClkSignal : in STD_LOGIC);
 end COMPONENT;
 
 COMPONENT SPI is
-	Generic (DataWidth : Integer);
+	Generic (DataWidth : Integer := 12);
 	Port( MClk : in  STD_LOGIC;
 			--Clk : in  STD_LOGIC;
 			SS : in  STD_LOGIC;
@@ -98,23 +100,23 @@ SIGNAL SPI_DI : STD_LOGIC_VECTOR (DataSize-1 downto 0);
 SIGNAL SPI_SPE : STD_LOGIC;
 
 -- motor control block -- direction (9-8), PWM (7-0) --
-TYPE MotorMemory is array (0 to 1) of STD_LOGIC_VECTOR (9 downto 0);
-SIGNAL MC: MotorMemory := ("0000000000","0000000000");
+SIGNAL MC_A : STD_LOGIC_VECTOR (9 downto 0) := "0000000000";
+SIGNAL MC_B : STD_LOGIC_VECTOR (9 downto 0) := "0000000000";
 
 begin
 ---- instatiate component ----
 -- motors --
 MCS_A: MCS 
-Port map(PWM_duty => MC(0)(7 downto 0), 
-			Motor_Direction_in => MC(0)(9 downto 8), 
+Port map(PWM_duty => MC_A(7 downto 0), 
+			Motor_Direction_in => MC_A(9 downto 8), 
 			Motor_Direction_out => MotorA,  -- directly connected to port --
 			Position => PositionA, 
 			Hall_sensors => HallA(2 downto 0),  -- directly connected to port --
 			Clk => Clk, 
 			ResetPosition => BTN(3));
 MCS_B: MCS 
-Port map(PWM_duty => MC(1)(7 downto 0), 
-			Motor_Direction_in => MC(1)(9 downto 8),  
+Port map(PWM_duty => MC_B(7 downto 0), 
+			Motor_Direction_in => MC_B(9 downto 8),  
 			Motor_Direction_out => MotorB,  -- directly connected to port --
 			Position => PositionB, 
 			Hall_sensors => HallB(2 downto 0),  -- directly connected to port --
@@ -145,6 +147,7 @@ Port Map(DisplayData => Display,
 
 
 ---- Code ----
+LED <= MC_A(7 downto 0);
 
 -- display position on 7 seg disp as HEX --
 Display <= "0000000" & PositionA(10 downto 8) & '0' & PositionA(7 downto 4) & '0' & PositionA(3 downto 0) WHEN BTN(2) = '0' ELSE "0000000" & PositionB(10 downto 8) & '0' & PositionB(7 downto 4) & '0' & PositionB(3 downto 0);
@@ -152,16 +155,23 @@ Display <= "0000000" & PositionA(10 downto 8) & '0' & PositionA(7 downto 4) & '0
 -- coordinate SPI (send positionn and recieve and pass-on PWM) --
 process (SPI_SPE)
 variable dataToSend : integer range 0 to 1 := 0;
+variable testInc : integer range 0 to 1080 := 0;
 begin
 	if rising_edge(SPI_SPE) then
 		-- send data -- MotorID (11) & Position (10-0) --
-		dataToSend := dataToSend + 1;
 		if dataToSend = 0 then
 			-- send position of motorA --
-			SPI_DI <= '0' & PositionA;
+			-- SPI_DI <= '0' & PositionA;
+			SPI_DI <= '0' & conv_std_logic_vector(testInc,11);
+			testInc := testInc + 1;
+			if testInc >= 1080 then
+				testInc := 0;
+			end if;
+			dataToSend := 1;
 		elsif dataToSend = 1 then
 			-- send position of motorB --
 			SPI_DI <= '1' & PositionB;
+			dataToSend := 0;
 		else
 			dataToSend := 0;
 		end if;
@@ -169,9 +179,9 @@ begin
 		-- recieve data -- '0' & MotorID (10) & Direction (9-8) & PWM (7-0) --
 		Case SPI_DO(11 downto 10) is
 			-- for motor A --
-			when "00" => MC(0) <= SPI_DO(9 downto 0);
+			when "10" => MC_A <= SPI_DO(9 downto 0);
 			-- for motor B --
-			when "01" => MC(1) <= SPI_DO(9 downto 0);
+			when "11" => MC_B <= SPI_DO(9 downto 0);
 			when others => 
 		end case;
 	end if;
