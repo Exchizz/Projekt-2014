@@ -1,0 +1,41 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<history>
+   <processor signature="arm-none-eabi-gcc noversion nomachine -mcpu=cortex-m3 -mthumb -Wall -ffunction-sections -g -O0 -c -DLM3S6965 -I..\..\..\workspace\SemProjekt_RTCS\debug -I..\..\..\workspace\SemProjekt_RTCS\queue -I..\..\..\workspace\SemProjekt_RTCS\systick -I..\..\..\workspace\SemProjekt_RTCS\GPIO -I..\..\..\workspace -I..\..\..\workspace\SemProjekt_RTCS\RTCS -I..\..\..\workspace\SemProjekt_RTCS\controller -I..\..\..\workspace\SemProjekt_RTCS\control_tasks -I..\..\..\workspace\SemProjekt_RTCS\cpu -I..\..\..\workspace\SemProjekt_RTCS\spi -I..\..\..\workspace\SemProjekt_RTCS -I..\..\..\workspace\SemProjekt_RTCS\uart">
+      <target file="queue.o" lastModified="145d1f77757">
+         <source file="..\..\..\queue\queue.c" lastModified="145cd9aa122"/>
+      </target>
+      <target file="control_tasks.o" lastModified="145d8583205">
+         <source file="..\..\..\control_tasks\control_tasks.c" lastModified="145d8582e0f"/>
+      </target>
+      <target file="systick.o" lastModified="145d1f77b19">
+         <source file="..\..\..\systick\systick.c" lastModified="145bbfbab29"/>
+      </target>
+      <target file="schedule.o" lastModified="145d30d7899">
+         <source file="..\..\..\RTCS\schedule.c" lastModified="145d30d6f02"/>
+      </target>
+      <target file="startup_lm3s.o" lastModified="145d1f647ef">
+         <source file="..\..\..\startup\startup_lm3s.c" lastModified="144abbb1b10"/>
+      </target>
+      <target file="debug.o" lastModified="145d5f29d74">
+         <source file="..\..\..\debug\debug.c" lastModified="145d3262f4c"/>
+      </target>
+      <target file="main.o" lastModified="145d30c44c6">
+         <source file="..\..\..\main.c" lastModified="145d30ad5e3"/>
+      </target>
+      <target file="uartprintf.o" lastModified="145d1f7767a">
+         <source file="..\..\..\uart\uartprintf.c" lastModified="145c8ac8f88"/>
+      </target>
+      <target file="gpio.o" lastModified="145d3075681">
+         <source file="..\..\..\GPIO\gpio.c" lastModified="145d3073344"/>
+      </target>
+      <target file="cpu.o" lastModified="145d1f648c9">
+         <source file="..\..\..\cpu\cpu.c" lastModified="12725983b70"/>
+      </target>
+      <target file="spi.o" lastModified="145d1f77242">
+         <source file="..\..\..\spi\spi.c" lastModified="145cd875875"/>
+      </target>
+      <target file="controller_task.o" lastModified="145d6ef0656">
+         <source file="..\..\..\controller\controller_task.c" lastModified="145d6ebdbaf"/>
+      </target>
+   </processor>
+</history>

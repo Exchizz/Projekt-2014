@@ -1,0 +1,19 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<history>
+   <processor signature="arm-none-eabi-gcc -mcpu=cortex-m3 -mthumb -g -nostartfiles -Map=SemProjekt_RTCS.map -O0 --gc-sections -lm -lgcc -lc -lrdimon -LC:\CooCox\CoIDE\configuration\ProgramData\SemProjekt_RTCS -TC:\CooCox\CoIDE\configuration\ProgramData\SemProjekt_RTCS/arm-gcc-link.ld -g">
+      <target file="SemProjekt_RTCS.elf" lastModified="145d85834e3">
+         <source file="..\obj\spi.o" lastModified="145d1f77242"/>
+         <source file="..\obj\controller_task.o" lastModified="145d6ef0656"/>
+         <source file="..\obj\main.o" lastModified="145d30c44c6"/>
+         <source file="..\obj\uartprintf.o" lastModified="145d1f7767a"/>
+         <source file="..\obj\gpio.o" lastModified="145d3075681"/>
+         <source file="..\obj\schedule.o" lastModified="145d30d7899"/>
+         <source file="..\obj\startup_lm3s.o" lastModified="145d1f647ef"/>
+         <source file="..\obj\queue.o" lastModified="145d1f77757"/>
+         <source file="..\obj\debug.o" lastModified="145d5f29d74"/>
+         <source file="..\obj\cpu.o" lastModified="145d1f648c9"/>
+         <source file="..\obj\control_tasks.o" lastModified="145d8583205"/>
+         <source file="..\obj\systick.o" lastModified="145d1f77b19"/>
+      </target>
+   </processor>
+</history>
