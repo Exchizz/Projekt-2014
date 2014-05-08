@@ -4,13 +4,13 @@ Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
 
 
 Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.13 secs
+Total CPU time to Xst completion: 0.12 secs
  
 --> Parameter xsthdpdir set to xst
 
 
 Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.13 secs
+Total CPU time to Xst completion: 0.12 secs
  
 --> Reading design: fpga_main.prj
 
@@ -111,14 +111,14 @@ Architecture behavioral of Entity encoder is up to date.
 Compiling vhdl file "C:/Users/Lukas Schwartz/Documents/GitHub/Projekt-2014/MotorControlSystem/MCS.vhd" in Library work.
 Architecture behavioral of Entity mcs is up to date.
 Compiling vhdl file "C:/Users/Lukas Schwartz/Documents/GitHub/Projekt-2014/SPI/SPI.vhd" in Library work.
-Architecture behavioral of Entity spi is up to date.
+Entity <spi> compiled.
+Entity <spi> (Architecture <behavioral>) compiled.
 Compiling vhdl file "C:/Users/Lukas Schwartz/Documents/GitHub/Projekt-2014/Encoder/DisplayHex.vhd" in Library work.
 Architecture behavioral of Entity displayhex is up to date.
 Compiling vhdl file "C:/Users/Lukas Schwartz/Documents/GitHub/Projekt-2014/Encoder/DisplaySelect_4.vhd" in Library work.
 Architecture behavioral of Entity displayselect_4_7segdisp is up to date.
 Compiling vhdl file "C:/Users/Lukas Schwartz/Documents/GitHub/Projekt-2014/FPGA/fpga_main.vhd" in Library work.
-Entity <fpga_main> compiled.
-Entity <fpga_main> (Architecture <behavioral>) compiled.
+Architecture behavioral of Entity fpga_main is up to date.
 
 =========================================================================
 *                     Design Hierarchy Analysis                         *
@@ -291,14 +291,8 @@ WARNING:Xst:647 - Input <BTN<1:0>> is never used. This port will be preserved an
     Found 10-bit register for signal <MC_A>.
     Found 10-bit register for signal <MC_B>.
     Found 12-bit register for signal <SPI_DI>.
-    Found 11-bit up counter for signal <testInc>.
-    Found 11-bit adder for signal <testInc$addsub0000> created at line 166.
-    Found 11-bit comparator greatequal for signal <testInc$cmp_ge0000> created at line 167.
     Summary:
-	inferred   1 Counter(s).
 	inferred  33 D-type flip-flop(s).
-	inferred   1 Adder/Subtractor(s).
-	inferred   1 Comparator(s).
 Unit <fpga_main> synthesized.
 
 INFO:Xst:1767 - HDL ADVISOR - Resource sharing has identified that some arithmetic operations in this design can share the same physical resources for reduced device utilization. For improved clock frequency you may try to disable resource sharing.
@@ -307,15 +301,15 @@ INFO:Xst:1767 - HDL ADVISOR - Resource sharing has identified that some arithmet
 HDL Synthesis Report
 
 Macro Statistics
-# Adders/Subtractors                                   : 14
+# Adders/Subtractors                                   : 13
  10-bit adder                                          : 3
- 11-bit adder                                          : 3
+ 11-bit adder                                          : 2
  11-bit subtractor                                     : 4
  13-bit adder                                          : 2
  23-bit adder                                          : 2
-# Counters                                             : 9
+# Counters                                             : 8
  10-bit up counter                                     : 3
- 11-bit up counter                                     : 3
+ 11-bit up counter                                     : 2
  13-bit up counter                                     : 2
  2-bit up counter                                      : 1
 # Registers                                            : 32
@@ -327,8 +321,8 @@ Macro Statistics
  23-bit register                                       : 2
 # Latches                                              : 1
  1-bit latch                                           : 1
-# Comparators                                          : 7
- 11-bit comparator greatequal                          : 3
+# Comparators                                          : 6
+ 11-bit comparator greatequal                          : 2
  11-bit comparator greater                             : 2
  2-bit comparator equal                                : 2
 # Multiplexers                                         : 23
@@ -365,23 +359,23 @@ Advanced HDL Synthesis Report
 
 Macro Statistics
 # FSMs                                                 : 1
-# Adders/Subtractors                                   : 14
+# Adders/Subtractors                                   : 13
  10-bit adder                                          : 3
- 11-bit adder                                          : 3
+ 11-bit adder                                          : 2
  11-bit subtractor                                     : 4
  13-bit adder                                          : 2
  23-bit adder                                          : 2
-# Counters                                             : 9
+# Counters                                             : 8
  10-bit up counter                                     : 3
- 11-bit up counter                                     : 3
+ 11-bit up counter                                     : 2
  13-bit up counter                                     : 2
  2-bit up counter                                      : 1
 # Registers                                            : 160
  Flip-Flops                                            : 160
 # Latches                                              : 1
  1-bit latch                                           : 1
-# Comparators                                          : 7
- 11-bit comparator greatequal                          : 3
+# Comparators                                          : 6
+ 11-bit comparator greatequal                          : 2
  11-bit comparator greater                             : 2
  2-bit comparator equal                                : 2
 # Multiplexers                                         : 21
@@ -410,7 +404,7 @@ Optimizing unit <MCS> ...
 
 Mapping all equations...
 Building and optimizing final netlist ...
-Found area constraint ratio of 100 (+ 5) on block fpga_main, actual ratio is 39.
+Found area constraint ratio of 100 (+ 5) on block fpga_main, actual ratio is 37.
 FlipFlop MC_A_7 has been replicated 1 time(s) to handle iob=true attribute.
 FlipFlop MC_A_6 has been replicated 1 time(s) to handle iob=true attribute.
 FlipFlop MC_A_5 has been replicated 1 time(s) to handle iob=true attribute.
@@ -426,8 +420,8 @@ Final Macro Processing ...
 Final Register Report
 
 Macro Statistics
-# Registers                                            : 262
- Flip-Flops                                            : 262
+# Registers                                            : 251
+ Flip-Flops                                            : 251
 
 =========================================================================
 
@@ -456,30 +450,30 @@ Design Statistics
 # IOs                              : 41
 
 Cell Usage :
-# BELS                             : 1225
+# BELS                             : 1160
 #      GND                         : 1
-#      INV                         : 43
-#      LUT1                        : 164
+#      INV                         : 40
+#      LUT1                        : 144
 #      LUT2                        : 69
 #      LUT2_D                      : 2
 #      LUT2_L                      : 4
-#      LUT3                        : 122
+#      LUT3                        : 121
 #      LUT3_L                      : 2
-#      LUT4                        : 216
-#      LUT4_D                      : 3
+#      LUT4                        : 215
+#      LUT4_D                      : 2
 #      LUT4_L                      : 25
 #      MULT_AND                    : 14
-#      MUXCY                       : 284
+#      MUXCY                       : 264
 #      MUXF5                       : 10
 #      VCC                         : 1
-#      XORCY                       : 265
-# FlipFlops/Latches                : 263
+#      XORCY                       : 246
+# FlipFlops/Latches                : 252
 #      FD                          : 120
 #      FDCE                        : 22
 #      FDCPE_1                     : 12
 #      FDE                         : 48
 #      FDR                         : 25
-#      FDRE                        : 31
+#      FDRE                        : 20
 #      FDS                         : 4
 #      LDC_1                       : 1
 # Clock Buffers                    : 3
@@ -495,9 +489,9 @@ Device utilization summary:
 
 Selected Device : 3s100etq144-4 
 
- Number of Slices:                      348  out of    960    36%  
- Number of Slice Flip Flops:            255  out of   1920    13%  
- Number of 4 input LUTs:                650  out of   1920    33%  
+ Number of Slices:                      331  out of    960    34%  
+ Number of Slice Flip Flops:            244  out of   1920    12%  
+ Number of 4 input LUTs:                624  out of   1920    32%  
  Number of IOs:                          41
  Number of bonded IOBs:                  39  out of    108    36%  
     IOB Flip Flops:                       8
@@ -524,7 +518,7 @@ Clock Information:
 -----------------------------------+------------------------+-------+
 Clock Signal                       | Clock buffer(FF name)  | Load  |
 -----------------------------------+------------------------+-------+
-SPI_SS                             | IBUF+BUFG              | 52    |
+SPI_SS                             | IBUF+BUFG              | 41    |
 Clk                                | BUFGP                  | 186   |
 SPI_Slave/start                    | NONE(SPI_Slave/start)  | 1     |
 SPI_MClk                           | BUFGP                  | 24    |
@@ -570,7 +564,7 @@ Timing Summary:
 Speed Grade: -4
 
    Minimum period: 10.792ns (Maximum Frequency: 92.663MHz)
-   Minimum input arrival time before clock: 7.051ns
+   Minimum input arrival time before clock: 6.962ns
    Maximum output required time after clock: 12.432ns
    Maximum combinational path delay: 8.517ns
 
@@ -580,32 +574,25 @@ All values displayed in nanoseconds (ns)
 
 =========================================================================
 Timing constraint: Default period analysis for Clock 'SPI_SS'
-  Clock period: 7.717ns (frequency: 129.584MHz)
-  Total number of paths / destination ports: 772 / 46
+  Clock period: 2.761ns (frequency: 362.188MHz)
+  Total number of paths / destination ports: 13 / 13
 -------------------------------------------------------------------------
-Delay:               7.717ns (Levels of Logic = 8)
-  Source:            testInc_1 (FF)
-  Destination:       testInc_0 (FF)
+Delay:               2.761ns (Levels of Logic = 1)
+  Source:            dataToSend_0 (FF)
+  Destination:       SPI_DI_0 (FF)
   Source Clock:      SPI_SS rising
   Destination Clock: SPI_SS rising
 
-  Data Path: testInc_1 to testInc_0
+  Data Path: dataToSend_0 to SPI_DI_0
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     FDRE:C->Q             3   0.591   0.706  testInc_1 (testInc_1)
-     LUT1:I0->O            1   0.704   0.000  Madd_testInc_addsub0000_cy<1>_rt (Madd_testInc_addsub0000_cy<1>_rt)
-     MUXCY:S->O            1   0.464   0.000  Madd_testInc_addsub0000_cy<1> (Madd_testInc_addsub0000_cy<1>)
-     MUXCY:CI->O           1   0.059   0.000  Madd_testInc_addsub0000_cy<2> (Madd_testInc_addsub0000_cy<2>)
-     MUXCY:CI->O           1   0.059   0.000  Madd_testInc_addsub0000_cy<3> (Madd_testInc_addsub0000_cy<3>)
-     MUXCY:CI->O           1   0.059   0.000  Madd_testInc_addsub0000_cy<4> (Madd_testInc_addsub0000_cy<4>)
-     XORCY:CI->O           1   0.804   0.595  Madd_testInc_addsub0000_xor<5> (testInc_addsub0000<5>)
-     LUT3:I0->O            1   0.704   0.424  testInc_and00007 (testInc_and00007)
-     LUT4:I3->O           11   0.704   0.933  testInc_and000018 (testInc_and0000)
-     FDRE:R                    0.911          testInc_0
+     FDR:C->Q             13   0.591   1.158  dataToSend_0 (dataToSend_0)
+     LUT3:I0->O            1   0.704   0.000  SPI_DI_mux0001<9>1 (SPI_DI_mux0001<9>)
+     FD:D                      0.308          SPI_DI_9
     ----------------------------------------
-    Total                      7.717ns (5.059ns logic, 2.658ns route)
-                                       (65.6% logic, 34.4% route)
+    Total                      2.761ns (1.603ns logic, 1.158ns route)
+                                       (58.1% logic, 41.9% route)
 
 =========================================================================
 Timing constraint: Default period analysis for Clock 'Clk'
@@ -681,24 +668,24 @@ Offset:              4.260ns (Levels of Logic = 2)
 Timing constraint: Default OFFSET IN BEFORE for Clock 'Clk'
   Total number of paths / destination ports: 212 / 62
 -------------------------------------------------------------------------
-Offset:              7.051ns (Levels of Logic = 5)
-  Source:            HallA<0> (PAD)
-  Destination:       MCS_A/ENCODER_part/Motor_Position_0 (FF)
+Offset:              6.962ns (Levels of Logic = 5)
+  Source:            HallB<0> (PAD)
+  Destination:       MCS_B/ENCODER_part/Motor_Position_3 (FF)
   Destination Clock: Clk rising
 
-  Data Path: HallA<0> to MCS_A/ENCODER_part/Motor_Position_0
+  Data Path: HallB<0> to MCS_B/ENCODER_part/Motor_Position_3
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     IBUF:I->O             6   1.218   0.844  HallA_0_IBUF (HallA_0_IBUF)
-     LUT2:I0->O            6   0.704   0.704  MCS_A/ENCODER_part/Mmux_Motor_Position_mux00021421 (MCS_A/ENCODER_part/N11)
-     LUT4_D:I2->O         10   0.704   0.886  MCS_A/ENCODER_part/Mmux_Motor_Position_mux000214542 (MCS_A/ENCODER_part/N6)
-     LUT4_L:I3->LO         1   0.704   0.275  MCS_A/ENCODER_part/Mmux_Motor_Position_mux0002568_SW0 (N150)
-     LUT4:I0->O            1   0.704   0.000  MCS_A/ENCODER_part/Mmux_Motor_Position_mux0002568 (MCS_A/ENCODER_part/Motor_Position_mux0002<6>)
-     FDCE:D                    0.308          MCS_A/ENCODER_part/Motor_Position_4
+     IBUF:I->O             6   1.218   0.844  HallB_0_IBUF (HallB_0_IBUF)
+     LUT2:I0->O            6   0.704   0.704  MCS_B/ENCODER_part/Mmux_Motor_Position_mux00021421 (MCS_B/ENCODER_part/N11)
+     LUT4:I2->O           11   0.704   0.968  MCS_B/ENCODER_part/Mmux_Motor_Position_mux000214542 (MCS_B/ENCODER_part/N6)
+     LUT4_L:I2->LO         1   0.704   0.104  MCS_B/ENCODER_part/Mmux_Motor_Position_mux00026325_SW0 (N188)
+     LUT4:I3->O            1   0.704   0.000  MCS_B/ENCODER_part/Mmux_Motor_Position_mux00026325 (MCS_B/ENCODER_part/Motor_Position_mux0002<7>)
+     FDCE:D                    0.308          MCS_B/ENCODER_part/Motor_Position_3
     ----------------------------------------
-    Total                      7.051ns (4.342ns logic, 2.709ns route)
-                                       (61.6% logic, 38.4% route)
+    Total                      6.962ns (4.342ns logic, 2.620ns route)
+                                       (62.4% logic, 37.6% route)
 
 =========================================================================
 Timing constraint: Default OFFSET OUT AFTER for Clock 'SPI_MClk'
@@ -804,12 +791,12 @@ Delay:               8.517ns (Levels of Logic = 5)
 =========================================================================
 
 
-Total REAL time to Xst completion: 8.00 secs
-Total CPU time to Xst completion: 7.54 secs
+Total REAL time to Xst completion: 7.00 secs
+Total CPU time to Xst completion: 7.46 secs
  
 --> 
 
-Total memory usage is 272340 kilobytes
+Total memory usage is 272532 kilobytes
 
 Number of errors   :    0 (   0 filtered)
 Number of warnings :    6 (   0 filtered)

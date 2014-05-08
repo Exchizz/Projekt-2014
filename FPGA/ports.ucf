@@ -45,12 +45,12 @@ NET "BTN<1>" LOC = P48;
 NET "BTN<2>" LOC = P47;
 NET "BTN<3>" LOC = P41;
 
-NET "MotorA<0>" LOC = P88; # JB3
-NET "MotorA<1>" LOC = P94; # JB4
-NET "MotorA<2>" LOC = P77; # JC1
-NET "MotorB<0>" LOC = P86; # JC2
-NET "MotorB<1>" LOC = P76; # JC3
-NET "MotorB<2>" LOC = P85; # JC4
+NET "MotorB<0>" LOC = P88; # JB3
+NET "MotorB<1>" LOC = P94; # JB4
+NET "MotorB<2>" LOC = P77; # JC1
+NET "MotorA<0>" LOC = P86; # JC2 
+NET "MotorA<1>" LOC = P76; # JC3
+NET "MotorA<2>" LOC = P85; # JC4 
 
 NET "SPI_MClk" LOC = P75; # JD1 (pink / orange)
 NET "SPI_MClk" CLOCK_DEDICATED_ROUTE = FALSE;

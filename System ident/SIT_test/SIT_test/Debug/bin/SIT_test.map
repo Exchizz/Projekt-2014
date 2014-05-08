@@ -1,0 +1,262 @@
+
+Discarded input sections
+
+ .text          0x00000000        0x0 ..\obj\main.o
+ .text          0x00000000        0x0 ..\obj\startup_lm3s.o
+ .data          0x00000000        0x0 ..\obj\startup_lm3s.o
+ .bss           0x00000000        0x0 ..\obj\startup_lm3s.o
+
+Memory Configuration
+
+Name             Origin             Length             Attributes
+rom              0x00000000         0x00040000         xr
+ram              0x20000000         0x00010000         xrw
+*default*        0x00000000         0xffffffff
+
+Linker script and memory map
+
+                0x20010000                _eram = 0x20010000
+
+.text           0x00000000      0x564
+ *(.isr_vector)
+ .isr_vector    0x00000000      0x100 ..\obj\startup_lm3s.o
+                0x00000000                g_pfnVectors
+ *(.text*)
+ .text.main     0x00000100       0xdc ..\obj\main.o
+                0x00000100                main
+ .text.get_encoder_direction
+                0x000001dc       0xe4 ..\obj\main.o
+                0x000001dc                get_encoder_direction
+ .text.sample_time_init
+                0x000002c0       0x3c ..\obj\main.o
+                0x000002c0                sample_time_init
+ .text.encoder_init
+                0x000002fc       0x3c ..\obj\main.o
+                0x000002fc                encoder_init
+ .text.PWM_init
+                0x00000338       0xe4 ..\obj\main.o
+                0x00000338                PWM_init
+ .text.UART_put_char
+                0x0000041c       0x3c ..\obj\main.o
+                0x0000041c                UART_put_char
+ .text.UART_init
+                0x00000458       0xa8 ..\obj\main.o
+                0x00000458                UART_init
+ .text.Default_Reset_Handler
+                0x00000500       0x5c ..\obj\startup_lm3s.o
+                0x00000500                Default_Reset_Handler
+                0x00000500                Reset_Handler
+ .text.Default_Handler
+                0x0000055c        0x8 ..\obj\startup_lm3s.o
+                0x0000055c                DebugMon_Handler
+                0x0000055c                FlashCtrl_IRQHandler
+                0x0000055c                Timer0B_IRQHandler
+                0x0000055c                I2C0_IRQHandler
+                0x0000055c                HardFault_Handler
+                0x0000055c                SysTick_Handler
+                0x0000055c                PendSV_Handler
+                0x0000055c                NMI_Handler
+                0x0000055c                I2C1_IRQHandler
+                0x0000055c                PWMGen0_IRQHandler
+                0x0000055c                UART1_IRQHandler
+                0x0000055c                CAN1_IRQHandler
+                0x0000055c                Timer1B_IRQHandler
+                0x0000055c                Watchdog_IRQHandler
+                0x0000055c                UART0_IRQHandler
+                0x0000055c                SSI0_IRQHandler
+                0x0000055c                UsageFault_Handler
+                0x0000055c                ADCSeq1_IRQHandler
+                0x0000055c                PWMFault_IRQHandler
+                0x0000055c                PWMGen1_IRQHandler
+                0x0000055c                SSI1_IRQHandler
+                0x0000055c                uDMA_IRQHandler
+                0x0000055c                GPIOPortC_IRQHandler
+                0x0000055c                ADCSeq2_IRQHandler
+                0x0000055c                PWMGen2_IRQHandler
+                0x0000055c                UART2_IRQHandler
+                0x0000055c                uDMAErr_IRQHandler
+                0x0000055c                QEI1_IRQHandler
+                0x0000055c                QEI0_IRQHandler
+                0x0000055c                PWMGen3_IRQHandler
+                0x0000055c                GPIOPortD_IRQHandler
+                0x0000055c                USB0_IRQHandler
+                0x0000055c                MemManage_Handler
+                0x0000055c                Ethernet_IRQHandler
+                0x0000055c                SVC_Handler
+                0x0000055c                Timer3B_IRQHandler
+                0x0000055c                Timer3A_IRQHandler
+                0x0000055c                GPIOPortA_IRQHandler
+                0x0000055c                Timer0A_IRQHandler
+                0x0000055c                ADCSeq0_IRQHandler
+                0x0000055c                Timer1A_IRQHandler
+                0x0000055c                GPIOPortG_IRQHandler
+                0x0000055c                ADCSeq3_IRQHandler
+                0x0000055c                GPIOPortE_IRQHandler
+                0x0000055c                CAN0_IRQHandler
+                0x0000055c                Comp0_IRQHandler
+                0x0000055c                Comp1_IRQHandler
+                0x0000055c                Comp2_IRQHandler
+                0x0000055c                GPIOPortF_IRQHandler
+                0x0000055c                GPIOPortB_IRQHandler
+                0x0000055c                CAN2_IRQHandler
+                0x0000055c                GPIOPortH_IRQHandler
+                0x0000055c                BusFault_Handler
+                0x0000055c                Timer2A_IRQHandler
+                0x0000055c                Timer2B_IRQHandler
+                0x0000055c                SysCtrl_IRQHandler
+                0x0000055c                Hibernate_IRQHandler
+ *(.init)
+ *(.fini)
+ *crtbegin.o(.ctors)
+ *crtbegin?.o(.ctors)
+ *(EXCLUDE_FILE(*crtend.o *crtend?.o) .ctors)
+ *(SORT(.ctors.*))
+ *(.ctors)
+ *crtbegin.o(.dtors)
+ *crtbegin?.o(.dtors)
+ *(EXCLUDE_FILE(*crtend.o *crtend?.o) .dtors)
+ *(SORT(.dtors.*))
+ *(.dtors)
+ *(.rodata*)
+ *(.eh_fram e*)
+
+.glue_7         0x00000564        0x0
+ .glue_7        0x00000000        0x0 linker stubs
+
+.glue_7t        0x00000564        0x0
+ .glue_7t       0x00000000        0x0 linker stubs
+
+.vfp11_veneer   0x00000564        0x0
+ .vfp11_veneer  0x00000000        0x0 linker stubs
+
+.v4_bx          0x00000564        0x0
+ .v4_bx         0x00000000        0x0 linker stubs
+
+.iplt           0x00000564        0x0
+ .iplt          0x00000000        0x0 ..\obj\main.o
+
+.rel.dyn        0x00000564        0x0
+ .rel.iplt      0x00000000        0x0 ..\obj\main.o
+
+.ARM.extab
+ *(.ARM.extab* .gnu.linkonce.armextab.*)
+                0x00000564                __exidx_start = .
+
+.ARM.exidx
+ *(.ARM.exidx* .gnu.linkonce.armexidx.*)
+                0x00000564                __exidx_end = .
+                0x00000564                __etext = .
+                0x00000564                _sidata = __etext
+
+.data           0x20000000      0x3e8 load address 0x00000564
+                0x20000000                __data_start__ = .
+                0x20000000                _sdata = __data_start__
+ *(vtable)
+ *(.data*)
+ .data          0x20000000      0x3e8 ..\obj\main.o
+                0x20000000                array
+                0x200003e8                . = ALIGN (0x4)
+                0x200003e8                PROVIDE (__preinit_array_start, .)
+ *(.preinit_array)
+                0x200003e8                PROVIDE (__preinit_array_end, .)
+                0x200003e8                . = ALIGN (0x4)
+                0x200003e8                PROVIDE (__init_array_start, .)
+ *(SORT(.init_array.*))
+ *(.init_array)
+                0x200003e8                PROVIDE (__init_array_end, .)
+                0x200003e8                . = ALIGN (0x4)
+                0x200003e8                PROVIDE (__fini_array_start, .)
+ *(SORT(.fini_array.*))
+ *(.fini_array)
+                0x200003e8                PROVIDE (__fini_array_end, .)
+ *(.jcr*)
+                0x200003e8                . = ALIGN (0x4)
+                0x200003e8                __data_end__ = .
+                0x200003e8                _edata = __data_end__
+
+.igot.plt       0x200003e8        0x0 load address 0x0000094c
+ .igot.plt      0x00000000        0x0 ..\obj\main.o
+
+.bss            0x200003e8        0x8 load address 0x0000094c
+                0x200003e8                . = ALIGN (0x4)
+                0x200003e8                __bss_start__ = .
+                0x200003e8                _sbss = __bss_start__
+ *(.bss*)
+ .bss           0x200003e8        0x6 ..\obj\main.o
+                0x200003e8                ticks
+                0x200003ea                direction
+                0x200003eb                n
+ *(COMMON)
+                0x200003f0                . = ALIGN (0x4)
+ *fill*         0x200003ee        0x2 
+                0x200003f0                __bss_end__ = .
+                0x200003f0                _ebss = __bss_end__
+
+.heap           0x200003f0        0x0
+                0x200003f0                __end__ = .
+                0x200003f0                _end = __end__
+                0x200003f0                end = __end__
+ *(.heap*)
+                0x200003f0                __HeapLimit = .
+
+.co_stack       0x200003f0      0x400 load address 0x00000954
+                0x200003f0                . = ALIGN (0x8)
+ *(.co_stack .co_stack.*)
+ .co_stack      0x200003f0      0x400 ..\obj\startup_lm3s.o
+                0x200003f0                pulStack
+                0x20010000                __StackTop = (ORIGIN (ram) + 0x10000)
+                0x2000fc00                __StackLimit = (__StackTop - SIZEOF (.co_stack))
+                0x20010000                PROVIDE (__stack, __StackTop)
+                0x00000001                ASSERT ((__StackLimit >= __HeapLimit), region ram  overflowed with stack)
+LOAD ..\obj\main.o
+LOAD ..\obj\startup_lm3s.o
+START GROUP
+LOAD d:/programs/gnu/bin/../lib/gcc/arm-none-eabi/4.8.3/armv7-m\libgcc.a
+LOAD d:/programs/gnu/bin/../lib/gcc/arm-none-eabi/4.8.3/../../../../arm-none-eabi/lib/armv7-m\libg.a
+LOAD d:/programs/gnu/bin/../lib/gcc/arm-none-eabi/4.8.3/../../../../arm-none-eabi/lib/armv7-m\libc.a
+END GROUP
+OUTPUT(SIT_test.elf elf32-littlearm)
+
+.debug_info     0x00000000      0x2e9
+ .debug_info    0x00000000      0x200 ..\obj\main.o
+ .debug_info    0x00000200       0xe9 ..\obj\startup_lm3s.o
+
+.debug_abbrev   0x00000000      0x1cc
+ .debug_abbrev  0x00000000      0x125 ..\obj\main.o
+ .debug_abbrev  0x00000125       0xa7 ..\obj\startup_lm3s.o
+
+.debug_aranges  0x00000000       0x78
+ .debug_aranges
+                0x00000000       0x50 ..\obj\main.o
+ .debug_aranges
+                0x00000050       0x28 ..\obj\startup_lm3s.o
+
+.debug_ranges   0x00000000       0x58
+ .debug_ranges  0x00000000       0x40 ..\obj\main.o
+ .debug_ranges  0x00000040       0x18 ..\obj\startup_lm3s.o
+
+.debug_line     0x00000000      0x20d
+ .debug_line    0x00000000      0x160 ..\obj\main.o
+ .debug_line    0x00000160       0xad ..\obj\startup_lm3s.o
+
+.debug_str      0x00000000      0x28c
+ .debug_str     0x00000000      0x1d0 ..\obj\main.o
+                                0x201 (size before relaxing)
+ .debug_str     0x000001d0       0xbc ..\obj\startup_lm3s.o
+                                0x153 (size before relaxing)
+
+.comment        0x00000000       0x70
+ .comment       0x00000000       0x70 ..\obj\main.o
+                                 0x71 (size before relaxing)
+ .comment       0x00000000       0x71 ..\obj\startup_lm3s.o
+
+.ARM.attributes
+                0x00000000       0x33
+ .ARM.attributes
+                0x00000000       0x33 ..\obj\main.o
+ .ARM.attributes
+                0x00000033       0x33 ..\obj\startup_lm3s.o
+
+.debug_frame    0x00000000      0x110
+ .debug_frame   0x00000000       0xc8 ..\obj\main.o
+ .debug_frame   0x000000c8       0x48 ..\obj\startup_lm3s.o

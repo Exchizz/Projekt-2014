@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<<<<<<< HEAD
 <breakpoints>
 <breakpoint enabled="true" persistant="true" registered="true">
 <resource path="/project_FreeRTOS/uart/uart.c" type="1"/>
@@ -41,3 +42,6 @@
 </marker>
 </breakpoint>
 </breakpoints>
+=======
+<breakpoints/>
+>>>>>>> 070b7e1327e5f28e61d49abcf1d902240da665e2

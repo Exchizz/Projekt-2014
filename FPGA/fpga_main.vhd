@@ -161,12 +161,16 @@ begin
 		-- send data -- MotorID (11) & Position (10-0) --
 		if dataToSend = 0 then
 			-- send position of motorA --
-			-- SPI_DI <= '0' & PositionA;
-			SPI_DI <= '0' & conv_std_logic_vector(testInc,11);
-			testInc := testInc + 1;
-			if testInc >= 1080 then
-				testInc := 0;
-			end if;
+			SPI_DI <= '0' & PositionA;
+			--SPI_DI <= '0' & conv_std_logic_vector(testInc,11);
+			--testInc := testInc + 1;
+			--if testInc >= 1080 then
+			--	testInc := 0;
+			--end if;
+			--testInc := testInc - 1;
+			--if testInc > 1080 then
+			--	testInc := 1079;
+			--end if;
 			dataToSend := 1;
 		elsif dataToSend = 1 then
 			-- send position of motorB --

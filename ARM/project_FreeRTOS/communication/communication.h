@@ -33,6 +33,7 @@
 #include "queue.h"
 #include "semphr.h"
 #include "uart.h"
+#include "spi/spi.h"
 /*****************************    Defines    *******************************/
 
 #define ST_GETCMD 	0
@@ -41,6 +42,9 @@
 #define ST_START	3
 #define ST_ERROR	4
 #define ST_COORDS	5
+
+#define RESET		0
+#define ERROR		1
 /*****************************   Constants   *******************************/
 
 /*****************************   Functions   *******************************/

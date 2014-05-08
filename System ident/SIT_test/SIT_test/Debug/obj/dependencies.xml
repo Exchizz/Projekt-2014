@@ -1,0 +1,15 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<dependencies>
+   <includePath signature="/IC:\Users\Thomas\Documents\GitHub\Projekt-2014\System ident /IC:\Users\Thomas\Documents\GitHub\Projekt-2014 /IC:\Users\Thomas\Documents\GitHub\Projekt-2014\System ident\SIT_test">
+      <source file="..\..\..\main.c" lastModified="145b7e7e2a8">
+         <include file="..\..\..\lm3s6965.h"/>
+         <include file="..\..\..\emp_type.h"/>
+      </source>
+      <source file="..\..\..\emp_type.h" lastModified="145b7a6c391">
+      </source>
+      <source file="..\..\..\startup\startup_lm3s.c" lastModified="145b7a6c394">
+      </source>
+      <source file="..\..\..\lm3s6965.h" lastModified="145b7a6c393">
+      </source>
+   </includePath>
+</dependencies>

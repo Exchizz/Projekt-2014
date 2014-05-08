@@ -63,17 +63,28 @@ void status_led_init(void)
   SET_BIT_HIGH(GPIO_PORTF_DATA_R, PF0);
 }
 
+void count()
+{
+	int count = 0;
+
+	while(TRUE)
+	{
+		count++;
+		if(count >= 0xFF)
+			count = 0;
+
+		xQueueSend(UARTTXQueue, &count, 20);
+		vTaskDelay(1);
+	}
+}
 
 void status_led_task(void *pvParameters)
 {
 
 	status_led_init();
-	//long int i;
-	//INT8U test = 0x30;
+
 	while(TRUE)
 	{
-		//test++;
-		//xQueueSend(SPITXQueue, &test, 20);
 		TOGGLE_BIT(GPIO_PORTF_DATA_R, PF0);
 		vTaskDelay(500 / portTICK_RATE_MS); // wait 100 ms.
 	}
@@ -130,6 +141,8 @@ int main(void)
 	xTaskCreate( spiTXTask, ( signed portCHAR * ) "spiTransmitTask", USERTASK_STACK_SIZE, NULL, LOW_PRIO, NULL );
 
 	xTaskCreate( decodeCommandTask, ( signed portCHAR * ) "ParseCommands", USERTASK_STACK_SIZE, NULL, LOW_PRIO, NULL );
+
+	xTaskCreate( count, ( signed portCHAR * ) "test_task", USERTASK_STACK_SIZE, NULL, LOW_PRIO, NULL );
 
 	/*
 	* Start the scheduler.

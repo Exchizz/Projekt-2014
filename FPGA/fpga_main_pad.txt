@@ -1,7 +1,7 @@
 Release 14.7 - par P.20131013 (nt64)
 Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
 
-Tue May 06 16:47:26 2014
+Wed May 07 11:08:53 2014
 
 
 INFO: The IO information is provided in three file formats as part of the Place and Route (PAR) process.  These formats are:
@@ -95,8 +95,8 @@ Pinout by Pin Number:
 |P73       |           |         |GND                      |         |           |              |          |         |           |         |         |          |           |                |
 |P74       |SPI_MOSI   |IBUF     |IO_L01P_1/A16            |INPUT    |LVCMOS25*  |1             |          |         |           |NONE     |         |LOCATED   |NO         |NONE            |
 |P75       |SPI_MClk   |IBUF     |IO_L01N_1/A15            |INPUT    |LVCMOS25*  |1             |          |         |           |NONE     |         |LOCATED   |NO         |NONE            |
-|P76       |MotorB<1>  |IOB      |IO_L02P_1/A14            |OUTPUT   |LVCMOS25*  |1             |12        |SLOW     |NONE**     |         |         |LOCATED   |NO         |NONE            |
-|P77       |MotorA<2>  |IOB      |IO_L02N_1/A13            |OUTPUT   |LVCMOS25*  |1             |12        |SLOW     |NONE**     |         |         |LOCATED   |NO         |NONE            |
+|P76       |MotorA<1>  |IOB      |IO_L02P_1/A14            |OUTPUT   |LVCMOS25*  |1             |12        |SLOW     |NONE**     |         |         |LOCATED   |NO         |NONE            |
+|P77       |MotorB<2>  |IOB      |IO_L02N_1/A13            |OUTPUT   |LVCMOS25*  |1             |12        |SLOW     |NONE**     |         |         |LOCATED   |NO         |NONE            |
 |P78       |           |IBUF     |IP                       |UNUSED   |           |1             |          |         |           |         |         |          |           |                |
 |P79       |           |         |VCCO_1                   |         |           |1             |          |         |           |         |2.50     |          |           |                |
 |P80       |           |         |VCCINT                   |         |           |              |          |         |           |         |1.2      |          |           |                |
@@ -104,16 +104,16 @@ Pinout by Pin Number:
 |P82       |HallA<0>   |IBUF     |IO_L03N_1/A11            |INPUT    |LVCMOS25*  |1             |          |         |           |NONE     |         |LOCATED   |NO         |NONE            |
 |P83       |Seg<6>     |IOB      |IO/VREF_1                |OUTPUT   |LVCMOS25*  |1             |12        |SLOW     |NONE**     |         |         |LOCATED   |NO         |NONE            |
 |P84       |           |IBUF     |IP                       |UNUSED   |           |1             |          |         |           |         |         |          |           |                |
-|P85       |MotorB<2>  |IOB      |IO_L04P_1/A10/RHCLK0     |OUTPUT   |LVCMOS25*  |1             |12        |SLOW     |NONE**     |         |         |LOCATED   |NO         |NONE            |
-|P86       |MotorB<0>  |IOB      |IO_L04N_1/A9/RHCLK1      |OUTPUT   |LVCMOS25*  |1             |12        |SLOW     |NONE**     |         |         |LOCATED   |NO         |NONE            |
+|P85       |MotorA<2>  |IOB      |IO_L04P_1/A10/RHCLK0     |OUTPUT   |LVCMOS25*  |1             |12        |SLOW     |NONE**     |         |         |LOCATED   |NO         |NONE            |
+|P86       |MotorA<0>  |IOB      |IO_L04N_1/A9/RHCLK1      |OUTPUT   |LVCMOS25*  |1             |12        |SLOW     |NONE**     |         |         |LOCATED   |NO         |NONE            |
 |P87       |HallB<0>   |IBUF     |IO_L05P_1/A8/RHCLK2      |INPUT    |LVCMOS25*  |1             |          |         |           |NONE     |         |LOCATED   |NO         |NONE            |
-|P88       |MotorA<0>  |IOB      |IO_L05N_1/A7/RHCLK3/TRDY1|OUTPUT   |LVCMOS25*  |1             |12        |SLOW     |NONE**     |         |         |LOCATED   |NO         |NONE            |
+|P88       |MotorB<0>  |IOB      |IO_L05N_1/A7/RHCLK3/TRDY1|OUTPUT   |LVCMOS25*  |1             |12        |SLOW     |NONE**     |         |         |LOCATED   |NO         |NONE            |
 |P89       |           |IBUF     |IP                       |UNUSED   |           |1             |          |         |           |         |         |          |           |                |
 |P90       |           |         |GND                      |         |           |              |          |         |           |         |         |          |           |                |
 |P91       |HallB<2>   |IBUF     |IO_L06P_1/A6/RHCLK4/IRDY1|INPUT    |LVCMOS25*  |1             |          |         |           |NONE     |         |LOCATED   |NO         |NONE            |
 |P92       |HallA<1>   |IBUF     |IO_L06N_1/A5/RHCLK5      |INPUT    |LVCMOS25*  |1             |          |         |           |NONE     |         |LOCATED   |NO         |NONE            |
 |P93       |HallB<1>   |IBUF     |IO_L07P_1/A4/RHCLK6      |INPUT    |LVCMOS25*  |1             |          |         |           |NONE     |         |LOCATED   |NO         |NONE            |
-|P94       |MotorA<1>  |IOB      |IO_L07N_1/A3/RHCLK7      |OUTPUT   |LVCMOS25*  |1             |12        |SLOW     |NONE**     |         |         |LOCATED   |NO         |NONE            |
+|P94       |MotorB<1>  |IOB      |IO_L07N_1/A3/RHCLK7      |OUTPUT   |LVCMOS25*  |1             |12        |SLOW     |NONE**     |         |         |LOCATED   |NO         |NONE            |
 |P95       |           |IBUF     |IP/VREF_1                |UNUSED   |           |1             |          |         |           |         |         |          |           |                |
 |P96       |           |DIFFM    |IO_L08P_1/A2             |UNUSED   |           |1             |          |         |           |         |         |          |           |                |
 |P97       |           |DIFFS    |IO_L08N_1/A1             |UNUSED   |           |1             |          |         |           |         |         |          |           |                |
