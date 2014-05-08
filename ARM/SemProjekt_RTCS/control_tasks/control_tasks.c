@@ -13,15 +13,16 @@
  * Date    Id    Change
  * YYMMDD
  * --------------------
- * 0902012  KHA   Module created.
+ * 140501  G3   Module created.
  *
  *****************************************************************************/
 
 /***************************** Include files ********************************/
 #include "control_tasks.h"
 /*****************************    Defines    ********************************/
-#define PID_RUN_INTERVAL 20 // ticks
-#define PID_SPEED_CALC_INTERVAL 2  // length of time over which the speed is averaged as a multiple of PID_RUN_INTERVAL
+#define PID_RUN_INTERVAL 10 // ticks
+#define PID_SPEED_CALC_INTERVAL 4  // length of time over which the speed is averaged as a multiple of PID_RUN_INTERVAL
+#define PID_DIRECTION_CALC_INTERVAL 4 // ticks
 
 #define Kp 0.16
 #define Kd 0.005
@@ -40,10 +41,10 @@ void tilt_control_task()
  *   Input    : 	-
  *   Output   : 	-
  *   Function :
- *   Run @	 : 1000 ms
+ *   Run @	 :  > 5 times system frequency
  *****************************************************************************/
 {
-	INT16U current_position = 0;
+	static INT16U current_position = 0;
 
 	// direction calc vars
 	static INT16U last_position = 0;
@@ -58,6 +59,7 @@ void tilt_control_task()
 	INT8U var;
 
 	static INT16U pid_interval_counter = PID_RUN_INTERVAL;
+	static INT16U pid_direction_counter = PID_DIRECTION_CALC_INTERVAL;
 	static INT16S last_pwm = 0;
 	INT16S error, Derror, Ierror = 0, set_pwm;
 	INT8U direction = 0;
@@ -67,24 +69,34 @@ void tilt_control_task()
 	INT16U dt = 1000/(PID_RUN_INTERVAL*T_TICK*PID_SPEED_CALC_INTERVAL);
 
 
+	// get position
+	QueueReceive(QueuePositionTILT, &current_position);
+
+
 	// calculate direction of rotation
-	//CW
-	if (QueueReceive(QueuePositionTILT, &current_position)) {
-		if((last_position > 900 && current_position < 100) || ((current_position > last_position) && !(current_position > 900 && last_position < 100))){
-			turn_direction = TRUE;
-		} else if ((current_position > 900 && last_position < 100) || ((current_position < last_position) && !(last_position > 900 && current_position < 100))) { // CCW
-			turn_direction = FALSE;
-		}
-		//UARTprintf("lp: %d, cp: %d \r\n",last_position,current_position);
-		last_position = current_position;
+	if(!(--pid_direction_counter)){
+	  pid_direction_counter = PID_DIRECTION_CALC_INTERVAL;
+
+	  // find direction
+	  if((last_position > 900 && current_position < 100) || ((current_position > last_position) && !(current_position > 900 && last_position < 100))){
+	    //CW
+	    turn_direction = TRUE;
+	  } else if ((current_position > 900 && last_position < 100) || ((current_position < last_position) && !(last_position > 900 && current_position < 100))) {
+	    // CCW
+	    turn_direction = FALSE;
+	  }
+
+	  // debug info
+	  UARTprintf("lp: %d, cp: %d, td: %d \r\n",last_position,current_position,turn_direction);
+	  // save current position for next time (by then last position)
+	  last_position = current_position;
 	}
 
-
-
+	// PID control loop
 	if(!(--pid_interval_counter)){
 		pid_interval_counter = PID_RUN_INTERVAL;
 
-		// save position
+		// save positions
 		for (var = 0; var < (PID_SPEED_CALC_INTERVAL); ++var) {
 			position[var] = position[var+1];
 		}
@@ -93,10 +105,10 @@ void tilt_control_task()
 		// calc current speed
 		current_speed = (position[PID_SPEED_CALC_INTERVAL] - position[0])*dt;
 
-		//UARTprintf("speed: %d \r\n",current_speed);
+		UARTprintf("sb: %d, dt: %d\r\n",current_speed,dt);
 
-		// adjust current speed for overflow
-		if(turn_direction && current_speed < 0){ // CW
+		// adjust current speed for overflow due to direction reset (1079 -> 0 and 0 -> 1079)
+		if(turn_direction && (current_speed < 0)){ // CW
 			current_speed += 1080*dt;
 			//UARTprintf("add \r\n");
 		}
@@ -105,14 +117,14 @@ void tilt_control_task()
 			//UARTprintf("subb \r\n");
 		}
 
-		UARTprintf("speed: %d \r\n",current_speed);
+		UARTprintf("sa: %d \r\n",current_speed);
 
 		// error calc
 		error = set_speed_tilt - current_speed;
 		//QueueSend(QueueUARTTX, &error);
 		//UARTprintf("%d\r\n", error);
-		Derror = (error-last_error)*dt;
-		Ierror+=error*dt;
+		Derror = (error - last_error)*dt;
+		Ierror += error/dt;
 
 
 		set_pwm = error*Kp + Derror*Kd + Ierror*Ki;
@@ -126,7 +138,7 @@ void tilt_control_task()
 			set_pwm = -255;
 		}
 
-		last_pwm = (set_pwm);
+		last_pwm = set_pwm;
 
 		//UARTprintf("setpwm: %d\r\n", (set_pwm));
 
@@ -138,7 +150,7 @@ void tilt_control_task()
 			set_pwm = -set_pwm;
 		}
 
-		//UARTprintf("speed: %d \r\n", current_speed);
+		UARTprintf("dir: %d, pwm: %d \r\n", direction, set_pwm);
 		//UARTprintf("current_position: %d, last_position: %d, PWM: %d, current_speed: %d, error: %d, time: %d, direction: %d \r\n", current_position, last_position, out, current_speed, (current_position-last_position), dt, direction);
 		//UARTprintf("cs: %d, er: %d, os: %d, ls: %d\r\n", current_speed, error, set_pwm, last_pwm);
 		//UARTprintf("cs: %d, er: %d, pwm: %d, cp: %d, lp: %d\r\n", current_speed, error, last_pwm, position[PID_SPEED_CALC_INTERVAL], position[0]);

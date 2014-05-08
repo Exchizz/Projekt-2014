@@ -16,13 +16,6 @@
 <part id="3"/>
 <part id="4"/>
 <part id="5"/>
-<part id="6"/>
-<part id="7"/>
-<part id="8"/>
-<part id="9"/>
-<part id="10"/>
-<part id="11"/>
-<part id="12"/>
 </presentation>
 </folder>
 </info>
@@ -35,25 +28,9 @@
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/SemProjekt_RTCS/controller/controller_task.c"/>
 <editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="3753" selectionTopPixel="1498"/>
 </editor>
-<editor id="org.eclipse.cdt.ui.editor.CEditor" name="controller_task.h" partName="controller_task.h" path="C:/CooCox/CoIDE/workspace/SemProjekt_RTCS/controller/controller_task.h" title="controller_task.h" tooltip="C:/CooCox/CoIDE/workspace/SemProjekt_RTCS/controller/controller_task.h" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/SemProjekt_RTCS/controller/controller_task.h"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="1013" selectionTopPixel="0"/>
-</editor>
-<editor id="org.eclipse.cdt.ui.editor.CEditor" name="spi.c" partName="spi.c" path="C:/CooCox/CoIDE/workspace/SemProjekt_RTCS/spi/spi.c" title="spi.c" tooltip="C:/CooCox/CoIDE/workspace/SemProjekt_RTCS/spi/spi.c" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/SemProjekt_RTCS/spi/spi.c"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="4330" selectionTopPixel="405"/>
-</editor>
-<editor id="org.eclipse.cdt.ui.editor.CEditor" name="spi.h" partName="spi.h" path="C:/CooCox/CoIDE/workspace/SemProjekt_RTCS/spi/spi.h" title="spi.h" tooltip="C:/CooCox/CoIDE/workspace/SemProjekt_RTCS/spi/spi.h" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/SemProjekt_RTCS/spi/spi.h"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="1122" selectionTopPixel="253"/>
-</editor>
 <editor id="org.eclipse.cdt.ui.editor.CEditor" name="gpio.c" partName="gpio.c" path="C:/CooCox/CoIDE/workspace/SemProjekt_RTCS/GPIO/gpio.c" title="gpio.c" tooltip="C:/CooCox/CoIDE/workspace/SemProjekt_RTCS/GPIO/gpio.c" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/SemProjekt_RTCS/GPIO/gpio.c"/>
 <editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="426" selectionTopPixel="0"/>
-</editor>
-<editor id="org.eclipse.cdt.ui.editor.CEditor" name="gpio.h" partName="gpio.h" path="C:/CooCox/CoIDE/workspace/SemProjekt_RTCS/GPIO/gpio.h" title="gpio.h" tooltip="C:/CooCox/CoIDE/workspace/SemProjekt_RTCS/GPIO/gpio.h" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/SemProjekt_RTCS/GPIO/gpio.h"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="14" selectionTopPixel="0"/>
 </editor>
 <editor id="org.eclipse.cdt.ui.editor.CEditor" name="debug.c" partName="debug.c" path="C:/CooCox/CoIDE/workspace/SemProjekt_RTCS/debug/debug.c" title="debug.c" tooltip="C:/CooCox/CoIDE/workspace/SemProjekt_RTCS/debug/debug.c" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/SemProjekt_RTCS/debug/debug.c"/>
@@ -63,21 +40,9 @@
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/SemProjekt_RTCS/queue/queue.c"/>
 <editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="1326" selectionTopPixel="343"/>
 </editor>
-<editor id="org.eclipse.cdt.ui.editor.CEditor" name="rtcscnf.h" partName="rtcscnf.h" path="C:/CooCox/CoIDE/workspace/SemProjekt_RTCS/RTCS/rtcscnf.h" title="rtcscnf.h" tooltip="C:/CooCox/CoIDE/workspace/SemProjekt_RTCS/RTCS/rtcscnf.h" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/SemProjekt_RTCS/RTCS/rtcscnf.h"/>
-<editorState selectionHorizontalPixel="0" selectionLength="20" selectionOffset="1770" selectionTopPixel="540"/>
-</editor>
-<editor id="org.eclipse.cdt.ui.editor.CEditor" name="rtcs.h" partName="rtcs.h" path="C:/CooCox/CoIDE/workspace/SemProjekt_RTCS/RTCS/rtcs.h" title="rtcs.h" tooltip="C:/CooCox/CoIDE/workspace/SemProjekt_RTCS/RTCS/rtcs.h" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/SemProjekt_RTCS/RTCS/rtcs.h"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="868" selectionTopPixel="90"/>
-</editor>
-<editor id="org.eclipse.cdt.ui.editor.CEditor" name="queue.h" partName="queue.h" path="C:/CooCox/CoIDE/workspace/SemProjekt_RTCS/queue/queue.h" title="queue.h" tooltip="C:/CooCox/CoIDE/workspace/SemProjekt_RTCS/queue/queue.h" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/SemProjekt_RTCS/queue/queue.h"/>
-<editorState selectionHorizontalPixel="0" selectionLength="6" selectionOffset="1110" selectionTopPixel="73"/>
-</editor>
-<editor activePart="true" focus="true" id="org.eclipse.cdt.ui.editor.CEditor" name="control_tasks.c" partName="control_tasks.c" path="C:/CooCox/CoIDE/workspace/SemProjekt_RTCS/control_tasks/control_tasks.c" title="control_tasks.c" tooltip="C:/CooCox/CoIDE/workspace/SemProjekt_RTCS/control_tasks/control_tasks.c" workbook="DefaultEditorWorkbook">
+<editor activePart="true" focus="true" id="org.eclipse.cdt.ui.editor.CEditor" name="control_tasks.c" partName="control_tasks.c" path="C:/Users/Lukas Schwartz/Documents/GitHub/Projekt-2014/ARM/SemProjekt_RTCS/control_tasks/control_tasks.c" title="control_tasks.c" tooltip="C:/Users/Lukas Schwartz/Documents/GitHub/Projekt-2014/ARM/SemProjekt_RTCS/control_tasks/control_tasks.c" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/SemProjekt_RTCS/control_tasks/control_tasks.c"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="806" selectionTopPixel="0"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="2224" selectionTopPixel="1154"/>
 </editor>
 </editors>
 <views>
@@ -165,7 +130,7 @@
 <page content="org.eclipse.ui.internal.introview" label="LabelNotFound"/>
 </folder>
 </info>
-<info folder="true" part="org.eclipse.ui.internal.ViewStack@10a52e5" ratio="0.69957983" ratioLeft="666" ratioRight="286" relationship="4" relative="org.eclipse.ui.internal.ViewStack@179a727">
+<info folder="true" part="org.eclipse.ui.internal.ViewStack@10a52e5" ratio="0.71009773" ratioLeft="654" ratioRight="267" relationship="4" relative="org.eclipse.ui.internal.ViewStack@179a727">
 <folder activePageID="org.eclipse.ui.console.ConsoleView" appearance="2" expanded="2">
 <page content="org.eclipse.ui.console.ConsoleView" label="Console"/>
 <presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
@@ -174,7 +139,7 @@
 </folder>
 </info>
 <info part="org.coocox.builder.ui.exampleView" ratio="0.21966527" ratioLeft="420" ratioRight="1492" relationship="2" relative="org.eclipse.ui.internal.ViewStack@179a727"/>
-<info folder="true" part="org.eclipse.ui.internal.ViewStack@180ce47" ratio="0.71983916" ratioLeft="1074" ratioRight="418" relationship="2" relative="org.coocox.builder.ui.exampleView">
+<info folder="true" part="org.eclipse.ui.internal.ViewStack@180ce47" ratio="0.7644684" ratioLeft="1136" ratioRight="350" relationship="2" relative="org.coocox.builder.ui.exampleView">
 <folder activePageID="org.coocox.component.ui.Help" appearance="2" expanded="2">
 <page content="org.coocox.component.ui.Help" label="Help"/>
 <page content="org.eclipse.debug.ui.BreakpointView" label="LabelNotFound"/>
@@ -465,48 +430,47 @@
 <actionBarAdvisor/>
 </window>
 <mruList>
-<file factoryID="org.coocox.component.ui.editors.repository.RepositoryElementFactory" id="org.coocox.builder.ui.editors.repository.RepositoryBrowser" name="Repository" tooltip="Repository">
-<persistable>&#x0A;<subPage/>
-</persistable>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="cpu.h" tooltip="PetrolPump/cpu/cpu.h">
+<persistable path="/PetrolPump/cpu/cpu.h"/>
 </file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="button.h" tooltip="EMP_PF2/button/button.h">
-<persistable path="/EMP_PF2/button/button.h"/>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="uartcnf.h" tooltip="PetrolPump/UART/uartcnf.h">
+<persistable path="/PetrolPump/UART/uartcnf.h"/>
 </file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="pump.h" tooltip="EMP_PF2/pump/pump.h">
-<persistable path="/EMP_PF2/pump/pump.h"/>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="uart_task.h" tooltip="PetrolPump/UART/uart_task.h">
+<persistable path="/PetrolPump/UART/uart_task.h"/>
 </file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="parse_cmd_task.h" tooltip="EMP_PF2/parse_cmd/parse_cmd_task.h">
-<persistable path="/EMP_PF2/parse_cmd/parse_cmd_task.h"/>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="uart_task.c" tooltip="PetrolPump/UART/uart_task.c">
+<persistable path="/PetrolPump/UART/uart_task.c"/>
 </file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="LCD.c" tooltip="EMP_PF2/LCD/LCD.c">
-<persistable path="/EMP_PF2/LCD/LCD.c"/>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="encoder.c" tooltip="PetrolPump/encoder/encoder.c">
+<persistable path="/PetrolPump/encoder/encoder.c"/>
 </file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="semphr.h" tooltip="EMP_PF2/FRT_Library/FreeRTOS/Source/include/semphr.h">
-<persistable path="/EMP_PF2/FRT_Library/FreeRTOS/Source/include/semphr.h"/>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="pump.c" tooltip="PetrolPump/Pump/pump.c">
+<persistable path="/PetrolPump/Pump/pump.c"/>
 </file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="LCD.h" tooltip="EMP_PF2/LCD/LCD.h">
-<persistable path="/EMP_PF2/LCD/LCD.h"/>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="buffers.c" tooltip="PetrolPump/Buffer/buffers.c">
+<persistable path="/PetrolPump/Buffer/buffers.c"/>
 </file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="uart.h" tooltip="EMP_PF2/uart/uart.h">
-<persistable path="/EMP_PF2/uart/uart.h"/>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="lcd.c" tooltip="PetrolPump/LCD/lcd.c">
+<persistable path="/PetrolPump/LCD/lcd.c"/>
 </file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="uart.c" tooltip="EMP_PF2/uart/uart.c">
-<persistable path="/EMP_PF2/uart/uart.c"/>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="lcd_port.c" tooltip="PetrolPump/LCD/lcd_port.c">
+<persistable path="/PetrolPump/LCD/lcd_port.c"/>
 </file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="task_DeliverBoughtFuel.h" tooltip="EMP_PF2/deliverBoughtFuel/task_DeliverBoughtFuel.h">
-<persistable path="/EMP_PF2/deliverBoughtFuel/task_DeliverBoughtFuel.h"/>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="buffers.h" tooltip="PetrolPump/Buffer/buffers.h">
+<persistable path="/PetrolPump/Buffer/buffers.h"/>
 </file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="invoice_task.h" tooltip="EMP_PF2/invoice/invoice_task.h">
-<persistable path="/EMP_PF2/invoice/invoice_task.h"/>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="keyboard.c" tooltip="PetrolPump/Keyboard/keyboard.c">
+<persistable path="/PetrolPump/Keyboard/keyboard.c"/>
 </file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="invoice_task.c" tooltip="EMP_PF2/invoice/invoice_task.c">
-<persistable path="/EMP_PF2/invoice/invoice_task.c"/>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="uart.c" tooltip="PetrolPump/UART/uart.c">
+<persistable path="/PetrolPump/UART/uart.c"/>
 </file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="user.h" tooltip="EMP_PF2/UI/user.h">
-<persistable path="/EMP_PF2/UI/user.h"/>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="RTC.h" tooltip="PetrolPump/RTC/RTC.h">
+<persistable path="/PetrolPump/RTC/RTC.h"/>
 </file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="user.c" tooltip="EMP_PF2/UI/user.c">
-<persistable path="/EMP_PF2/UI/user.c"/>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="RTC.c" tooltip="PetrolPump/RTC/RTC.c">
+<persistable path="/PetrolPump/RTC/RTC.c"/>
 </file>
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="systick.h" tooltip="SemProjekt_RTCS/systick/systick.h">
 <persistable path="/SemProjekt_RTCS/systick/systick.h"/>

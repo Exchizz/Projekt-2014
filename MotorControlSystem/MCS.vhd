@@ -127,7 +127,7 @@ BEGIN
 			--PWM_reset <= "01000000";
 		end if;
 		
-		-- state 01, find zero --
+		-- state 10, find zero --
 		if MotorState = "10" then
 			clk_scaler := clk_scaler + 1;
 			if direction = '1' then 
