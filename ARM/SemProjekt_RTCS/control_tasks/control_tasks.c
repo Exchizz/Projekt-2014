@@ -20,10 +20,11 @@
 /***************************** Include files ********************************/
 #include "control_tasks.h"
 /*****************************    Defines    ********************************/
-#define RUN_MODE NORMAL //
 #define NORMAL 0
 #define DEBUGINFO 1
 #define PLOTSPEED 2
+
+#define RUN_MODE PLOTSPEED //
 
 #define PID_RUN_INTERVAL 10 // ticks
 #define PID_SPEED_CALC_INTERVAL 4  // length of time over which the speed is averaged as a multiple of PID_RUN_INTERVAL
@@ -72,30 +73,6 @@ void tilt_control_task()
   INT32S current_speed = 0;
 
   INT16U dt = 1000/(PID_RUN_INTERVAL*T_TICK*PID_SPEED_CALC_INTERVAL);
-
-
-
-
-  /*
-	// calculate direction of rotation
-	if(!(--pid_direction_counter)){
-	  pid_direction_counter = PID_DIRECTION_CALC_INTERVAL;
-
-	  // find direction
-	  if((last_position > 900 && current_position < 100) || ((current_position > last_position) && !(current_position > 900 && last_position < 100))){
-	    //CW
-	    turn_direction = TRUE;
-	  } else if ((current_position > 900 && last_position < 100) || ((current_position < last_position) && !(last_position > 900 && current_position < 100))) {
-	    // CCW
-	    turn_direction = FALSE;
-	  }
-
-	  // debug info
-	//  UARTprintf("lp: %d, cp: %d, td: %d \r\n",last_position,current_position,turn_direction);
-	  // save current position for next time (by then last position)
-	  last_position = current_position;
-	}
-   */
 
 
   // PID control loop

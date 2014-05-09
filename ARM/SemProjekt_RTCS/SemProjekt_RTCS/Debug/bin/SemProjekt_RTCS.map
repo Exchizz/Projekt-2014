@@ -82,7 +82,7 @@ Linker script and memory map
 
                 0x20010000                _eram = 0x20010000
 
-.text           0x00000000     0x1ddc
+.text           0x00000000     0x1e14
  *(.isr_vector)
  .isr_vector    0x00000000      0x100 ..\obj\startup_lm3s.o
                 0x00000000                g_pfnVectors
@@ -273,44 +273,44 @@ Linker script and memory map
                 0x00001274                init_tilt_control_task
  *fill*         0x00001284        0x4 
  .text.tilt_control_task
-                0x00001288      0x218 ..\obj\control_tasks.o
+                0x00001288      0x250 ..\obj\control_tasks.o
                 0x00001288                tilt_control_task
  .text.SysTick_Handler
-                0x000014a0       0x1c ..\obj\systick.o
-                0x000014a0                SysTick_Handler
+                0x000014d8       0x1c ..\obj\systick.o
+                0x000014d8                SysTick_Handler
  .text.systick_init
-                0x000014bc       0x84 ..\obj\systick.o
-                0x000014bc                systick_init
+                0x000014f4       0x84 ..\obj\systick.o
+                0x000014f4                systick_init
  .text.systick_get
-                0x00001540       0x28 ..\obj\systick.o
-                0x00001540                systick_get
+                0x00001578       0x28 ..\obj\systick.o
+                0x00001578                systick_get
  .text.systick_decrement
-                0x00001568       0x20 ..\obj\systick.o
-                0x00001568                systick_decrement
- .text          0x00001588      0x370 c:/program files (x86)/gnu tools arm embedded/4.8 2013q4/bin/../lib/gcc/arm-none-eabi/4.8.3/armv7-m\libgcc.a(_arm_addsubdf3.o)
-                0x00001588                __aeabi_drsub
-                0x00001590                __aeabi_dsub
-                0x00001590                __subdf3
-                0x00001594                __aeabi_dadd
-                0x00001594                __adddf3
-                0x0000180c                __floatunsidf
-                0x0000180c                __aeabi_ui2d
-                0x0000182c                __floatsidf
-                0x0000182c                __aeabi_i2d
-                0x00001850                __aeabi_f2d
-                0x00001850                __extendsfdf2
-                0x0000188c                __floatundidf
-                0x0000188c                __aeabi_ul2d
-                0x0000189c                __floatdidf
-                0x0000189c                __aeabi_l2d
- .text          0x000018f8      0x424 c:/program files (x86)/gnu tools arm embedded/4.8 2013q4/bin/../lib/gcc/arm-none-eabi/4.8.3/armv7-m\libgcc.a(_arm_muldivdf3.o)
-                0x000018f8                __aeabi_dmul
-                0x000018f8                __muldf3
-                0x00001b4c                __divdf3
-                0x00001b4c                __aeabi_ddiv
- .text          0x00001d1c       0x50 c:/program files (x86)/gnu tools arm embedded/4.8 2013q4/bin/../lib/gcc/arm-none-eabi/4.8.3/armv7-m\libgcc.a(_arm_fixdfsi.o)
-                0x00001d1c                __aeabi_d2iz
-                0x00001d1c                __fixdfsi
+                0x000015a0       0x20 ..\obj\systick.o
+                0x000015a0                systick_decrement
+ .text          0x000015c0      0x370 c:/program files (x86)/gnu tools arm embedded/4.8 2013q4/bin/../lib/gcc/arm-none-eabi/4.8.3/armv7-m\libgcc.a(_arm_addsubdf3.o)
+                0x000015c0                __aeabi_drsub
+                0x000015c8                __aeabi_dsub
+                0x000015c8                __subdf3
+                0x000015cc                __aeabi_dadd
+                0x000015cc                __adddf3
+                0x00001844                __floatunsidf
+                0x00001844                __aeabi_ui2d
+                0x00001864                __floatsidf
+                0x00001864                __aeabi_i2d
+                0x00001888                __aeabi_f2d
+                0x00001888                __extendsfdf2
+                0x000018c4                __floatundidf
+                0x000018c4                __aeabi_ul2d
+                0x000018d4                __floatdidf
+                0x000018d4                __aeabi_l2d
+ .text          0x00001930      0x424 c:/program files (x86)/gnu tools arm embedded/4.8 2013q4/bin/../lib/gcc/arm-none-eabi/4.8.3/armv7-m\libgcc.a(_arm_muldivdf3.o)
+                0x00001930                __aeabi_dmul
+                0x00001930                __muldf3
+                0x00001b84                __divdf3
+                0x00001b84                __aeabi_ddiv
+ .text          0x00001d54       0x50 c:/program files (x86)/gnu tools arm embedded/4.8 2013q4/bin/../lib/gcc/arm-none-eabi/4.8.3/armv7-m\libgcc.a(_arm_fixdfsi.o)
+                0x00001d54                __aeabi_d2iz
+                0x00001d54                __fixdfsi
  *(.init)
  *(.fini)
  *crtbegin.o(.ctors)
@@ -324,40 +324,40 @@ Linker script and memory map
  *(SORT(.dtors.*))
  *(.dtors)
  *(.rodata*)
- .rodata        0x00001d6c       0x28 ..\obj\spi.o
- .rodata        0x00001d94       0x10 ..\obj\main.o
- .rodata        0x00001da4       0x38 ..\obj\uartprintf.o
+ .rodata        0x00001da4       0x28 ..\obj\spi.o
+ .rodata        0x00001dcc       0x10 ..\obj\main.o
+ .rodata        0x00001ddc       0x38 ..\obj\uartprintf.o
  *(.eh_fram e*)
 
-.glue_7         0x00001ddc        0x0
+.glue_7         0x00001e14        0x0
  .glue_7        0x00000000        0x0 linker stubs
 
-.glue_7t        0x00001ddc        0x0
+.glue_7t        0x00001e14        0x0
  .glue_7t       0x00000000        0x0 linker stubs
 
-.vfp11_veneer   0x00001ddc        0x0
+.vfp11_veneer   0x00001e14        0x0
  .vfp11_veneer  0x00000000        0x0 linker stubs
 
-.v4_bx          0x00001ddc        0x0
+.v4_bx          0x00001e14        0x0
  .v4_bx         0x00000000        0x0 linker stubs
 
-.iplt           0x00001ddc        0x0
+.iplt           0x00001e14        0x0
  .iplt          0x00000000        0x0 ..\obj\spi.o
 
-.rel.dyn        0x00001ddc        0x0
+.rel.dyn        0x00001e14        0x0
  .rel.iplt      0x00000000        0x0 ..\obj\spi.o
 
 .ARM.extab
  *(.ARM.extab* .gnu.linkonce.armextab.*)
-                0x00001ddc                __exidx_start = .
+                0x00001e14                __exidx_start = .
 
 .ARM.exidx
  *(.ARM.exidx* .gnu.linkonce.armexidx.*)
-                0x00001ddc                __exidx_end = .
-                0x00001ddc                __etext = .
-                0x00001ddc                _sidata = __etext
+                0x00001e14                __exidx_end = .
+                0x00001e14                __etext = .
+                0x00001e14                _sidata = __etext
 
-.data           0x20000000       0x40 load address 0x00001ddc
+.data           0x20000000       0x40 load address 0x00001e14
                 0x20000000                __data_start__ = .
                 0x20000000                _sdata = __data_start__
  *(vtable)
@@ -387,10 +387,10 @@ Linker script and memory map
                 0x20000040                __data_end__ = .
                 0x20000040                _edata = __data_end__
 
-.igot.plt       0x20000040        0x0 load address 0x00001e1c
+.igot.plt       0x20000040        0x0 load address 0x00001e54
  .igot.plt      0x00000000        0x0 ..\obj\spi.o
 
-.bss            0x20000040       0x74 load address 0x00001e1c
+.bss            0x20000040       0x74 load address 0x00001e54
                 0x20000040                . = ALIGN (0x4)
                 0x20000040                __bss_start__ = .
                 0x20000040                _sbss = __bss_start__
@@ -432,7 +432,7 @@ Linker script and memory map
  *(.heap*)
                 0x200000b4                __HeapLimit = .
 
-.co_stack       0x200000b4      0x404 load address 0x00001e90
+.co_stack       0x200000b4      0x404 load address 0x00001ec8
                 0x200000b8                . = ALIGN (0x8)
  *fill*         0x200000b4        0x4 
  *(.co_stack .co_stack.*)
@@ -465,7 +465,7 @@ LOAD c:/program files (x86)/gnu tools arm embedded/4.8 2013q4/bin/../lib/gcc/arm
 END GROUP
 OUTPUT(SemProjekt_RTCS.elf elf32-littlearm)
 
-.debug_info     0x00000000     0x14ea
+.debug_info     0x00000000     0x1501
  .debug_info    0x00000000      0x229 ..\obj\spi.o
  .debug_info    0x00000229      0x1e5 ..\obj\controller_task.o
  .debug_info    0x0000040e      0x1c5 ..\obj\main.o
@@ -476,10 +476,10 @@ OUTPUT(SemProjekt_RTCS.elf elf32-littlearm)
  .debug_info    0x00000dcf      0x21b ..\obj\queue.o
  .debug_info    0x00000fea       0xd9 ..\obj\debug.o
  .debug_info    0x000010c3       0xb9 ..\obj\cpu.o
- .debug_info    0x0000117c      0x28f ..\obj\control_tasks.o
- .debug_info    0x0000140b       0xdf ..\obj\systick.o
+ .debug_info    0x0000117c      0x2a6 ..\obj\control_tasks.o
+ .debug_info    0x00001422       0xdf ..\obj\systick.o
 
-.debug_abbrev   0x00000000      0xa25
+.debug_abbrev   0x00000000      0xa44
  .debug_abbrev  0x00000000      0x139 ..\obj\spi.o
  .debug_abbrev  0x00000139       0xde ..\obj\controller_task.o
  .debug_abbrev  0x00000217       0xf6 ..\obj\main.o
@@ -490,8 +490,8 @@ OUTPUT(SemProjekt_RTCS.elf elf32-littlearm)
  .debug_abbrev  0x000006f5       0xfc ..\obj\queue.o
  .debug_abbrev  0x000007f1       0x7a ..\obj\debug.o
  .debug_abbrev  0x0000086b       0x67 ..\obj\cpu.o
- .debug_abbrev  0x000008d2       0xd5 ..\obj\control_tasks.o
- .debug_abbrev  0x000009a7       0x7e ..\obj\systick.o
+ .debug_abbrev  0x000008d2       0xf4 ..\obj\control_tasks.o
+ .debug_abbrev  0x000009c6       0x7e ..\obj\systick.o
 
 .debug_aranges  0x00000000      0x2d8
  .debug_aranges
@@ -533,45 +533,45 @@ OUTPUT(SemProjekt_RTCS.elf elf32-littlearm)
  .debug_ranges  0x000001d8       0x18 ..\obj\control_tasks.o
  .debug_ranges  0x000001f0       0x28 ..\obj\systick.o
 
-.debug_line     0x00000000     0x15e6
- .debug_line    0x00000000      0x273 ..\obj\spi.o
- .debug_line    0x00000273      0x26c ..\obj\controller_task.o
- .debug_line    0x000004df      0x291 ..\obj\main.o
- .debug_line    0x00000770      0x36f ..\obj\uartprintf.o
- .debug_line    0x00000adf       0x8f ..\obj\gpio.o
- .debug_line    0x00000b6e      0x1f6 ..\obj\schedule.o
- .debug_line    0x00000d64       0xb3 ..\obj\startup_lm3s.o
- .debug_line    0x00000e17      0x1a1 ..\obj\queue.o
- .debug_line    0x00000fb8      0x10f ..\obj\debug.o
- .debug_line    0x000010c7      0x13a ..\obj\cpu.o
- .debug_line    0x00001201      0x2b9 ..\obj\control_tasks.o
- .debug_line    0x000014ba      0x12c ..\obj\systick.o
+.debug_line     0x00000000     0x109d
+ .debug_line    0x00000000      0x1df ..\obj\spi.o
+ .debug_line    0x000001df      0x1b7 ..\obj\controller_task.o
+ .debug_line    0x00000396      0x1cb ..\obj\main.o
+ .debug_line    0x00000561      0x2fc ..\obj\uartprintf.o
+ .debug_line    0x0000085d       0x6e ..\obj\gpio.o
+ .debug_line    0x000008cb      0x1a4 ..\obj\schedule.o
+ .debug_line    0x00000a6f       0x92 ..\obj\startup_lm3s.o
+ .debug_line    0x00000b01      0x12e ..\obj\queue.o
+ .debug_line    0x00000c2f       0xb6 ..\obj\debug.o
+ .debug_line    0x00000ce5       0xf8 ..\obj\cpu.o
+ .debug_line    0x00000ddd      0x1e6 ..\obj\control_tasks.o
+ .debug_line    0x00000fc3       0xda ..\obj\systick.o
 
-.debug_str      0x00000000      0xb1b
- .debug_str     0x00000000      0x20f ..\obj\spi.o
-                                0x26b (size before relaxing)
- .debug_str     0x0000020f       0xf9 ..\obj\controller_task.o
-                                0x27c (size before relaxing)
- .debug_str     0x00000308       0x79 ..\obj\main.o
-                                0x237 (size before relaxing)
- .debug_str     0x00000381      0x1e3 ..\obj\uartprintf.o
-                                0x374 (size before relaxing)
- .debug_str     0x00000564       0x56 ..\obj\gpio.o
-                                0x160 (size before relaxing)
- .debug_str     0x000005ba      0x14e ..\obj\schedule.o
-                                0x26e (size before relaxing)
- .debug_str     0x00000708       0xc2 ..\obj\startup_lm3s.o
-                                0x159 (size before relaxing)
- .debug_str     0x000007ca       0xb0 ..\obj\queue.o
-                                0x220 (size before relaxing)
- .debug_str     0x0000087a       0x82 ..\obj\debug.o
-                                0x19c (size before relaxing)
- .debug_str     0x000008fc       0x90 ..\obj\cpu.o
-                                0x196 (size before relaxing)
- .debug_str     0x0000098c       0xf3 ..\obj\control_tasks.o
-                                0x2cb (size before relaxing)
- .debug_str     0x00000a7f       0x9c ..\obj\systick.o
-                                0x1af (size before relaxing)
+.debug_str      0x00000000      0x96e
+ .debug_str     0x00000000      0x1ee ..\obj\spi.o
+                                0x24a (size before relaxing)
+ .debug_str     0x000001ee       0xd8 ..\obj\controller_task.o
+                                0x25b (size before relaxing)
+ .debug_str     0x000002c6       0x58 ..\obj\main.o
+                                0x216 (size before relaxing)
+ .debug_str     0x0000031e      0x1a1 ..\obj\uartprintf.o
+                                0x332 (size before relaxing)
+ .debug_str     0x000004bf       0x35 ..\obj\gpio.o
+                                0x13f (size before relaxing)
+ .debug_str     0x000004f4      0x12d ..\obj\schedule.o
+                                0x24d (size before relaxing)
+ .debug_str     0x00000621       0xa1 ..\obj\startup_lm3s.o
+                                0x138 (size before relaxing)
+ .debug_str     0x000006c2       0x8f ..\obj\queue.o
+                                0x1ff (size before relaxing)
+ .debug_str     0x00000751       0x61 ..\obj\debug.o
+                                0x17b (size before relaxing)
+ .debug_str     0x000007b2       0x6f ..\obj\cpu.o
+                                0x175 (size before relaxing)
+ .debug_str     0x00000821       0xd2 ..\obj\control_tasks.o
+                                0x2b6 (size before relaxing)
+ .debug_str     0x000008f3       0x7b ..\obj\systick.o
+                                0x18e (size before relaxing)
 
 .comment        0x00000000       0x70
  .comment       0x00000000       0x70 ..\obj\spi.o
