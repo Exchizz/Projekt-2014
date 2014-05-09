@@ -1,5 +1,5 @@
 //! **************************************************************************
-// Written by: Map P.20131013 on Wed May 07 11:08:25 2014
+// Written by: Map P.20131013 on Fri May 09 13:55:11 2014
 //! **************************************************************************
 
 SCHEMATIC START;
@@ -44,12 +44,12 @@ COMP "Seg<4>" LOCATE = SITE "P20" LEVEL 1;
 COMP "Seg<5>" LOCATE = SITE "P17" LEVEL 1;
 COMP "Seg<6>" LOCATE = SITE "P83" LEVEL 1;
 COMP "Seg<7>" LOCATE = SITE "P22" LEVEL 1;
-COMP "MotorA<0>" LOCATE = SITE "P86" LEVEL 1;
-COMP "MotorA<1>" LOCATE = SITE "P76" LEVEL 1;
-COMP "MotorA<2>" LOCATE = SITE "P85" LEVEL 1;
-COMP "MotorB<0>" LOCATE = SITE "P88" LEVEL 1;
-COMP "MotorB<1>" LOCATE = SITE "P94" LEVEL 1;
-COMP "MotorB<2>" LOCATE = SITE "P77" LEVEL 1;
+COMP "MotorA<0>" LOCATE = SITE "P88" LEVEL 1;
+COMP "MotorA<1>" LOCATE = SITE "P94" LEVEL 1;
+COMP "MotorA<2>" LOCATE = SITE "P77" LEVEL 1;
+COMP "MotorB<0>" LOCATE = SITE "P86" LEVEL 1;
+COMP "MotorB<1>" LOCATE = SITE "P76" LEVEL 1;
+COMP "MotorB<2>" LOCATE = SITE "P85" LEVEL 1;
 NET "Clk_BUFGP/IBUFG" BEL "Clk_BUFGP/BUFG.GCLKMUX" USELOCALCONNECT;
 NET "SPI_MClk_BUFGP/IBUFG" BEL "SPI_MClk_BUFGP/BUFG.GCLKMUX" USELOCALCONNECT;
 SCHEMATIC END;
