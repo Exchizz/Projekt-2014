@@ -80,16 +80,16 @@
       </source>
       <source file="..\..\..\inc\glob_def.h" lastModified="145daac1f82">
       </source>
-      <source file="..\..\..\uart\uartprintf.h" lastModified="145daac2001">
-      </source>
-      <source file="..\..\..\inc\emp_type.h" lastModified="145daac1f81">
-      </source>
       <source file="..\..\..\cpu\cpu.c" lastModified="145daac1f79">
          <include file="..\..\..\inc\lm3s6965.h"/>
          <include file="..\..\..\inc\emp_type.h"/>
          <include file="..\..\..\inc\glob_def.h"/>
          <include file="..\..\..\inc\binary.h"/>
          <include file="..\..\..\cpu\cpu.h"/>
+      </source>
+      <source file="..\..\..\inc\emp_type.h" lastModified="145daac1f81">
+      </source>
+      <source file="..\..\..\uart\uartprintf.h" lastModified="145daac2001">
       </source>
       <source file="..\..\..\main.c" lastModified="145daac1fa0">
          <include file="..\..\..\inc\lm3s6965.h"/>
@@ -113,14 +113,14 @@
       </source>
       <source file="..\..\..\startup\startup_lm3s.c" lastModified="145daac1ff8">
       </source>
+      <source file="..\..\..\control_tasks\control_tasks.h" lastModified="145daac1f75">
+         <include file="..\..\..\inc\emp_type.h"/>
+         <include file="..\..\..\controller\controller_task.h"/>
+      </source>
       <source file="..\..\..\controller\controller_task.h" lastModified="145daac1f78">
          <include file="..\..\..\queue\queue.h"/>
          <include file="..\..\..\debug\debug.h"/>
          <include file="..\..\..\spi\spi.h"/>
-      </source>
-      <source file="..\..\..\control_tasks\control_tasks.h" lastModified="145daac1f75">
-         <include file="..\..\..\inc\emp_type.h"/>
-         <include file="..\..\..\controller\controller_task.h"/>
       </source>
    </includePath>
 </dependencies>

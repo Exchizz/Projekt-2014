@@ -67,7 +67,6 @@ void tilt_control_task()
   INT8U var;
 
   static INT16U pid_interval_counter = PID_RUN_INTERVAL;
-  static INT16U pid_direction_counter = PID_DIRECTION_CALC_INTERVAL;
   static INT16S last_pwm = 0;
   INT8U direction = 0;
   INT32S current_speed = 0;
