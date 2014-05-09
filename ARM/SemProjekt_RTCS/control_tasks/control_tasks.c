@@ -20,7 +20,6 @@
 /***************************** Include files ********************************/
 #include "control_tasks.h"
 /*****************************    Defines    ********************************/
-<<<<<<< HEAD
 #define RUN_MODE NORMAL //
 #define NORMAL 0
 #define DEBUGINFO 1
@@ -28,12 +27,6 @@
 
 #define PID_RUN_INTERVAL 10 // ticks
 #define PID_SPEED_CALC_INTERVAL 4  // length of time over which the speed is averaged as a multiple of PID_RUN_INTERVAL
-=======
-#define PID_RUN_INTERVAL 20 // ticks
-#define PID_SPEED_CALC_INTERVAL 2  // length of time over which the speed is averaged as a multiple of PID_RUN_INTERVAL
-
->>>>>>> ddcfe14d7bb29afb526bc5ee3efd6bffe6ad7412
-#define PID_DIRECTION_CALC_INTERVAL 4 // ticks
 
 #define Kp 0.14
 #define Kd 0.005
@@ -57,22 +50,17 @@ void tilt_control_task()
 {
   static INT16U current_position = 0;
 
-<<<<<<< HEAD
   // direction calc vars
   // static INT16U last_position = 0;
   // static INT8U turn_direction;
-=======
-	static INT8U i = 1;
-
-	// direction calc vars
-	static INT16U last_position = 0;
->>>>>>> ddcfe14d7bb29afb526bc5ee3efd6bffe6ad7412
-
+  //static INT16U last_position = 0;
 
   // PID controller vars
   static INT16U last_error = 0;
   INT16S error, Derror, Ierror = 0, set_pwm;
   static INT16U position[PID_SPEED_CALC_INTERVAL +1] = {0};
+
+  static INT8U i = 1;
 
   INT16S set_speed_tilt = 500;
 
@@ -115,7 +103,6 @@ void tilt_control_task()
   if(!(--pid_interval_counter)){
     pid_interval_counter = PID_RUN_INTERVAL;
 
-<<<<<<< HEAD
     // get position
     QueueReceive(QueuePositionTILT, &current_position);
 
@@ -127,30 +114,13 @@ void tilt_control_task()
 
     // calc current speed
     current_speed = (position[PID_SPEED_CALC_INTERVAL] - position[0])*dt;
-=======
-		//UARTprintf("sb: %d, dt: %d\r\n",current_speed,dt);
-
-		// adjust current speed for overflow due to direction reset (1079 -> 0 and 0 -> 1079)
-		if(turn_direction && (current_speed < -1300)){ // CW
-			current_speed += 1080*dt;
-			//UARTprintf("add \r\n");
-		}
-		else if ((!(turn_direction)) && (current_speed > 1300)) { // CCW
-			current_speed -=  1080*dt;
-			//UARTprintf("subb \r\n");
-		}
-
-		//UARTprintf("sa: %d \r\n",current_speed);
->>>>>>> ddcfe14d7bb29afb526bc5ee3efd6bffe6ad7412
 
     // adjust current speed for overflow due to direction reset (1079 -> 0 and 0 -> 1079)
     if(current_speed < -1500){ // CW
       current_speed += 1080*dt;
-      //UARTprintf("add \r\n");
     }
     else if (current_speed > 1500) { // CCW
       current_speed -=  1080*dt;
-      //UARTprintf("subb \r\n");
     }
 
     // error calc
@@ -170,9 +140,14 @@ void tilt_control_task()
       set_pwm = -255;
     }
 
+    // save last pwm and error for next calc
     last_pwm = set_pwm;
+    last_error = error;
 
-    //UARTprintf("setpwm: %d\r\n", (set_pwm));
+    // debuginfo
+#if (RUN_MODE == DEBUGINFO)
+    UARTprintf("cs: %d, pwmO: %d\r\n", current_speed, set_pwm);
+#endif
 
     // direction
     if(set_pwm > 0 ){
@@ -182,36 +157,18 @@ void tilt_control_task()
       set_pwm = -set_pwm;
     }
 
-<<<<<<< HEAD
-    UARTprintf("dir: %d, pwm: %d \r\n", direction, set_pwm);
-    //UARTprintf("current_position: %d, last_position: %d, PWM: %d, current_speed: %d, error: %d, time: %d, direction: %d \r\n", current_position, last_position, out, current_speed, (current_position-last_position), dt, direction);
-    //UARTprintf("cs: %d, er: %d, os: %d, ls: %d\r\n", current_speed, error, set_pwm, last_pwm);
-    //UARTprintf("cs: %d, er: %d, pwm: %d, cp: %d, lp: %d\r\n", current_speed, error, last_pwm, position[PID_SPEED_CALC_INTERVAL], position[0]);
-=======
-		//UARTprintf("dir: %d, pwm: %d \r\n", direction, set_pwm);
-		//UARTprintf("current_position: %d, last_position: %d, PWM: %d, current_speed: %d, error: %d, time: %d, direction: %d \r\n", current_position, last_position, out, current_speed, (current_position-last_position), dt, direction);
-		//UARTprintf("cs: %d, er: %d, os: %d, ls: %d\r\n", current_speed, error, set_pwm, last_pwm);
-		//UARTprintf("cs: %d, er: %d, pwm: %d, cp: %d, lp: %d\r\n", current_speed, error, last_pwm, position[PID_SPEED_CALC_INTERVAL], position[0]);
->>>>>>> ddcfe14d7bb29afb526bc5ee3efd6bffe6ad7412
-
-
-
-
     set_pwm = (direction << 8) | (set_pwm & 0xFF);
     QueueSend(QueuePWMOutTilt, &set_pwm);
 
-<<<<<<< HEAD
-    last_error = error;
+#if (RUN_MODE == PLOTSPEED)
+    if(--i == 0){
+      i = 5;
+      UARTCharPut(0,'|');
+      UARTCharPut(0, current_speed>> 8);
+      UARTCharPut(0, current_speed);
+    }
+#endif
+
   }
-=======
-		if(--i == 0){
-			i = 5;
-			UARTCharPut(0,'|');
-			UARTCharPut(0, current_speed>> 8);
-			UARTCharPut(0, current_speed);
-		}
-		last_error = error;
-	}
->>>>>>> ddcfe14d7bb29afb526bc5ee3efd6bffe6ad7412
 }
 /****************************** End Of Module *******************************/
