@@ -26,11 +26,11 @@
 
 #define RUN_MODE PLOTSPEED //
 
-#define PID_RUN_INTERVAL 10 // ticks
-#define PID_SPEED_CALC_INTERVAL 4  // length of time over which the speed is averaged as a multiple of PID_RUN_INTERVAL
+#define PID_RUN_INTERVAL 20 // ticks
+#define PID_SPEED_CALC_INTERVAL 2  // length of time over which the speed is averaged as a multiple of PID_RUN_INTERVAL
 
-#define Kp 0.14
-#define Kd 0.005
+#define Kp 0.16
+#define Kd 0.01
 #define Ki 0
 
 
