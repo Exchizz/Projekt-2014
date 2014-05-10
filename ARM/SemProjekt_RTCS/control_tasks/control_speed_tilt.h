@@ -16,32 +16,15 @@
 * 0902012  KHA   Module created.
 *
 *****************************************************************************/
-#pragma once
+
 /***************************** Include files *******************************/
-#include "inc\lm3s6965.h"
-#include "inc\emp_type.h"
-#include "cpu\cpu.h"
-#include "rtcs\rtcs.h"
-#include "uartprintf.h"
-#include "stdlib.h"
-#include "inc\glob_def.h"
+#include "inc/emp_type.h"
+#include "communication/communication_task.h"
+#include "control_tasks/control_position_tilt.h"
 /*****************************    Defines    *******************************/
-#define QUEUESIZE	10
-#define EMPTY		1
-#define FULL 		2
 /*****************************   Constants   *******************************/
 /*****************************   Variables   *******************************/
-struct QueueData {
-	INT16U data;
-	BOOLEAN rw;
-};
-
-struct QueueData Queue[QUEUESIZE];
 /*****************************   Functions   *******************************/
-BOOLEAN QueuePeek(INT8U QueueHandle, INT16U * data);
-BOOLEAN QueueEmpty(INT8U QueueHandle);
-INT8U CreateQueueHandle();
-void QueueSend(INT8U QueueHandle, INT16U * data);
-BOOLEAN QueueReceive(INT8U QueueHandle, INT16U* dataOut);
-void QueueOverwrite(INT8U QueueHandle, INT16U * data);
+void init_tilt_speed_task();
+void tilt_speed_task();
 /****************************** End Of Module *******************************/

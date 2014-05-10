@@ -25,8 +25,11 @@
 #include "debug/debug.h"
 #include "uartprintf.h"
 #include "queue.h"
+#include "GPIO/gpio.h"
 #include "spi.h"
-#include "controller/controller_task.h"
+#include "communication/communication_task.h"
+#include "control_tasks/control_position_tilt.h"
+#include "control_tasks/control_position_pan.h"
 
 /*****************************    Defines    *******************************/
 
@@ -47,20 +50,6 @@ void alive_task(void)
 	// Toggles status LED every 1 sec.
 	GPIO_PORTF_DATA_R ^= 0x01;
 
-	// Wait 1 sec.
-	INT16U receivedChar;
-	INT16U sendChar;
-	//sendChar = 0b101000000110;
-	//QueueSend(QueueSPITX, &sendChar);
-
-
-	//output queue - if anything is available
-	//if(QueueReceive(QueueSPIRX, &receivedChar)){
-		//UARTprintf("received hex from SPI: %X \r\n", receivedChar);
-	//}
-	//debug_pin_red(OFF);
-	//debug_pin(TOGGLE);
-	//debug_pin_red(TOGGLE);
 	_wait(MILLI_SEC(500));
 }
 
@@ -89,6 +78,7 @@ int main(void)
 	QueuePositionPAN 	= CreateQueueHandle();
 	QueuePositionTILT 	= CreateQueueHandle();
 	QueuePWMOutTilt		= CreateQueueHandle();
+	QueueTiltSpeed		= CreateQueueHandle();
 
 	enable_global_int();
 

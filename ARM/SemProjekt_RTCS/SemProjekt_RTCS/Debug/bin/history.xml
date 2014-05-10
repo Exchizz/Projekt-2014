@@ -1,19 +1,22 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <history>
    <processor signature="arm-none-eabi-gcc -mcpu=cortex-m3 -mthumb -g -nostartfiles -Map=SemProjekt_RTCS.map -O0 --gc-sections -lm -lgcc -lc -lrdimon -LC:\CooCox\CoIDE\configuration\ProgramData\SemProjekt_RTCS -TC:\CooCox\CoIDE\configuration\ProgramData\SemProjekt_RTCS/arm-gcc-link.ld -g">
-      <target file="SemProjekt_RTCS.elf" lastModified="145e0ff335b">
-         <source file="..\obj\spi.o" lastModified="145e0f4531b"/>
-         <source file="..\obj\controller_task.o" lastModified="145e0f45389"/>
-         <source file="..\obj\main.o" lastModified="145e0f45401"/>
-         <source file="..\obj\uartprintf.o" lastModified="145e0f45483"/>
-         <source file="..\obj\gpio.o" lastModified="145e0f454d3"/>
-         <source file="..\obj\schedule.o" lastModified="145e0f45537"/>
-         <source file="..\obj\startup_lm3s.o" lastModified="145e0f45587"/>
-         <source file="..\obj\queue.o" lastModified="145e0f455eb"/>
-         <source file="..\obj\debug.o" lastModified="145e0f4563b"/>
-         <source file="..\obj\cpu.o" lastModified="145e0f45695"/>
-         <source file="..\obj\control_tasks.o" lastModified="145e0ff3135"/>
-         <source file="..\obj\systick.o" lastModified="145e0f4577b"/>
+      <target file="SemProjekt_RTCS.elf" lastModified="145e1a97c0c">
+         <source file="..\obj\spi.o" lastModified="145e1a851b4"/>
+         <source file="..\obj\control_position_tilt.o" lastModified="145e1a971f0"/>
+         <source file="..\obj\main.o" lastModified="145e1a972f4"/>
+         <source file="..\obj\communication_task.o" lastModified="145e1a9739b"/>
+         <source file="..\obj\uartprintf.o" lastModified="145e1a8577a"/>
+         <source file="..\obj\gpio.o" lastModified="145e1a973ea"/>
+         <source file="..\obj\schedule.o" lastModified="145e1a9743f"/>
+         <source file="..\obj\startup_lm3s.o" lastModified="145e19f4213"/>
+         <source file="..\obj\control_position_pan.o" lastModified="145e1a9761e"/>
+         <source file="..\obj\queue.o" lastModified="145e1a85ae0"/>
+         <source file="..\obj\debug.o" lastModified="145e1a9765d"/>
+         <source file="..\obj\cpu.o" lastModified="145e19f47b4"/>
+         <source file="..\obj\control_speed_pan.o" lastModified="145e1a977fb"/>
+         <source file="..\obj\control_speed_tilt.o" lastModified="145e1a97996"/>
+         <source file="..\obj\systick.o" lastModified="145e19ffef3"/>
       </target>
    </processor>
 </history>

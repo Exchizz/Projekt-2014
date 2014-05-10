@@ -167,6 +167,23 @@ extern void INIT_TASK7(void);
 extern void TASK7(void);
 #endif
 
+#if (LAST_TASK >= 8)
+extern void INIT_TASK8(void);
+extern void TASK8(void);
+#endif
+
+
+#if (LAST_TASK >= 9)
+extern void INIT_TASK9(void);
+extern void TASK9(void);
+#endif
+
+
+#if (LAST_TASK >= 10)
+extern void INIT_TASK10(void);
+extern void TASK10(void);
+#endif
+
 
 /****************************** End Of Module *******************************/
 #endif

@@ -39,6 +39,14 @@ void QueueSend(INT8U QueueHandle, INT16U *data){
 }
 
 
+BOOLEAN QueuePeek(INT8U QueueHandle, INT16U * dataOut){
+	INT8U retval = FALSE;
+	if(Queue[QueueHandle].rw == FULL){
+		*dataOut = Queue[QueueHandle].data;
+		retval = TRUE;
+	}
+	return retval;
+}
 
 void QueueOverwrite(INT8U QueueHandle, INT16U* data){
 	if(QueueHandle < QUEUESIZE){
