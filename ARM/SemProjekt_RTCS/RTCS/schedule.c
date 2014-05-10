@@ -77,6 +77,18 @@ void (*init_task[LAST_TASK+1])(void) = \
 #if (LAST_TASK >= 7)
 , INIT_TASK7 
 #endif
+
+#if (LAST_TASK >= 8)
+, INIT_TASK8
+#endif
+
+#if (LAST_TASK >= 9)
+, INIT_TASK9
+#endif
+
+#if (LAST_TASK >= 10)
+, INIT_TASK10
+#endif
 };
 
  
@@ -108,6 +120,15 @@ void (*task[LAST_TASK+1])(void) = \
 #endif
 #if (LAST_TASK >= 7)
 , TASK7 
+#endif
+#if (LAST_TASK >= 8)
+, TASK8
+#endif
+#if (LAST_TASK >= 9)
+, TASK9
+#endif
+#if (LAST_TASK >= 10)
+, TASK10
 #endif
 };
 

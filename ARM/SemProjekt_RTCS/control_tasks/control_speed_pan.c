@@ -18,7 +18,7 @@
  *****************************************************************************/
 
 /***************************** Include files ********************************/
-#include "control_tasks.h"
+#include "control_tasks/control_speed_tilt.h"
 /*****************************    Defines    ********************************/
 #define NORMAL 0
 #define DEBUGINFO 1
@@ -26,22 +26,23 @@
 
 #define RUN_MODE PLOTSPEED //
 
-#define PID_RUN_INTERVAL 10 // ticks
-#define PID_SPEED_CALC_INTERVAL 4  // length of time over which the speed is averaged as a multiple of PID_RUN_INTERVAL
+#define PID_RUN_INTERVAL 50 // ticks
+#define PID_SPEED_CALC_INTERVAL 2  // length of time over which the speed is averaged as a multiple of PID_RUN_INTERVAL
 
-#define Kp 0.14
-#define Kd 0.005
-#define Ki 0
+#define Kp 0.13
+#define Ki 0.0015
+#define Kd 0.045
+
 
 
 /*****************************   Constants   ********************************/
 /*****************************   Variables   ********************************/
 /*****************************   Functions   ********************************/
-void init_tilt_control_task(){
-  _start(TILT_CONTROL_TASK, MILLI_SEC(0));
+void init_pan_speed_task(){
+  _start(TILT_SPEED_TASK, MILLI_SEC(0));
 }
 
-void tilt_control_task()
+void pan_speed_task()
 /*****************************************************************************
  *   Input    : 	-
  *   Output   : 	-
@@ -79,7 +80,15 @@ void tilt_control_task()
   if(!(--pid_interval_counter)){
     pid_interval_counter = PID_RUN_INTERVAL;
 
-    // get position
+    //get speed
+   // QueueReceive(QueueTiltSpeed, &set_speed_tilt);
+
+#if (RUN_MODE == DEBUGINFO)
+    UARTprintf("ss: %d\r\n", set_speed_tilt);
+#endif
+
+
+    // get position and empty QueuePositionTILT-queue
     QueueReceive(QueuePositionTILT, &current_position);
 
     // save positions
@@ -102,10 +111,16 @@ void tilt_control_task()
     // error calc
     error = set_speed_tilt - current_speed;
     Derror = (error - last_error)*dt;
-    Ierror += error/dt;
+    Ierror += error;
 
+    if(Ierror > 100*dt){
+    	Ierror = 100*dt;
+    }
+    else if(Ierror < -100*dt){
+    	Ierror = -100*dt;
+    }
     // calculate PID
-    set_pwm = error*Kp + Derror*Kd + Ierror*Ki;
+    set_pwm = error*Kp + Derror*Kd + (Ierror*Ki)/dt;
     set_pwm += last_pwm;
 
     // limit pwm
@@ -138,7 +153,7 @@ void tilt_control_task()
 
 #if (RUN_MODE == PLOTSPEED)
     if(--i == 0){
-      i = 5;
+      i = 4;
       UARTCharPut(0,'|');
       UARTCharPut(0, current_speed>> 8);
       UARTCharPut(0, current_speed);

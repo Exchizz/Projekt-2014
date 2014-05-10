@@ -1,41 +1,55 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <history>
-   <processor signature="arm-none-eabi-gcc noversion nomachine -mcpu=cortex-m3 -mthumb -Wall -ffunction-sections -g -O0 -c -DLM3S6965 -I..\..\..\..\..\Users\Lukas Schwartz\Documents\GitHub\Projekt-2014\ARM\SemProjekt_RTCS\controller -I..\..\..\..\..\Users\Lukas Schwartz\Documents\GitHub\Projekt-2014\ARM\SemProjekt_RTCS\debug -I..\..\..\..\..\Users\Lukas Schwartz\Documents\GitHub\Projekt-2014\ARM\SemProjekt_RTCS\cpu -I..\..\..\..\..\Users\Lukas Schwartz\Documents\GitHub\Projekt-2014\ARM\SemProjekt_RTCS\RTCS -I..\..\..\..\..\Users\Lukas Schwartz\Documents\GitHub\Projekt-2014\ARM\SemProjekt_RTCS\uart -I..\..\..\..\..\Users\Lukas Schwartz\Documents\GitHub\Projekt-2014\ARM -I..\..\..\..\..\Users\Lukas Schwartz\Documents\GitHub\Projekt-2014\ARM\SemProjekt_RTCS\GPIO -I..\..\..\..\..\Users\Lukas Schwartz\Documents\GitHub\Projekt-2014\ARM\SemProjekt_RTCS\spi -I..\..\..\..\..\Users\Lukas Schwartz\Documents\GitHub\Projekt-2014\ARM\SemProjekt_RTCS\control_tasks -I..\..\..\..\..\Users\Lukas Schwartz\Documents\GitHub\Projekt-2014\ARM\SemProjekt_RTCS\systick -I..\..\..\..\..\Users\Lukas Schwartz\Documents\GitHub\Projekt-2014\ARM\SemProjekt_RTCS\queue -I..\..\..\..\..\Users\Lukas Schwartz\Documents\GitHub\Projekt-2014\ARM\SemProjekt_RTCS">
-      <target file="queue.o" lastModified="145e0f455eb">
-         <source file="..\..\..\queue\queue.c" lastModified="145daac1fa2"/>
+   <processor signature="arm-none-eabi-gcc noversion nomachine -mcpu=cortex-m3 -mthumb -Wall -ffunction-sections -g -O0 -c -DLM3S6965 -I..\..\..\..\..\Users\exchizz\Desktop\SemProjekt_RTCS\cpu -I..\..\..\..\..\Users\exchizz\Desktop\SemProjekt_RTCS\queue -I..\..\..\..\..\Users\exchizz\Desktop\SemProjekt_RTCS\systick -I..\..\..\..\..\Users\exchizz\Desktop -I..\..\..\..\..\Users\exchizz\Desktop\SemProjekt_RTCS\uart -I..\..\..\..\..\Users\exchizz\Desktop\SemProjekt_RTCS\spi -I..\..\..\..\..\Users\exchizz\Desktop\SemProjekt_RTCS\RTCS -I..\..\..\..\..\Users\exchizz\Desktop\SemProjekt_RTCS -I..\..\..\..\..\Users\exchizz\Desktop\SemProjekt_RTCS\debug -I..\..\..\..\..\Users\exchizz\Desktop\SemProjekt_RTCS\GPIO -I..\..\..\..\..\Users\exchizz\Desktop\SemProjekt_RTCS\communication -I..\..\..\..\..\Users\exchizz\Desktop\SemProjekt_RTCS\control_tasks">
+      <target file="queue.o" lastModified="145e1a85ae0">
+         <source file="..\..\..\queue\queue.c" lastModified="145e0da556a"/>
       </target>
-      <target file="control_tasks.o" lastModified="145e0ff3135">
-         <source file="..\..\..\control_tasks\control_tasks.c" lastModified="145e0fe9667"/>
+      <target file="control_speed_tilt.o" lastModified="145e1a97996">
+         <source file="..\..\..\control_tasks\control_speed_tilt.c" lastModified="145e1944aca"/>
       </target>
-      <target file="systick.o" lastModified="145e0f4577b">
-         <source file="..\..\..\systick\systick.c" lastModified="145daac1ff9"/>
+      <target file="communication_task.o" lastModified="145e1a9739b">
+         <source file="..\..\..\communication\communication_task.c" lastModified="145e0bb32eb"/>
       </target>
-      <target file="schedule.o" lastModified="145e0f45537">
-         <source file="..\..\..\RTCS\schedule.c" lastModified="145daac1f46"/>
+      <target file="control_position_pan.o" lastModified="145e1a9761e">
+         <source file="..\..\..\control_tasks\control_position_pan.c" lastModified="145e1a41730"/>
       </target>
-      <target file="startup_lm3s.o" lastModified="145e0f45587">
-         <source file="..\..\..\startup\startup_lm3s.c" lastModified="145daac1ff8"/>
+      <target file="systick.o" lastModified="145e19ffef3">
+         <source file="..\..\..\systick\systick.c" lastModified="145bbfbab29"/>
       </target>
-      <target file="debug.o" lastModified="145e0f4563b">
-         <source file="..\..\..\debug\debug.c" lastModified="145daac1f7c"/>
+      <target file="schedule.o" lastModified="145e1a9743f">
+         <source file="..\..\..\RTCS\schedule.c" lastModified="145e19c0c11"/>
       </target>
-      <target file="main.o" lastModified="145e0f45401">
-         <source file="..\..\..\main.c" lastModified="145daac1fa0"/>
+      <target file="control_position_tilt.o" lastModified="145e1a971f0">
+         <source file="..\..\..\control_tasks\control_position_tilt.c" lastModified="145e19835b2"/>
       </target>
-      <target file="uartprintf.o" lastModified="145e0f45483">
-         <source file="..\..\..\uart\uartprintf.c" lastModified="145daac1fff"/>
+      <target file="startup_lm3s.o" lastModified="145e19f4213">
+         <source file="..\..\..\startup\startup_lm3s.c" lastModified="144abbb1b10"/>
       </target>
-      <target file="gpio.o" lastModified="145e0f454d3">
-         <source file="..\..\..\GPIO\gpio.c" lastModified="145daac1f40"/>
+      <target file="debug.o" lastModified="145e1a9765d">
+         <source file="..\..\..\debug\debug.c" lastModified="145d3262f4c"/>
       </target>
-      <target file="spi.o" lastModified="145e0f4531b">
-         <source file="..\..\..\spi\spi.c" lastModified="145daac1ff5"/>
+      <target file="main.o" lastModified="145e1a972f4">
+         <source file="..\..\..\main.c" lastModified="145e1a936a1"/>
       </target>
-      <target file="controller_task.o" lastModified="145e0f45389">
-         <source file="..\..\..\controller\controller_task.c" lastModified="145daac1f76"/>
+      <target file="uartprintf.o" lastModified="145e1a8577a">
+         <source file="..\..\..\uart\uartprintf.c" lastModified="145c8ac8f88"/>
       </target>
-      <target file="cpu.o" lastModified="145e0f45695">
-         <source file="..\..\..\cpu\cpu.c" lastModified="145daac1f79"/>
+      <target file="gpio.o" lastModified="145e1a973ea">
+         <source file="..\..\..\GPIO\gpio.c" lastModified="145d3073344"/>
+      </target>
+      <target file="cpu.o" lastModified="145e19f47b4">
+         <source file="..\..\..\cpu\cpu.c" lastModified="12725983b70"/>
+      </target>
+      <target file="spi.o" lastModified="145e1a851b4">
+         <source file="..\..\..\spi\spi.c" lastModified="145cd875875"/>
+      </target>
+      <target file="control_speed_pan.o" lastModified="145e1a977fb">
+         <source file="..\..\..\control_tasks\control_speed_pan.c" lastModified="145e1a0f0ef"/>
+      </target>
+   </processor>
+   <processor signature="arm-none-eabi-gcc noversion nomachine -mcpu=cortex-m3 -mthumb -Wall -ffunction-sections -g -O0 -c -DLM3S6965 -I..\..\..\..\..\Users\exchizz\Desktop\SemProjekt_RTCS\cpu -I..\..\..\..\..\Users\exchizz\Desktop\SemProjekt_RTCS\queue -I..\..\..\..\..\Users\exchizz\Desktop\SemProjekt_RTCS\systick -I..\..\..\..\..\Users\exchizz\Desktop -I..\..\..\..\..\Users\exchizz\Desktop\SemProjekt_RTCS\uart -I..\..\..\..\..\Users\exchizz\Desktop\SemProjekt_RTCS\spi -I..\..\..\..\..\Users\exchizz\Desktop\SemProjekt_RTCS\RTCS -I..\..\..\..\..\Users\exchizz\Desktop\SemProjekt_RTCS -I..\..\..\..\..\Users\exchizz\Desktop\SemProjekt_RTCS\debug -I..\..\..\..\..\Users\exchizz\Desktop\SemProjekt_RTCS\GPIO -I..\..\..\..\..\Users\exchizz\Desktop\SemProjekt_RTCS\control_tasks -I..\..\..\..\..\Users\exchizz\Desktop\SemProjekt_RTCS\communication">
+      <target file="control_tasks.o" lastModified="145e0bb802c">
+         <source file="..\..\..\control_tasks\control_tasks.c" lastModified="145e0b44ad9"/>
       </target>
    </processor>
 </history>
