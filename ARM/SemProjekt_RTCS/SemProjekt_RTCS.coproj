@@ -79,28 +79,28 @@
     <File name="communiction" path="" type="2"/>
     <File name="queue/queue.h" path="queue/queue.h" type="1"/>
     <File name="spi/spi.h" path="spi/spi.h" type="1"/>
-    <File name="debug/debug.h" path="debug/debug.h" type="1"/>
     <File name="RTCS/rtcs.h" path="RTCS/rtcs.h" type="1"/>
+    <File name="debug/debug.h" path="debug/debug.h" type="1"/>
     <File name="queue" path="" type="2"/>
     <File name="control_tasks/pan/control_position_pan.h" path="control_tasks/control_position_pan.h" type="1"/>
     <File name="uart/uartprintf.c" path="uart/uartprintf.c" type="1"/>
     <File name="control_tasks/tilt/control_position_tilt.c" path="control_tasks/control_position_tilt.c" type="1"/>
-    <File name="debug" path="" type="2"/>
     <File name="spi/spi.c" path="spi/spi.c" type="1"/>
+    <File name="debug" path="" type="2"/>
     <File name="GPIO" path="" type="2"/>
-    <File name="queue/queue.c" path="queue/queue.c" type="1"/>
     <File name="GPIO/gpio.h" path="GPIO/gpio.h" type="1"/>
+    <File name="queue/queue.c" path="queue/queue.c" type="1"/>
     <File name="cpu/cpu.h" path="cpu/cpu.h" type="1"/>
     <File name="RTCS" path="" type="2"/>
     <File name="startup/startup_lm3s.c" path="startup/startup_lm3s.c" type="1"/>
     <File name="control_tasks/pan" path="" type="2"/>
     <File name="cpu" path="" type="2"/>
-    <File name="control_tasks" path="" type="2"/>
     <File name="control_tasks/tilt" path="" type="2"/>
-    <File name="control_tasks/pan/control_speed_pan.c" path="control_tasks/control_speed_pan.c" type="1"/>
+    <File name="control_tasks" path="" type="2"/>
     <File name="RTCS/schedule.c" path="RTCS/schedule.c" type="1"/>
-    <File name="systick/systick.h" path="systick/systick.h" type="1"/>
+    <File name="control_tasks/pan/control_speed_pan.c" path="control_tasks/control_speed_pan.c" type="1"/>
     <File name="communiction/communiction_task.c" path="communication/communication_task.c" type="1"/>
+    <File name="systick/systick.h" path="systick/systick.h" type="1"/>
     <File name="control_tasks/tilt/control_speed_tilt.h" path="control_tasks/control_speed_tilt.h" type="1"/>
     <File name="communiction/comunication_task.h" path="communication/communication_task.h" type="1"/>
     <File name="uart" path="" type="2"/>
