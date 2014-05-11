@@ -28,6 +28,6 @@ INT8U QueuePositionPAN;
 INT8U QueuePositionTILT;
 INT8U QueuePWMOutTilt;
 /*****************************   Functions   *******************************/
-void init_controller_task();
-void controller_task();
+void init_communication_task();
+void communication_task();
 /****************************** End Of Module *******************************/

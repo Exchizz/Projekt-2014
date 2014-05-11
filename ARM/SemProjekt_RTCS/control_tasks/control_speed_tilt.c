@@ -89,7 +89,7 @@ void tilt_speed_task()
 
 
     // get position and empty QueuePositionTILT-queue
-    QueueReceive(QueuePositionTILT, &current_position);
+    QueuePeek(QueuePositionTILT, &current_position);
 
     // save positions
     for (var = 0; var < (PID_SPEED_CALC_INTERVAL); ++var) {

@@ -25,9 +25,9 @@
 #define PLOTPOSITION 2
 
 #define RUN_MODE NORMAL //
+#define  defaultPositionTilt 500
 
 #define PID_RUN_INTERVAL 20 // ticks
-#define POSITION_SETPOINT	500
 
 #define Kp 0.5 //0.5
 #define Ki 3 //1
@@ -55,6 +55,8 @@ void tilt_position_task()
   static INT32S Ierror = 0;
   static INT16U pid_interval_counter = PID_RUN_INTERVAL;
 
+  INT16U goToPosition = 0;
+
   INT16U dt = 1000/(PID_RUN_INTERVAL*T_TICK);
   INT16S set_speed = 0;
   static INT8U i = 0;
@@ -63,9 +65,12 @@ void tilt_position_task()
   if(!(--pid_interval_counter)){
     pid_interval_counter = PID_RUN_INTERVAL;
 
-    // get position
+    // get positions
     QueuePeek(QueuePositionTILT, &current_position);
-    error = POSITION_SETPOINT - current_position;
+    if (!QueuePeek(QueueGoToPositionTILT, &goToPosition)) {
+      goToPosition = defaultPositionTilt;
+    }
+    error = goToPosition - current_position;
 
     //shortest path correction(untested)
     if(error > 540){
