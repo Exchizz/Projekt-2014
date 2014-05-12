@@ -41,6 +41,7 @@
 // Task number of LAST task
 #define LAST_TASK					10
 
+<<<<<<< HEAD
 #define TASK0                   communication_task
 #define TASK1                   SPI_TX_task
 #define TASK2                   SPI_RX_task
@@ -66,6 +67,32 @@
 #define INIT_TASK9      	init_pan_position_task
 #define INIT_TASK10      	init_pan_speed_task
 
+=======
+#define TASK0         		alive_task
+#define TASK1         		UART_TX_task
+#define TASK2         		UART_RX_task
+#define TASK3         		communication_task
+#define TASK4         		SPI_RX_task
+#define TASK5         		SPI_TX_task
+#define TASK6         		tilt_position_task
+#define TASK7         		tilt_speed_task
+#define TASK8         		pan_position_task
+#define TASK9         		pan_speed_task
+#define TASK10                  converter_task
+
+
+#define INIT_TASK0   		init_alive_task
+#define INIT_TASK1      	init_uart_tx_task
+#define INIT_TASK2      	init_uart_rx_task
+#define INIT_TASK3      	init_communication_task
+#define INIT_TASK4      	init_SPI_RX_task
+#define INIT_TASK5      	init_SPI_TX_task
+#define INIT_TASK6      	init_tilt_position_task
+#define INIT_TASK7      	init_tilt_speed_task
+#define INIT_TASK8      	init_pan_position_task
+#define INIT_TASK9      	init_pan_speed_task
+#define INIT_TASK10             init_converter_task
+>>>>>>> 5d11c643c221213a8a1eea6260b681a713be2bfa
 
 
 //
@@ -74,6 +101,7 @@
 //
 //      #define MY_TASK   0
 
+<<<<<<< HEAD
 #define COMMUNICATION_TASK              0
 #define SPI_TX_TASK                     1
 #define SPI_RX_TASK                     2
@@ -86,6 +114,19 @@
 #define PAN_POSITION_TASK		9
 #define PAN_SPEED_TASK			10
 
+=======
+#define ALIVE_TASK			0
+#define UART_TX_TASK			1
+#define UART_RX_TASK			2
+#define COMMUNICATION_TASK		3
+#define SPI_RX_TASK			4
+#define SPI_TX_TASK		        5
+#define TILT_POSITION_TASK		6
+#define TILT_SPEED_TASK			7
+#define PAN_POSITION_TASK		8
+#define PAN_SPEED_TASK			9
+#define CONVERTER_TASK                  10
+>>>>>>> 5d11c643c221213a8a1eea6260b681a713be2bfa
 
 
 

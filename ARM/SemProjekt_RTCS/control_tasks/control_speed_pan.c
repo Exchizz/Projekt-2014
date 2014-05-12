@@ -86,8 +86,13 @@ void pan_speed_task()
 #endif
 
 
+<<<<<<< HEAD
     // get position
     QueuePeek(QueuePositionPan, &current_position);
+=======
+    // get position and empty QueuePositionTILT-queue
+    QueuePeek(QueuePositionTILT, &current_position);
+>>>>>>> 5d11c643c221213a8a1eea6260b681a713be2bfa
 
     // save positions
     for (var = 0; var < (PID_SPEED_CALC_INTERVAL); ++var) {

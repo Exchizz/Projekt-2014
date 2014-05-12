@@ -30,7 +30,11 @@
 #define STOP_BAND_STOP 860 // ^... stops (840)
 
 #define PID_RUN_INTERVAL 20 // ticks
+<<<<<<< HEAD
 #define  defaultPositionPan 0
+=======
+#define  defaultPositionPAN 500
+>>>>>>> 5d11c643c221213a8a1eea6260b681a713be2bfa
 
 #define Kp 0.5 //0.5
 #define Ki 3 //1
@@ -61,8 +65,13 @@ void pan_position_task()
   static INT16U pid_interval_counter = PID_RUN_INTERVAL;
 
   INT16U goToPosition = 0;
+<<<<<<< HEAD
   static INT16U lastGoToPosition = 0;
 
+=======
+
+  INT16U dt = 1000/(PID_RUN_INTERVAL*T_TICK);
+>>>>>>> 5d11c643c221213a8a1eea6260b681a713be2bfa
   INT16S set_speed = 0;
   static INT8U i = 0;
 
@@ -71,6 +80,7 @@ void pan_position_task()
     pid_interval_counter = PID_RUN_INTERVAL;
 
     // get position
+<<<<<<< HEAD
     QueuePeek(QueuePositionPan, &current_position);
     if (!QueuePeek(QueueGoToPositionPan, &goToPosition)) {
       goToPosition = defaultPositionPan;
@@ -92,6 +102,12 @@ void pan_position_task()
       lastGoToPosition = goToPosition;
     }
     */
+=======
+    QueuePeek(QueuePositionTILT, &current_position);
+    if (!QueuePeek(QueueGoToPositionPAN, &goToPosition)) {
+          goToPosition = defaultPositionPAN;
+        }
+>>>>>>> 5d11c643c221213a8a1eea6260b681a713be2bfa
     error = goToPosition - current_position;
 
     //shortest path correction(untested)
