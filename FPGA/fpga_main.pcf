@@ -1,5 +1,5 @@
 //! **************************************************************************
-// Written by: Map P.20131013 on Fri May 09 13:55:11 2014
+// Written by: Map P.20131013 on Mon May 12 13:27:25 2014
 //! **************************************************************************
 
 SCHEMATIC START;
@@ -21,8 +21,8 @@ COMP "AN<0>" LOCATE = SITE "P34" LEVEL 1;
 COMP "AN<1>" LOCATE = SITE "P33" LEVEL 1;
 COMP "AN<2>" LOCATE = SITE "P32" LEVEL 1;
 COMP "AN<3>" LOCATE = SITE "P26" LEVEL 1;
-COMP "BTN<0>" LOCATE = SITE "P69" LEVEL 1;
 COMP "LED<0>" LOCATE = SITE "P15" LEVEL 1;
+COMP "BTN<0>" LOCATE = SITE "P69" LEVEL 1;
 COMP "BTN<1>" LOCATE = SITE "P48" LEVEL 1;
 COMP "LED<1>" LOCATE = SITE "P14" LEVEL 1;
 COMP "LED<2>" LOCATE = SITE "P8" LEVEL 1;
