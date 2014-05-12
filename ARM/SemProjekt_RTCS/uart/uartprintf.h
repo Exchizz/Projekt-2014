@@ -23,8 +23,8 @@
 /***************************** Include files *******************************/
 
 /*****************************    Defines    *******************************/
-int QueueUARTTX;
-int QueueUARTRX;
+INT8U QueueUARTTX;
+INT8U QueueUARTRX;
 
 #define RX	0
 #define TX	1

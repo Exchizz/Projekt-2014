@@ -24,10 +24,11 @@
 /*****************************    Defines    *******************************/
 /*****************************   Constants   *******************************/
 /*****************************   Variables   *******************************/
-INT8U QueuePositionPAN;
-INT8U QueuePositionTILT;
+INT8U QueuePositionPan;
+INT8U QueuePositionTilt;
 INT8U QueuePWMOutTilt;
+INT8U QueuePWMOutPan;
 /*****************************   Functions   *******************************/
-void init_controller_task();
-void controller_task();
+void init_communication_task();
+void communication_task();
 /****************************** End Of Module *******************************/
