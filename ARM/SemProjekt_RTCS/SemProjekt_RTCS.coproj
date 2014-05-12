@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<Project version="2G" name="Target">
-  <Target name="Target" isCurrent="1">
-    <Device manufacturerId="" manufacturerName="" chipId="" chipName="" boardId="" boardName=""/>
+<Project version="2G - 1.7.6" name="SemProjekt_RTCS">
+  <Target name="SemProjekt_RTCS" isCurrent="1">
+    <Device manufacturerId="6" manufacturerName="TI" chipId="120" chipName="LM3S6965" boardId="" boardName=""/>
     <BuildOption>
       <Compile>
         <Option name="OptimizationLevel" value="0"/>
@@ -11,24 +11,31 @@
         <Includepaths>
           <Includepath path="."/>
         </Includepaths>
-        <DefinedSymbols/>
+        <DefinedSymbols>
+          <Define name="LM3S6965"/>
+        </DefinedSymbols>
       </Compile>
       <Link useDefault="0">
         <Option name="DiscardUnusedSection" value="0"/>
         <Option name="UserEditLinkder" value=""/>
         <Option name="UseMemoryLayout" value="1"/>
         <Option name="nostartfiles" value="1"/>
+        <Option name="LTO" value="0"/>
+        <Option name="IsNewStartupCode" value="1"/>
+        <Option name="Library" value="Semihosting"/>
         <LinkedLibraries/>
         <MemoryAreas debugInFlashNotRAM="1">
           <Memory name="IROM1" type="ReadOnly" size="0x00040000" startValue="0x00000000"/>
           <Memory name="IRAM1" type="ReadWrite" size="0x00010000" startValue="0x20000000"/>
+          <Memory name="IROM2" type="ReadOnly" size="" startValue=""/>
+          <Memory name="IRAM2" type="ReadWrite" size="" startValue=""/>
         </MemoryAreas>
-        <LocateLinkFile path="link.ld" type="0"/>
+        <LocateLinkFile path="../../../../../../../coocox/coide/configuration/programdata/semprojekt_rtcs/arm-gcc-link.ld" type="0"/>
       </Link>
       <Output>
         <Option name="OutputFileType" value="0"/>
-        <Option name="Path" value=""/>
-        <Option name="Name" value=""/>
+        <Option name="Path" value="./"/>
+        <Option name="Name" value="SemProjekt_RTCS"/>
         <Option name="HEX" value="1"/>
         <Option name="BIN" value="1"/>
       </Output>
@@ -37,9 +44,76 @@
         <UserRun name="Run#1" type="After" checked="0" value=""/>
       </User>
     </BuildOption>
-    <DebugOption/>
+    <DebugOption>
+      <Option name="org.coocox.codebugger.gdbjtag.core.adapter" value="Stellaris-ICDI"/>
+      <Option name="org.coocox.codebugger.gdbjtag.core.debugMode" value="JTAG"/>
+      <Option name="org.coocox.codebugger.gdbjtag.core.clockDiv" value="500K"/>
+      <Option name="org.coocox.codebugger.gdbjtag.corerunToMain" value="1"/>
+      <Option name="org.coocox.codebugger.gdbjtag.core.jlinkgdbserver" value=""/>
+      <Option name="org.coocox.codebugger.gdbjtag.core.userDefineGDBScript" value=""/>
+      <Option name="org.coocox.codebugger.gdbjtag.core.targetEndianess" value="0"/>
+      <Option name="org.coocox.codebugger.gdbjtag.core.jlinkResetMode" value="Type 0: Normal"/>
+      <Option name="org.coocox.codebugger.gdbjtag.core.resetMode" value="SYSRESETREQ"/>
+      <Option name="org.coocox.codebugger.gdbjtag.core.ifSemihost" value="0"/>
+      <Option name="org.coocox.codebugger.gdbjtag.core.ifCacheRom" value="1"/>
+      <Option name="org.coocox.codebugger.gdbjtag.core.ipAddress" value="127.0.0.1"/>
+      <Option name="org.coocox.codebugger.gdbjtag.core.portNumber" value="2009"/>
+      <Option name="org.coocox.codebugger.gdbjtag.core.autoDownload" value="1"/>
+      <Option name="org.coocox.codebugger.gdbjtag.core.verify" value="1"/>
+      <Option name="org.coocox.codebugger.gdbjtag.core.downloadFuction" value="Erase Effected"/>
+      <Option name="org.coocox.codebugger.gdbjtag.core.defaultAlgorithm" value="LM3S_256.elf"/>
+    </DebugOption>
     <ExcludeFile/>
   </Target>
-  <Components path="./"/>
-  <Files/>
+  <Components path="./">
+    <Component id="200" name="BOOTLOADER" path="" type="2"/>
+  </Components>
+  <Files>
+    <File name="control_tasks/tilt/control_speed_tilt.c" path="control_tasks/control_speed_tilt.c" type="1"/>
+    <File name="uart/uartprintf.h" path="uart/uartprintf.h" type="1"/>
+    <File name="cpu/cpu.c" path="cpu/cpu.c" type="1"/>
+    <File name="control_tasks/pan/control_speed_pan.h" path="control_tasks/control_speed_pan.h" type="1"/>
+    <File name="systick/systick.c" path="systick/systick.c" type="1"/>
+    <File name="GPIO/gpio.c" path="GPIO/gpio.c" type="1"/>
+    <File name="communiction" path="" type="2"/>
+    <File name="RTCS/rtcscnf.h" path="RTCS/rtcscnf.h" type="1"/>
+    <File name="queue/queue.h" path="queue/queue.h" type="1"/>
+    <File name="spi/spi.h" path="spi/spi.h" type="1"/>
+    <File name="Converter/converter.c" path="Converter/converter.c" type="1"/>
+    <File name="RTCS/rtcs.h" path="RTCS/rtcs.h" type="1"/>
+    <File name="debug/debug.h" path="debug/debug.h" type="1"/>
+    <File name="queue" path="" type="2"/>
+    <File name="control_tasks/pan/control_position_pan.h" path="control_tasks/control_position_pan.h" type="1"/>
+    <File name="uart/uartprintf.c" path="uart/uartprintf.c" type="1"/>
+    <File name="control_tasks/tilt/control_position_tilt.c" path="control_tasks/control_position_tilt.c" type="1"/>
+    <File name="debug" path="" type="2"/>
+    <File name="spi/spi.c" path="spi/spi.c" type="1"/>
+    <File name="GPIO" path="" type="2"/>
+    <File name="GPIO/gpio.h" path="GPIO/gpio.h" type="1"/>
+    <File name="queue/queue.c" path="queue/queue.c" type="1"/>
+    <File name="cpu/cpu.h" path="cpu/cpu.h" type="1"/>
+    <File name="Converter/converter.h" path="Converter/converter.h" type="1"/>
+    <File name="startup/startup_lm3s.c" path="startup/startup_lm3s.c" type="1"/>
+    <File name="RTCS" path="" type="2"/>
+    <File name="control_tasks" path="" type="2"/>
+    <File name="control_tasks/tilt" path="" type="2"/>
+    <File name="cpu" path="" type="2"/>
+    <File name="control_tasks/pan" path="" type="2"/>
+    <File name="RTCS/schedule.c" path="RTCS/schedule.c" type="1"/>
+    <File name="control_tasks/pan/control_speed_pan.c" path="control_tasks/control_speed_pan.c" type="1"/>
+    <File name="control_tasks/tilt/control_speed_tilt.h" path="control_tasks/control_speed_tilt.h" type="1"/>
+    <File name="communiction/communiction_task.c" path="communication/communication_task.c" type="1"/>
+    <File name="systick/systick.h" path="systick/systick.h" type="1"/>
+    <File name="communiction/comunication_task.h" path="communication/communication_task.h" type="1"/>
+    <File name="uart" path="" type="2"/>
+    <File name="spi" path="" type="2"/>
+    <File name="control_tasks/tilt/control_position_tilt.h" path="control_tasks/control_position_tilt.h" type="1"/>
+    <File name="uart/uartcnf.h" path="uart/uartcnf.h" type="1"/>
+    <File name="Converter" path="" type="2"/>
+    <File name="startup" path="" type="2"/>
+    <File name="debug/debug.c" path="debug/debug.c" type="1"/>
+    <File name="control_tasks/pan/control_position_pan.c" path="control_tasks/control_position_pan.c" type="1"/>
+    <File name="systick" path="" type="2"/>
+    <File name="main.c" path="main.c" type="1"/>
+  </Files>
 </Project>

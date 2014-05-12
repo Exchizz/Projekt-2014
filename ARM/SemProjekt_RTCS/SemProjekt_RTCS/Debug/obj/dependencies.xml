@@ -17,11 +17,7 @@
       <source file="..\..\..\inc\binary.h" lastModified="145daac1f7f">
          <include file="..\..\..\inc\emp_type.h"/>
       </source>
-<<<<<<< HEAD
       <source file="..\..\..\queue\queue.h" lastModified="145efaae993">
-=======
-      <source file="..\..\..\queue\queue.h" lastModified="145e5705511">
->>>>>>> 5d11c643c221213a8a1eea6260b681a713be2bfa
          <include file="..\..\..\inc\lm3s6965.h"/>
          <include file="..\..\..\inc\emp_type.h"/>
          <include file="..\..\..\cpu\cpu.h"/>
@@ -56,15 +52,9 @@
       </source>
       <source file="..\..\..\debug\debug.c" lastModified="145daac1f7c">
          <include file="..\..\..\debug\debug.h"/>
-<<<<<<< HEAD
       </source>
       <source file="..\..\..\inc\lm3s6965.h" lastModified="145daac1f9f">
       </source>
-=======
-      </source>
-      <source file="..\..\..\inc\lm3s6965.h" lastModified="145daac1f9f">
-      </source>
->>>>>>> 5d11c643c221213a8a1eea6260b681a713be2bfa
       <source file="..\..\..\GPIO\gpio.c" lastModified="145daac1f40">
          <include file="..\..\..\GPIO\gpio.h"/>
       </source>
@@ -73,11 +63,7 @@
          <include file="..\..\..\inc\lm3s6965.h"/>
          <include file="..\..\..\queue\queue.h"/>
       </source>
-<<<<<<< HEAD
       <source file="..\..\..\communication\communication_task.h" lastModified="145f0189cb3">
-=======
-      <source file="..\..\..\communication\communication_task.h" lastModified="145eaa05f47">
->>>>>>> 5d11c643c221213a8a1eea6260b681a713be2bfa
          <include file="..\..\..\queue\queue.h"/>
          <include file="..\..\..\debug\debug.h"/>
          <include file="..\..\..\spi\spi.h"/>
@@ -86,7 +72,6 @@
          <include file="..\..\..\inc\emp_type.h"/>
          <include file="..\..\..\communication\communication_task.h"/>
          <include file="..\..\..\Converter\converter.h"/>
-<<<<<<< HEAD
       </source>
       <source file="..\..\..\control_tasks\control_speed_pan.h" lastModified="145f108e999">
          <include file="..\..\..\inc\emp_type.h"/>
@@ -102,39 +87,16 @@
       </source>
       <source file="..\..\..\control_tasks\control_speed_pan.c" lastModified="145f105b239">
          <include file="..\..\..\control_tasks\control_speed_pan.h"/>
-=======
-      </source>
-      <source file="..\..\..\spi\spi.c" lastModified="145daac1ff5">
-         <include file="..\..\..\spi\spi.h"/>
-         <include file="..\..\..\inc\binary.h"/>
-      </source>
-      <source file="..\..\..\control_tasks\control_position_tilt.c" lastModified="145eae14608">
-         <include file="..\..\..\control_tasks\control_position_tilt.h"/>
-      </source>
-      <source file="..\..\..\communication\communication_task.c" lastModified="145eaa26155">
-         <include file="..\..\..\communication\communication_task.h"/>
-      </source>
-      <source file="..\..\..\control_tasks\control_speed_pan.c" lastModified="145eb3be362">
-         <include file="..\..\..\control_tasks\control_speed_tilt.h"/>
->>>>>>> 5d11c643c221213a8a1eea6260b681a713be2bfa
       </source>
       <source file="..\..\..\uart\uartcnf.h" lastModified="145daac1ffe">
          <include file="..\..\..\cpu\cpu.h"/>
       </source>
-<<<<<<< HEAD
       <source file="..\..\..\control_tasks\control_position_pan.h" lastModified="145f00a4855">
-=======
-      <source file="..\..\..\control_tasks\control_position_pan.h" lastModified="145eb41eb91">
->>>>>>> 5d11c643c221213a8a1eea6260b681a713be2bfa
          <include file="..\..\..\inc\emp_type.h"/>
          <include file="..\..\..\communication\communication_task.h"/>
          <include file="..\..\..\Converter\converter.h"/>
       </source>
-<<<<<<< HEAD
       <source file="..\..\..\RTCS\rtcscnf.h" lastModified="145f0268252">
-=======
-      <source file="..\..\..\RTCS\rtcscnf.h" lastModified="145eb3f8559">
->>>>>>> 5d11c643c221213a8a1eea6260b681a713be2bfa
       </source>
       <source file="..\..\..\control_tasks\control_speed_tilt.h" lastModified="145e5705126">
          <include file="..\..\..\inc\emp_type.h"/>
@@ -144,16 +106,11 @@
       <source file="..\..\..\cpu\cpu.h" lastModified="145daac1f7b">
          <include file="..\..\..\inc\emp_type.h"/>
       </source>
-<<<<<<< HEAD
       <source file="..\..\..\Converter\converter.h" lastModified="145f018520d">
-=======
-      <source file="..\..\..\Converter\converter.h" lastModified="145eb3e5797">
->>>>>>> 5d11c643c221213a8a1eea6260b681a713be2bfa
          <include file="..\..\..\queue\queue.h"/>
       </source>
       <source file="..\..\..\inc\glob_def.h" lastModified="145daac1f82">
       </source>
-<<<<<<< HEAD
       <source file="..\..\..\control_tasks\control_position_pan.c" lastModified="145f0874ea1">
          <include file="..\..\..\control_tasks\control_position_pan.h"/>
       </source>
@@ -161,13 +118,6 @@
          <include file="..\..\..\control_tasks\control_speed_tilt.h"/>
       </source>
       <source file="..\..\..\uart\uartprintf.h" lastModified="145eaac2240">
-=======
-      <source file="..\..\..\control_tasks\control_position_pan.c" lastModified="145eb41348f">
-         <include file="..\..\..\control_tasks\control_position_pan.h"/>
-      </source>
-      <source file="..\..\..\control_tasks\control_speed_tilt.c" lastModified="145eb3b8098">
-         <include file="..\..\..\control_tasks\control_speed_tilt.h"/>
->>>>>>> 5d11c643c221213a8a1eea6260b681a713be2bfa
       </source>
       <source file="..\..\..\cpu\cpu.c" lastModified="145daac1f79">
          <include file="..\..\..\inc\lm3s6965.h"/>
@@ -178,17 +128,11 @@
       </source>
       <source file="..\..\..\inc\emp_type.h" lastModified="145daac1f81">
       </source>
-<<<<<<< HEAD
       <source file="..\..\..\Converter\converter.c" lastModified="145f01abd28">
          <include file="..\..\..\Converter\converter.h"/>
          <include file="..\..\..\communication\communication_task.h"/>
       </source>
       <source file="..\..\..\main.c" lastModified="145f016fc87">
-=======
-      <source file="..\..\..\uart\uartprintf.h" lastModified="145eaac2240">
-      </source>
-      <source file="..\..\..\main.c" lastModified="145e5705127">
->>>>>>> 5d11c643c221213a8a1eea6260b681a713be2bfa
          <include file="..\..\..\inc\lm3s6965.h"/>
          <include file="..\..\..\inc\emp_type.h"/>
          <include file="..\..\..\cpu\cpu.h"/>
