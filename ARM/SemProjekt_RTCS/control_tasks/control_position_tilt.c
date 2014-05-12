@@ -24,17 +24,14 @@
 #define DEBUGINFO 1
 #define PLOTPOSITION 2
 
-#define RUN_MODE DEBUGINFO //
+#define RUN_MODE NORMAL //
 #define  defaultPositionTilt 0
 
-#define PID_RUN_INTERVAL 40 // ticks
+#define PID_RUN_INTERVAL 20 // ticks
 
-#define Kp 1 //0.5
-#define Ki 0 //1
+#define Kp 0.5 //0.5
+#define Ki 3 //1
 #define Kd 0
-
-#define IDT_cpt (1000/(PID_RUN_INTERVAL*T_TICK))
-
 /*****************************   Constants   ********************************/
 /*****************************   Variables   ********************************/
 /*****************************   Functions   ********************************/
@@ -59,8 +56,8 @@ void tilt_position_task()
   static INT16U pid_interval_counter = PID_RUN_INTERVAL;
 
   INT16U goToPosition = 0;
-  static INT16U lastGoToPosition = 0;
 
+  INT16U dt = 1000/(PID_RUN_INTERVAL*T_TICK);
   INT16S set_speed = 0;
   static INT8U i = 0;
 
@@ -73,40 +70,27 @@ void tilt_position_task()
     if (!QueuePeek(QueueGoToPositionTilt, &goToPosition)) {
       goToPosition = defaultPositionTilt;
     }
-
-    /*
-        // if new position
-        if (lastGoToPosition != goToPosition) {
-          lastGoToPosition = goToPosition;
-        }
-     */
     error = goToPosition - current_position;
 
-    //shortest path correction
+    //shortest path correction(untested)
     if(error > 540){
-      error -= 1080;
+    	error -= 1080;
     }
     else if (error < -540) {
-      error += 1080;
-    }
-    Derror = (error - last_error)*IDT_cpt;
+		error += 1080;
+	}
+    Derror = (error - last_error)*dt;
     Ierror+=error;
 
-    if(Ierror > 200*IDT_cpt){
-    	Ierror = 200*IDT_cpt;
+    if(Ierror > 5*dt){
+    	Ierror = 5*dt;
     }
-    // lukas limit 200*IDT_cpt
-    else if(Ierror < -200*IDT_cpt){
-    	Ierror = -200*IDT_cpt;
+    // lukas limit 200*dt
+    else if(Ierror < -5*dt){
+    	Ierror = -5*dt;
     }
 
-#if (RUN_MODE == DEBUGINFO)
-    UARTprintf("GP:%d,er:%d,ie:%d,de:%d\r\n",goToPosition, error, (Ierror*Ki)/IDT_cpt, Derror);
-#endif
-
-    //set_speed = (error*Kp + (Ierror*Ki)/IDT_cpt + Derror*Kd);
-
-    set_speed = error*Kp;
+    set_speed = error*Kp + (Ierror*Ki)/dt + Derror*Kd;
 
     if(set_speed > 1500){
     	set_speed = 1500;
@@ -115,11 +99,6 @@ void tilt_position_task()
     	set_speed = - 1500;
     }
     QueueOverwrite(QueueTiltSpeed, &set_speed);
-
-#if (RUN_MODE == DEBUGINFO)
-    UARTprintf("WS:%d\r\n",set_speed);
-#endif
-
 
 #if (RUN_MODE == PLOTPOSITION)
   if(--i == 0){

@@ -116,53 +116,28 @@ void communication_task()
 
 	INT16U FromSPI,dataToSend = 0;
 	INT16U pwmTilt = 0;
-	INT16U pwmPan = 0;
 
-	// tilt
 	if(QueueReceive(QueuePWMOutTilt, &pwmTilt)){
-	  dataToSend = (0b10 << 10) | (pwmTilt & 0x3FF);
+		dataToSend = (0b10 << 10) | (pwmTilt & 0x3FF);
 	} else {
-	  dataToSend = 0;
+		dataToSend = 0;
 	}
 
 	QueueSend(QueueSPITX, &dataToSend);
 
 	if(QueueReceive(QueueSPIRX, &FromSPI)){
-	  //UARTprintf("data in: %X \r\n", (FromSPI>>8));
-	  if((FromSPI & 0b100000000000)){//pan
-	    FromSPI = FromSPI & 0b011111111111;
-	    QueueOverwrite(QueuePositionPan, &FromSPI);
-	    //UARTprintf("PAN Position: %X \t", FromSPI);
-	  } else {//tilt
-	    FromSPI = FromSPI & 0b011111111111;
-	    QueueOverwrite(QueuePositionTilt, &FromSPI);
-	    //UARTprintf("TILT Position: %X\r\n", FromSPI);
-	  }
+		//UARTprintf("data in: %X \r\n", (FromSPI>>8));
+		if((FromSPI & 0b100000000000)){//pan
+			FromSPI = FromSPI & 0b011111111111;
+			QueueOverwrite(QueuePositionPan, &FromSPI);
+			//UARTprintf("PAN Position: %X \t", FromSPI);
+		} else {//tilt
+			FromSPI = FromSPI & 0b011111111111;
+			QueueOverwrite(QueuePositionTilt, &FromSPI);
+			//UARTprintf("TILT Position: %X\r\n", FromSPI);
+		}
 	}
 
-	/*
-	// pan
-	if(QueueReceive(QueuePWMOutPan, &pwmPan)){
-	  dataToSend = (0b10 << 10) | (pwmPan & 0x3FF);
-	} else {
-	  dataToSend = 0;
-	}
-
-	QueueSend(QueueSPITX, &dataToSend);
-
-	if(QueueReceive(QueueSPIRX, &FromSPI)){
-	  //UARTprintf("data in: %X \r\n", (FromSPI>>8));
-	  if((FromSPI & 0b100000000000)){//pan
-	    FromSPI = FromSPI & 0b011111111111;
-	    QueueOverwrite(QueuePositionPan, &FromSPI);
-	    //UARTprintf("PAN Position: %X \t", FromSPI);
-	  } else {//tilt
-	    FromSPI = FromSPI & 0b011111111111;
-	    QueueOverwrite(QueuePositionTilt, &FromSPI);
-	    //UARTprintf("TILT Position: %X\r\n", FromSPI);
-	  }
-	}
-	*/
 
 }
 /****************************** End Of Module *******************************/

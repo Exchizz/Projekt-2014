@@ -39,10 +39,10 @@ enum FUNCTION_STATES {PIXEL, FIXED};
 enum DEC_NUM_STATES {TENTHOUSANDS, THOUSANDS, HUNDREDS, TENS, ONES};
 
 /*****************************   Variables   ********************************/
-enum CONVERTER_STATES receive_state = WAIT_FUNC;
-enum MOTOR_STATES motor = PAN;
-enum FUNCTION_STATES function = PIXEL;
-enum DEC_NUM_STATES ReceiveDecNumState = THOUSANDS;
+volatile enum CONVERTER_STATES recieve_state = WAIT_FUNC;
+volatile enum MOTOR_STATES motor = PAN;
+volatile enum FUNCTION_STATES function = PIXEL;
+volatile enum DEC_NUM_STATES RecieveDecNumState = THOUSANDS;
 
 /*****************************   Functions   ********************************/
 void init_converter_task(){
@@ -63,20 +63,18 @@ void converter_task()
 
   // get input from UART
   if (QueueReceive(QueueUARTRX, &data)) {
-    switch (receive_state) {
+    switch (recieve_state) {
     case WAIT_FUNC:
     switch (data) {
     case 'p':
     function = PIXEL;
-    ReceiveDecNumState = THOUSANDS;
-    receive_state = RECIEVE_MOTOR;
-    UARTprintf("px\r\n");
+    RecieveDecNumState = THOUSANDS;
+    recieve_state = RECIEVE_MOTOR;
     break;
     case 'f':
     function = FIXED;
-    ReceiveDecNumState = THOUSANDS;
-    receive_state = RECIEVE_MOTOR;
-    UARTprintf("fi\r\n");
+    RecieveDecNumState = THOUSANDS;
+    recieve_state = RECIEVE_MOTOR;
     break;
     default:
     break;
@@ -88,14 +86,12 @@ void converter_task()
     case 'p':
     motor = PAN;
     decValue = 0;
-    receive_state = RECIEVE_DEC_NUM;
-    UARTprintf("pan\r\n");
+    recieve_state = RECIEVE_DEC_NUM;
     break;
     case 't':
     motor = TILT;
     decValue = 0;
-    receive_state = RECIEVE_DEC_NUM;
-    UARTprintf("tilt\r\n");
+    recieve_state = RECIEVE_DEC_NUM;
     break;
     default:
     break;
@@ -103,37 +99,33 @@ void converter_task()
     break;
 
     case RECIEVE_DEC_NUM:
-    switch (ReceiveDecNumState) {
+    switch (RecieveDecNumState) {
     case TENTHOUSANDS:
     if (data <= '9' && data >= '0') {
       decValue *= 10;
       decValue += (data - '0');
-      ReceiveDecNumState = THOUSANDS;
-      UARTprintf("TT\r\n");
+      RecieveDecNumState = THOUSANDS;
     }
     break;
     case THOUSANDS:
     if (data <= '9' && data >= '0') {
       decValue *= 10;
       decValue += (data - '0');
-      ReceiveDecNumState = HUNDREDS;
-      UARTprintf("t\r\n");
+      RecieveDecNumState = HUNDREDS;
     }
     break;
     case HUNDREDS:
     if (data <= '9' && data >= '0') {
       decValue *= 10;
       decValue += (data - '0');
-      ReceiveDecNumState = TENS;
-      UARTprintf("h\r\n");
+      RecieveDecNumState = TENS;
     }
     break;
     case TENS:
     if (data <= '9' && data >= '0') {
       decValue *= 10;
       decValue += (data - '0');
-      ReceiveDecNumState = ONES;
-      UARTprintf("t\r\n");
+      RecieveDecNumState = ONES;
     }
     break;
     case ONES:
@@ -141,17 +133,14 @@ void converter_task()
       decValue *= 10;
       decValue += (data - '0');
 
-      UARTprintf("o\r\n");
       // process data if fixed or pan else other function might requirer different jump.
       if (function == FIXED) {
         decValue %= 1080;
         if (motor == TILT) {
           QueueOverwrite(QueueGoToPositionTilt, &decValue);
-          UARTprintf("fiT: %d\r\n",decValue);
         }
         else if (motor == PAN) {
           QueueOverwrite(QueueGoToPositionPan, &decValue);
-          UARTprintf("fiP\r\n");
         }
       }
       else if (function == PIXEL) {
@@ -166,7 +155,6 @@ void converter_task()
           decValue %= ticksPerRotation;
           // send
           QueueOverwrite(QueueGoToPositionTilt, &decValue);
-          UARTprintf("pxT\r\n");
         }
         else if (motor == PAN) {
           currentPosition = QueuePeek(QueuePositionPan, &currentPosition);
@@ -179,10 +167,9 @@ void converter_task()
           decValue %= ticksPerRotation;
           // send
           QueueOverwrite(QueueGoToPositionPan, &decValue);
-          UARTprintf("pxP\r\n");
         }
       }
-      receive_state = WAIT_FUNC;
+      recieve_state = WAIT_FUNC;
     }
     break;
     default:
@@ -198,5 +185,8 @@ void converter_task()
 
   }
 
+
+
+  //QueueSend(QueuePWMOutTilt, &set_pwm);
 }
 /****************************** End Of Module *******************************/

@@ -20,12 +20,10 @@
 /***************************** Include files *******************************/
 #include "inc/emp_type.h"
 #include "communication/communication_task.h"
-#include "control_tasks/control_position_pan.h"
+#include "control_tasks/control_position_tilt.h"
 /*****************************    Defines    *******************************/
 /*****************************   Constants   *******************************/
 /*****************************   Variables   *******************************/
-INT8U QueuePWMOutPan;
-extern INT8U QueuePanSpeed;
 /*****************************   Functions   *******************************/
 void init_pan_speed_task();
 void pan_speed_task();
