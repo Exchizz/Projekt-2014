@@ -75,10 +75,15 @@ int main(void)
 	QueueUARTRX 		= CreateQueueHandle();
 	QueueSPITX  		= CreateQueueHandle();
 	QueueSPIRX  		= CreateQueueHandle();
-	QueuePositionPAN 	= CreateQueueHandle();
-	QueuePositionTILT 	= CreateQueueHandle();
+	QueuePositionPan 	= CreateQueueHandle();
+	QueuePositionTilt 	= CreateQueueHandle();
 	QueuePWMOutTilt		= CreateQueueHandle();
+	QueuePWMOutPan         = CreateQueueHandle();
 	QueueTiltSpeed		= CreateQueueHandle();
+	QueuePanSpeed          = CreateQueueHandle();
+	QueueGoToPositionTilt   = CreateQueueHandle();
+	QueueGoToPositionPan    = CreateQueueHandle();
+
 
 	enable_global_int();
 

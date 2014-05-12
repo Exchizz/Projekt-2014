@@ -18,28 +18,28 @@
  *****************************************************************************/
 
 /***************************** Include files ********************************/
-#include "control_tasks/control_speed_tilt.h"
+#include "control_tasks/control_speed_pan.h"
 /*****************************    Defines    ********************************/
 #define NORMAL 0
 #define DEBUGINFO 1
 #define PLOTSPEED 2
 
-#define RUN_MODE PLOTSPEED //
+#define RUN_MODE NORMAL //
 
-#define PID_RUN_INTERVAL 50 // ticks
+#define PID_RUN_INTERVAL 40 // ticks
 #define PID_SPEED_CALC_INTERVAL 2  // length of time over which the speed is averaged as a multiple of PID_RUN_INTERVAL
 
 #define Kp 0.13
 #define Ki 0.0015
 #define Kd 0.045
 
-
+#define IDT 1000/(PID_RUN_INTERVAL*T_TICK*PID_SPEED_CALC_INTERVAL)
 
 /*****************************   Constants   ********************************/
 /*****************************   Variables   ********************************/
 /*****************************   Functions   ********************************/
 void init_pan_speed_task(){
-  _start(TILT_SPEED_TASK, MILLI_SEC(0));
+  _start(PAN_SPEED_TASK, MILLI_SEC(0));
 }
 
 void pan_speed_task()
@@ -64,7 +64,7 @@ void pan_speed_task()
 
   static INT8U i = 1;
 
-  INT16S set_speed_tilt = 500;
+  INT16S set_speed_pan = 0;
 
   INT8U var;
 
@@ -73,23 +73,21 @@ void pan_speed_task()
   INT8U direction = 0;
   INT32S current_speed = 0;
 
-  INT16U dt = 1000/(PID_RUN_INTERVAL*T_TICK*PID_SPEED_CALC_INTERVAL);
-
 
   // PID control loop
   if(!(--pid_interval_counter)){
     pid_interval_counter = PID_RUN_INTERVAL;
 
     //get speed
-   // QueueReceive(QueueTiltSpeed, &set_speed_tilt);
+   QueueReceive(QueuePanSpeed, &set_speed_pan);
 
 #if (RUN_MODE == DEBUGINFO)
-    UARTprintf("ss: %d\r\n", set_speed_tilt);
+    UARTprintf("ssS: %d\r\n", set_speed_pan);
 #endif
 
 
-    // get position and empty QueuePositionTILT-queue
-    QueueReceive(QueuePositionTILT, &current_position);
+    // get position
+    QueuePeek(QueuePositionPan, &current_position);
 
     // save positions
     for (var = 0; var < (PID_SPEED_CALC_INTERVAL); ++var) {
@@ -98,29 +96,29 @@ void pan_speed_task()
     position[(PID_SPEED_CALC_INTERVAL)] = current_position; // 0 = oldest, PID_... = Newest
 
     // calc current speed
-    current_speed = (position[PID_SPEED_CALC_INTERVAL] - position[0])*dt;
+    current_speed = (position[PID_SPEED_CALC_INTERVAL] - position[0])*IDT;
 
     // adjust current speed for overflow due to direction reset (1079 -> 0 and 0 -> 1079)
     if(current_speed < -1500){ // CW
-      current_speed += 1080*dt;
+      current_speed += 1080*IDT;
     }
     else if (current_speed > 1500) { // CCW
-      current_speed -=  1080*dt;
+      current_speed -=  1080*IDT;
     }
 
     // error calc
-    error = set_speed_tilt - current_speed;
-    Derror = (error - last_error)*dt;
+    error = set_speed_pan - current_speed;
+    Derror = (error - last_error)*IDT;
     Ierror += error;
 
-    if(Ierror > 100*dt){
-    	Ierror = 100*dt;
+    if(Ierror > 100*IDT){
+    	Ierror = 100*IDT;
     }
-    else if(Ierror < -100*dt){
-    	Ierror = -100*dt;
+    else if(Ierror < -100*IDT){
+    	Ierror = -100*IDT;
     }
     // calculate PID
-    set_pwm = error*Kp + Derror*Kd + (Ierror*Ki)/dt;
+    set_pwm = error*Kp + Derror*Kd + (Ierror*Ki)/IDT;
     set_pwm += last_pwm;
 
     // limit pwm
@@ -149,7 +147,7 @@ void pan_speed_task()
     }
 
     set_pwm = (direction << 8) | (set_pwm & 0xFF);
-    QueueSend(QueuePWMOutTilt, &set_pwm);
+    QueueSend(QueuePWMOutPan, &set_pwm);
 
 #if (RUN_MODE == PLOTSPEED)
     if(--i == 0){

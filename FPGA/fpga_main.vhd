@@ -150,8 +150,8 @@ Port Map(DisplayData => Display,
 LED <= MC_A(7 downto 0);
 
 -- display position on 7 seg disp as HEX --
-Display <= "0000000" & PositionA(10 downto 8) & '0' & PositionA(7 downto 4) & '0' & PositionA(3 downto 0) WHEN BTN(2) = '0' ELSE "0000000" & PositionB(10 downto 8) & '0' & PositionB(7 downto 4) & '0' & PositionB(3 downto 0);
-
+Display <= 	"0000000" & PositionA(10 downto 8) & '0' & PositionA(7 downto 4) & '0' & PositionA(3 downto 0) WHEN BTN(0) = '0' ELSE "0000000" & PositionB(10 downto 8) & '0' & PositionB(7 downto 4) & '0' & PositionB(3 downto 0);
+				
 -- coordinate SPI (send positionn and recieve and pass-on PWM) --
 process (SPI_SPE)
 variable dataToSend : integer range 0 to 1 := 0;

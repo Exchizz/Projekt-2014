@@ -26,12 +26,17 @@
 
 #define RUN_MODE NORMAL //
 
+#define STOP_BAND_START 205 // when the band were it can't be starts (221)
+#define STOP_BAND_STOP 860 // ^... stops (840)
+
 #define PID_RUN_INTERVAL 20 // ticks
-#define POSITION_SETPOINT	500
+#define  defaultPositionPan 0
 
 #define Kp 0.5 //0.5
 #define Ki 3 //1
 #define Kd 0
+
+#define IDT 1000/(PID_RUN_INTERVAL*T_TICK)
 /*****************************   Constants   ********************************/
 /*****************************   Variables   ********************************/
 /*****************************   Functions   ********************************/
@@ -55,7 +60,9 @@ void pan_position_task()
   static INT32S Ierror = 0;
   static INT16U pid_interval_counter = PID_RUN_INTERVAL;
 
-  INT16U dt = 1000/(PID_RUN_INTERVAL*T_TICK);
+  INT16U goToPosition = 0;
+  static INT16U lastGoToPosition = 0;
+
   INT16S set_speed = 0;
   static INT8U i = 0;
 
@@ -64,8 +71,28 @@ void pan_position_task()
     pid_interval_counter = PID_RUN_INTERVAL;
 
     // get position
-    QueuePeek(QueuePositionTILT, &current_position);
-    error = POSITION_SETPOINT - current_position;
+    QueuePeek(QueuePositionPan, &current_position);
+    if (!QueuePeek(QueueGoToPositionPan, &goToPosition)) {
+      goToPosition = defaultPositionPan;
+    }
+
+    // test for valid position (rotation stopper)
+    if (goToPosition > STOP_BAND_START && goToPosition < STOP_BAND_STOP) {
+      if (goToPosition < (STOP_BAND_START + STOP_BAND_STOP)/2) {
+        goToPosition = STOP_BAND_START;
+      }
+      else {
+        goToPosition = STOP_BAND_STOP;
+      }
+    }
+
+    /*
+    // if new position
+    if (lastGoToPosition != goToPosition) {
+      lastGoToPosition = goToPosition;
+    }
+    */
+    error = goToPosition - current_position;
 
     //shortest path correction(untested)
     if(error > 540){
@@ -74,18 +101,18 @@ void pan_position_task()
     else if (error < -540) {
 		error += 1080;
 	}
-    Derror = (error - last_error)*dt;
+    Derror = (error - last_error)*IDT;
     Ierror+=error;
 
-    if(Ierror > 5*dt){
-    	Ierror = 5*dt;
+    if(Ierror > 200*IDT){
+    	Ierror = 200*IDT;
     }
-    // lukas limit 200*dt
-    else if(Ierror < -5*dt){
-    	Ierror = -5*dt;
+    // lukas limit 200*IDT
+    else if(Ierror < -200*IDT){
+    	Ierror = -200*IDT;
     }
 
-    set_speed = error*Kp + (Ierror*Ki)/dt + Derror*Kd;
+    set_speed = error*Kp + (Ierror*Ki)/IDT + Derror*Kd;
 
     if(set_speed > 1500){
     	set_speed = 1500;
@@ -93,7 +120,7 @@ void pan_position_task()
     else if(set_speed < -1500){
     	set_speed = - 1500;
     }
-    QueueSend(QueueTiltSpeed, &set_speed);
+    QueueOverwrite(QueuePanSpeed, &set_speed);
 
 #if (RUN_MODE == PLOTPOSITION)
   if(--i == 0){
