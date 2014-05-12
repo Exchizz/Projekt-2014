@@ -1,22 +1,43 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <history>
    <processor signature="arm-none-eabi-gcc -mcpu=cortex-m3 -mthumb -g -nostartfiles -Map=SemProjekt_RTCS.map -O0 --gc-sections -lm -lgcc -lc -lrdimon -LC:\CooCox\CoIDE\configuration\ProgramData\SemProjekt_RTCS -TC:\CooCox\CoIDE\configuration\ProgramData\SemProjekt_RTCS/arm-gcc-link.ld -g">
-      <target file="SemProjekt_RTCS.elf" lastModified="145e1a97c0c">
-         <source file="..\obj\spi.o" lastModified="145e1a851b4"/>
-         <source file="..\obj\control_position_tilt.o" lastModified="145e1a971f0"/>
-         <source file="..\obj\main.o" lastModified="145e1a972f4"/>
-         <source file="..\obj\communication_task.o" lastModified="145e1a9739b"/>
-         <source file="..\obj\uartprintf.o" lastModified="145e1a8577a"/>
-         <source file="..\obj\gpio.o" lastModified="145e1a973ea"/>
-         <source file="..\obj\schedule.o" lastModified="145e1a9743f"/>
-         <source file="..\obj\startup_lm3s.o" lastModified="145e19f4213"/>
-         <source file="..\obj\control_position_pan.o" lastModified="145e1a9761e"/>
-         <source file="..\obj\queue.o" lastModified="145e1a85ae0"/>
-         <source file="..\obj\debug.o" lastModified="145e1a9765d"/>
-         <source file="..\obj\cpu.o" lastModified="145e19f47b4"/>
-         <source file="..\obj\control_speed_pan.o" lastModified="145e1a977fb"/>
-         <source file="..\obj\control_speed_tilt.o" lastModified="145e1a97996"/>
-         <source file="..\obj\systick.o" lastModified="145e19ffef3"/>
+<<<<<<< HEAD
+      <target file="SemProjekt_RTCS.elf" lastModified="145f10d4ddb">
+         <source file="..\obj\spi.o" lastModified="145f08e1e5c"/>
+         <source file="..\obj\converter.o" lastModified="145f08e2068"/>
+         <source file="..\obj\control_position_tilt.o" lastModified="145f10d4b5b"/>
+         <source file="..\obj\main.o" lastModified="145f08e21a9"/>
+         <source file="..\obj\communication_task.o" lastModified="145f0b9ba11"/>
+         <source file="..\obj\uartprintf.o" lastModified="145f08e22ac"/>
+         <source file="..\obj\gpio.o" lastModified="145eb407c25"/>
+         <source file="..\obj\schedule.o" lastModified="145f08e2313"/>
+         <source file="..\obj\startup_lm3s.o" lastModified="145eb407d51"/>
+         <source file="..\obj\control_position_pan.o" lastModified="145f08e23e6"/>
+         <source file="..\obj\queue.o" lastModified="145f08e2459"/>
+         <source file="..\obj\debug.o" lastModified="145eb407eeb"/>
+         <source file="..\obj\cpu.o" lastModified="145eb407f59"/>
+         <source file="..\obj\control_speed_pan.o" lastModified="145f10ae948"/>
+         <source file="..\obj\control_speed_tilt.o" lastModified="145f10aea71"/>
+         <source file="..\obj\systick.o" lastModified="145f08e270b"/>
+=======
+      <target file="SemProjekt_RTCS.elf" lastModified="145eb4566c7">
+         <source file="..\obj\spi.o" lastModified="145eb407441"/>
+         <source file="..\obj\converter.o" lastModified="145eb4563d9"/>
+         <source file="..\obj\control_position_tilt.o" lastModified="145eb430517"/>
+         <source file="..\obj\main.o" lastModified="145eb4305b7"/>
+         <source file="..\obj\communication_task.o" lastModified="145eb407b03"/>
+         <source file="..\obj\uartprintf.o" lastModified="145eb407bc1"/>
+         <source file="..\obj\gpio.o" lastModified="145eb407c25"/>
+         <source file="..\obj\schedule.o" lastModified="145eb407cc5"/>
+         <source file="..\obj\startup_lm3s.o" lastModified="145eb407d51"/>
+         <source file="..\obj\control_position_pan.o" lastModified="145eb43062f"/>
+         <source file="..\obj\queue.o" lastModified="145eb407e87"/>
+         <source file="..\obj\debug.o" lastModified="145eb407eeb"/>
+         <source file="..\obj\cpu.o" lastModified="145eb407f59"/>
+         <source file="..\obj\control_speed_pan.o" lastModified="145eb430701"/>
+         <source file="..\obj\control_speed_tilt.o" lastModified="145eb4307c9"/>
+         <source file="..\obj\systick.o" lastModified="145eb4080f3"/>
+>>>>>>> 5d11c643c221213a8a1eea6260b681a713be2bfa
       </target>
    </processor>
 </history>
