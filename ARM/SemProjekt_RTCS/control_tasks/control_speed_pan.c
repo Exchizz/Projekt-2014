@@ -2,9 +2,9 @@
  * University of Southern Denmark
  * Embedded C Programming (ECP)
  *
- * MODULENAME.: main.c
+ * MODULENAME.: control_speed_pan.c
  *
- * PROJECT....: ECP
+ * PROJECT....: G3 - Tracking system utilizing a pan/tilt system
  *
  * DESCRIPTION: See module specification file (.h-file).
  *
@@ -14,6 +14,7 @@
  * YYMMDD
  * --------------------
  * 140501  G3   Module created.
+ * 1405XX  G3   Module modified.
  *
  *****************************************************************************/
 
@@ -35,6 +36,14 @@
 
 #define IDT (1000/(PID_RUN_INTERVAL*T_TICK*PID_SPEED_CALC_INTERVAL))
 
+#define TICKS_PER_FRAME_ROTATION 1080
+#define INTEGRATORLIMIT 100
+#define MAXSPEED_LIMIT 1500 // ticks/s
+#define MAXPWMVALUE 255
+#define MAXPWM_MASK 0xFF
+#define MOTOR_DIRECTION_FORWARDS 0b01
+#define MOTOR_DIRECTION_BACKWARDS 0b10
+
 /*****************************   Constants   ********************************/
 /*****************************   Variables   ********************************/
 /*****************************   Functions   ********************************/
@@ -47,15 +56,10 @@ void pan_speed_task()
  *   Input    : 	-
  *   Output   : 	-
  *   Function :
- *   Run @	 :  > 5 times system frequency
+ *   Run @	 :  PID_RUN_INTERVAL
  *****************************************************************************/
 {
-  static INT16U current_position = 0;
-
-  // direction calc vars
-  // static INT16U last_position = 0;
-  // static INT8U turn_direction;
-  //static INT16U last_position = 0;
+  INT16U current_position = 0;
 
   // PID controller vars
   static INT16U last_error = 0;
@@ -78,13 +82,13 @@ void pan_speed_task()
   if(!(--pid_interval_counter)){
     pid_interval_counter = PID_RUN_INTERVAL;
 
-    //get speed
+    //get wanted speed
     QueuePeek(QueuePanSpeed, &set_speed_pan);
 
-    // get position
+    // get current position
     QueuePeek(QueuePositionPan, &current_position);
 
-    // save positions
+    // save current position in array
     for (var = 0; var < (PID_SPEED_CALC_INTERVAL); ++var) {
       position[var] = position[var+1];
     }
@@ -94,11 +98,11 @@ void pan_speed_task()
     current_speed = (position[PID_SPEED_CALC_INTERVAL] - position[0])*IDT;
 
     // adjust current speed for overflow due to direction reset (1079 -> 0 and 0 -> 1079)
-    if(current_speed < -1500){ // CW
-      current_speed += 1080*IDT;
+    if(current_speed < -MAXSPEED_LIMIT){ // CW
+      current_speed += TICKS_PER_FRAME_ROTATION*IDT;
     }
-    else if (current_speed > 1500) { // CCW
-      current_speed -=  1080*IDT;
+    else if (current_speed > MAXSPEED_LIMIT) { // CCW
+      current_speed -=  TICKS_PER_FRAME_ROTATION*IDT;
     }
 
     // error calc
@@ -106,22 +110,24 @@ void pan_speed_task()
     Derror = (error - last_error)*IDT;
     Ierror += error;
 
-    if(Ierror > 100*IDT){
-    	Ierror = 100*IDT;
+    // integral limit
+    if(Ierror > INTEGRATORLIMIT*IDT){
+    	Ierror = INTEGRATORLIMIT*IDT;
     }
-    else if(Ierror < -100*IDT){
-    	Ierror = -100*IDT;
+    else if(Ierror < -INTEGRATORLIMIT*IDT){
+    	Ierror = -INTEGRATORLIMIT*IDT;
     }
-    // calculate PID
+
+    // calculate set pwm
     set_pwm = error*Kp + Derror*Kd + (Ierror*Ki)/IDT;
     set_pwm += last_pwm;
 
     // limit pwm
-    if (set_pwm > 255) {
-      set_pwm = 255;
+    if (set_pwm > MAXPWMVALUE) {
+      set_pwm = MAXPWMVALUE;
     }
-    else if (set_pwm < -255) {
-      set_pwm = -255;
+    else if (set_pwm < -MAXPWMVALUE) {
+      set_pwm = -MAXPWMVALUE;
     }
 
     // save last pwm and error for next calc
@@ -133,17 +139,19 @@ void pan_speed_task()
     UARTprintf("GSP: %d, CSP: %d, PWMP: %d\r\n", set_speed_pan, current_speed, set_pwm);
 #endif
 
-    // direction
+    // determine motor direction
     if(set_pwm > 0 ){
-      direction = 0b01;
+      direction = MOTOR_DIRECTION_FORWARDS;
     } else {
-      direction = 0b10;
+      direction = MOTOR_DIRECTION_BACKWARDS;
       set_pwm = -set_pwm;
     }
 
-    set_pwm = (direction << 8) | (set_pwm & 0xFF);
+    // ready message to send to pan and send
+    set_pwm = (direction << 8) | (set_pwm & MAXPWM_MASK);
     QueueSend(QueuePWMOutPan, &set_pwm);
 
+    // plotspeed
 #if (RUN_MODE == PLOTSPEED)
     if(--i == 0){
       i = 4;

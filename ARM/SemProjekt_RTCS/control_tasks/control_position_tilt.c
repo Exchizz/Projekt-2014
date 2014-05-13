@@ -2,9 +2,9 @@
  * University of Southern Denmark
  * Embedded C Programming (ECP)
  *
- * MODULENAME.: main.c
+ * MODULENAME.: control_position_tilt.c
  *
- * PROJECT....: ECP
+ * PROJECT....: G3 - Tracking system utilizing a pan/tilt systems
  *
  * DESCRIPTION: See module specification file (.h-file).
  *
@@ -14,6 +14,7 @@
  * YYMMDD
  * --------------------
  * 140501  G3   Module created.
+ * 1405XX  G3   Module modified
  *
  *****************************************************************************/
 
@@ -34,6 +35,10 @@
 #define Kd 0
 
 #define IDT (1000/(PID_RUN_INTERVAL*T_TICK))
+
+#define TICKS_PER_FRAME_ROTATION 1080
+#define INTEGRATORLIMIT 5
+#define MAXSPEED_LIMIT 1500 // ticks/s
 /*****************************   Constants   ********************************/
 /*****************************   Variables   ********************************/
 /*****************************   Functions   ********************************/
@@ -46,7 +51,7 @@ void tilt_position_task()
  *   Input    : 	-
  *   Output   : 	-
  *   Function :
- *   Run @	 :  > 5 times system frequency
+ *   Run @	 :  PID_RUN_INTERVAL
  *****************************************************************************/
 {
   INT16U current_position = 0;
@@ -66,41 +71,51 @@ void tilt_position_task()
   if(!(--pid_interval_counter)){
     pid_interval_counter = PID_RUN_INTERVAL;
 
-    // get positions
+    // get current and goto position
     QueuePeek(QueuePositionTilt, &current_position);
     if (!QueuePeek(QueueGoToPositionTilt, &goToPosition)) {
       goToPosition = defaultPositionTilt;
     }
+
+    // calc error
     error = goToPosition - current_position;
 
-    //shortest path correction(untested)
-    if(error > 540){
-    	error -= 1080;
+    //shortest path correction
+    if(error > TICKS_PER_FRAME_ROTATION/2){
+    	error -= TICKS_PER_FRAME_ROTATION;
     }
-    else if (error < -540) {
-		error += 1080;
-	}
+    else if (error < -TICKS_PER_FRAME_ROTATION/2) {
+      error += TICKS_PER_FRAME_ROTATION;
+    }
+
+    // calculate differential and integral error
     Derror = (error - last_error)*IDT;
     Ierror+=error;
 
-    if(Ierror > 5*IDT){
-    	Ierror = 5*IDT;
+    // limit integral
+    if(Ierror > INTEGRATORLIMIT*IDT){
+    	Ierror = INTEGRATORLIMIT*IDT;
     }
     // lukas limit 200*IDT
-    else if(Ierror < -5*IDT){
-    	Ierror = -5*IDT;
+    else if(Ierror < -INTEGRATORLIMIT*IDT){
+    	Ierror = -INTEGRATORLIMIT*IDT;
     }
 
+    // calc wanted speed
     set_speed = error*Kp + (Ierror*Ki)/IDT + Derror*Kd;
 
-    if(set_speed > 1500){
-    	set_speed = 1500;
+    // limit wanted speed
+    if(set_speed > MAXSPEED_LIMIT){
+    	set_speed = MAXSPEED_LIMIT;
     }
-    else if(set_speed < -1500){
-    	set_speed = - 1500;
+    else if(set_speed < -MAXSPEED_LIMIT){
+    	set_speed = -MAXSPEED_LIMIT;
     }
+
+    // send wanted speed
     QueueOverwrite(QueueTiltSpeed, &set_speed);
 
+    // plot position
 #if (RUN_MODE == PLOTPOSITION)
   if(--i == 0){
     i = 5;
@@ -110,6 +125,7 @@ void tilt_position_task()
   }
 #endif
 
+  // save last error
   last_error = error;
   }
 }

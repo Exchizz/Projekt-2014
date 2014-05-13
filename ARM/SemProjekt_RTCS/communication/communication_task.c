@@ -2,9 +2,9 @@
  * University of Southern Denmark
  * Embedded C Programming (ECP)
  *
- * MODULENAME.: main.c
+ * MODULENAME.: communication_task.c
  *
- * PROJECT....: ECP
+ * PROJECT....: G3 - Tracking system utilizing a pan/tilt system
  *
  * DESCRIPTION: See module specification file (.h-file).
  *
@@ -13,7 +13,8 @@
  * Date    Id    Change
  * YYMMDD
  * --------------------
- * 0902012  KHA   Module created.
+ * 1404XX  G3    Communication task added.
+ * 1405XX  G3    Communication task modified.
  *
  *****************************************************************************/
 
@@ -25,132 +26,61 @@
 #define NORMAL 0
 #define DEBUGINFO 1
 #define RUNMODE NORMAL
+
+#define TILTMESSAGE_SENDPWM 0b01
+#define TILTMESSAGE_SENDPWM 0b10
+#define MASK_DIRECITION_PWM 0x3FF
+#define MASK_MESSAGE_POSITION 0b011111111111
+#define MASK_MESSAGERECEIVE_MOTOR 0b100000000000
+
 /*****************************   Constants   *******************************/
 /*****************************   Variables   *******************************/
 /*****************************   Functions   *******************************/
-void init_timer0(void)
-/*****************************************************************************
- *   Input    : 	-
- *   Output   : 	-
- *   Function :
- *****************************************************************************/
-{
-  // Enable timer peripheral clock
-  SYSCTL_RCGC1_R |= SYSCTL_RCGC1_TIMER0;
-  // Disable timer
-  TIMER0_CTL_R &= ~(TIMER_CTL_TAEN);
-  // Enable 32-bit configuration
-  TIMER0_CFG_R = 0x00000000;
-  // Set to Periodic Timer mode, first clear then set
-  TIMER0_TAMR_R &= ~(TIMER_TAMR_TAMR_M);
-  TIMER0_TAMR_R |= TIMER_TAMR_TAMR_PERIOD;
-  // Set Reload value. timeout = 1sek @ F_CPU = 50 Mhz. 50000000 = 1000 ms
-  TIMER0_TAILR_R = 50000*TICK_INTERUPT_MS;
-  // Enable timer 0 int.
-  TIMER0_IMR_R |= TIMER_IMR_TATOIM;
-
-  // NVIC setup
-  // program NVIC, vector number 35, Interrupt Number = 19
-  // Clear pending interrupt
-  NVIC_UNPEND0_R |= NVIC_UNPEND0_INT19;
-  // Set Priority to 0x10, first clear then set.
-  NVIC_PRI4_R &= ~(NVIC_PRI4_INT19_M);
-  NVIC_PRI4_R |= (NVIC_PRI4_INT19_M & (0x10<<NVIC_PRI4_INT19_S));
-  // enable NVIC interrupt
-  NVIC_EN0_R |= NVIC_EN0_INT19;
-
-  // Enable and start timer
-  TIMER0_CTL_R |= TIMER_CTL_TAEN;
-
-}
-
-int last_tilt_ticks = 0;
-void Timer0A_IRQHandler(void)
-/*****************************************************************************
- *   Input    : 	-
- *   Output   : 	-
- *   Function :
- *****************************************************************************/
-{
-
-  disable_global_int();
-  // Clear Timer 0 int reguest
-  TIMER0_ICR_R |= TIMER_ICR_TATOCINT;
-  // Toggle status led
-  //GPIO_PORTF_DATA_R ^= 0x02;
-
-
-  //speed_tilt = ()/0.100;
-  /* PID */
-  //error = SET_POINT_TILT_SPEED - speed_tilt;
-
-  //integral += error*0.100
-  //derivative = (error - previous_error)/0.100;
-
-  //	last_tilt_ticks = tilt_ticks;
-  //	enable_global_int();
-}
 void init_communication_task(){
-  init_timer0();
   _start(COMMUNICATION_TASK, MILLI_SEC(0));
 }
 void communication_task()
 /*****************************************************************************
  *   Input    : 	-
  *   Output   : 	-
- *   Function :
+ *   Function : send data (pwm) to FPGA via SPI and receive position and put in matching queue
  *   Run @	 : 1 ms
  *****************************************************************************/
 {
 
-  /*
-   * Available queues
-   * 	QueueUARTTX;
-   * 	QueueUARTRX;
-   * 	QueueSPITX;
-   * 	QueueSPIRX;
-   * */
-  /* RequestSPIData(); */
-
-  /*
-   * Test value:
-   *
-   *
-   */
-
   INT16U FromSPI,dataToSend = 0;
   INT16U pwmTilt = 0, pwmPan = 0;
 
-  // tilt
+  // get data from pan/tilt queue and put in data to send var
   if(QueueReceive(QueuePWMOutTilt, &pwmTilt)){
-    dataToSend = (0b10 << 10) | (pwmTilt & 0x3FF);
+    dataToSend = (TILTMESSAGE_SENDPWM << 10) | (pwmTilt & MASK_DIRECITION_PWM);
   }
   else if (QueueReceive(QueuePWMOutPan, &pwmPan)) {
-    dataToSend = (0b11 << 10) | (pwmPan & 0x3FF);
+    dataToSend = (PANMESSAGE_SENDPWM << 10) | (pwmPan & MASK_DIRECITION_PWM);
   }
   else {
+    // if no pwm to send, send 0
     dataToSend = 0;
   }
+
+  // debug info
 #if (RUNMODE == DEBUGINFO)
   UARTprintf("DSP: %d\r\n", dataToSend);
 #endif
+
+  // send to SPI
   QueueSend(QueueSPITX, &dataToSend);
 
+  // recieve from SPI
   if(QueueReceive(QueueSPIRX, &FromSPI)){
-    //UARTprintf("data in: %X \r\n", (FromSPI>>8));
-    if((FromSPI & 0b100000000000)){//pan
-      FromSPI = FromSPI & 0b011111111111;
+    // decide if it is for pan or tilt and then put position accordingly in a queue
+    if((FromSPI & MASK_MESSAGERECEIVE_MOTOR)){//pan
+      FromSPI = FromSPI & MASK_MESSAGE_POSITION;
       QueueOverwrite(QueuePositionPan, &FromSPI);
-      //UARTprintf("PAN Position: %X \t", FromSPI);
     } else {//tilt
-      FromSPI = FromSPI & 0b011111111111;
+      FromSPI = FromSPI & MASK_MESSAGE_POSITION;
       QueueOverwrite(QueuePositionTilt, &FromSPI);
-      //UARTprintf("TILT Position: %X\r\n", FromSPI);
     }
   }
-
-
-
-
 }
 /****************************** End Of Module *******************************/

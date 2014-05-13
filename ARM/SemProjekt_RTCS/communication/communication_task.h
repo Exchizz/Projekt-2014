@@ -2,9 +2,9 @@
 * University of Southern Denmark
 * Embedded C Programming (ECP)
 *
-* MODULENAME.: main.c
+* MODULENAME.: communication_task.h
 *
-* PROJECT....: ECP
+* PROJECT....: G3 - Tracking system utilizing a pan/tilt system
 *
 * DESCRIPTION:
 *
@@ -13,7 +13,9 @@
 * Date    Id    Change
 * YYMMDD
 * --------------------
-* 0902012  KHA   Module created.
+* 1404XX  G3    Module created.
+* 1405XX  G3    Module modified.
+*
 *
 *****************************************************************************/
 

@@ -4,7 +4,7 @@
 *
 * MODULENAME.: main.c
 *
-* PROJECT....: ECP
+* PROJECT....: G3 - Tracking system utilizing a pan/tilt system
 *
 * DESCRIPTION: See module specification file (.h-file).
 *
@@ -13,7 +13,8 @@
 * Date    Id    Change
 * YYMMDD
 * --------------------
-* 0902012  KHA   Module created.
+* 090212  KHA   Module created.
+* 1405XX  G3    Module drastically changed to fit project.
 *
 *****************************************************************************/
 

@@ -199,29 +199,4 @@ void SPI_TX_task(){
 	}
 }
 
-/*
-BOOLEAN GetTicks(){
-	INT16U dataToSPI = 0;
-	QueueSend(QueueSPITX, &dataToSPI);
-	while
-}
-
-
-INT16U GetTicksPan(INT16U* msg){
-  do {
-	  GetTicks();
-  } while((msgFromSPI & 0b110000000000) == 0b110000000000);
-
-
-return msgFromSPI;
-}
-
-
-INT16U GetTicksTilt(INT16U* msg){
-  do {
-	  GetTicks();
-  } while((msgFromSPI & 0b110000000000) == 0b100000000000);
-  return msgFromSPI;
-}
-*/
 /****************************** End Of Module *******************************/

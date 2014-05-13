@@ -2,9 +2,9 @@
 * University of Southern Denmark
 * Embedded C Programming (ECP)
 *
-* MODULENAME.:
+* MODULENAME.:converter.h
 *
-* PROJECT....:
+* PROJECT....: G3 - Tracking system utilizing a pan/tilt system
 *
 * DESCRIPTION:
 *
@@ -13,7 +13,8 @@
 * Date    Id    Change
 * YYMMDD
 * --------------------
-* 140511  KHA   Module created.
+* 140511  G3   Module created.
+* 1405XX  G3   Module modified.
 *
 *****************************************************************************/
 

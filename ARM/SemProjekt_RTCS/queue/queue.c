@@ -4,7 +4,7 @@
 *
 * MODULENAME.: main.c
 *
-* PROJECT....: ECP
+* PROJECT....: G3 - Tracking system utilizing a pan/tilt system
 *
 * DESCRIPTION: See module specification file (.h-file).
 *

@@ -2,9 +2,9 @@
  * University of Southern Denmark
  * Embedded C Programming (ECP)
  *
- * MODULENAME.: main.c
+ * MODULENAME.: control_position_pan.c
  *
- * PROJECT....: ECP
+ * PROJECT....: G3 - Tracking system utilizing a pan/tilt system
  *
  * DESCRIPTION: See module specification file (.h-file).
  *
@@ -13,7 +13,8 @@
  * Date    Id    Change
  * YYMMDD
  * --------------------
- * 140501  G3   Module created.
+ * 140501  G3   Module created. (copy of tilt)
+ * 1405XX  G3   Module modified for pan. (stopband etc.)
  *
  *****************************************************************************/
 
@@ -25,10 +26,11 @@
 #define PLOTPOSITION 2
 
 #define RUN_MODE NORMAL //
-#define defaultPositionPan 0
+#define DEFAULTPOSITIONPAN 0
 
-#define STOP_BAND_START 205 // when the band were it can't be starts (221)
-#define STOP_BAND_STOP 860 // ^... stops (840)
+// both adjusted  to not bump into stopper. value can vary due to index-magnet ranging over multiple ticks.
+#define STOP_BAND_START 205 // when the band were it can't be starts (~221-227)
+#define STOP_BAND_STOP 860 // ^... stops (~840-846)
 
 #define PID_RUN_INTERVAL 20 // ticks
 
@@ -38,6 +40,9 @@
 
 #define IDT (1000/(PID_RUN_INTERVAL*T_TICK))
 
+#define TICKS_PER_FRAME_ROTATION 1080
+#define INTEGRATORLIMIT 5
+#define MAXSPEED_LIMIT 1500 // ticks/s
 /*****************************   Constants   ********************************/
 /*****************************   Variables   ********************************/
 /*****************************   Functions   ********************************/
@@ -50,7 +55,7 @@ void pan_position_task()
  *   Input    : 	-
  *   Output   : 	-
  *   Function :
- *   Run @	 :  > 5 times system frequency
+ *   Run @	 :  PID_RUN_INTERVAL
  *****************************************************************************/
 {
   INT16U current_position = 0;
@@ -70,13 +75,14 @@ void pan_position_task()
   if(!(--pid_interval_counter)){
     pid_interval_counter = PID_RUN_INTERVAL;
 
-    // get positions
+    // get goto and current position
     QueuePeek(QueuePositionPan, &current_position);
     if (!QueuePeek(QueueGoToPositionPan, &goToPosition)) {
-      goToPosition = defaultPositionPan;
+      goToPosition = DEFAULTPOSITIONPAN;
     }
 
-    // test for valid position (rotation stopper)
+    // test for valid position (stop band)
+    // if position in stopband go to nearest valid position (stopband-stop/start position)
     if (goToPosition > STOP_BAND_START && goToPosition < STOP_BAND_STOP) {
       if (goToPosition < (STOP_BAND_START + STOP_BAND_STOP)/2) {
         goToPosition = STOP_BAND_START;
@@ -86,45 +92,53 @@ void pan_position_task()
       }
     }
 
+    // calc error
     error = goToPosition - current_position;
 
-    //shortest path correction(untested)
-    if(error > 540){
-    	error -= 1080;
+    //shortest path correction.
+    if(error > TICKS_PER_FRAME_ROTATION/2){
+    	error -= TICKS_PER_FRAME_ROTATION;
     }
-    else if (error < -540) {
-      error += 1080;
+    else if (error < -TICKS_PER_FRAME_ROTATION/2) {
+      error += TICKS_PER_FRAME_ROTATION;
     }
 
     // if prevent go through region is needed implement here
-    // above will no be needed because pan freedom < 180* and shortest
+    // will no be needed because pan freedom < 180* and shortest
     // path will then always be through passable area
 
+    // calc differential and integral value
     Derror = (error - last_error)*IDT;
     Ierror+=error;
 
-    if(Ierror > 5*IDT){
-    	Ierror = 5*IDT;
+    // limit error
+    if(Ierror > INTEGRATORLIMIT*IDT){
+    	Ierror = INTEGRATORLIMIT*IDT;
     }
     // lukas limit 200*IDT
-    else if(Ierror < -5*IDT){
-    	Ierror = -5*IDT;
+    else if(Ierror < -INTEGRATORLIMIT*IDT){
+    	Ierror = -INTEGRATORLIMIT*IDT;
     }
 
+    // calculate the wanted speed (ticks/s)
     set_speed = error*Kp + (Ierror*Ki)/IDT + Derror*Kd;
 
-    if(set_speed > 1500){
-    	set_speed = 1500;
+    // limit set_speed. motor not able to be faster than 1200, but higher will force to constant 255 PWM.
+    if(set_speed > MAXSPEED_LIMIT){
+    	set_speed = MAXSPEED_LIMIT;
     }
-    else if(set_speed < -1500){
-    	set_speed = - 1500;
+    else if(set_speed < -MAXSPEED_LIMIT){
+    	set_speed = - MAXSPEED_LIMIT;
     }
+    // send the speed
     QueueOverwrite(QueuePanSpeed, &set_speed);
 
+    // debuginfo
 #if RUN_MODE == DEBUGINFO
     UARTprintf("GPP: %d, WSP: %d\r\n",goToPosition, set_speed);
 #endif
 
+    // plot current position
 #if (RUN_MODE == PLOTPOSITION)
   if(--i == 0){
     i = 5;
@@ -134,6 +148,7 @@ void pan_position_task()
   }
 #endif
 
+  // save last error
   last_error = error;
   }
 }

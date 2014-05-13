@@ -4,7 +4,7 @@
 *
 * MODULENAME.: uartprintf.h
 *
-* PROJECT....: EMP
+* PROJECT....: G3 - Tracking system utilizing a pan/tilt system
 *
 * DESCRIPTION:
 *
@@ -14,6 +14,7 @@
 * YYMMDD
 * --------------------
 * 050128  KA    Module created.
+* 140YXX  G3    Module modified.
 *
 *****************************************************************************/
 
