@@ -30,8 +30,10 @@
 #define PID_RUN_INTERVAL 20 // ticks
 
 #define Kp 0.5 //0.5
-#define Ki 3 //1
+#define Ki 1 //1
 #define Kd 0
+
+#define IDT (1000/(PID_RUN_INTERVAL*T_TICK))
 /*****************************   Constants   ********************************/
 /*****************************   Variables   ********************************/
 /*****************************   Functions   ********************************/
@@ -57,7 +59,6 @@ void tilt_position_task()
 
   INT16U goToPosition = 0;
 
-  INT16U dt = 1000/(PID_RUN_INTERVAL*T_TICK);
   INT16S set_speed = 0;
   static INT8U i = 0;
 
@@ -79,18 +80,18 @@ void tilt_position_task()
     else if (error < -540) {
 		error += 1080;
 	}
-    Derror = (error - last_error)*dt;
+    Derror = (error - last_error)*IDT;
     Ierror+=error;
 
-    if(Ierror > 5*dt){
-    	Ierror = 5*dt;
+    if(Ierror > 5*IDT){
+    	Ierror = 5*IDT;
     }
-    // lukas limit 200*dt
-    else if(Ierror < -5*dt){
-    	Ierror = -5*dt;
+    // lukas limit 200*IDT
+    else if(Ierror < -5*IDT){
+    	Ierror = -5*IDT;
     }
 
-    set_speed = error*Kp + (Ierror*Ki)/dt + Derror*Kd;
+    set_speed = error*Kp + (Ierror*Ki)/IDT + Derror*Kd;
 
     if(set_speed > 1500){
     	set_speed = 1500;

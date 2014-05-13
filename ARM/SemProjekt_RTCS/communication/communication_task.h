@@ -27,6 +27,7 @@
 INT8U QueuePositionPan;
 INT8U QueuePositionTilt;
 INT8U QueuePWMOutTilt;
+INT8U QueuePWMOutPan;
 /*****************************   Functions   *******************************/
 void init_communication_task();
 void communication_task();

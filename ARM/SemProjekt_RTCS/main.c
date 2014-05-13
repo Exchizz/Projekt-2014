@@ -30,7 +30,8 @@
 #include "communication/communication_task.h"
 #include "control_tasks/control_position_tilt.h"
 #include "control_tasks/control_speed_tilt.h"
-//#include "control_tasks/control_position_pan.h"
+#include "control_tasks/control_position_pan.h"
+#include "control_tasks/control_speed_pan.h"
 
 /*****************************    Defines    *******************************/
 
@@ -79,7 +80,9 @@ int main(void)
 	QueuePositionPan 	= CreateQueueHandle();
 	QueuePositionTilt 	= CreateQueueHandle();
 	QueuePWMOutTilt		= CreateQueueHandle();
+	QueuePWMOutPan          = CreateQueueHandle();
 	QueueTiltSpeed		= CreateQueueHandle();
+	QueuePanSpeed           = CreateQueueHandle();
 	QueueGoToPositionTilt   = CreateQueueHandle();
 	QueueGoToPositionPan    = CreateQueueHandle();
 

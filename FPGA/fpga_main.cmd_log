@@ -403,3 +403,9 @@ map -intstyle ise -p xc3s100e-tq144-4 -cm area -ir off -pr off -c 100 -o fpga_ma
 par -w -intstyle ise -ol high -t 1 fpga_main_map.ncd fpga_main.ncd fpga_main.pcf 
 trce -intstyle ise -v 3 -s 4 -n 3 -fastpaths -xml fpga_main.twx fpga_main.ncd -o fpga_main.twr fpga_main.pcf -ucf ports.ucf 
 bitgen -intstyle ise -f fpga_main.ut fpga_main.ncd 
+xst -intstyle ise -ifn "C:/Users/Lukas Schwartz/Documents/GitHub/Projekt-2014/FPGA/fpga_main.xst" -ofn "C:/Users/Lukas Schwartz/Documents/GitHub/Projekt-2014/FPGA/fpga_main.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc ports.ucf -p xc3s100e-tq144-4 "fpga_main.ngc" fpga_main.ngd  
+map -intstyle ise -p xc3s100e-tq144-4 -cm area -ir off -pr off -c 100 -o fpga_main_map.ncd fpga_main.ngd fpga_main.pcf 
+par -w -intstyle ise -ol high -t 1 fpga_main_map.ncd fpga_main.ncd fpga_main.pcf 
+trce -intstyle ise -v 3 -s 4 -n 3 -fastpaths -xml fpga_main.twx fpga_main.ncd -o fpga_main.twr fpga_main.pcf -ucf ports.ucf 
+bitgen -intstyle ise -f fpga_main.ut fpga_main.ncd 

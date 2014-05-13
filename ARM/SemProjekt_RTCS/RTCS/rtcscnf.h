@@ -39,7 +39,7 @@
 //          automatically and assumed to be of type 'void Task(void)'.
 
 // Task number of LAST task
-#define LAST_TASK					8
+#define LAST_TASK					10
 
 #define TASK0         		alive_task
 #define TASK1         		UART_TX_task
@@ -50,8 +50,8 @@
 #define TASK6                  converter_task
 #define TASK7         		tilt_position_task
 #define TASK8         		tilt_speed_task
-//#define TASK8         		pan_position_task
-//#define TASK9         		pan_speed_task
+#define TASK9         		pan_position_task
+#define TASK10         		pan_speed_task
 
 
 #define INIT_TASK0   		init_alive_task
@@ -63,8 +63,8 @@
 #define INIT_TASK6              init_converter_task
 #define INIT_TASK7      	init_tilt_position_task
 #define INIT_TASK8      	init_tilt_speed_task
-//#define INIT_TASK8      	init_pan_position_task
-//#define INIT_TASK9      	init_pan_speed_task
+#define INIT_TASK9      	init_pan_position_task
+#define INIT_TASK10      	init_pan_speed_task
 
 
 //
@@ -82,8 +82,8 @@
 #define CONVERTER_TASK                  6
 #define TILT_POSITION_TASK		7
 #define TILT_SPEED_TASK			8
-//#define PAN_POSITION_TASK		8
-//#define PAN_SPEED_TASK			9
+#define PAN_POSITION_TASK		9
+#define PAN_SPEED_TASK			10
 
 
 

@@ -1,57 +1,57 @@
 V3 27
-FL "C:/Users/Lukas Schwartz/Documents/GitHub/Projekt-2014/Encoder/DisplayHex.vhd" 2014/03/26.10:19:44 P.20131013
-EN work/DisplayHex 1399894031 \
+FL "C:/Users/Lukas Schwartz/Documents/GitHub/Projekt-2014/Encoder/DisplayHex.vhd" 2014/05/12.18:57:35 P.20131013
+EN work/DisplayHex 1399915865 \
       FL "C:/Users/Lukas Schwartz/Documents/GitHub/Projekt-2014/Encoder/DisplayHex.vhd" \
       PB ieee/std_logic_1164 1381692176 PB ieee/std_logic_arith 1381692177 \
       PB ieee/STD_LOGIC_UNSIGNED 1381692179
-AR work/DisplayHex/Behavioral 1399894032 \
+AR work/DisplayHex/Behavioral 1399915866 \
       FL "C:/Users/Lukas Schwartz/Documents/GitHub/Projekt-2014/Encoder/DisplayHex.vhd" \
-      EN work/DisplayHex 1399894031
-FL "C:/Users/Lukas Schwartz/Documents/GitHub/Projekt-2014/Encoder/DisplaySelect_4.vhd" 2014/03/26.10:19:44 P.20131013
-EN work/DisplaySelect_4_7segDisp 1399894033 \
+      EN work/DisplayHex 1399915865
+FL "C:/Users/Lukas Schwartz/Documents/GitHub/Projekt-2014/Encoder/DisplaySelect_4.vhd" 2014/05/12.18:57:35 P.20131013
+EN work/DisplaySelect_4_7segDisp 1399915867 \
       FL "C:/Users/Lukas Schwartz/Documents/GitHub/Projekt-2014/Encoder/DisplaySelect_4.vhd" \
       PB ieee/std_logic_1164 1381692176 PB ieee/std_logic_arith 1381692177 \
       PB ieee/STD_LOGIC_UNSIGNED 1381692179
-AR work/DisplaySelect_4_7segDisp/Behavioral 1399894034 \
+AR work/DisplaySelect_4_7segDisp/Behavioral 1399915868 \
       FL "C:/Users/Lukas Schwartz/Documents/GitHub/Projekt-2014/Encoder/DisplaySelect_4.vhd" \
-      EN work/DisplaySelect_4_7segDisp 1399894033
-FL "C:/Users/Lukas Schwartz/Documents/GitHub/Projekt-2014/Encoder/encoder.vhd" 2014/05/05.16:11:39 P.20131013
-EN work/Encoder 1399894025 \
+      EN work/DisplaySelect_4_7segDisp 1399915867
+FL "C:/Users/Lukas Schwartz/Documents/GitHub/Projekt-2014/Encoder/encoder.vhd" 2014/05/12.18:57:36 P.20131013
+EN work/Encoder 1399915859 \
       FL "C:/Users/Lukas Schwartz/Documents/GitHub/Projekt-2014/Encoder/encoder.vhd" \
       PB ieee/std_logic_1164 1381692176 PB ieee/std_logic_arith 1381692177 \
       PB ieee/STD_LOGIC_UNSIGNED 1381692179
-AR work/Encoder/Behavioral 1399894026 \
+AR work/Encoder/Behavioral 1399915860 \
       FL "C:/Users/Lukas Schwartz/Documents/GitHub/Projekt-2014/Encoder/encoder.vhd" \
-      EN work/Encoder 1399894025
-FL "C:/Users/Lukas Schwartz/Documents/GitHub/Projekt-2014/FPGA/fpga_main.vhd" 2014/05/12.13:26:51 P.20131013
-EN work/fpga_main 1399894035 \
+      EN work/Encoder 1399915859
+FL "C:/Users/Lukas Schwartz/Documents/GitHub/Projekt-2014/FPGA/fpga_main.vhd" 2014/05/12.19:30:51 P.20131013
+EN work/fpga_main 1399915869 \
       FL "C:/Users/Lukas Schwartz/Documents/GitHub/Projekt-2014/FPGA/fpga_main.vhd" \
       PB ieee/std_logic_1164 1381692176 PB ieee/std_logic_arith 1381692177
-AR work/fpga_main/Behavioral 1399894036 \
+AR work/fpga_main/Behavioral 1399915870 \
       FL "C:/Users/Lukas Schwartz/Documents/GitHub/Projekt-2014/FPGA/fpga_main.vhd" \
-      EN work/fpga_main 1399894035 CP MCS CP SPI CP DisplayHex \
+      EN work/fpga_main 1399915869 CP MCS CP SPI CP DisplayHex \
       CP DisplaySelect_4_7segDisp
-FL "C:/Users/Lukas Schwartz/Documents/GitHub/Projekt-2014/MotorControlSystem/MCS.vhd" 2014/05/08.11:36:50 P.20131013
-EN work/MCS 1399894027 \
+FL "C:/Users/Lukas Schwartz/Documents/GitHub/Projekt-2014/MotorControlSystem/MCS.vhd" 2014/05/12.18:57:36 P.20131013
+EN work/MCS 1399915861 \
       FL "C:/Users/Lukas Schwartz/Documents/GitHub/Projekt-2014/MotorControlSystem/MCS.vhd" \
       PB ieee/std_logic_1164 1381692176 PB ieee/std_logic_arith 1381692177 \
       PB ieee/STD_LOGIC_UNSIGNED 1381692179
-AR work/MCS/Behavioral 1399894028 \
+AR work/MCS/Behavioral 1399915862 \
       FL "C:/Users/Lukas Schwartz/Documents/GitHub/Projekt-2014/MotorControlSystem/MCS.vhd" \
-      EN work/MCS 1399894027 CP PWM CP Encoder
-FL "C:/Users/Lukas Schwartz/Documents/GitHub/Projekt-2014/PWM/PWM.vhd" 2014/03/29.11:52:52 P.20131013
-EN work/PWM 1399894023 \
+      EN work/MCS 1399915861 CP PWM CP Encoder
+FL "C:/Users/Lukas Schwartz/Documents/GitHub/Projekt-2014/PWM/PWM.vhd" 2014/05/12.18:57:36 P.20131013
+EN work/PWM 1399915857 \
       FL "C:/Users/Lukas Schwartz/Documents/GitHub/Projekt-2014/PWM/PWM.vhd" \
       PB ieee/std_logic_1164 1381692176 PB ieee/std_logic_arith 1381692177 \
       PB ieee/STD_LOGIC_UNSIGNED 1381692179
-AR work/PWM/Behavioral 1399894024 \
+AR work/PWM/Behavioral 1399915858 \
       FL "C:/Users/Lukas Schwartz/Documents/GitHub/Projekt-2014/PWM/PWM.vhd" \
-      EN work/PWM 1399894023
-FL "C:/Users/Lukas Schwartz/Documents/GitHub/Projekt-2014/SPI/SPI.vhd" 2014/05/06.22:09:04 P.20131013
-EN work/SPI 1399894029 \
+      EN work/PWM 1399915857
+FL "C:/Users/Lukas Schwartz/Documents/GitHub/Projekt-2014/SPI/SPI.vhd" 2014/05/12.18:57:39 P.20131013
+EN work/SPI 1399915863 \
       FL "C:/Users/Lukas Schwartz/Documents/GitHub/Projekt-2014/SPI/SPI.vhd" \
       PB ieee/std_logic_1164 1381692176 PB ieee/std_logic_arith 1381692177 \
       PB ieee/STD_LOGIC_UNSIGNED 1381692179
-AR work/SPI/Behavioral 1399894030 \
+AR work/SPI/Behavioral 1399915864 \
       FL "C:/Users/Lukas Schwartz/Documents/GitHub/Projekt-2014/SPI/SPI.vhd" \
-      EN work/SPI 1399894029
+      EN work/SPI 1399915863

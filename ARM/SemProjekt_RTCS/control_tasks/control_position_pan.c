@@ -25,13 +25,19 @@
 #define PLOTPOSITION 2
 
 #define RUN_MODE NORMAL //
+#define defaultPositionPan 0
+
+#define STOP_BAND_START 205 // when the band were it can't be starts (221)
+#define STOP_BAND_STOP 860 // ^... stops (840)
 
 #define PID_RUN_INTERVAL 20 // ticks
-#define  defaultPositionPAN 500
 
 #define Kp 0.5 //0.5
-#define Ki 3 //1
+#define Ki 1 //1
 #define Kd 0
+
+#define IDT (1000/(PID_RUN_INTERVAL*T_TICK))
+
 /*****************************   Constants   ********************************/
 /*****************************   Variables   ********************************/
 /*****************************   Functions   ********************************/
@@ -57,7 +63,6 @@ void pan_position_task()
 
   INT16U goToPosition = 0;
 
-  INT16U dt = 1000/(PID_RUN_INTERVAL*T_TICK);
   INT16S set_speed = 0;
   static INT8U i = 0;
 
@@ -65,11 +70,22 @@ void pan_position_task()
   if(!(--pid_interval_counter)){
     pid_interval_counter = PID_RUN_INTERVAL;
 
-    // get position
-    QueuePeek(QueuePositionTilt, &current_position);
+    // get positions
+    QueuePeek(QueuePositionPan, &current_position);
     if (!QueuePeek(QueueGoToPositionPan, &goToPosition)) {
-          goToPosition = defaultPositionPAN;
-        }
+      goToPosition = defaultPositionPan;
+    }
+
+    // test for valid position (rotation stopper)
+    if (goToPosition > STOP_BAND_START && goToPosition < STOP_BAND_STOP) {
+      if (goToPosition < (STOP_BAND_START + STOP_BAND_STOP)/2) {
+        goToPosition = STOP_BAND_START;
+      }
+      else {
+        goToPosition = STOP_BAND_STOP;
+      }
+    }
+
     error = goToPosition - current_position;
 
     //shortest path correction(untested)
@@ -77,20 +93,25 @@ void pan_position_task()
     	error -= 1080;
     }
     else if (error < -540) {
-		error += 1080;
-	}
-    Derror = (error - last_error)*dt;
+      error += 1080;
+    }
+
+    // if prevent go through region is needed implement here
+    // above will no be needed because pan freedom < 180* and shortest
+    // path will then always be through passable area
+
+    Derror = (error - last_error)*IDT;
     Ierror+=error;
 
-    if(Ierror > 5*dt){
-    	Ierror = 5*dt;
+    if(Ierror > 5*IDT){
+    	Ierror = 5*IDT;
     }
-    // lukas limit 200*dt
-    else if(Ierror < -5*dt){
-    	Ierror = -5*dt;
+    // lukas limit 200*IDT
+    else if(Ierror < -5*IDT){
+    	Ierror = -5*IDT;
     }
 
-    set_speed = error*Kp + (Ierror*Ki)/dt + Derror*Kd;
+    set_speed = error*Kp + (Ierror*Ki)/IDT + Derror*Kd;
 
     if(set_speed > 1500){
     	set_speed = 1500;
@@ -98,7 +119,11 @@ void pan_position_task()
     else if(set_speed < -1500){
     	set_speed = - 1500;
     }
-    QueueSend(QueueTiltSpeed, &set_speed);
+    QueueOverwrite(QueuePanSpeed, &set_speed);
+
+#if RUN_MODE == DEBUGINFO
+    UARTprintf("GPP: %d, WSP: %d\r\n",goToPosition, set_speed);
+#endif
 
 #if (RUN_MODE == PLOTPOSITION)
   if(--i == 0){

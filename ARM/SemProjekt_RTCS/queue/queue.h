@@ -26,7 +26,7 @@
 #include "stdlib.h"
 #include "inc\glob_def.h"
 /*****************************    Defines    *******************************/
-#define QUEUESIZE	10
+#define QUEUESIZE	15
 #define EMPTY		1
 #define FULL 		2
 /*****************************   Constants   *******************************/

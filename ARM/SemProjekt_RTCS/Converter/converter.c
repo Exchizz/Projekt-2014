@@ -21,6 +21,13 @@
 #include "Converter/converter.h"
 #include "communication/communication_task.h"
 /*****************************    Defines    ********************************/
+#define NORMAL 0
+#define DEBUGINFO 1
+#define RETURNVALUE 2
+#define RUNMODE RETURNVALUE
+
+
+
 #define cameraAnglePan 70
 #define cameraAngleTilt 30
 #define cameraPixelPan 1920
@@ -70,11 +77,17 @@ void converter_task()
     function = PIXEL;
     RecieveDecNumState = THOUSANDS;
     recieve_state = RECIEVE_MOTOR;
+#if RUNMODE == DEBUGINFO || RUNMODE == RETURNVALUE
+    UARTprintf("px\r\n");
+#endif
     break;
     case 'f':
     function = FIXED;
     RecieveDecNumState = THOUSANDS;
     recieve_state = RECIEVE_MOTOR;
+#if RUNMODE == DEBUGINFO || RUNMODE == RETURNVALUE
+    UARTprintf("fi\r\n");
+#endif
     break;
     default:
     break;
@@ -87,11 +100,17 @@ void converter_task()
     motor = PAN;
     decValue = 0;
     recieve_state = RECIEVE_DEC_NUM;
+#if RUNMODE == DEBUGINFO || RUNMODE == RETURNVALUE
+    UARTprintf("pan\r\n");
+#endif
     break;
     case 't':
     motor = TILT;
     decValue = 0;
     recieve_state = RECIEVE_DEC_NUM;
+#if RUNMODE == DEBUGINFO || RUNMODE == RETURNVALUE
+    UARTprintf("tilt\r\n");
+#endif
     break;
     default:
     break;
@@ -105,6 +124,9 @@ void converter_task()
       decValue *= 10;
       decValue += (data - '0');
       RecieveDecNumState = THOUSANDS;
+#if RUNMODE == DEBUGINFO || RUNMODE == RETURNVALUE
+    UARTprintf("%c",data);
+#endif
     }
     break;
     case THOUSANDS:
@@ -112,6 +134,9 @@ void converter_task()
       decValue *= 10;
       decValue += (data - '0');
       RecieveDecNumState = HUNDREDS;
+#if RUNMODE == DEBUGINFO || RUNMODE == RETURNVALUE
+    UARTprintf("%c",data);
+#endif
     }
     break;
     case HUNDREDS:
@@ -119,6 +144,9 @@ void converter_task()
       decValue *= 10;
       decValue += (data - '0');
       RecieveDecNumState = TENS;
+#if RUNMODE == DEBUGINFO || RUNMODE == RETURNVALUE
+    UARTprintf("%c",data);
+#endif
     }
     break;
     case TENS:
@@ -126,21 +154,33 @@ void converter_task()
       decValue *= 10;
       decValue += (data - '0');
       RecieveDecNumState = ONES;
+#if RUNMODE == DEBUGINFO || RUNMODE == RETURNVALUE
+    UARTprintf("%c",data);
+#endif
     }
     break;
     case ONES:
     if (data <= '9' && data >= '0') {
       decValue *= 10;
       decValue += (data - '0');
+#if RUNMODE == DEBUGINFO || RUNMODE == RETURNVALUE
+    UARTprintf("%c\r\n",data);
+#endif
 
       // process data if fixed or pan else other function might requirer different jump.
       if (function == FIXED) {
         decValue %= 1080;
         if (motor == TILT) {
           QueueOverwrite(QueueGoToPositionTilt, &decValue);
+#if RUNMODE == DEBUGINFO
+    UARTprintf("FT: %d\r\n",decValue);
+#endif
         }
         else if (motor == PAN) {
           QueueOverwrite(QueueGoToPositionPan, &decValue);
+#if RUNMODE == DEBUGINFO
+    UARTprintf("FP: %d\r\n",decValue);
+#endif
         }
       }
       else if (function == PIXEL) {
@@ -155,6 +195,9 @@ void converter_task()
           decValue %= ticksPerRotation;
           // send
           QueueOverwrite(QueueGoToPositionTilt, &decValue);
+#if RUNMODE == DEBUGINFO
+    UARTprintf("PT: %d\r\n",decValue);
+#endif
         }
         else if (motor == PAN) {
           currentPosition = QueuePeek(QueuePositionPan, &currentPosition);
@@ -167,6 +210,9 @@ void converter_task()
           decValue %= ticksPerRotation;
           // send
           QueueOverwrite(QueueGoToPositionPan, &decValue);
+#if RUNMODE == DEBUGINFO
+    UARTprintf("PP: %d\r\n",decValue);
+#endif
         }
       }
       recieve_state = WAIT_FUNC;
