@@ -30,12 +30,12 @@
 
 #define FIXEDSPEED 500 // define for fixed speed when in FIXEDSPEEDPLOT mode
 
-#define PID_RUN_INTERVAL 50 // ticks
+#define PID_RUN_INTERVAL 30 // ticks
 #define PID_SPEED_CALC_INTERVAL 2  // length of time over which the speed is averaged as a multiple of PID_RUN_INTERVAL
 
-#define Kp 0.13
-#define Ki 0.0015
-#define Kd 0.045
+#define Kp 0.11472
+#define Ki 0.027353
+#define Kd 0.014946
 
 #define IDT (1000/(PID_RUN_INTERVAL*T_TICK*PID_SPEED_CALC_INTERVAL))
 
@@ -130,7 +130,7 @@ void tilt_speed_task()
     	Ierror = -INTEGRATORLIMIT*IDT;
     }
     // calculate PID
-    set_pwm = error*Kp + Derror*Kd + (Ierror*Ki)/IDT;
+    set_pwm = (error*Kp + Derror*Kd + ((Ierror*Ki)/IDT));
     set_pwm += last_pwm;
 
     // limit pwm

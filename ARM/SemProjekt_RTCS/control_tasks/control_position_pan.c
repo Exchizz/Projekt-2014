@@ -35,13 +35,13 @@
 #define PID_RUN_INTERVAL 20 // ticks
 
 #define Kp 0.5 //0.5
-#define Ki 1 //1
+#define Ki 0.5 //1
 #define Kd 0
 
 #define IDT (1000/(PID_RUN_INTERVAL*T_TICK))
 
 #define TICKS_PER_FRAME_ROTATION 1080
-#define INTEGRATORLIMIT 5
+#define INTEGRATORLIMIT 50
 #define MAXSPEED_LIMIT 1500 // ticks/s
 /*****************************   Constants   ********************************/
 /*****************************   Variables   ********************************/
