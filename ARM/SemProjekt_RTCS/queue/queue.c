@@ -2,24 +2,36 @@
 
 #define DEBUG DEBUG_OFF
 
+#define NORMAL 0
+#define INTENSEDEBUG 1
+
+#define RUNMODE INTENSEDEBUG
+
+
 QueueHandle_t QueueCreate(int queuesize, int typesize){
-	QueueHandle_t currentQueue;
-	currentQueue.mem = calloc(queuesize, typesize);
-	if(!currentQueue.mem){
-		UARTprintf("Unable to allocate memory \r\n");
-	} else {
-		UARTprintf("Memory allocated\r\n");
-	}
-	currentQueue.wr = 0;
-	currentQueue.rd = 0;
-	currentQueue.typesize = typesize;
-	currentQueue.queuesize = queuesize;
-	currentQueue.elements = 0;
-	currentQueue.overwrite = FALSE;
-	return currentQueue;
+  static INT8U id_count = 0;
+  QueueHandle_t currentQueue;
+  currentQueue.mem = calloc(queuesize, (typesize));
+  if(!currentQueue.mem){
+    UARTprintf("Unable to allocate memory \r\n");
+  } else {
+    UARTprintf("Memory allocated\r\n");
+  }
+  currentQueue.wr = 0;
+  currentQueue.rd = 0;
+  currentQueue.typesize = (typesize);
+  currentQueue.queuesize = queuesize;
+  currentQueue.elements = 0;
+  currentQueue.overwrite = FALSE;
+  currentQueue.id = id_count++;
+  UARTprintf("size %d \r\n",currentQueue.typesize);
+  return currentQueue;
 }
 
 void QueueOverwrite(QueueHandle_t *this, const void * dataIn){
+#if (RUNMODE == INTENSEDEBUG)
+        UARTprintf("QO: Start.\r\n");
+#endif
 	//Write-pointer overrun
 	this->wr %=this->queuesize;
 
@@ -38,11 +50,16 @@ void QueueOverwrite(QueueHandle_t *this, const void * dataIn){
 
 	//Copy content of void * dataIn to the queue, and increment write-pointer
 	memcpy ( this->mem+((this->typesize*this->wr-1)%this->queuesize), dataIn, this->typesize );
+#if (RUNMODE == INTENSEDEBUG)
+        UARTprintf("QO: Exit.\r\n");
+#endif
 }
 
 BOOLEAN QueueSend(QueueHandle_t *this, const void * dataIn){
 	BOOLEAN retval = FALSE;
-
+#if (RUNMODE == INTENSEDEBUG)
+	UARTprintf("QSend: Start.\r\n");
+#endif
 	//Write-pointer overrun
 	this->wr %= this->queuesize;
 #if DEBUG == 1
@@ -61,12 +78,18 @@ BOOLEAN QueueSend(QueueHandle_t *this, const void * dataIn){
 #if DEBUG == 1
 	UARTprintf("\t after increase: %d \r\n", this->wr);
 #endif
+#if (RUNMODE == INTENSEDEBUG)
+	UARTprintf("QSend: Done.\r\n");
+#endif
 	return retval;
 }
 
 BOOLEAN QueueReceive(QueueHandle_t *this, void * dataOut){
 	BOOLEAN retval = FALSE;
-
+	UARTprintf("size %d, id %d \r\n",this->typesize, this->id);
+#if (RUNMODE == INTENSEDEBUG)
+	UARTprintf("QReceive: Start.\r\n");
+#endif
 #if DEBUG == 1
 	UARTprintf("QueueReceive: Elements: %d, readpointer: %d \r\n", this->elements, this->rd);
 #endif
@@ -74,11 +97,16 @@ BOOLEAN QueueReceive(QueueHandle_t *this, void * dataOut){
 	if(this->elements > 0){
 		--this->elements;
 		//Copy content of queue to dataOut
-		memcpy( dataOut, this->mem+(this->typesize*this->rd++), this->typesize);
+		UARTprintf("data: start,size %d,mem %d, id %d, el %d \r\n", this->typesize, this->mem, this->id, this->elements);
+		memcpy( dataOut, this->mem+((this->typesize)*(this->rd++)), this->typesize);
+		UARTprintf("data: end \r\n");
 		//Pointer read overrun
 		this->rd %= this->queuesize;
 		retval = TRUE;
 	}
+#if (RUNMODE == INTENSEDEBUG)
+	UARTprintf("QReceive: Stop.\r\n");
+#endif
 	return retval;
 }
 
@@ -88,13 +116,18 @@ INT8U QueueSpaceLeft(QueueHandle_t *this){
 
 BOOLEAN QueuePeek(QueueHandle_t *this, void * dataOut){
 	BOOLEAN retval = FALSE;
-
+#if (RUNMODE == INTENSEDEBUG)
+	UARTprintf("QPeek: Start.\r\n");
+#endif
 	//check if data is available
 	if(this->elements > 0){
 		//Copy content of queue to dataOut
 		memcpy( dataOut, this->mem+(this->typesize*this->rd), this->typesize);
 		retval = TRUE;
 	}
+#if (RUNMODE == INTENSEDEBUG)
+	UARTprintf("QPeek: Stop.\r\n");
+#endif
 	return retval;
 }
 

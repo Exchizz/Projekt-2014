@@ -30,7 +30,10 @@
 #include "RTCS/rtcs.h"
 #include "application/application.h"
 /*****************************    Defines    *******************************/
+#define NORMAL 0
+#define INTENSEDEBUG 1
 
+#define RUNMODE NORMAL
 /*****************************   Constants   *******************************/
 
 /*****************************   Variables   *******************************/
@@ -70,10 +73,16 @@ char UARTCharGet(){
 
 void UART_RX_task(){
 	INT16U receivedChar = 0;
+#if (RUNMODE == INTENSEDEBUG)
+	UARTprintf("UART RX: start write queue.\r\n");
+#endif
 	if(UARTDataReady(RX) && QueueSpaceLeft(&QueueUARTRX)){
 		receivedChar = UARTCharGet();
 		QueueSend(&QueueUARTRX, &receivedChar);
 	}
+#if (RUNMODE == INTENSEDEBUG)
+	UARTprintf("UART RX: stop write queue.\r\n");
+#endif
 }
 
 

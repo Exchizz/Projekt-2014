@@ -44,6 +44,7 @@
 /*****************************   Variables   ********************************/
 /*****************************   Functions   ********************************/
 void init_tilt_position_task(){
+  UARTprintf("Starting Position Tilt Task\r\n");
   _start(TILT_POSITION_TASK, MILLI_SEC(0));
 }
 

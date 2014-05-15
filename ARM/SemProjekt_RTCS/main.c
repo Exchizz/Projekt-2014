@@ -62,7 +62,6 @@ void alive_task(void)
 {
 	// Toggles status LED every 1 sec.
 	GPIO_PORTF_DATA_R ^= 0x01;
-
 	_wait(MILLI_SEC(500));
 }
 
@@ -84,23 +83,25 @@ int main(void)
 	gpio_init();
 
 	/* Initialize queueHanders */
-	QueueUARTTX 		= QueueCreate(16, sizeof(char));
-	QueueUARTRX 		= QueueCreate(16, sizeof(char));
+	QueuePositionPan 	= QueueCreate(1, sizeof(INT16U));
+	QueuePositionTilt 	= QueueCreate(1, sizeof(INT16U));
 
-	QueueSPITX  		= QueueCreate(2, sizeof(char));
-	QueueSPIRX  		= QueueCreate(2, sizeof(char));
+	QueuePWMOutTilt		= QueueCreate(1, sizeof(INT16U));
+	QueuePWMOutPan          = QueueCreate(1, sizeof(INT16U));
 
-	QueuePositionPan 	= QueueCreate(1, sizeof(char));
-	QueuePositionTilt 	= QueueCreate(1, sizeof(char));
+	QueueTiltSpeed		= QueueCreate(1, sizeof(INT16S));
+	QueuePanSpeed           = QueueCreate(1, sizeof(INT16S));
 
-	QueuePWMOutTilt		= QueueCreate(1, sizeof(char));
-	QueuePWMOutPan          = QueueCreate(1, sizeof(char));
+	QueueGoToPositionTilt   = QueueCreate(1, sizeof(INT16U));
+	QueueGoToPositionPan    = QueueCreate(1, sizeof(INT16U));
 
-	QueueTiltSpeed		= QueueCreate(1, sizeof(char));
-	QueuePanSpeed           = QueueCreate(1, sizeof(char));
+        QueueSPITX              = QueueCreate(2, sizeof(INT16U));
+        QueueSPIRX              = QueueCreate(2, sizeof(INT16U));
 
-	QueueGoToPositionTilt   = QueueCreate(1, sizeof(char));
-	QueueGoToPositionPan    = QueueCreate(1, sizeof(char));
+
+        QueueUARTTX             = QueueCreate(16, sizeof(char));
+        QueueUARTRX             = QueueCreate(16, sizeof(char));
+
 
 	enable_global_int();
 

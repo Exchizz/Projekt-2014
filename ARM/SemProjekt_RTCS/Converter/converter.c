@@ -56,6 +56,7 @@ enum DEC_NUM_STATES ReceiveDecNumState = THOUSANDS;
 
 /*****************************   Functions   ********************************/
 void init_converter_task(){
+  UARTprintf("Starting Converter Task\r\n");
   _start(CONVERTER_TASK, MILLI_SEC(0));
 }
 

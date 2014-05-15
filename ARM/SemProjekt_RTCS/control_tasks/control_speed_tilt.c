@@ -51,6 +51,7 @@
 /*****************************   Variables   ********************************/
 /*****************************   Functions   ********************************/
 void init_tilt_speed_task(){
+  UARTprintf("Starting Speed Tilt Task\r\n");
   _start(TILT_SPEED_TASK, MILLI_SEC(0));
 }
 

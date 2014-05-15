@@ -26,6 +26,7 @@
 
 #define NORMAL 0
 #define DEBUGINFO 1
+#define INTENSEDEBUG 2
 #define RUNMODE NORMAL
 
 #define TILTMESSAGE_SENDPWM 0b10
@@ -38,6 +39,7 @@
 /*****************************   Variables   *******************************/
 /*****************************   Functions   *******************************/
 void init_communication_task(){
+  UARTprintf("Starting Communication Task\r\n");
   _start(COMMUNICATION_TASK, MILLI_SEC(0));
 }
 void communication_task()
@@ -53,6 +55,9 @@ void communication_task()
   INT16U pwmTilt = 0, pwmPan = 0;
 
   // get data from pan/tilt queue and put in data to send var
+#if (RUNMODE == INTENSEDEBUG)
+  UARTprintf("Communication: read from PWM queues.\r\n");
+#endif
   if(QueueReceive(&QueuePWMOutTilt, &pwmTilt)){
     dataToSend = (TILTMESSAGE_SENDPWM << 10) | (pwmTilt & MASK_DIRECITION_PWM);
   }
@@ -63,7 +68,9 @@ void communication_task()
     // if no pwm to send, send 0
     dataToSend = 0;
   }
-
+#if (RUNMODE == INTENSEDEBUG)
+  UARTprintf("Communication: send to SPI queue.\r\n");
+#endif
   // debug info
 #if (RUNMODE == DEBUGINFO)
   UARTprintf("DSP: %d\r\n", dataToSend);
@@ -71,7 +78,9 @@ void communication_task()
 
   // send to SPI
   QueueSend(&QueueSPITX, &dataToSend);
-
+#if (RUNMODE == INTENSEDEBUG)
+  UARTprintf("Communication: read SPI queues.\r\n");
+#endif
   // recieve from SPI
   if(QueueReceive(&QueueSPIRX, &FromSPI)){
     // decide if it is for pan or tilt and then put position accordingly in a queue
@@ -83,5 +92,8 @@ void communication_task()
       QueueOverwrite(&QueuePositionTilt, &FromSPI);
     }
   }
+#if (RUNMODE == INTENSEDEBUG)
+  UARTprintf("Communication: Task done.\r\n");
+#endif
 }
 /****************************** End Of Module *******************************/

@@ -25,13 +25,14 @@
 #include "inc\glob_def.h"
 /*****************************    Defines    *******************************/
 typedef struct {
-        int wr;
-        int rd;
-        int typesize;
-        int queuesize;
-        char* mem;
-        int elements;
-        int overwrite;
+        INT8U wr;
+        INT8U rd;
+        INT8U typesize;
+        INT8U queuesize;
+        int* mem;
+        INT8U elements;
+        INT8U overwrite;
+        INT8U id;
 } QueueHandle_t;
 #define DEBUG_ON	1
 #define DEBUG_OFF	0

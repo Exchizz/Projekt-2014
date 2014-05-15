@@ -49,6 +49,7 @@
 /*****************************   Variables   ********************************/
 /*****************************   Functions   ********************************/
 void init_pan_speed_task(){
+  UARTprintf("Starting Speed Pan Task\r\n");
   _start(PAN_SPEED_TASK, MILLI_SEC(0));
 }
 

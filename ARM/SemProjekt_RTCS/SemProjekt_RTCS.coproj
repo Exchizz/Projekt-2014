@@ -61,7 +61,7 @@
       <Option name="org.coocox.codebugger.gdbjtag.core.portNumber" value="2009"/>
       <Option name="org.coocox.codebugger.gdbjtag.core.autoDownload" value="1"/>
       <Option name="org.coocox.codebugger.gdbjtag.core.verify" value="1"/>
-      <Option name="org.coocox.codebugger.gdbjtag.core.downloadFuction" value="Erase Effected"/>
+      <Option name="org.coocox.codebugger.gdbjtag.core.downloadFuction" value="Erase Full Chip"/>
       <Option name="org.coocox.codebugger.gdbjtag.core.defaultAlgorithm" value="LM3S_256.elf"/>
     </DebugOption>
     <ExcludeFile/>
@@ -92,9 +92,9 @@
     <File name="debug" path="" type="2"/>
     <File name="spi/spi.c" path="spi/spi.c" type="1"/>
     <File name="GPIO" path="" type="2"/>
-    <File name="GPIO/gpio.h" path="GPIO/gpio.h" type="1"/>
     <File name="queue/queue.c" path="queue/queue.c" type="1"/>
     <File name="cpu/cpu.h" path="cpu/cpu.h" type="1"/>
+    <File name="GPIO/gpio.h" path="GPIO/gpio.h" type="1"/>
     <File name="startup/startup_lm3s.c" path="startup/startup_lm3s.c" type="1"/>
     <File name="Converter/converter.h" path="Converter/converter.h" type="1"/>
     <File name="RTCS" path="" type="2"/>
