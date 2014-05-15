@@ -38,7 +38,7 @@ typedef struct {
 #define DEBUG_OFF	0
 /*****************************   Constants   *******************************/
 /*****************************   Variables   *******************************/
-QueueHandle_t QueueCreate(int queuesize, int typesize);
+QueueHandle_t QueueCreate(INT8U queuesize, INT8U typesize);
 void QueueOverwrite(QueueHandle_t *this, const void * dataIn);
 BOOLEAN QueueSend(QueueHandle_t *this, const void * dataIn);
 BOOLEAN QueueSend(QueueHandle_t *this, const void * dataIn);

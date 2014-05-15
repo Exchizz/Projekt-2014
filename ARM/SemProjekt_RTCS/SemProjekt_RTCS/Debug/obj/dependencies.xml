@@ -123,7 +123,7 @@
          <include file="..\..\..\inc\emp_type.h"/>
          <include file="..\..\..\application\application.h"/>
       </source>
-      <source file="..\..\..\queue\queue.h" lastModified="145ff9ccaad">
+      <source file="..\..\..\queue\queue.h" lastModified="1460039762d">
          <include file="..\..\..\inc\emp_type.h"/>
          <include file="..\..\..\inc\glob_def.h"/>
       </source>

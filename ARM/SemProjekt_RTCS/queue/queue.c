@@ -8,7 +8,7 @@
 #define RUNMODE INTENSEDEBUG
 
 
-QueueHandle_t QueueCreate(int queuesize, int typesize){
+QueueHandle_t QueueCreate(INT8U queuesize, INT8U typesize){
   static INT8U id_count = 0;
   QueueHandle_t currentQueue;
   currentQueue.mem = calloc(queuesize, (typesize));
@@ -49,7 +49,7 @@ void QueueOverwrite(QueueHandle_t *this, const void * dataIn){
 	}
 
 	//Copy content of void * dataIn to the queue, and increment write-pointer
-	memcpy ( this->mem+((this->typesize*this->wr-1)%this->queuesize), dataIn, this->typesize );
+	memcpy ( this->mem+(((this->typesize)*(this->wr-1))%(this->queuesize)), dataIn, this->typesize );
 #if (RUNMODE == INTENSEDEBUG)
         UARTprintf("QO: Exit.\r\n");
 #endif
@@ -72,7 +72,7 @@ BOOLEAN QueueSend(QueueHandle_t *this, const void * dataIn){
 	if(this->elements < this->queuesize){
 		++this->elements;
 		//Copy content of void * dataIn to the queue, and increment write-pointer
-		memcpy ( this->mem+(this->typesize*(this->wr++)), dataIn, this->typesize );
+		memcpy ( this->mem+((this->typesize)*(this->wr++)), dataIn, this->typesize );
 		retval = TRUE;
 	}
 #if DEBUG == 1
@@ -111,7 +111,7 @@ BOOLEAN QueueReceive(QueueHandle_t *this, void * dataOut){
 }
 
 INT8U QueueSpaceLeft(QueueHandle_t *this){
-	return (this->queuesize)-(this->elements);
+	return ((this->queuesize)-(this->elements));
 }
 
 BOOLEAN QueuePeek(QueueHandle_t *this, void * dataOut){
