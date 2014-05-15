@@ -7,6 +7,8 @@ QueueHandle_t QueueCreate(int queuesize, int typesize){
 	currentQueue.mem = calloc(queuesize, typesize);
 	if(!currentQueue.mem){
 		UARTprintf("Unable to allocate memory \r\n");
+	} else {
+		UARTprintf("Memory allocated\r\n");
 	}
 	currentQueue.wr = 0;
 	currentQueue.rd = 0;
