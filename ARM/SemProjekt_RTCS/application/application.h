@@ -19,7 +19,7 @@
 
 /***************************** Include files *******************************/
 /*****************************    Defines    *******************************/
-extern QueueHandle_t QueuePositionPan,
+extern QueueHandle_t QueuePositionPan;
 extern QueueHandle_t QueuePositionTilt;
 extern QueueHandle_t QueuePWMOutTilt;
 extern QueueHandle_t QueuePWMOutPan;

@@ -5,11 +5,9 @@
 QueueHandle_t QueueCreate(int queuesize, int typesize){
 	QueueHandle_t currentQueue;
 	currentQueue.mem = calloc(queuesize, typesize);
-#if DEBUG == 1
 	if(!currentQueue.mem){
-		uartprintf("Unable to allocate memory \r\n");
+		UARTprintf("Unable to allocate memory \r\n");
 	}
-#endif
 	currentQueue.wr = 0;
 	currentQueue.rd = 0;
 	currentQueue.typesize = typesize;
@@ -25,13 +23,13 @@ void QueueOverwrite(QueueHandle_t *this, const void * dataIn){
 
 	//++this->elements;
 #if DEBUG == 1
-	uartprintf("QueueOverwrite: elements: %d, queueSize: %d \r\n", this->elements, this->queuesize);
+	UARTprintf("QueueOverwrite: elements: %d, queueSize: %d \r\n", this->elements, this->queuesize);
 #endif
 	if(this->elements < this->queuesize){
 		++this->elements;
 	} else {
 #if DEBUG == 1
-	uartprintf("\t overwrite\r\n");
+	UARTprintf("\t overwrite\r\n");
 #endif
 		this->overwrite = TRUE;
 	}
@@ -46,7 +44,7 @@ BOOLEAN QueueSend(QueueHandle_t *this, const void * dataIn){
 	//Write-pointer overrun
 	this->wr %= this->queuesize;
 #if DEBUG == 1
-	uartprintf("QueueSend: Elements: %d, writepointer: %d \r\n", this->elements, this->wr);
+	UARTprintf("QueueSend: Elements: %d, writepointer: %d \r\n", this->elements, this->wr);
 #endif
 	if(this->overwrite){
 		this->rd = this->wr;
@@ -59,7 +57,7 @@ BOOLEAN QueueSend(QueueHandle_t *this, const void * dataIn){
 		retval = TRUE;
 	}
 #if DEBUG == 1
-	uartprintf("\t after increase: %d \r\n", this->wr);
+	UARTprintf("\t after increase: %d \r\n", this->wr);
 #endif
 	return retval;
 }
@@ -68,7 +66,7 @@ BOOLEAN QueueReceive(QueueHandle_t *this, void * dataOut){
 	BOOLEAN retval = FALSE;
 
 #if DEBUG == 1
-	uartprintf("QueueReceive: Elements: %d, readpointer: %d \r\n", this->elements, this->rd);
+	UARTprintf("QueueReceive: Elements: %d, readpointer: %d \r\n", this->elements, this->rd);
 #endif
 	//check if data is available
 	if(this->elements > 0){

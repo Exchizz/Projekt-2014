@@ -182,19 +182,20 @@ INT16U SPICharGet(){
 
 void SPI_RX_task(){
 	INT16U receivedChar;
-	if(SPIDataReady(RX) && QueueEmpty(QueueSPIRX)){
+	while(SPIDataReady(RX))){
 		receivedChar = SPICharGet();
-		QueueSend(QueueSPIRX, &receivedChar);
+		QueueSend(&QueueSPIRX, &receivedChar);
 	}
 }
 
 
 void SPI_TX_task(){
+	INT16U dataFromQueue;
 	//wait for queue to get empty
 	while(!SPIDataReady(TX));
+
 	//Send next char
-	INT16U dataFromQueue;
-	if(QueueReceive(QueueSPITX, &dataFromQueue)) {
+	while(QueueReceive(&QueueSPITX, &dataFromQueue)){
 		SSI0_DR_R = dataFromQueue;
 	}
 }

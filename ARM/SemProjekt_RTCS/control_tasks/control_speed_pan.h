@@ -19,9 +19,8 @@
 *****************************************************************************/
 
 /***************************** Include files *******************************/
+#include "application/application.h"
 #include "inc/emp_type.h"
-#include "communication/communication_task.h"
-#include "control_tasks/control_position_pan.h"
 /*****************************    Defines    *******************************/
 /*****************************   Constants   *******************************/
 /*****************************   Variables   *******************************/

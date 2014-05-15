@@ -19,13 +19,11 @@
 *****************************************************************************/
 
 /***************************** Include files *******************************/
+#include "application/application.h"
 #include "inc/emp_type.h"
-#include "communication/communication_task.h"
-#include "Converter/converter.h"
 /*****************************    Defines    *******************************/
 /*****************************   Constants   *******************************/
 /*****************************   Variables   *******************************/
-INT8U QueueTiltSpeed;
 /*****************************   Functions   *******************************/
 void init_tilt_position_task();
 void tilt_position_task();
