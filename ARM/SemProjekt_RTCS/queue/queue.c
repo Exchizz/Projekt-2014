@@ -1,73 +1,141 @@
-/*****************************************************************************
-* University of Southern Denmark
-* Embedded C Programming (ECP)
-*
-* MODULENAME.: main.c
-*
-* PROJECT....: G3 - Tracking system utilizing a pan/tilt system
-*
-* DESCRIPTION: See module specification file (.h-file).
-*
-* Change Log:
-******************************************************************************
-* Date    Id    Change
-* YYMMDD
-* --------------------
-* 0902012  KHA   Module created.
-*
-*****************************************************************************/
+#include "queue/queue.h"
 
-/***************************** Include files *******************************/
-#include "queue.h"
+#define DEBUG DEBUG_OFF
 
-/*****************************    Defines    *******************************/
-/*****************************   Constants   *******************************/
-/*****************************   Variables   *******************************/
-/*****************************   Functions   *******************************/
-INT8U CreateQueueHandle(){
-	static INT8U QueueCounter = 0;
-	Queue[QueueCounter].rw = EMPTY;
-	return QueueCounter++;
+QueueHandle_t QueueCreate(int queuesize, int typesize){
+	QueueHandle_t currentQueue;
+	currentQueue.mem = calloc(queuesize, typesize);
+#if DEBUG == 1
+	if(!currentQueue.mem){
+		uartprintf("Unable to allocate memory \r\n");
+	}
+#endif
+	currentQueue.wr = 0;
+	currentQueue.rd = 0;
+	currentQueue.typesize = typesize;
+	currentQueue.queuesize = queuesize;
+	currentQueue.elements = 0;
+	currentQueue.overwrite = FALSE;
+	return currentQueue;
 }
-void QueueSend(INT8U QueueHandle, INT16U *data){
-	if(QueueHandle < QUEUESIZE){
-		if(Queue[QueueHandle].rw == EMPTY){
-			Queue[QueueHandle].data = *data;
-			Queue[QueueHandle].rw = FULL;
+
+void QueueOverwrite(QueueHandle_t *this, const void * dataIn){
+	//Write-pointer overrun
+	this->wr %=this->queuesize;
+
+	//++this->elements;
+#if DEBUG == 1
+	uartprintf("QueueOverwrite: elements: %d, queueSize: %d \r\n", this->elements, this->queuesize);
+#endif
+	if(this->elements < this->queuesize){
+		++this->elements;
+	} else {
+#if DEBUG == 1
+	uartprintf("\t overwrite\r\n");
+#endif
+		this->overwrite = TRUE;
+	}
+
+	//Copy content of void * dataIn to the queue, and increment write-pointer
+	memcpy ( this->mem+((this->typesize*this->wr-1)%this->queuesize), dataIn, this->typesize );
+}
+
+BOOLEAN QueueSend(QueueHandle_t *this, const void * dataIn){
+	BOOLEAN retval = FALSE;
+
+	//Write-pointer overrun
+	this->wr %= this->queuesize;
+#if DEBUG == 1
+	uartprintf("QueueSend: Elements: %d, writepointer: %d \r\n", this->elements, this->wr);
+#endif
+	if(this->overwrite){
+		this->rd = this->wr;
+		this->overwrite = FALSE;
+	}
+	if(this->elements < this->queuesize){
+		++this->elements;
+		//Copy content of void * dataIn to the queue, and increment write-pointer
+		memcpy ( this->mem+(this->typesize*(this->wr++)), dataIn, this->typesize );
+		retval = TRUE;
+	}
+#if DEBUG == 1
+	uartprintf("\t after increase: %d \r\n", this->wr);
+#endif
+	return retval;
+}
+
+BOOLEAN QueueReceive(QueueHandle_t *this, void * dataOut){
+	BOOLEAN retval = FALSE;
+
+#if DEBUG == 1
+	uartprintf("QueueReceive: Elements: %d, readpointer: %d \r\n", this->elements, this->rd);
+#endif
+	//check if data is available
+	if(this->elements > 0){
+		--this->elements;
+		//Copy content of queue to dataOut
+		memcpy( dataOut, this->mem+(this->typesize*this->rd++), this->typesize);
+		//Pointer read overrun
+		this->rd %= this->queuesize;
+		retval = TRUE;
+	}
+	return retval;
+}
+
+int QueueSpaceLeft(QueueHandle_t *this){
+	return (this->queuesize)-(this->elements);
+}
+
+BOOLEAN QueuePeek(QueueHandle_t *this, void * dataOut){
+	BOOLEAN retval = FALSE;
+
+	//check if data is available
+	if(this->elements > 0){
+		//Copy content of queue to dataOut
+		memcpy( dataOut, this->mem+(this->typesize*this->rd), this->typesize);
+		retval = TRUE;
+	}
+	return retval;
+}
+
+
+/*
+int main(){
+
+	QueueHandle_t Queue1 = QueueCreate(8, sizeof(char));
+	char dataOut;
+
+	char dataIn = 'A';
+	QueueSend(&Queue1, &dataIn);
+	dataIn = 'B';
+	QueueSend(&Queue1, &dataIn);
+	dataIn = 'C';
+	QueueOverwrite(&Queue1,&dataIn);
+	dataIn = 'D';
+	QueueSend(&Queue1, &dataIn);
+	dataIn = 'E';
+	QueueSend(&Queue1, &dataIn);
+	dataIn = 'F';
+	QueueSend(&Queue1, &dataIn);
+	dataIn = 'G';
+	QueueSend(&Queue1, &dataIn);
+	dataIn = 'H';
+	QueueSend(&Queue1, &dataIn);
+
+	dataIn = 'I';
+	QueueOverwrite(&Queue1, &dataIn);
+	dataIn = 'J';
+	QueueOverwrite(&Queue1, &dataIn);
+
+	int i = 0;
+	for(; i < 10; i++){
+		if(QueueReceive(&Queue1, &dataOut)){
+			uartprintf("%d: Out from queue: %c \r\n",i ,dataOut);
+		} else {
+			uartprintf("No data available\r\n");
 		}
 	}
-}
 
-
-BOOLEAN QueuePeek(INT8U QueueHandle, INT16U * dataOut){
-	INT8U retval = FALSE;
-	if(Queue[QueueHandle].rw == FULL){
-		*dataOut = Queue[QueueHandle].data;
-		retval = TRUE;
-	}
-	return retval;
+	return 1;
 }
-
-void QueueOverwrite(INT8U QueueHandle, INT16U* data){
-	if(QueueHandle < QUEUESIZE){
-		Queue[QueueHandle].data = *data;
-		Queue[QueueHandle].rw = FULL;
-	}
-}
-BOOLEAN QueueEmpty(INT8U QueueHandle){
-	INT8U retval = FALSE;
-	if(Queue[QueueHandle].rw == EMPTY){
-		retval = TRUE;
-	}
-	return retval;
-}
-BOOLEAN QueueReceive(INT8U QueueHandle, INT16U* dataOut){
-	BOOLEAN retval = FALSE;
-	if(Queue[QueueHandle].rw == FULL){
-		*dataOut = Queue[QueueHandle].data;
-		Queue[QueueHandle].rw = EMPTY;
-		retval = TRUE;
-	}
-	return retval;
-}
-/****************************** End Of Module *******************************/
+*/

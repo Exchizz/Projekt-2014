@@ -4,7 +4,7 @@
 *
 * MODULENAME.: main.c
 *
-* PROJECT....: ECP
+* PROJECT....: G3 - Tracking system utilizing a pan/tilt system
 *
 * DESCRIPTION: See module specification file (.h-file).
 *
@@ -16,32 +16,32 @@
 * 0902012  KHA   Module created.
 *
 *****************************************************************************/
-
+#pragma once
 /***************************** Include files *******************************/
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
+#include "inc\lm3s6965.h"
 #include "inc\emp_type.h"
+#include "cpu\cpu.h"
+#include "rtcs\rtcs.h"
+#include "uartprintf.h"
+#include "stdlib.h"
 #include "inc\glob_def.h"
 /*****************************    Defines    *******************************/
-typedef struct {
-        int wr;
-        int rd;
-        int typesize;
-        int queuesize;
-        char* mem;
-        int elements;
-        int overwrite;
-} QueueHandle_t;
-#define DEBUG_ON	1
-#define DEBUG_OFF	0
+#define QUEUESIZE	15
+#define EMPTY		1
+#define FULL 		2
 /*****************************   Constants   *******************************/
 /*****************************   Variables   *******************************/
-QueueHandle_t QueueCreate(int queuesize, int typesize);
-QueueOverwrite(QueueHandle_t *this, const void * dataIn);
-BOOLEAN QueueSend(QueueHandle_t *this, const void * dataIn);
-BOOLEAN QueueSend(QueueHandle_t *this, const void * dataIn);
-INT8U QueueSpaceLeft(QueueHandle_t *this);
-BOOLEAN QueuePeek(QueueHandle_t *this, void * dataOut);
+struct QueueData {
+	INT16U data;
+	BOOLEAN rw;
+};
+
+struct QueueData Queue[QUEUESIZE];
 /*****************************   Functions   *******************************/
+BOOLEAN QueuePeek(INT8U QueueHandle, INT16U * data);
+BOOLEAN QueueEmpty(INT8U QueueHandle);
+INT8U CreateQueueHandle();
+void QueueSend(INT8U QueueHandle, INT16U * data);
+BOOLEAN QueueReceive(INT8U QueueHandle, INT16U* dataOut);
+void QueueOverwrite(INT8U QueueHandle, INT16U * data);
 /****************************** End Of Module *******************************/
