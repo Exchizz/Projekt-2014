@@ -20,6 +20,7 @@
 
 /***************************** Include files ********************************/
 #include "control_tasks/control_speed_pan.h"
+#include "RTCS/rtcscnf.h"
 /*****************************    Defines    ********************************/
 #define NORMAL 0
 #define DEBUGINFO 1

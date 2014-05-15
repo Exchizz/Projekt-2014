@@ -22,29 +22,29 @@
       <target file="schedule.o" lastModified="145f4be95d5">
          <source file="..\..\..\RTCS\schedule.c" lastModified="145f142a9ae"/>
       </target>
-      <target file="startup_lm3s.o" lastModified="145f4be9626">
-         <source file="..\..\..\startup\startup_lm3s.c" lastModified="145f142abfa"/>
-      </target>
       <target file="control_position_tilt.o" lastModified="145f5f9b62d">
          <source file="..\..\..\control_tasks\control_position_tilt.c" lastModified="145f5f9b2e0"/>
       </target>
-      <target file="main.o" lastModified="145f4be943f">
-         <source file="..\..\..\main.c" lastModified="145f488c53f"/>
+      <target file="startup_lm3s.o" lastModified="145f4be9626">
+         <source file="..\..\..\startup\startup_lm3s.c" lastModified="145f142abfa"/>
       </target>
       <target file="debug.o" lastModified="145f4be97a6">
          <source file="..\..\..\debug\debug.c" lastModified="145f142ab1f"/>
       </target>
+      <target file="main.o" lastModified="145f4be943f">
+         <source file="..\..\..\main.c" lastModified="145f488c53f"/>
+      </target>
       <target file="uartprintf.o" lastModified="145f4be9523">
          <source file="..\..\..\uart\uartprintf.c" lastModified="145f4bc8675"/>
       </target>
-      <target file="gpio.o" lastModified="145f4be9574">
-         <source file="..\..\..\GPIO\gpio.c" lastModified="145f142a989"/>
+      <target file="cpu.o" lastModified="145f4be97fa">
+         <source file="..\..\..\cpu\cpu.c" lastModified="145f142ab0c"/>
       </target>
       <target file="spi.o" lastModified="145f4be9171">
          <source file="..\..\..\spi\spi.c" lastModified="145f4bb8241"/>
       </target>
-      <target file="cpu.o" lastModified="145f4be97fa">
-         <source file="..\..\..\cpu\cpu.c" lastModified="145f142ab0c"/>
+      <target file="gpio.o" lastModified="145f4be9574">
+         <source file="..\..\..\GPIO\gpio.c" lastModified="145f142a989"/>
       </target>
       <target file="control_speed_pan.o" lastModified="145f4e37198">
          <source file="..\..\..\control_tasks\control_speed_pan.c" lastModified="145f4cfed6f"/>
