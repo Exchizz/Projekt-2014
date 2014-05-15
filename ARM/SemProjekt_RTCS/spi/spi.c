@@ -155,11 +155,11 @@ void spi_init()
 }
 
 void init_SPI_RX_task(){
-	UARTprintf("Starting SPI rx\r\n");
+	//UARTprintf("Starting SPI rx\r\n");
 	_start(SPI_RX_TASK, MILLI_SEC(0));
 }
 void init_SPI_TX_task(){
-	UARTprintf("Starting SPI tx\r\n");
+	//UARTprintf("Starting SPI tx\r\n");
 	_start(SPI_TX_TASK, MILLI_SEC(0));
 }
 

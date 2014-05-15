@@ -41,7 +41,7 @@
 
 #define ticksPerRotation 1080
 
-#define MINPOSITIONCHANGE 9
+#define MINPOSITIONCHANGE 0
 
 /*****************************   Constants   ********************************/
 enum CONVERTER_STATES {WAIT_FUNC, RECEIVE_MOTOR, RECEIVE_DEC_NUM};
@@ -57,7 +57,7 @@ enum DEC_NUM_STATES ReceiveDecNumState = THOUSANDS;
 
 /*****************************   Functions   ********************************/
 void init_converter_task(){
-  UARTprintf("Starting Converter Task\r\n");
+  //UARTprintf("Starting Converter Task\r\n");
   _start(CONVERTER_TASK, MILLI_SEC(0));
 }
 
@@ -211,7 +211,7 @@ void converter_task()
             // send position to tilt
             QueueOverwrite(&QueueGoToPositionTilt, &decValue);
             // debug
-#if RUNMODE == DEBUGINFO || RUNMODE == RETURNSETPOSITION
+#if RUNMODE == DEBUGINFO || RUNMODE == RETURNSETPOSITION || RUNMODE == RETURNVALUE
             UARTprintf("FT: %d\r\n",decValue);
 #endif
           }
@@ -231,7 +231,7 @@ void converter_task()
             // send position to pan
             QueueOverwrite(&QueueGoToPositionPan, &decValue);
             // debuginfo
-#if RUNMODE == DEBUGINFO || RUNMODE == RETURNSETPOSITION
+#if RUNMODE == DEBUGINFO || RUNMODE == RETURNSETPOSITION || RUNMODE == RETURNVALUE
             UARTprintf("FP: %d\r\n",decValue);
 #endif
           }
@@ -272,7 +272,7 @@ void converter_task()
             // send
             QueueOverwrite(&QueueGoToPositionTilt, &decValue);
             // debuginfo
-#if RUNMODE == DEBUGINFO || RUNMODE == RETURNSETPOSITION
+#if RUNMODE == DEBUGINFO || RUNMODE == RETURNSETPOSITION || RUNMODE == RETURNVALUE
             UARTprintf("PT: %d\r\n",decValue);
 #endif
           }
@@ -311,7 +311,7 @@ void converter_task()
             // send
             QueueOverwrite(&QueueGoToPositionPan, &decValue);
             // debuginfo
-#if RUNMODE == DEBUGINFO || RUNMODE == RETURNSETPOSITION
+#if RUNMODE == DEBUGINFO || RUNMODE == RETURNSETPOSITION || RUNMODE == RETURNVALUE
             UARTprintf("PP: %d\r\n",decValue);
 #endif
           }

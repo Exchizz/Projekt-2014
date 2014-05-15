@@ -44,7 +44,7 @@
 #define TICKS_PER_FRAME_ROTATION 1080
 #define INTEGRATORLIMIT 100
 #define MAXSPEED_LIMIT 1500 // ticks/s
-#define MAXPWMVALUE 255
+#define MAXPWMVALUE 200
 #define MAXPWM_MASK 0xFF
 #define MOTOR_DIRECTION_FORWARDS 0b10
 #define MOTOR_DIRECTION_BACKWARDS 0b01
@@ -52,7 +52,7 @@
 /*****************************   Variables   ********************************/
 /*****************************   Functions   ********************************/
 void init_tilt_speed_task(){
-  UARTprintf("Starting Speed Tilt Task\r\n");
+  //UARTprintf("Starting Speed Tilt Task\r\n");
   _start(TILT_SPEED_TASK, MILLI_SEC(0));
 }
 

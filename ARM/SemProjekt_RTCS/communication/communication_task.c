@@ -39,7 +39,7 @@
 /*****************************   Variables   *******************************/
 /*****************************   Functions   *******************************/
 void init_communication_task(){
-  UARTprintf("Starting Communication Task\r\n");
+  //UARTprintf("Starting Communication Task\r\n");
   _start(COMMUNICATION_TASK, MILLI_SEC(0));
 }
 void communication_task()

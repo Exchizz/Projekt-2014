@@ -41,7 +41,7 @@
 #define TICKS_PER_FRAME_ROTATION 1080
 #define INTEGRATORLIMIT 100
 #define MAXSPEED_LIMIT 1500 // ticks/s
-#define MAXPWMVALUE 255
+#define MAXPWMVALUE 200
 #define MAXPWM_MASK 0xFF
 #define MOTOR_DIRECTION_FORWARDS 0b01
 #define MOTOR_DIRECTION_BACKWARDS 0b10
@@ -50,7 +50,7 @@
 /*****************************   Variables   ********************************/
 /*****************************   Functions   ********************************/
 void init_pan_speed_task(){
-  UARTprintf("Starting Speed Pan Task\r\n");
+  //UARTprintf("Starting Speed Pan Task\r\n");
   _start(PAN_SPEED_TASK, MILLI_SEC(0));
 }
 

@@ -51,7 +51,7 @@ void init_uart_rx_task(){
 	_start(UART_RX_TASK, MILLI_SEC(0));
 }
 void init_uart_tx_task(){
-	UARTprintf("Starting uart tx\r\n");
+	//UARTprintf("Starting uart tx\r\n");
 	_start(UART_TX_TASK, MILLI_SEC(0));
 }
 
@@ -87,13 +87,13 @@ void UART_RX_task(){
 
 
 void UART_TX_task(){
-	//wait for queue to get empty
-	while(!UARTDataReady(TX));
-	//Send next char
-	INT16U dataFromQueue;
-	if(QueueReceive(&QueueUARTTX, &dataFromQueue)) {
-		UART0_DR_R = dataFromQueue;
-	}
+  INT16U dataFromQueue;
+  //wait for queue to get empty
+  while(!UARTDataReady(TX));
+  //Send next char
+  while(QueueReceive(&QueueUARTTX, &dataFromQueue)) {
+    UART0_DR_R = dataFromQueue;
+  }
 }
 
 
@@ -169,14 +169,15 @@ void UARTCharPut(unsigned long ulBase, unsigned char ucData)
     //
     // Wait until space is available.
     //
-		while(UART0_FR_R & UART_FR_TXFF)
+	/*	while(UART0_FR_R & UART_FR_TXFF)
 	  {
     }
-
+*/
     //
     // Send the char.
     //
-		UART0_DR_R = ucData;
+		//UART0_DR_R = ucData;
+		QueueSend(&QueueUARTTX, &ucData);
 }
 
 

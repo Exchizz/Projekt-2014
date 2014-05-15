@@ -54,7 +54,7 @@ void init_alive_task(){
 	//debug_pin(ON);
 	// Start task
 	_start(ALIVE_TASK, MILLI_SEC(500));
-	UARTprintf("Starting up\r\n",0);
+	//UARTprintf("Starting up\r\n",0);
 
 }
 

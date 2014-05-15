@@ -15,7 +15,7 @@ QueueHandle_t QueueCreate(INT8U queuesize, INT8U typesize){
   if(!currentQueue.mem){
     UARTprintf("Unable to allocate memory \r\n");
   } else {
-    UARTprintf("Memory allocated\r\n");
+    //UARTprintf("Memory allocated\r\n");
   }
   currentQueue.wr = 0;
   currentQueue.rd = 0;
@@ -24,7 +24,6 @@ QueueHandle_t QueueCreate(INT8U queuesize, INT8U typesize){
   currentQueue.elements = 0;
   currentQueue.overwrite = FALSE;
   currentQueue.id = id_count++;
-  UARTprintf("size %d \r\n",currentQueue.typesize);
   return currentQueue;
 }
 
