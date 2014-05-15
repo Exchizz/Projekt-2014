@@ -76,8 +76,8 @@ void pan_position_task()
     pid_interval_counter = PID_RUN_INTERVAL;
 
     // get goto and current position
-    QueuePeek(QueuePositionPan, &current_position);
-    if (!QueuePeek(QueueGoToPositionPan, &goToPosition)) {
+    QueuePeek(&QueuePositionPan, &current_position);
+    if (!QueuePeek(&QueueGoToPositionPan, &goToPosition)) {
       goToPosition = DEFAULTPOSITIONPAN;
     }
 
@@ -131,7 +131,7 @@ void pan_position_task()
     	set_speed = - MAXSPEED_LIMIT;
     }
     // send the speed
-    QueueOverwrite(QueuePanSpeed, &set_speed);
+    QueueOverwrite(&QueuePanSpeed, &set_speed);
 
     // debuginfo
 #if RUN_MODE == DEBUGINFO

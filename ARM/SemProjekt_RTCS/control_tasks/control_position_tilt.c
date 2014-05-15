@@ -72,8 +72,8 @@ void tilt_position_task()
     pid_interval_counter = PID_RUN_INTERVAL;
 
     // get current and goto position
-    QueuePeek(QueuePositionTilt, &current_position);
-    if (!QueuePeek(QueueGoToPositionTilt, &goToPosition)) {
+    QueuePeek(&QueuePositionTilt, &current_position);
+    if (!QueuePeek(&QueueGoToPositionTilt, &goToPosition)) {
       goToPosition = DEFAULTPOSITION_TILT;
     }
 
@@ -113,7 +113,7 @@ void tilt_position_task()
     }
 
     // send wanted speed
-    QueueOverwrite(QueueTiltSpeed, &set_speed);
+    QueueOverwrite(&QueueTiltSpeed, &set_speed);
 
     // plot position
 #if (RUN_MODE == PLOTPOSITION)
