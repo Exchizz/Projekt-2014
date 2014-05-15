@@ -25,6 +25,7 @@
 #define NORMAL 0
 #define DEBUGINFO 1
 #define PLOTPOSITION 2
+#define INTENSEDEBUG 3
 
 #define RUN_MODE NORMAL //
 #define DEFAULTPOSITIONPAN 0
@@ -59,6 +60,9 @@ void pan_position_task()
  *   Run @	 :  PID_RUN_INTERVAL
  *****************************************************************************/
 {
+#if RUN_MODE == INTENSEDEBUG
+  UARTprintf("C. Pos. Pan.: Start.\r\n");
+#endif
   INT16U current_position = 0;
 
   // PID controller vars
@@ -76,6 +80,9 @@ void pan_position_task()
   if(!(--pid_interval_counter)){
     pid_interval_counter = PID_RUN_INTERVAL;
 
+#if RUN_MODE == INTENSEDEBUG
+  UARTprintf("C. Pos. Pan.: loop entered.\r\n");
+#endif
     // get goto and current position
     QueuePeek(&QueuePositionPan, &current_position);
     if (!QueuePeek(&QueueGoToPositionPan, &goToPosition)) {
@@ -131,9 +138,14 @@ void pan_position_task()
     else if(set_speed < -MAXSPEED_LIMIT){
     	set_speed = - MAXSPEED_LIMIT;
     }
+#if RUN_MODE == INTENSEDEBUG
+  UARTprintf("C. Pos. Pan.: Calc. made.\r\n");
+#endif
     // send the speed
     QueueOverwrite(&QueuePanSpeed, &set_speed);
-
+#if RUN_MODE == INTENSEDEBUG
+  UARTprintf("C. Pos. Pan.: Pan speed send.\r\n");
+#endif
     // debuginfo
 #if RUN_MODE == DEBUGINFO
     UARTprintf("GPP: %d, WSP: %d\r\n",goToPosition, set_speed);
@@ -152,5 +164,8 @@ void pan_position_task()
   // save last error
   last_error = error;
   }
+#if RUN_MODE == INTENSEDEBUG
+  UARTprintf("C. Pos. Pan.: Exit.\r\n");
+#endif
 }
 /****************************** End Of Module *******************************/

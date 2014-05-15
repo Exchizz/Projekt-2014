@@ -29,7 +29,7 @@ typedef struct {
         INT8U rd;
         INT8U typesize;
         INT8U queuesize;
-        int* mem;
+        INT32U* mem;
         INT8U elements;
         INT8U overwrite;
         INT8U id;

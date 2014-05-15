@@ -26,9 +26,10 @@
 #define NORMAL 0
 #define DEBUGINFO 1
 #define RETURNVALUE 2
-#define RUNMODE DEBUGINFO
+#define INTENSEDEBUG 3
+#define RETURNSETPOSITION 4
 
-
+#define RUNMODE RETURNSETPOSITION
 
 #define cameraAnglePan 70
 #define cameraAngleTilt 30
@@ -68,12 +69,21 @@ void converter_task()
  *   Run @       :  > 5 times system frequency
  *****************************************************************************/
 {
+#if RUNMODE == INTENSEDEBUG
+  UARTprintf("Converter: Start.\r\n");
+#endif
   INT8U data = 0;
   INT16U currentPosition = 0;
   static INT32S decValue = 0;
 
+#if RUNMODE == INTENSEDEBUG
+  UARTprintf("Converter: Just before if(Rec).\r\n");
+#endif
   // get input from UART
-  if (QueueReceive(QueueUARTRX, &data)) {
+  if (QueueReceive(&QueueUARTRX, &data)) {
+#if RUNMODE == INTENSEDEBUG
+  UARTprintf("Converter: Data received.\r\n");
+#endif
     switch (receive_state) {
     case WAIT_FUNC:
     // switch if pixel or fixed
@@ -201,7 +211,7 @@ void converter_task()
             // send position to tilt
             QueueOverwrite(&QueueGoToPositionTilt, &decValue);
             // debug
-#if RUNMODE == DEBUGINFO
+#if RUNMODE == DEBUGINFO || RUNMODE == RETURNSETPOSITION
             UARTprintf("FT: %d\r\n",decValue);
 #endif
           }
@@ -221,7 +231,7 @@ void converter_task()
             // send position to pan
             QueueOverwrite(&QueueGoToPositionPan, &decValue);
             // debuginfo
-#if RUNMODE == DEBUGINFO
+#if RUNMODE == DEBUGINFO || RUNMODE == RETURNSETPOSITION
             UARTprintf("FP: %d\r\n",decValue);
 #endif
           }
@@ -262,7 +272,7 @@ void converter_task()
             // send
             QueueOverwrite(&QueueGoToPositionTilt, &decValue);
             // debuginfo
-#if RUNMODE == DEBUGINFO
+#if RUNMODE == DEBUGINFO || RUNMODE == RETURNSETPOSITION
             UARTprintf("PT: %d\r\n",decValue);
 #endif
           }
@@ -301,7 +311,7 @@ void converter_task()
             // send
             QueueOverwrite(&QueueGoToPositionPan, &decValue);
             // debuginfo
-#if RUNMODE == DEBUGINFO
+#if RUNMODE == DEBUGINFO || RUNMODE == RETURNSETPOSITION
             UARTprintf("PP: %d\r\n",decValue);
 #endif
           }
@@ -322,5 +332,8 @@ void converter_task()
     break;
     }
   }
+#if RUNMODE == INTENSEDEBUG
+  UARTprintf("Converter: Exit.\r\n");
+#endif
 }
 /****************************** End Of Module *******************************/

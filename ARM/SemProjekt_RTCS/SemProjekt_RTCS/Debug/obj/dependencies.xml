@@ -12,14 +12,9 @@
          <include file="..\..\..\application\application.h"/>
          <include file="..\..\..\inc\emp_type.h"/>
       </source>
-      <source file="..\..\..\Converter\converter.c" lastModified="145ff72e29c">
-         <include file="..\..\..\Converter\converter.h"/>
-         <include file="..\..\..\communication\communication_task.h"/>
-         <include file="..\..\..\RTCS\rtcs.h"/>
-      </source>
       <source file="..\..\..\inc\glob_def.h" lastModified="145f142ab44">
       </source>
-      <source file="..\..\..\control_tasks\control_position_tilt.c" lastModified="145ff729422">
+      <source file="..\..\..\control_tasks\control_position_tilt.c" lastModified="1460065f232">
          <include file="..\..\..\control_tasks\control_position_tilt.h"/>
          <include file="..\..\..\RTCS\rtcs.h"/>
       </source>
@@ -40,7 +35,7 @@
          <include file="..\..\..\RTCS\rtcscnf.h"/>
          <include file="..\..\..\inc\emp_type.h"/>
       </source>
-      <source file="..\..\..\startup\startup_lm3s.c" lastModified="145ff987c5e">
+      <source file="..\..\..\startup\startup_lm3s.c" lastModified="146005a8d33">
       </source>
       <source file="..\..\..\systick\systick.c" lastModified="145f142ac05">
          <include file="..\..\..\RTCS\rtcscnf.h"/>
@@ -61,7 +56,7 @@
       <source file="..\..\..\inc\binary.h" lastModified="145f142ab33">
          <include file="..\..\..\inc\emp_type.h"/>
       </source>
-      <source file="..\..\..\main.c" lastModified="145ff89b5b5">
+      <source file="..\..\..\main.c" lastModified="14600534750">
          <include file="..\..\..\inc\lm3s6965.h"/>
          <include file="..\..\..\inc\emp_type.h"/>
          <include file="..\..\..\cpu\cpu.h"/>
@@ -96,7 +91,7 @@
       <source file="..\..\..\uart\uartcnf.h" lastModified="145f142ac18">
          <include file="..\..\..\cpu\cpu.h"/>
       </source>
-      <source file="..\..\..\control_tasks\control_speed_tilt.c" lastModified="145ff72b25e">
+      <source file="..\..\..\control_tasks\control_speed_tilt.c" lastModified="1460066067c">
          <include file="..\..\..\control_tasks\control_speed_tilt.h"/>
          <include file="..\..\..\RTCS\rtcs.h"/>
       </source>
@@ -115,7 +110,7 @@
          <include file="..\..\..\inc\binary.h"/>
          <include file="..\..\..\RTCS\rtcs.h"/>
       </source>
-      <source file="..\..\..\communication\communication_task.c" lastModified="145ff812295">
+      <source file="..\..\..\communication\communication_task.c" lastModified="1460065aff4">
          <include file="..\..\..\communication\communication_task.h"/>
          <include file="..\..\..\RTCS\rtcs.h"/>
       </source>
@@ -123,11 +118,11 @@
          <include file="..\..\..\inc\emp_type.h"/>
          <include file="..\..\..\application\application.h"/>
       </source>
-      <source file="..\..\..\queue\queue.h" lastModified="1460039762d">
+      <source file="..\..\..\queue\queue.h" lastModified="14600437e97">
          <include file="..\..\..\inc\emp_type.h"/>
          <include file="..\..\..\inc\glob_def.h"/>
       </source>
-      <source file="..\..\..\control_tasks\control_position_pan.c" lastModified="145ff725e44">
+      <source file="..\..\..\control_tasks\control_position_pan.c" lastModified="1460065d012">
          <include file="..\..\..\control_tasks\control_position_pan.h"/>
          <include file="..\..\..\RTCS\rtcs.h"/>
       </source>
@@ -135,10 +130,13 @@
          <include file="..\..\..\application\application.h"/>
          <include file="..\..\..\inc\emp_type.h"/>
       </source>
+      <source file="..\..\..\queue\queue.c" lastModified="14600680e1c">
+         <include file="..\..\..\queue\queue.h"/>
+      </source>
       <source file="..\..\..\cpu\cpu.h" lastModified="145f142ab14">
          <include file="..\..\..\inc\emp_type.h"/>
       </source>
-      <source file="..\..\..\control_tasks\control_speed_pan.c" lastModified="145ff7231da">
+      <source file="..\..\..\control_tasks\control_speed_pan.c" lastModified="1460065dcde">
          <include file="..\..\..\control_tasks\control_speed_pan.h"/>
          <include file="..\..\..\RTCS\rtcs.h"/>
       </source>

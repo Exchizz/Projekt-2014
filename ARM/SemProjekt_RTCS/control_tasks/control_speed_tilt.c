@@ -26,6 +26,7 @@
 #define DEBUGINFO 1
 #define PLOTSPEED 2
 #define FIXEDSPEEDPLOT 3
+#define INTENSEDEBUG 4
 
 #define RUN_MODE NORMAL //
 
@@ -63,6 +64,9 @@ void tilt_speed_task()
  *   Run @	 :  PID_RUN_INTERVAL
  *****************************************************************************/
 {
+#if RUN_MODE == INTENSEDEBUG
+  UARTprintf("C. speed tilt: Start.\r\n");
+#endif
   INT16U current_position = 0;
 
   // PID controller vars
@@ -86,6 +90,9 @@ void tilt_speed_task()
   if(!(--pid_interval_counter)){
     pid_interval_counter = PID_RUN_INTERVAL;
 
+#if RUN_MODE == INTENSEDEBUG
+  UARTprintf("C. speed tilt: Loop entered.\r\n");
+#endif
     //get speed, made to be able o run at constant speed for PID test f inner loop
 #if (RUN_MODE == FIXEDSPEEDPLOT)
     set_speed_tilt = FIXEDSPEED;
@@ -102,6 +109,9 @@ void tilt_speed_task()
     // get current position
     QueuePeek(&QueuePositionTilt, &current_position);
 
+#if RUN_MODE == INTENSEDEBUG
+  UARTprintf("C. speed tilt: Peeks made.\r\n");
+#endif
     // save position
     for (var = 0; var < (PID_SPEED_CALC_INTERVAL); ++var) {
       position[var] = position[var+1];
@@ -164,6 +174,10 @@ void tilt_speed_task()
     set_pwm = (direction << 8) | (set_pwm & MAXPWM_MASK);
     QueueSend(&QueuePWMOutTilt, &set_pwm);
 
+#if RUN_MODE == INTENSEDEBUG
+  UARTprintf("C. speed tilt: PWM send.\r\n");
+#endif
+
     // plotspeed
 #if (RUN_MODE == PLOTSPEED) || (RUN_MODE == FIXEDSPEEDPLOT)
     if(--i == 0){
@@ -175,5 +189,8 @@ void tilt_speed_task()
 #endif
 
   }
+#if RUN_MODE == INTENSEDEBUG
+  UARTprintf("C. speed tilt: Exit.\r\n");
+#endif
 }
 /****************************** End Of Module *******************************/

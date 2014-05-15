@@ -98,9 +98,8 @@ int main(void)
         QueueSPITX              = QueueCreate(2, sizeof(INT16U));
         QueueSPIRX              = QueueCreate(2, sizeof(INT16U));
 
-
-        QueueUARTTX             = QueueCreate(16, sizeof(char));
-        QueueUARTRX             = QueueCreate(16, sizeof(char));
+        QueueUARTTX             = QueueCreate(16, sizeof(INT8U));
+        QueueUARTRX             = QueueCreate(16, sizeof(INT8U));
 
 
 	enable_global_int();

@@ -25,6 +25,7 @@
 #define NORMAL 0
 #define DEBUGINFO 1
 #define PLOTSPEED 2
+#define INTENSEDEBUG 3
 
 #define RUN_MODE NORMAL //
 
@@ -61,6 +62,9 @@ void pan_speed_task()
  *   Run @	 :  PID_RUN_INTERVAL
  *****************************************************************************/
 {
+#if RUN_MODE == INTENSEDEBUG
+  UARTprintf("C. speed Pan.: Start.\r\n");
+#endif
   INT16U current_position = 0;
 
   // PID controller vars
@@ -84,12 +88,18 @@ void pan_speed_task()
   if(!(--pid_interval_counter)){
     pid_interval_counter = PID_RUN_INTERVAL;
 
+#if RUN_MODE == INTENSEDEBUG
+  UARTprintf("C. speed Pan.: loop entered.\r\n");
+#endif
     //get wanted speed
     QueuePeek(&QueuePanSpeed, &set_speed_pan);
 
     // get current position
     QueuePeek(&QueuePositionPan, &current_position);
 
+#if RUN_MODE == INTENSEDEBUG
+  UARTprintf("C. speed Pan.: peeks made.\r\n");
+#endif
     // save current position in array
     for (var = 0; var < (PID_SPEED_CALC_INTERVAL); ++var) {
       position[var] = position[var+1];
@@ -153,6 +163,9 @@ void pan_speed_task()
     set_pwm = (direction << 8) | (set_pwm & MAXPWM_MASK);
     QueueSend(&QueuePWMOutPan, &set_pwm);
 
+#if RUN_MODE == INTENSEDEBUG
+  UARTprintf("C. speed Pan.: PWM send.\r\n");
+#endif
     // plotspeed
 #if (RUN_MODE == PLOTSPEED)
     if(--i == 0){
@@ -164,5 +177,8 @@ void pan_speed_task()
 #endif
 
   }
+#if RUN_MODE == INTENSEDEBUG
+  UARTprintf("C. speed Pan.: Exit.\r\n");
+#endif
 }
 /****************************** End Of Module *******************************/

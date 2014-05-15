@@ -25,6 +25,7 @@
 #define NORMAL 0
 #define DEBUGINFO 1
 #define PLOTPOSITION 2
+#define INTENSEDEBUG 3
 
 #define RUN_MODE NORMAL //
 #define DEFAULTPOSITION_TILT 0
@@ -56,6 +57,9 @@ void tilt_position_task()
  *   Run @	 :  PID_RUN_INTERVAL
  *****************************************************************************/
 {
+#if RUN_MODE == INTENSEDEBUG
+  UARTprintf("C. Pos. tilt: Start.\r\n");
+#endif
   INT16U current_position = 0;
 
   // PID controller vars
@@ -73,12 +77,18 @@ void tilt_position_task()
   if(!(--pid_interval_counter)){
     pid_interval_counter = PID_RUN_INTERVAL;
 
+#if RUN_MODE == INTENSEDEBUG
+  UARTprintf("C. Pos. tilt: Loop entered.\r\n");
+#endif
     // get current and goto position
     QueuePeek(&QueuePositionTilt, &current_position);
     if (!QueuePeek(&QueueGoToPositionTilt, &goToPosition)) {
       goToPosition = DEFAULTPOSITION_TILT;
     }
 
+#if RUN_MODE == INTENSEDEBUG
+  UARTprintf("C. Pos. tilt: Peeks made.\r\n");
+#endif
     // calc error
     error = goToPosition - current_position;
 
@@ -117,6 +127,9 @@ void tilt_position_task()
     // send wanted speed
     QueueOverwrite(&QueueTiltSpeed, &set_speed);
 
+#if RUN_MODE == INTENSEDEBUG
+  UARTprintf("C. Pos. tilt: Speed overwritten.\r\n");
+#endif
     // plot position
 #if (RUN_MODE == PLOTPOSITION)
   if(--i == 0){
@@ -130,5 +143,8 @@ void tilt_position_task()
   // save last error
   last_error = error;
   }
+#if RUN_MODE == INTENSEDEBUG
+  UARTprintf("C. Pos. tilt: Exit.\r\n");
+#endif
 }
 /****************************** End Of Module *******************************/
