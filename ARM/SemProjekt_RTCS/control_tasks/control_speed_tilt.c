@@ -89,7 +89,7 @@ void tilt_speed_task()
 #if (RUN_MODE == FIXEDSPEEDPLOT)
     set_speed_tilt = FIXEDSPEED;
 #else
-   QueuePeek(QueueTiltSpeed, &set_speed_tilt);
+   QueuePeek(&QueueTiltSpeed, &set_speed_tilt);
 #endif
 
    // debug info
@@ -99,7 +99,7 @@ void tilt_speed_task()
 
 
     // get current position
-    QueuePeek(QueuePositionTilt, &current_position);
+    QueuePeek(&QueuePositionTilt, &current_position);
 
     // save position
     for (var = 0; var < (PID_SPEED_CALC_INTERVAL); ++var) {
@@ -161,7 +161,7 @@ void tilt_speed_task()
 
     // ready data to send and send it.
     set_pwm = (direction << 8) | (set_pwm & MAXPWM_MASK);
-    QueueSend(QueuePWMOutTilt, &set_pwm);
+    QueueSend(&QueuePWMOutTilt, &set_pwm);
 
     // plotspeed
 #if (RUN_MODE == PLOTSPEED) || (RUN_MODE == FIXEDSPEEDPLOT)

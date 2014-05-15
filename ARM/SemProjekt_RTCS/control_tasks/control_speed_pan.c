@@ -84,10 +84,10 @@ void pan_speed_task()
     pid_interval_counter = PID_RUN_INTERVAL;
 
     //get wanted speed
-    QueuePeek(QueuePanSpeed, &set_speed_pan);
+    QueuePeek(&QueuePanSpeed, &set_speed_pan);
 
     // get current position
-    QueuePeek(QueuePositionPan, &current_position);
+    QueuePeek(&QueuePositionPan, &current_position);
 
     // save current position in array
     for (var = 0; var < (PID_SPEED_CALC_INTERVAL); ++var) {
@@ -150,7 +150,7 @@ void pan_speed_task()
 
     // ready message to send to pan and send
     set_pwm = (direction << 8) | (set_pwm & MAXPWM_MASK);
-    QueueSend(QueuePWMOutPan, &set_pwm);
+    QueueSend(&QueuePWMOutPan, &set_pwm);
 
     // plotspeed
 #if (RUN_MODE == PLOTSPEED)

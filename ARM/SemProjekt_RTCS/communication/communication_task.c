@@ -48,14 +48,14 @@ void communication_task()
  *****************************************************************************/
 {
 
-  INT16U FromSPI,dataToSend = 0;
+  INT16U FromSPI = 0,dataToSend = 0;
   INT16U pwmTilt = 0, pwmPan = 0;
 
   // get data from pan/tilt queue and put in data to send var
-  if(QueueReceive(QueuePWMOutTilt, &pwmTilt)){
+  if(QueueReceive(&QueuePWMOutTilt, &pwmTilt)){
     dataToSend = (TILTMESSAGE_SENDPWM << 10) | (pwmTilt & MASK_DIRECITION_PWM);
   }
-  else if (QueueReceive(QueuePWMOutPan, &pwmPan)) {
+  else if (QueueReceive(&QueuePWMOutPan, &pwmPan)) {
     dataToSend = (PANMESSAGE_SENDPWM << 10) | (pwmPan & MASK_DIRECITION_PWM);
   }
   else {
@@ -69,17 +69,17 @@ void communication_task()
 #endif
 
   // send to SPI
-  QueueSend(QueueSPITX, &dataToSend);
+  QueueSend(&QueueSPITX, &dataToSend);
 
   // recieve from SPI
-  if(QueueReceive(QueueSPIRX, &FromSPI)){
+  if(QueueReceive(&QueueSPIRX, &FromSPI)){
     // decide if it is for pan or tilt and then put position accordingly in a queue
     if((FromSPI & MASK_MESSAGERECEIVE_MOTOR)){//pan
       FromSPI = FromSPI & MASK_MESSAGE_POSITION;
-      QueueOverwrite(QueuePositionPan, &FromSPI);
+      QueueOverwrite(&QueuePositionPan, &FromSPI);
     } else {//tilt
       FromSPI = FromSPI & MASK_MESSAGE_POSITION;
-      QueueOverwrite(QueuePositionTilt, &FromSPI);
+      QueueOverwrite(&QueuePositionTilt, &FromSPI);
     }
   }
 }
