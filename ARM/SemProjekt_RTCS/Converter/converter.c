@@ -25,7 +25,7 @@
 #define NORMAL 0
 #define DEBUGINFO 1
 #define RETURNVALUE 2
-#define RUNMODE RETURNVALUE
+#define RUNMODE DEBUGINFO
 
 
 
@@ -34,12 +34,13 @@
 #define cameraPixelPan 1920
 #define cameraPixelTilt 1080
 #define ticksPerDegree 3
-#define convertPixelToPan (ticksPerDegree * cameraAnglePan)/cameraPixelPan
-#define convertPixelToTilt (ticksPerDegree * cameraAngleTilt)/cameraPixelTilt
 #define pictureOrigoPan 960
 #define pictureOrigoTilt 540
 
 #define ticksPerRotation 1080
+
+#define MINPOSITIONCHANGE 9
+
 /*****************************   Constants   ********************************/
 enum CONVERTER_STATES {WAIT_FUNC, RECEIVE_MOTOR, RECEIVE_DEC_NUM};
 enum MOTOR_STATES {PAN, TILT};
@@ -185,58 +186,123 @@ void converter_task()
         // prevent invalid function
         decValue %= ticksPerRotation;
         if (motor == TILT) {
-          // send position to tilt
-          QueueOverwrite(QueueGoToPositionTilt, &decValue);
-          // debug
+          QueuePeek(QueueGoToPositionTilt, &currentPosition);
+          // find difference in position
+          if (currentPosition > decValue) {
+            currentPosition -= decValue;
+          }
+          else {
+            currentPosition = decValue - currentPosition;
+          }
+          // if difference is more than min change
+          if (currentPosition <= -MINPOSITIONCHANGE || currentPosition >= MINPOSITIONCHANGE) {
+            // send position to tilt
+            QueueOverwrite(QueueGoToPositionTilt, &decValue);
+            // debug
 #if RUNMODE == DEBUGINFO
-    UARTprintf("FT: %d\r\n",decValue);
+            UARTprintf("FT: %d\r\n",decValue);
 #endif
+          }
         }
         else if (motor == PAN) {
-          // send position to pan
-          QueueOverwrite(QueueGoToPositionPan, &decValue);
-          // debuginfo
+          // get current go to position
+          QueuePeek(QueueGoToPositionTilt, &currentPosition);
+          // find difference in position
+          if (currentPosition > decValue) {
+            currentPosition -= decValue;
+          }
+          else {
+            currentPosition = decValue - currentPosition;
+          }
+          // if difference is more than min change
+          if (currentPosition <= -MINPOSITIONCHANGE || currentPosition >= MINPOSITIONCHANGE) {
+            // send position to pan
+            QueueOverwrite(QueueGoToPositionPan, &decValue);
+            // debuginfo
 #if RUNMODE == DEBUGINFO
-    UARTprintf("FP: %d\r\n",decValue);
+            UARTprintf("FP: %d\r\n",decValue);
 #endif
+          }
         }
       }
       else if (function == PIXEL) {
         if (motor == TILT) {
           // get current position
-          currentPosition = QueuePeek(QueuePositionTilt, &currentPosition);
+          QueuePeek(QueuePositionTilt, &currentPosition);
+          // adjust for out of picture
+          if (decValue > cameraPixelTilt) {
+            decValue = cameraPixelTilt;
+          }
           // find persons offset from center (center of picture)
           decValue -= pictureOrigoTilt;
           // convert to ticks
-          decValue *= convertPixelToTilt;
+          decValue *= ticksPerDegree;
+          decValue *= cameraAngleTilt;
+          decValue /= cameraPixelTilt;
           // add to current position
           decValue += currentPosition;
-          // adjust for out of scope
+          // adjust goto position for out of scope
+          if (decValue < 0) {
+            decValue += ticksPerRotation;
+          }
           decValue %= ticksPerRotation;
-          // send
-          QueueOverwrite(QueueGoToPositionTilt, &decValue);
-          // debuginfo
+          // get current go to possition
+          QueuePeek(QueueGoToPositionTilt, &currentPosition);
+          // find difference in position
+          if (currentPosition > decValue) {
+            currentPosition -= decValue;
+          }
+          else {
+            currentPosition = decValue - currentPosition;
+          }
+          // if difference is more than min change
+          if (currentPosition <= -MINPOSITIONCHANGE || currentPosition >= MINPOSITIONCHANGE) {
+            // send
+            QueueOverwrite(QueueGoToPositionTilt, &decValue);
+            // debuginfo
 #if RUNMODE == DEBUGINFO
-    UARTprintf("PT: %d\r\n",decValue);
+            UARTprintf("PT: %d\r\n",decValue);
 #endif
+          }
         }
         else if (motor == PAN) {
           // get current position
-          currentPosition = QueuePeek(QueuePositionPan, &currentPosition);
+          QueuePeek(QueuePositionPan, &currentPosition);
+          // adjust for out of picture
+          if (decValue > cameraPixelPan) {
+            decValue = cameraPixelPan;
+          }
           // find persons offset form center
           decValue -= pictureOrigoPan;
           // convert to ticks
-          decValue *= convertPixelToPan;
+          decValue *= ticksPerDegree;
+          decValue *= cameraAnglePan;
+          decValue /= cameraPixelPan;
           // add to current position
           decValue += currentPosition;
           // adjust for out of scope
+          if (decValue < 0) {
+            decValue += ticksPerRotation;
+          }
           decValue %= ticksPerRotation;
-          // send
-          QueueOverwrite(QueueGoToPositionPan, &decValue);
-          // debuginfo
+          // get current go to position
+          QueuePeek(QueueGoToPositionPan, &currentPosition);
+          // find difference in position
+          if (currentPosition > decValue) {
+            currentPosition -= decValue;
+          }
+          else {
+            currentPosition = decValue - currentPosition;
+          }
+          // if difference is more than min change
+          if (currentPosition <= -MINPOSITIONCHANGE || currentPosition >= MINPOSITIONCHANGE) {
+            // send
+            QueueOverwrite(QueueGoToPositionPan, &decValue);
+            // debuginfo
 #if RUNMODE == DEBUGINFO
-    UARTprintf("PP: %d\r\n",decValue);
+            UARTprintf("PP: %d\r\n",decValue);
 #endif
+          }
         }
       }
       // change state

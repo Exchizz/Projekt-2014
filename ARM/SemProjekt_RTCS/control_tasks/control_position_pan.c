@@ -34,9 +34,9 @@
 
 #define PID_RUN_INTERVAL 20 // ticks
 
-#define Kp 0.5 //0.5
-#define Ki 0.5 //1
-#define Kd 0
+#define Kp 1
+#define Ki 0.05
+#define Kd 0.2
 
 #define IDT (1000/(PID_RUN_INTERVAL*T_TICK))
 
