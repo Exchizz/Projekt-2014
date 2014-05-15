@@ -102,6 +102,15 @@ SECTIONS
 		__bss_end__ = .;
 		_ebss = __bss_end__;
 	} > ram 
+
+	/* heap section */
+	.co_heap (NOLOAD):
+	{
+     		__cs3_heap_start = . ;
+        	. = ALIGN(8);
+        	*(.co_heap .co_heap.*)
+     		__cs3_heap_end = . ;
+    	} > ram
 		
 	.heap (COPY):
 	{
@@ -129,4 +138,4 @@ SECTIONS
 	
 	/* Check if data + heap + stack exceeds ram  limit */
 	ASSERT(__StackLimit >= __HeapLimit, "region ram  overflowed with stack")
-}
+}
