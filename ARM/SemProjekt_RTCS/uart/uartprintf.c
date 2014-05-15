@@ -27,7 +27,8 @@
 #include "uartcnf.h"
 #include "uartprintf.h"
 #include "queue/queue.h"
-
+#include "RTCS/rtcs.h"
+#include "application/application.h"
 /*****************************    Defines    *******************************/
 
 /*****************************   Constants   *******************************/
@@ -69,9 +70,9 @@ char UARTCharGet(){
 
 void UART_RX_task(){
 	INT16U receivedChar = 0;
-	if(UARTDataReady(RX) && QueueEmpty(QueueUARTRX)){
+	if(UARTDataReady(RX) && QueueSpaceLeft(&QueueUARTRX)){
 		receivedChar = UARTCharGet();
-		QueueSend(QueueUARTRX, &receivedChar);
+		QueueSend(&QueueUARTRX, &receivedChar);
 	}
 }
 
@@ -81,7 +82,7 @@ void UART_TX_task(){
 	while(!UARTDataReady(TX));
 	//Send next char
 	INT16U dataFromQueue;
-	if(QueueReceive(QueueUARTTX, &dataFromQueue)) {
+	if(QueueReceive(&QueueUARTTX, &dataFromQueue)) {
 		UART0_DR_R = dataFromQueue;
 	}
 }

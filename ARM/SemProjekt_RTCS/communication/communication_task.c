@@ -20,6 +20,7 @@
 
 /***************************** Include files *******************************/
 #include "communication/communication_task.h"
+#include "RTCS/rtcs.h"
 /*****************************    Defines    *******************************/
 #define TICK_INTERUPT_MS 500
 

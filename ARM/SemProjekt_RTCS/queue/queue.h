@@ -16,7 +16,7 @@
 * 0902012  KHA   Module created.
 *
 *****************************************************************************/
-
+#pragma once
 /***************************** Include files *******************************/
 #include <stdio.h>
 #include <stdlib.h>
@@ -38,7 +38,7 @@ typedef struct {
 /*****************************   Constants   *******************************/
 /*****************************   Variables   *******************************/
 QueueHandle_t QueueCreate(int queuesize, int typesize);
-QueueOverwrite(QueueHandle_t *this, const void * dataIn);
+void QueueOverwrite(QueueHandle_t *this, const void * dataIn);
 BOOLEAN QueueSend(QueueHandle_t *this, const void * dataIn);
 BOOLEAN QueueSend(QueueHandle_t *this, const void * dataIn);
 INT8U QueueSpaceLeft(QueueHandle_t *this);

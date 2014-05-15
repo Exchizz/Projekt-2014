@@ -21,6 +21,7 @@
 /***************************** Include files ********************************/
 #include "Converter/converter.h"
 #include "communication/communication_task.h"
+#include "RTCS/rtcs.h"
 /*****************************    Defines    ********************************/
 #define NORMAL 0
 #define DEBUGINFO 1
@@ -186,7 +187,7 @@ void converter_task()
         // prevent invalid function
         decValue %= ticksPerRotation;
         if (motor == TILT) {
-          QueuePeek(QueueGoToPositionTilt, &currentPosition);
+          QueuePeek(&QueueGoToPositionTilt, &currentPosition);
           // find difference in position
           if (currentPosition > decValue) {
             currentPosition -= decValue;
@@ -197,7 +198,7 @@ void converter_task()
           // if difference is more than min change
           if (currentPosition <= -MINPOSITIONCHANGE || currentPosition >= MINPOSITIONCHANGE) {
             // send position to tilt
-            QueueOverwrite(QueueGoToPositionTilt, &decValue);
+            QueueOverwrite(&QueueGoToPositionTilt, &decValue);
             // debug
 #if RUNMODE == DEBUGINFO
             UARTprintf("FT: %d\r\n",decValue);
@@ -206,7 +207,7 @@ void converter_task()
         }
         else if (motor == PAN) {
           // get current go to position
-          QueuePeek(QueueGoToPositionTilt, &currentPosition);
+          QueuePeek(&QueueGoToPositionTilt, &currentPosition);
           // find difference in position
           if (currentPosition > decValue) {
             currentPosition -= decValue;
@@ -217,7 +218,7 @@ void converter_task()
           // if difference is more than min change
           if (currentPosition <= -MINPOSITIONCHANGE || currentPosition >= MINPOSITIONCHANGE) {
             // send position to pan
-            QueueOverwrite(QueueGoToPositionPan, &decValue);
+            QueueOverwrite(&QueueGoToPositionPan, &decValue);
             // debuginfo
 #if RUNMODE == DEBUGINFO
             UARTprintf("FP: %d\r\n",decValue);
@@ -228,7 +229,7 @@ void converter_task()
       else if (function == PIXEL) {
         if (motor == TILT) {
           // get current position
-          QueuePeek(QueuePositionTilt, &currentPosition);
+          QueuePeek(&QueuePositionTilt, &currentPosition);
           // adjust for out of picture
           if (decValue > cameraPixelTilt) {
             decValue = cameraPixelTilt;
@@ -247,7 +248,7 @@ void converter_task()
           }
           decValue %= ticksPerRotation;
           // get current go to possition
-          QueuePeek(QueueGoToPositionTilt, &currentPosition);
+          QueuePeek(&QueueGoToPositionTilt, &currentPosition);
           // find difference in position
           if (currentPosition > decValue) {
             currentPosition -= decValue;
@@ -258,7 +259,7 @@ void converter_task()
           // if difference is more than min change
           if (currentPosition <= -MINPOSITIONCHANGE || currentPosition >= MINPOSITIONCHANGE) {
             // send
-            QueueOverwrite(QueueGoToPositionTilt, &decValue);
+            QueueOverwrite(&QueueGoToPositionTilt, &decValue);
             // debuginfo
 #if RUNMODE == DEBUGINFO
             UARTprintf("PT: %d\r\n",decValue);
@@ -267,7 +268,7 @@ void converter_task()
         }
         else if (motor == PAN) {
           // get current position
-          QueuePeek(QueuePositionPan, &currentPosition);
+          QueuePeek(&QueuePositionPan, &currentPosition);
           // adjust for out of picture
           if (decValue > cameraPixelPan) {
             decValue = cameraPixelPan;
@@ -286,7 +287,7 @@ void converter_task()
           }
           decValue %= ticksPerRotation;
           // get current go to position
-          QueuePeek(QueueGoToPositionPan, &currentPosition);
+          QueuePeek(&QueueGoToPositionPan, &currentPosition);
           // find difference in position
           if (currentPosition > decValue) {
             currentPosition -= decValue;
@@ -297,7 +298,7 @@ void converter_task()
           // if difference is more than min change
           if (currentPosition <= -MINPOSITIONCHANGE || currentPosition >= MINPOSITIONCHANGE) {
             // send
-            QueueOverwrite(QueueGoToPositionPan, &decValue);
+            QueueOverwrite(&QueueGoToPositionPan, &decValue);
             // debuginfo
 #if RUNMODE == DEBUGINFO
             UARTprintf("PP: %d\r\n",decValue);

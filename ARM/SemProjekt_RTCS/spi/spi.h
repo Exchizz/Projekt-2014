@@ -23,6 +23,7 @@
 #include "inc/emp_type.h"
 #include "inc/lm3s6965.h"
 #include "queue/queue.h"
+#include "application/application.h"
 
 /*****************************    Defines    *******************************/
 #define RX	0

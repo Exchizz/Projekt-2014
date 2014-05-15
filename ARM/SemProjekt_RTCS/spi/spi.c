@@ -20,6 +20,7 @@
 /***************************** Include files *******************************/
 #include "spi.h"
 #include "inc/binary.h"
+#include "RTCS/rtcs.h"
 /*****************************    Defines    *******************************/
 #define SSI_CLK	2
 #define SSI_SS 	3
@@ -182,7 +183,7 @@ INT16U SPICharGet(){
 
 void SPI_RX_task(){
 	INT16U receivedChar;
-	while(SPIDataReady(RX))){
+	while(SPIDataReady(RX)){
 		receivedChar = SPICharGet();
 		QueueSend(&QueueSPIRX, &receivedChar);
 	}

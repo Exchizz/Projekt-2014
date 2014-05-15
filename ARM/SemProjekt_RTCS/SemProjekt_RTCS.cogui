@@ -11,33 +11,13 @@
 <folder appearance="1" expanded="2">
 <presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
 <part id="0"/>
-<part id="1"/>
-<part id="2"/>
-<part id="3"/>
-<part id="4"/>
 </presentation>
 </folder>
 </info>
 </editorArea>
-<editor id="org.eclipse.cdt.ui.editor.CEditor" name="control_position_tilt.c" partName="control_position_tilt.c" path="C:/Users/Lukas Schwartz/Documents/GitHub/Projekt-2014/ARM/SemProjekt_RTCS/control_tasks/control_position_tilt.c" title="control_position_tilt.c" tooltip="C:/Users/Lukas Schwartz/Documents/GitHub/Projekt-2014/ARM/SemProjekt_RTCS/control_tasks/control_position_tilt.c" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/SemProjekt_RTCS/control_tasks/tilt/control_position_tilt.c"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="974" selectionTopPixel="61"/>
-</editor>
-<editor activePart="true" focus="true" id="org.eclipse.cdt.ui.editor.CEditor" name="control_position_pan.c" partName="control_position_pan.c" path="C:/Users/Lukas Schwartz/Documents/GitHub/Projekt-2014/ARM/SemProjekt_RTCS/control_tasks/control_position_pan.c" title="control_position_pan.c" tooltip="C:/Users/Lukas Schwartz/Documents/GitHub/Projekt-2014/ARM/SemProjekt_RTCS/control_tasks/control_position_pan.c" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/SemProjekt_RTCS/control_tasks/pan/control_position_pan.c"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="833" selectionTopPixel="240"/>
-</editor>
-<editor id="org.eclipse.cdt.ui.editor.CEditor" name="control_speed_tilt.c" partName="control_speed_tilt.c" path="C:/Users/Lukas Schwartz/Documents/GitHub/Projekt-2014/ARM/SemProjekt_RTCS/control_tasks/control_speed_tilt.c" title="control_speed_tilt.c" tooltip="C:/Users/Lukas Schwartz/Documents/GitHub/Projekt-2014/ARM/SemProjekt_RTCS/control_tasks/control_speed_tilt.c" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/SemProjekt_RTCS/control_tasks/tilt/control_speed_tilt.c"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="1275" selectionTopPixel="540"/>
-</editor>
-<editor id="org.eclipse.cdt.ui.editor.CEditor" name="rtcscnf.h" partName="rtcscnf.h" path="C:/Users/Lukas Schwartz/Documents/GitHub/Projekt-2014/ARM/SemProjekt_RTCS/RTCS/rtcscnf.h" title="rtcscnf.h" tooltip="C:/Users/Lukas Schwartz/Documents/GitHub/Projekt-2014/ARM/SemProjekt_RTCS/RTCS/rtcscnf.h" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/SemProjekt_RTCS/RTCS/rtcscnf.h"/>
-<editorState selectionHorizontalPixel="0" selectionLength="6" selectionOffset="864" selectionTopPixel="120"/>
-</editor>
-<editor id="org.eclipse.cdt.ui.editor.CEditor" name="control_speed_pan.c" partName="control_speed_pan.c" path="C:/Users/Lukas Schwartz/Documents/GitHub/Projekt-2014/ARM/SemProjekt_RTCS/control_tasks/control_speed_pan.c" title="control_speed_pan.c" tooltip="C:/Users/Lukas Schwartz/Documents/GitHub/Projekt-2014/ARM/SemProjekt_RTCS/control_tasks/control_speed_pan.c" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/SemProjekt_RTCS/control_tasks/pan/control_speed_pan.c"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="788" selectionTopPixel="255"/>
+<editor activePart="true" focus="true" id="org.eclipse.cdt.ui.editor.CEditor" name="application.h" partName="application.h" path="C:/Users/Lukas Schwartz/Documents/GitHub/Projekt-2014/ARM/SemProjekt_RTCS/application/application.h" title="application.h" tooltip="C:/Users/Lukas Schwartz/Documents/GitHub/Projekt-2014/ARM/SemProjekt_RTCS/application/application.h" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/SemProjekt_RTCS/application/application.h"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="271" selectionTopPixel="0"/>
 </editor>
 </editors>
 <views>
@@ -45,11 +25,15 @@
 <viewState CommonNavigator.LINKING_ENABLED="0" horizontalPosition="0" org.eclipse.ui.navigator.resources.workingSets.showTopLevelWorkingSets="0" verticalPosition="0">
 <expanded>
 <element path="/SemProjekt_RTCS"/>
+<element path="/SemProjekt_RTCS/application"/>
+<element path="/SemProjekt_RTCS/communiction"/>
 <element path="/SemProjekt_RTCS/Converter"/>
 <element path="/SemProjekt_RTCS/queue"/>
+<element path="/SemProjekt_RTCS/RTCS"/>
+<element path="/SemProjekt_RTCS/spi"/>
 </expanded>
 <selection>
-<element path="/SemProjekt_RTCS/queue/queue.c"/>
+<element path="/SemProjekt_RTCS/RTCS/rtcs.h"/>
 </selection>
 </viewState>
 </view>
@@ -73,7 +57,7 @@
 <viewState/>
 </view>
 </views>
-<perspectives activePart="org.eclipse.ui.console.ConsoleView" activePerspective="org.coocox.builder.perspective.CoBuilder">
+<perspectives activePart="org.eclipse.cdt.ui.editor.CEditor" activePerspective="org.coocox.builder.perspective.CoBuilder">
 <perspective editorAreaTrimState="2" editorAreaVisible="1" fixed="0" version="0.016">
 <descriptor class="org.coocox.builder.ui.PerspectiveCoBuilder" id="org.coocox.builder.perspective.CoBuilder" label="CooCox CoBuilder"/>
 <alwaysOnActionSet id="org.coocox.component.ui.actionSet"/>
@@ -256,173 +240,170 @@
 <workingSets/>
 <navigationHistory>
 <editors>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/SemProjekt_RTCS/control_tasks/tilt/control_position_tilt.c"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/SemProjekt_RTCS/Converter/converter.c"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/SemProjekt_RTCS/control_tasks/tilt/control_speed_tilt.c"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/SemProjekt_RTCS/control_tasks/pan/control_position_pan.c"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/SemProjekt_RTCS/Converter/converter.c"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/SemProjekt_RTCS/communiction/comunication_task.h"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/SemProjekt_RTCS/communiction/communiction_task.c"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/SemProjekt_RTCS/control_tasks/tilt/control_position_tilt.c"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/SemProjekt_RTCS/main.c"/>
-<editor factoryID="org.eclipse.cdt.ui.ExternalEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="C:\Users\Lukas Schwartz\Documents\GitHub\Projekt-2014\ARM\SemProjekt_RTCS\inc\emp_type.h" project="SemProjekt_RTCS"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/SemProjekt_RTCS/queue/queue.c"/>
-<editor factoryID="org.coocox.builder.ui.persistent.PersistentElementFactory" id="org.coocox.builder.ui.editors.ConfigEditor">
-<org.coocox.builder.ui.editors.ConfigEditor/>
-</editor>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/SemProjekt_RTCS/control_tasks/tilt/control_speed_tilt.c"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/SemProjekt_RTCS/application/application.h"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/SemProjekt_RTCS/RTCS/rtcscnf.h"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/SemProjekt_RTCS/uart/uartprintf.c"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/SemProjekt_RTCS/spi/spi.c"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/SemProjekt_RTCS/spi/spi.h"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/SemProjekt_RTCS/Converter/converter.c"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/SemProjekt_RTCS/control_tasks/tilt/control_position_tilt.c"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/SemProjekt_RTCS/communiction/communiction_task.c"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/SemProjekt_RTCS/RTCS/rtcs.h"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/SemProjekt_RTCS/RTCS/schedule.c"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/SemProjekt_RTCS/queue/queue.h"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/SemProjekt_RTCS/control_tasks/tilt/control_speed_tilt.c"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/SemProjekt_RTCS/control_tasks/pan/control_speed_pan.c"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/SemProjekt_RTCS/control_tasks/pan/control_position_pan.c"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/SemProjekt_RTCS/Converter/converter.c"/>
 </editors>
-<item historyLabel="control_position_tilt.c" index="0">
-<position info="not_deleted" x="2420" y="0"/>
+<item historyLabel="spi.c" index="3">
+<position info="not_deleted" x="4661" y="0"/>
 </item>
-<item historyLabel="converter.c" index="1">
-<position info="not_deleted" x="904" y="0"/>
+<item historyLabel="spi.c" index="3">
+<position info="not_deleted" x="4720" y="0"/>
 </item>
-<item historyLabel="control_speed_tilt.c" index="2">
-<position info="not_deleted" x="1227" y="0"/>
+<item historyLabel="spi.h" index="4">
+<position info="not_deleted" x="708" y="0"/>
 </item>
-<item historyLabel="control_position_tilt.c" index="0">
-<position info="not_deleted" x="1063" y="0"/>
+<item historyLabel="spi.c" index="3">
+<position info="not_deleted" x="4720" y="0"/>
 </item>
-<item historyLabel="control_speed_tilt.c" index="2">
-<position info="not_deleted" x="1227" y="0"/>
+<item historyLabel="converter.c" index="5">
+<position info="not_deleted" x="1852" y="40"/>
 </item>
-<item historyLabel="control_position_tilt.c" index="0">
-<position info="not_deleted" x="1063" y="0"/>
+<item historyLabel="converter.c" index="5">
+<position info="not_deleted" x="789" y="0"/>
 </item>
-<item historyLabel="control_speed_tilt.c" index="2">
-<position info="not_deleted" x="1227" y="0"/>
+<item historyLabel="converter.c" index="5">
+<position info="not_deleted" x="5085" y="63"/>
 </item>
-<item historyLabel="control_position_tilt.c" index="0">
-<position info="not_deleted" x="1063" y="0"/>
+<item historyLabel="converter.c" index="5">
+<position info="not_deleted" x="5556" y="63"/>
 </item>
-<item historyLabel="control_speed_tilt.c" index="2">
-<position info="not_deleted" x="1245" y="0"/>
+<item historyLabel="converter.c" index="5">
+<position info="not_deleted" x="5835" y="0"/>
 </item>
-<item historyLabel="converter.c" index="1">
-<position info="not_deleted" x="8708" y="0"/>
+<item historyLabel="application.h" index="0">
+<position info="not_deleted" x="609" y="26"/>
 </item>
-<item historyLabel="control_speed_tilt.c" index="2">
-<position info="not_deleted" x="1245" y="0"/>
+<item historyLabel="converter.c" index="5">
+<position info="not_deleted" x="6312" y="0"/>
 </item>
-<item historyLabel="control_position_tilt.c" index="0">
-<position info="not_deleted" x="1018" y="45"/>
+<item historyLabel="converter.c" index="5">
+<position info="not_deleted" x="6600" y="0"/>
 </item>
-<item historyLabel="control_position_pan.c" index="3">
-<position info="not_deleted" x="951" y="0"/>
+<item historyLabel="converter.c" index="5">
+<position info="not_deleted" x="7337" y="0"/>
 </item>
-<item historyLabel="control_position_tilt.c" index="0">
-<position info="not_deleted" x="803" y="0"/>
+<item historyLabel="converter.c" index="5">
+<position info="not_deleted" x="7798" y="0"/>
 </item>
-<item historyLabel="control_position_pan.c" index="3">
-<position info="not_deleted" x="951" y="0"/>
+<item historyLabel="converter.c" index="5">
+<position info="not_deleted" x="8047" y="0"/>
 </item>
-<item historyLabel="converter.c" index="4">
-<position info="not_deleted" x="0" y="0"/>
+<item historyLabel="converter.c" index="5">
+<position info="not_deleted" x="8743" y="0"/>
 </item>
-<item historyLabel="converter.c" index="4">
+<item historyLabel="converter.c" index="5">
+<position info="not_deleted" x="9203" y="0"/>
+</item>
+<item historyLabel="control_position_tilt.c" index="6">
+<position info="not_deleted" x="793" y="0"/>
+</item>
+<item historyLabel="communiction_task.c" index="7">
+<position info="not_deleted" x="1458" y="45"/>
+</item>
+<item historyLabel="communiction_task.c" index="7">
+<position info="not_deleted" x="810" y="0"/>
+</item>
+<item historyLabel="uartprintf.c" index="2">
+<position info="not_deleted" x="1587" y="38"/>
+</item>
+<item historyLabel="uartprintf.c" index="2">
+<position info="not_deleted" x="883" y="0"/>
+</item>
+<item historyLabel="uartprintf.c" index="2">
+<position info="not_deleted" x="2030" y="57"/>
+</item>
+<item historyLabel="uartprintf.c" index="2">
+<position info="not_deleted" x="921" y="0"/>
+</item>
+<item historyLabel="uartprintf.c" index="2">
+<position info="not_deleted" x="1613" y="0"/>
+</item>
+<item historyLabel="rtcs.h" index="8">
 <position/>
 </item>
-<item historyLabel="converter.c" index="4">
-<position info="not_deleted" x="6579" y="0"/>
+<item historyLabel="uartprintf.c" index="2">
+<position info="not_deleted" x="1613" y="0"/>
 </item>
-<item historyLabel="comunication_task.h" index="5">
-<position info="not_deleted" x="995" y="17"/>
-</item>
-<item historyLabel="converter.c" index="4">
-<position info="not_deleted" x="6579" y="0"/>
-</item>
-<item historyLabel="converter.c" index="4">
-<position info="not_deleted" x="7836" y="0"/>
-</item>
-<item historyLabel="converter.c" index="4">
-<position info="not_deleted" x="913" y="7"/>
-</item>
-<item historyLabel="converter.c" index="4">
-<position/>
-</item>
-<item historyLabel="converter.c" index="4">
-<position info="not_deleted" x="6551" y="0"/>
-</item>
-<item historyLabel="comunication_task.h" index="5">
-<position info="not_deleted" x="995" y="17"/>
-</item>
-<item historyLabel="communiction_task.c" index="6">
-<position info="not_deleted" x="192" y="0"/>
-</item>
-<item historyLabel="comunication_task.h" index="5">
-<position info="not_deleted" x="995" y="17"/>
-</item>
-<item historyLabel="converter.c" index="4">
-<position info="not_deleted" x="6551" y="0"/>
-</item>
-<item historyLabel="converter.c" index="4">
-<position info="not_deleted" x="6913" y="0"/>
-</item>
-<item historyLabel="converter.c" index="4">
-<position info="not_deleted" x="1052" y="14"/>
-</item>
-<item historyLabel="control_position_tilt.c" index="7">
-<position info="not_deleted" x="803" y="0"/>
-</item>
-<item historyLabel="main.c" index="8">
-<position info="not_deleted" x="761" y="0"/>
-</item>
-<item historyLabel="emp_type.h" index="9">
+<item historyLabel="rtcs.h" index="8">
 <position info="not_deleted" x="0" y="0"/>
 </item>
-<item historyLabel="main.c" index="8">
-<position info="not_deleted" x="761" y="0"/>
+<item historyLabel="schedule.c" index="9">
+<position info="not_deleted" x="0" y="0"/>
 </item>
-<item historyLabel="control_position_tilt.c" index="7">
-<position info="not_deleted" x="2134" y="0"/>
+<item historyLabel="rtcs.h" index="8">
+<position info="not_deleted" x="0" y="0"/>
 </item>
-<item historyLabel="queue.c" index="10">
-<position info="not_deleted" x="842" y="0"/>
+<item historyLabel="rtcscnf.h" index="1">
+<position info="not_deleted" x="1848" y="0"/>
 </item>
-<item historyLabel="Configuration" index="11"/>
-<item historyLabel="queue.c" index="10">
-<position info="not_deleted" x="26" y="0"/>
+<item historyLabel="rtcs.h" index="8">
+<position info="not_deleted" x="667" y="0"/>
 </item>
-<item historyLabel="control_speed_tilt.c" index="12">
-<position info="not_deleted" x="1318" y="0"/>
+<item historyLabel="rtcscnf.h" index="1">
+<position info="not_deleted" x="1848" y="0"/>
 </item>
-<item historyLabel="rtcscnf.h" index="13">
-<position info="not_deleted" x="864" y="6"/>
+<item historyLabel="uartprintf.c" index="2">
+<position info="not_deleted" x="883" y="0"/>
 </item>
-<item historyLabel="control_speed_tilt.c" index="12">
-<position info="not_deleted" x="1318" y="0"/>
+<item historyLabel="communiction_task.c" index="7">
+<position info="not_deleted" x="810" y="0"/>
 </item>
-<item historyLabel="control_speed_tilt.c" index="12">
-<position info="not_deleted" x="774" y="0"/>
+<item historyLabel="spi.c" index="3">
+<position info="not_deleted" x="625" y="0"/>
 </item>
-<item historyLabel="control_speed_tilt.c" index="12">
-<position info="not_deleted" x="1275" y="0"/>
+<item historyLabel="communiction_task.c" index="7">
+<position info="not_deleted" x="810" y="0"/>
 </item>
-<item historyLabel="control_speed_pan.c" index="14">
-<position info="not_deleted" x="1179" y="70"/>
+<item historyLabel="converter.c" index="5">
+<position info="not_deleted" x="789" y="0"/>
 </item>
-<item historyLabel="control_position_pan.c" index="15">
-<position info="not_deleted" x="978" y="0"/>
+<item historyLabel="communiction_task.c" index="7">
+<position info="not_deleted" x="810" y="0"/>
 </item>
-<item historyLabel="control_position_pan.c" index="15">
-<position info="not_deleted" x="1374" y="46"/>
+<item historyLabel="control_position_tilt.c" index="6">
+<position info="not_deleted" x="793" y="0"/>
 </item>
-<item historyLabel="converter.c" index="16">
-<position info="not_deleted" x="1125" y="0"/>
+<item historyLabel="communiction_task.c" index="7">
+<position info="not_deleted" x="810" y="0"/>
 </item>
-<item historyLabel="queue.c" index="10">
-<position info="not_deleted" x="26" y="0"/>
+<item historyLabel="application.h" index="0">
+<position info="not_deleted" x="609" y="26"/>
 </item>
-<item historyLabel="converter.c" index="16">
-<position info="not_deleted" x="1125" y="0"/>
+<item historyLabel="queue.h" index="10">
+<position info="not_deleted" x="1261" y="0"/>
 </item>
-<item active="true" historyLabel="control_position_pan.c" index="15">
-<position info="not_deleted" x="833" y="0"/>
+<item historyLabel="application.h" index="0">
+<position info="not_deleted" x="144" y="0"/>
+</item>
+<item historyLabel="control_speed_tilt.c" index="11">
+<position info="not_deleted" x="771" y="0"/>
+</item>
+<item historyLabel="application.h" index="0">
+<position info="not_deleted" x="144" y="0"/>
+</item>
+<item historyLabel="control_speed_pan.c" index="12">
+<position info="not_deleted" x="785" y="0"/>
+</item>
+<item historyLabel="application.h" index="0">
+<position info="not_deleted" x="144" y="0"/>
+</item>
+<item historyLabel="control_position_pan.c" index="13">
+<position info="not_deleted" x="830" y="0"/>
+</item>
+<item active="true" historyLabel="application.h" index="0">
+<position info="not_deleted" x="144" y="0"/>
 </item>
 </navigationHistory>
 <input factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/" type="8"/>
@@ -431,52 +412,50 @@
 <actionBarAdvisor/>
 </window>
 <mruList>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="control_position_pan.c" tooltip="SemProjekt_RTCS/control_tasks/pan/control_position_pan.c">
+<persistable path="/SemProjekt_RTCS/control_tasks/pan/control_position_pan.c"/>
+</file>
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="control_speed_pan.c" tooltip="SemProjekt_RTCS/control_tasks/pan/control_speed_pan.c">
 <persistable path="/SemProjekt_RTCS/control_tasks/pan/control_speed_pan.c"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="rtcscnf.h" tooltip="SemProjekt_RTCS/RTCS/rtcscnf.h">
-<persistable path="/SemProjekt_RTCS/RTCS/rtcscnf.h"/>
 </file>
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="control_speed_tilt.c" tooltip="SemProjekt_RTCS/control_tasks/tilt/control_speed_tilt.c">
 <persistable path="/SemProjekt_RTCS/control_tasks/tilt/control_speed_tilt.c"/>
 </file>
-<file factoryID="org.coocox.builder.ui.persistent.PersistentElementFactory" id="org.coocox.builder.ui.editors.ConfigEditor" name="" tooltip="">
-<persistable>
-<org.coocox.builder.ui.editors.ConfigEditor/>
-</persistable>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="schedule.c" tooltip="SemProjekt_RTCS/RTCS/schedule.c">
+<persistable path="/SemProjekt_RTCS/RTCS/schedule.c"/>
 </file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="queue.c" tooltip="SemProjekt_RTCS/queue/queue.c">
-<persistable path="/SemProjekt_RTCS/queue/queue.c"/>
-</file>
-<file factoryID="org.eclipse.cdt.ui.ExternalEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="emp_type.h" tooltip="C:\Users\Lukas Schwartz\Documents\GitHub\Projekt-2014\ARM\SemProjekt_RTCS\inc\emp_type.h">
-<persistable path="C:\Users\Lukas Schwartz\Documents\GitHub\Projekt-2014\ARM\SemProjekt_RTCS\inc\emp_type.h" project="SemProjekt_RTCS"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="main.c" tooltip="SemProjekt_RTCS/main.c">
-<persistable path="/SemProjekt_RTCS/main.c"/>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="rtcs.h" tooltip="SemProjekt_RTCS/RTCS/rtcs.h">
+<persistable path="/SemProjekt_RTCS/RTCS/rtcs.h"/>
 </file>
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="communiction_task.c" tooltip="SemProjekt_RTCS/communiction/communiction_task.c">
 <persistable path="/SemProjekt_RTCS/communiction/communiction_task.c"/>
 </file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="comunication_task.h" tooltip="SemProjekt_RTCS/communiction/comunication_task.h">
-<persistable path="/SemProjekt_RTCS/communiction/comunication_task.h"/>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="control_position_tilt.c" tooltip="SemProjekt_RTCS/control_tasks/tilt/control_position_tilt.c">
+<persistable path="/SemProjekt_RTCS/control_tasks/tilt/control_position_tilt.c"/>
 </file>
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="converter.c" tooltip="SemProjekt_RTCS/Converter/converter.c">
 <persistable path="/SemProjekt_RTCS/Converter/converter.c"/>
 </file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="control_position_pan.c" tooltip="SemProjekt_RTCS/control_tasks/pan/control_position_pan.c">
-<persistable path="/SemProjekt_RTCS/control_tasks/pan/control_position_pan.c"/>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="spi.h" tooltip="SemProjekt_RTCS/spi/spi.h">
+<persistable path="/SemProjekt_RTCS/spi/spi.h"/>
 </file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="control_position_tilt.c" tooltip="SemProjekt_RTCS/control_tasks/tilt/control_position_tilt.c">
-<persistable path="/SemProjekt_RTCS/control_tasks/tilt/control_position_tilt.c"/>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="rtcscnf.h" tooltip="SemProjekt_RTCS/RTCS/rtcscnf.h">
+<persistable path="/SemProjekt_RTCS/RTCS/rtcscnf.h"/>
 </file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="control_position_pan.h" tooltip="SemProjekt_RTCS/control_tasks/pan/control_position_pan.h">
-<persistable path="/SemProjekt_RTCS/control_tasks/pan/control_position_pan.h"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="uartprintf.h" tooltip="SemProjekt_RTCS/uart/uartprintf.h">
-<persistable path="/SemProjekt_RTCS/uart/uartprintf.h"/>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="spi.c" tooltip="SemProjekt_RTCS/spi/spi.c">
+<persistable path="/SemProjekt_RTCS/spi/spi.c"/>
 </file>
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="uartprintf.c" tooltip="SemProjekt_RTCS/uart/uartprintf.c">
 <persistable path="/SemProjekt_RTCS/uart/uartprintf.c"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="queue.h" tooltip="SemProjekt_RTCS/queue/queue.h">
+<persistable path="/SemProjekt_RTCS/queue/queue.h"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="queue.c" tooltip="SemProjekt_RTCS/queue/queue.c">
+<persistable path="/SemProjekt_RTCS/queue/queue.c"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="application.h" tooltip="SemProjekt_RTCS/application/application.h">
+<persistable path="/SemProjekt_RTCS/application/application.h"/>
 </file>
 </mruList>
 </workbench>

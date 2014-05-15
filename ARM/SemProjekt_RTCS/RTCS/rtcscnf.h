@@ -47,7 +47,7 @@
 #define TASK3         		communication_task
 #define TASK4         		SPI_RX_task
 #define TASK5         		SPI_TX_task
-#define TASK6                  converter_task
+#define TASK6                   converter_task
 #define TASK7         		tilt_position_task
 #define TASK8         		tilt_speed_task
 #define TASK9         		pan_position_task

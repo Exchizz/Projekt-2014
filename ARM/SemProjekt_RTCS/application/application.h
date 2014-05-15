@@ -18,6 +18,7 @@
 *****************************************************************************/
 
 /***************************** Include files *******************************/
+#include "queue/queue.h"
 /*****************************    Defines    *******************************/
 extern QueueHandle_t QueuePositionPan;
 extern QueueHandle_t QueuePositionTilt;

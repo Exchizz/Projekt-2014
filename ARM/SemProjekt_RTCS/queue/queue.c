@@ -80,7 +80,7 @@ BOOLEAN QueueReceive(QueueHandle_t *this, void * dataOut){
 	return retval;
 }
 
-int QueueSpaceLeft(QueueHandle_t *this){
+INT8U QueueSpaceLeft(QueueHandle_t *this){
 	return (this->queuesize)-(this->elements);
 }
 

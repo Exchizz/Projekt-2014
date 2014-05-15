@@ -20,6 +20,7 @@
 
 /***************************** Include files ********************************/
 #include "control_tasks/control_position_tilt.h"
+#include "RTCS/rtcs.h"
 /*****************************    Defines    ********************************/
 #define NORMAL 0
 #define DEBUGINFO 1
