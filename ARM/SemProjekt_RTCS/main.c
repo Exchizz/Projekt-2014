@@ -33,12 +33,22 @@
 #include "control_tasks/control_speed_tilt.h"
 #include "control_tasks/control_position_pan.h"
 #include "control_tasks/control_speed_pan.h"
-
 /*****************************    Defines    *******************************/
-
 /*****************************   Constants   *******************************/
-
 /*****************************   Variables   *******************************/
+/*****************************   Queues      *******************************/
+QueueHandle_t QueuePositionPan;
+QueueHandle_t QueuePositionTilt;
+QueueHandle_t QueuePWMOutTilt;
+QueueHandle_t QueuePWMOutPan;
+QueueHandle_t QueueGoToPositionTilt;
+QueueHandle_t QueueGoToPositionPan;
+QueueHandle_t QueueUARTTX;
+QueueHandle_t QueueUARTRX;
+QueueHandle_t QueueSPITX;
+QueueHandle_t QueueSPIRX;
+QueueHandle_t QueuePanSpeed;
+QueueHandle_t QueueTiltSpeed;
 /*****************************   Functions   *******************************/
 void init_alive_task(){
 	//debug_pin(ON);
@@ -74,18 +84,23 @@ int main(void)
 	gpio_init();
 
 	/* Initialize queueHanders */
-	QueueUARTTX 		= CreateQueueHandle();
-	QueueUARTRX 		= CreateQueueHandle();
-	QueueSPITX  		= CreateQueueHandle();
-	QueueSPIRX  		= CreateQueueHandle();
-	QueuePositionPan 	= CreateQueueHandle();
-	QueuePositionTilt 	= CreateQueueHandle();
-	QueuePWMOutTilt		= CreateQueueHandle();
-	QueuePWMOutPan          = CreateQueueHandle();
-	QueueTiltSpeed		= CreateQueueHandle();
-	QueuePanSpeed           = CreateQueueHandle();
-	QueueGoToPositionTilt   = CreateQueueHandle();
-	QueueGoToPositionPan    = CreateQueueHandle();
+	QueueUARTTX 		= QueueCreate(16, sizeof(char));
+	QueueUARTRX 		= QueueCreate(16, sizeof(char));
+
+	QueueSPITX  		= QueueCreate(2, sizeof(char));
+	QueueSPIRX  		= QueueCreate(2, sizeof(char));
+
+	QueuePositionPan 	= QueueCreate(1, sizeof(char));
+	QueuePositionTilt 	= QueueCreate(1, sizeof(char));
+
+	QueuePWMOutTilt		= QueueCreate(1, sizeof(char));
+	QueuePWMOutPan          = QueueCreate(1, sizeof(char));
+
+	QueueTiltSpeed		= QueueCreate(1, sizeof(char));
+	QueuePanSpeed           = QueueCreate(1, sizeof(char));
+
+	QueueGoToPositionTilt   = QueueCreate(1, sizeof(char));
+	QueueGoToPositionPan    = QueueCreate(1, sizeof(char));
 
 	enable_global_int();
 

@@ -2,9 +2,9 @@
 * University of Southern Denmark
 * Embedded C Programming (ECP)
 *
-* MODULENAME.: control_position_tilt.h
+* MODULENAME.: main.c
 *
-* PROJECT....: G3 - Tracking system utilizing a pan/tilt system
+* PROJECT....: ECP
 *
 * DESCRIPTION: See module specification file (.h-file).
 *
@@ -13,18 +13,25 @@
 * Date    Id    Change
 * YYMMDD
 * --------------------
-* 140501  G3   Module created.
-* 1405XX  G3   Module modified
+* 0902012  KHA   Module created.
 *
 *****************************************************************************/
 
 /***************************** Include files *******************************/
-#include "application/application.h"
-#include "inc/emp_type.h"
 /*****************************    Defines    *******************************/
+extern QueueHandle_t QueuePositionPan;
+extern QueueHandle_t QueuePositionTilt;
+extern QueueHandle_t QueuePWMOutTilt;
+extern QueueHandle_t QueuePWMOutPan;
+extern QueueHandle_t QueueGoToPositionTilt;
+extern QueueHandle_t QueueGoToPositionPan;
+extern QueueHandle_t QueueUARTTX;
+extern QueueHandle_t QueueUARTRX;
+extern QueueHandle_t QueueSPITX;
+extern QueueHandle_t QueueSPIRX;
+extern QueueHandle_t QueuePanSpeed;
+extern QueueHandle_t QueueTiltSpeed;
 /*****************************   Constants   *******************************/
 /*****************************   Variables   *******************************/
 /*****************************   Functions   *******************************/
-void init_tilt_position_task();
-void tilt_position_task();
 /****************************** End Of Module *******************************/
