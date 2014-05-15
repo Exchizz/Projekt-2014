@@ -76,6 +76,14 @@ void UART_RX_task(){
 #if (RUNMODE == INTENSEDEBUG)
 	UARTprintf("UART RX: start write queue.\r\n");
 #endif
+
+/* untested
+	while(UARTDataReady(RX) && QueueSpaceAvilable()){
+		receivedChar = UARTCharGet();
+		QueueSend(&QueueUARTRX, &receivedChar);
+
+	}
+*/
 	if(UARTDataReady(RX) && QueueSpaceLeft(&QueueUARTRX)){
 		receivedChar = UARTCharGet();
 		QueueSend(&QueueUARTRX, &receivedChar);
