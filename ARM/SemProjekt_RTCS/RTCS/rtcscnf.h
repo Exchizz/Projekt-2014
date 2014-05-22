@@ -41,12 +41,12 @@
 // Task number of LAST task
 #define LAST_TASK					10
 
-#define TASK0         		alive_task
-#define TASK1         		UART_TX_task
-#define TASK2         		UART_RX_task
-#define TASK3         		communication_task
-#define TASK4         		SPI_RX_task
-#define TASK5         		SPI_TX_task
+#define TASK0                   SPI_TX_task
+#define TASK1                   SPI_RX_task
+#define TASK2         		alive_task
+#define TASK3         		UART_TX_task
+#define TASK4         		UART_RX_task
+#define TASK5         		communication_task
 #define TASK6                   converter_task
 #define TASK7         		tilt_position_task
 #define TASK8         		tilt_speed_task
@@ -54,12 +54,12 @@
 #define TASK10         		pan_speed_task
 
 
-#define INIT_TASK0   		init_alive_task
-#define INIT_TASK1      	init_uart_tx_task
-#define INIT_TASK2      	init_uart_rx_task
-#define INIT_TASK3      	init_communication_task
-#define INIT_TASK4      	init_SPI_RX_task
-#define INIT_TASK5      	init_SPI_TX_task
+#define INIT_TASK0              init_SPI_TX_task
+#define INIT_TASK1              init_SPI_RX_task
+#define INIT_TASK2   		init_alive_task
+#define INIT_TASK3      	init_uart_tx_task
+#define INIT_TASK4      	init_uart_rx_task
+#define INIT_TASK5      	init_communication_task
 #define INIT_TASK6              init_converter_task
 #define INIT_TASK7      	init_tilt_position_task
 #define INIT_TASK8      	init_tilt_speed_task
@@ -73,12 +73,12 @@
 //
 //      #define MY_TASK   0
 
-#define ALIVE_TASK			0
-#define UART_TX_TASK			1
-#define UART_RX_TASK			2
-#define COMMUNICATION_TASK		3
-#define SPI_RX_TASK			4
-#define SPI_TX_TASK		        5
+#define SPI_TX_TASK                     0
+#define SPI_RX_TASK                     1
+#define ALIVE_TASK			2
+#define UART_TX_TASK			3
+#define UART_RX_TASK			4
+#define COMMUNICATION_TASK		5
 #define CONVERTER_TASK                  6
 #define TILT_POSITION_TASK		7
 #define TILT_SPEED_TASK			8

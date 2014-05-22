@@ -1,0 +1,20 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<history>
+   <processor signature="arm-none-eabi-gcc noversion nomachine -mcpu=cortex-m3 -mthumb -Wall -ffunction-sections -g -O0 -c -DLM3S6965 -I..\..\..\..\..\..\projekt\emp\inc -I..\..\..\..\..\..\projekt\emp -I..\..\..\..\..\..\projekt\emp\rtcs_lab">
+      <target file="cpu.o" lastModified="144abfa51b8">
+         <source file="..\..\..\cpu\cpu.c" lastModified="12725cf29f0"/>
+      </target>
+      <target file="startup_lm3s.o" lastModified="144abfa5164">
+         <source file="..\..\..\startup\startup_lm3s.c" lastModified="144abf20cf9"/>
+      </target>
+      <target file="systick.o" lastModified="144abfa520b">
+         <source file="..\..\..\RTCS\systick.c" lastModified="135e3c7da20"/>
+      </target>
+      <target file="schedule.o" lastModified="144abfa5113">
+         <source file="..\..\..\RTCS\schedule.c" lastModified="12725cf29f0"/>
+      </target>
+      <target file="main.o" lastModified="144abfa50b3">
+         <source file="..\..\..\main.c" lastModified="135e3c9b6b0"/>
+      </target>
+   </processor>
+</history>

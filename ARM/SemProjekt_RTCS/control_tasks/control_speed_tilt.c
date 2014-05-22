@@ -21,16 +21,16 @@
 /***************************** Include files ********************************/
 #include "control_tasks/control_speed_tilt.h"
 #include "RTCS/rtcs.h"
+#include "debug/debug.h"
 /*****************************    Defines    ********************************/
 #define NORMAL 0
 #define DEBUGINFO 1
 #define PLOTSPEED 2
 #define FIXEDSPEEDPLOT 3
 #define INTENSEDEBUG 4
+#define DEBUGTIME 5
 
 #define RUN_MODE NORMAL //
-
-#define FIXEDSPEED 500 // define for fixed speed when in FIXEDSPEEDPLOT mode
 
 #define PID_RUN_INTERVAL 30 // ticks
 #define PID_SPEED_CALC_INTERVAL 2  // length of time over which the speed is averaged as a multiple of PID_RUN_INTERVAL
@@ -42,12 +42,16 @@
 #define IDT (1000/(PID_RUN_INTERVAL*T_TICK*PID_SPEED_CALC_INTERVAL))
 
 #define TICKS_PER_FRAME_ROTATION 1080
-#define INTEGRATORLIMIT 100
+#define INTEGRATORLIMIT 400
 #define MAXSPEED_LIMIT 1500 // ticks/s
 #define MAXPWMVALUE 200
 #define MAXPWM_MASK 0xFF
 #define MOTOR_DIRECTION_FORWARDS 0b10
 #define MOTOR_DIRECTION_BACKWARDS 0b01
+
+// fixedspeed plot
+#define CHANGE_SPEED_PLOTPOSITION 10000// ms
+
 /*****************************   Constants   ********************************/
 /*****************************   Variables   ********************************/
 /*****************************   Functions   ********************************/
@@ -75,6 +79,12 @@ void tilt_speed_task()
   static INT16S Ierror = 0;
   static INT16U position[PID_SPEED_CALC_INTERVAL +1] = {0};
 
+  // fixedspeed plot
+  static INT16U countTimeChangeSpeed = 0; // ms
+  static INT16U speedChangePoint = 0;
+  INT16U speedArray[] = {200,500,300,600,100,300,200,400,200,500};
+
+
   static INT8U i = 1;
 
   INT16S set_speed_tilt = 0;
@@ -86,8 +96,19 @@ void tilt_speed_task()
   INT8U direction = 0;
   INT32S current_speed = 0;
 
+  countTimeChangeSpeed++;
+  if (countTimeChangeSpeed > CHANGE_SPEED_PLOTPOSITION) {
+    countTimeChangeSpeed = 0;
+    speedChangePoint++;
+    if (speedChangePoint >= (sizeof(speedArray)/2)) {
+      speedChangePoint = 0;
+    }
+  }
   // PID control loop
   if(!(--pid_interval_counter)){
+#if RUN_MODE == DEBUGTIME
+    debug_pin(ON);
+#endif
     pid_interval_counter = PID_RUN_INTERVAL;
 
 #if RUN_MODE == INTENSEDEBUG
@@ -95,7 +116,7 @@ void tilt_speed_task()
 #endif
     //get speed, made to be able o run at constant speed for PID test f inner loop
 #if (RUN_MODE == FIXEDSPEEDPLOT)
-    set_speed_tilt = FIXEDSPEED;
+    set_speed_tilt = speedArray[speedChangePoint];
 #else
    QueuePeek(&QueueTiltSpeed, &set_speed_tilt);
 #endif
@@ -187,7 +208,9 @@ void tilt_speed_task()
       UARTCharPut(0, current_speed);
     }
 #endif
-
+#if RUN_MODE == DEBUGTIME
+    debug_pin(OFF);
+#endif
   }
 #if RUN_MODE == INTENSEDEBUG
   UARTprintf("C. speed tilt: Exit.\r\n");

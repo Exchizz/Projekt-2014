@@ -21,20 +21,22 @@
 /***************************** Include files ********************************/
 #include "control_tasks/control_speed_pan.h"
 #include "RTCS/rtcs.h"
+#include "debug/debug.h"
 /*****************************    Defines    ********************************/
 #define NORMAL 0
 #define DEBUGINFO 1
 #define PLOTSPEED 2
 #define INTENSEDEBUG 3
+#define DEBUGTIME 4
 
 #define RUN_MODE NORMAL //
 
-#define PID_RUN_INTERVAL 50 // ticks
+#define PID_RUN_INTERVAL 30 // ticks
 #define PID_SPEED_CALC_INTERVAL 2  // length of time over which the speed is averaged as a multiple of PID_RUN_INTERVAL
 
-#define Kp 0.13
-#define Ki 0.0015
-#define Kd 0.045
+#define Kp 0.11472
+#define Ki 0.027353
+#define Kd 0.014946
 
 #define IDT (1000/(PID_RUN_INTERVAL*T_TICK*PID_SPEED_CALC_INTERVAL))
 
@@ -86,6 +88,10 @@ void pan_speed_task()
 
   // PID control loop
   if(!(--pid_interval_counter)){
+#if RUN_MODE == DEBUGTIME
+    debug_pin(ON);
+#endif
+
     pid_interval_counter = PID_RUN_INTERVAL;
 
 #if RUN_MODE == INTENSEDEBUG
@@ -175,8 +181,12 @@ void pan_speed_task()
       UARTCharPut(0, current_speed);
     }
 #endif
+#if RUN_MODE == DEBUGTIME
+    debug_pin(OFF);
+#endif
 
   }
+
 #if RUN_MODE == INTENSEDEBUG
   UARTprintf("C. speed Pan.: Exit.\r\n");
 #endif

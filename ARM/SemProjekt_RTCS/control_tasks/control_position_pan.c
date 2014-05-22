@@ -21,11 +21,13 @@
 /***************************** Include files ********************************/
 #include "control_tasks/control_position_pan.h"
 #include "RTCS/rtcs.h"
+#include "debug/debug.h"
 /*****************************    Defines    ********************************/
 #define NORMAL 0
 #define DEBUGINFO 1
 #define PLOTPOSITION 2
 #define INTENSEDEBUG 3
+#define DEBUGTIME 4
 
 #define RUN_MODE NORMAL //
 #define DEFAULTPOSITIONPAN 0
@@ -78,6 +80,10 @@ void pan_position_task()
 
   // PID control loop
   if(!(--pid_interval_counter)){
+#if RUN_MODE == DEBUGTIME
+    debug_pin(ON);
+#endif
+
     pid_interval_counter = PID_RUN_INTERVAL;
 
 #if RUN_MODE == INTENSEDEBUG
@@ -163,6 +169,10 @@ void pan_position_task()
 
   // save last error
   last_error = error;
+
+#if RUN_MODE == DEBUGTIME
+    debug_pin(OFF);
+#endif
   }
 #if RUN_MODE == INTENSEDEBUG
   UARTprintf("C. Pos. Pan.: Exit.\r\n");

@@ -21,6 +21,7 @@
 #include "spi.h"
 #include "inc/binary.h"
 #include "RTCS/rtcs.h"
+#include "debug/debug.h"
 /*****************************    Defines    *******************************/
 #define SSI_CLK	2
 #define SSI_SS 	3
@@ -30,6 +31,13 @@
 
 #define SPH 	0
 #define SPO		0
+
+#define NORMAL 0
+#define DEBUGTIME_BOTH 1
+#define DEBUGTIME_RX 2
+#define DEBUGTIME_TX 3
+
+#define RUNMODE NORMAL
 
 /*****************************   Constants   *******************************/
 
@@ -182,15 +190,24 @@ INT16U SPICharGet(){
 
 
 void SPI_RX_task(){
+#if RUNMODE == DEBUGTIME_BOTH || RUNMODE == DEBUGTIME_RX
+  debug_pin(ON);
+#endif
 	INT16U receivedChar;
 	while(SPIDataReady(RX)){
 		receivedChar = SPICharGet();
 		QueueSend(&QueueSPIRX, &receivedChar);
 	}
+#if RUNMODE == DEBUGTIME_BOTH || RUNMODE == DEBUGTIME_RX
+  debug_pin(OFF);
+#endif
 }
 
 
 void SPI_TX_task(){
+#if RUNMODE == DEBUGTIME_BOTH || RUNMODE == DEBUGTIME_TX
+  debug_pin(ON);
+#endif
 	INT16U dataFromQueue;
 	//wait for queue to get empty
 	while(!SPIDataReady(TX));
@@ -199,6 +216,9 @@ void SPI_TX_task(){
 	while(QueueReceive(&QueueSPITX, &dataFromQueue)){
 		SSI0_DR_R = dataFromQueue;
 	}
+#if RUNMODE == DEBUGTIME_BOTH || RUNMODE == DEBUGTIME_TX
+  debug_pin(OFF);
+#endif
 }
 
 /****************************** End Of Module *******************************/
