@@ -49,7 +49,6 @@ void encoder_task()
  *   Run @       :
  *****************************************************************************/
 {
-
   INT8U input = GPIO_PORTB_DATA_R & 0xC;
   input = input >> 2;
   static INT8U encoderState = 00;
@@ -98,6 +97,46 @@ void encoder_task()
   default:
   break;
   }
+/*
+  INT8U PB2, PB3, YY;
+    INT32U i;
+    static INT8U lastPB2 = 0, lastPB3 = 0;
 
+    PB2 = GPIO_PORTB_DATA_R & 0x4;
+    PB3 = GPIO_PORTB_DATA_R & 0x8;
+
+    PB2 = (PB2 >> 1);
+    PB3 = (PB3 >> 3);
+
+    if (!(PB2 == lastPB2 && PB3 == lastPB3))
+    {
+            YY = (PB2 | PB3) ^ (lastPB2 | lastPB3);
+
+            if ((PB2 | PB3) == 3 || (PB2 | PB3) == 0)
+            {
+                    if (YY == 1)
+                    {
+                            encoderTicks++;// CW
+                    }
+                    else if(YY == 2)
+                    {
+                      encoderTicks--;// CCW
+                    }
+            }
+            else
+            {
+                    if (YY == 2)
+                    {
+                      encoderTicks++;// CW
+                    }
+                    else if(YY == 1)
+                    {
+                      encoderTicks--;// CCW
+                    }
+            }
+            lastPB2 = PB2;
+            lastPB3 = PB3;
+    }
+*/
 }
 /****************************** End Of Module *******************************/

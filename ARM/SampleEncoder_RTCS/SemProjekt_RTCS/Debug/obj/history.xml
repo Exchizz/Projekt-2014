@@ -1,58 +1,38 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <history>
    <processor signature="arm-none-eabi-gcc noversion nomachine -mcpu=cortex-m3 -mthumb -Wall -ffunction-sections -g -O0 -c -DLM3S6965 -I..\..\..\..\..\Users\Lukas Schwartz\Documents\GitHub\Projekt-2014\ARM\SampleEncoder_RTCS\uart -I..\..\..\..\..\Users\Lukas Schwartz\Documents\GitHub\Projekt-2014\ARM\SampleEncoder_RTCS\queue -I..\..\..\..\..\Users\Lukas Schwartz\Documents\GitHub\Projekt-2014\ARM\SampleEncoder_RTCS\cpu -I..\..\..\..\..\Users\Lukas Schwartz\Documents\GitHub\Projekt-2014\ARM\SampleEncoder_RTCS\encoder -I..\..\..\..\..\Users\Lukas Schwartz\Documents\GitHub\Projekt-2014\ARM\SampleEncoder_RTCS\debug -I..\..\..\..\..\Users\Lukas Schwartz\Documents\GitHub\Projekt-2014\ARM -I..\..\..\..\..\Users\Lukas Schwartz\Documents\GitHub\Projekt-2014\ARM\SampleEncoder_RTCS\communication -I..\..\..\..\..\Users\Lukas Schwartz\Documents\GitHub\Projekt-2014\ARM\SampleEncoder_RTCS\GPIO -I..\..\..\..\..\Users\Lukas Schwartz\Documents\GitHub\Projekt-2014\ARM\SampleEncoder_RTCS\RTCS -I..\..\..\..\..\Users\Lukas Schwartz\Documents\GitHub\Projekt-2014\ARM\SampleEncoder_RTCS\systick -I..\..\..\..\..\Users\Lukas Schwartz\Documents\GitHub\Projekt-2014\ARM\SampleEncoder_RTCS">
-      <target file="queue.o" lastModified="14623daa827">
+      <target file="queue.o" lastModified="14628be022d">
          <source file="..\..\..\queue\queue.c" lastModified="14601070bff"/>
       </target>
-      <target file="communication_task.o" lastModified="1462537a01c">
-         <source file="..\..\..\communication\communication_task.c" lastModified="14625379587"/>
+      <target file="communication_task.o" lastModified="14628c6365d">
+         <source file="..\..\..\communication\communication_task.c" lastModified="14628c62b31"/>
       </target>
-      <target file="systick.o" lastModified="1462414cc89">
+      <target file="systick.o" lastModified="14628be032e">
          <source file="..\..\..\systick\systick.c" lastModified="14623a7564e"/>
       </target>
-      <target file="encoder.o" lastModified="1462414cb53">
-         <source file="..\..\..\encoder\encoder.c" lastModified="14623fecf04"/>
+      <target file="encoder.o" lastModified="14628c8a99d">
+         <source file="..\..\..\encoder\encoder.c" lastModified="14628c8a048"/>
       </target>
-      <target file="schedule.o" lastModified="1462414cc2f">
+      <target file="schedule.o" lastModified="14628be016f">
          <source file="..\..\..\RTCS\schedule.c" lastModified="14623eaf1cb"/>
       </target>
-      <target file="startup_lm3s.o" lastModified="1462563f35b">
+      <target file="startup_lm3s.o" lastModified="14628be01bf">
          <source file="..\..\..\startup\startup_lm3s.c" lastModified="1462563f0bc"/>
       </target>
-      <target file="main.o" lastModified="14625644825">
-         <source file="..\..\..\main.c" lastModified="14625644578"/>
-      </target>
-      <target file="debug.o" lastModified="14623daa881">
+      <target file="debug.o" lastModified="14628be0283">
          <source file="..\..\..\debug\debug.c" lastModified="145f142ab1f"/>
       </target>
-      <target file="uartprintf.o" lastModified="1462414cbcb">
+      <target file="main.o" lastModified="14628bdfef9">
+         <source file="..\..\..\main.c" lastModified="146256a6382"/>
+      </target>
+      <target file="uartprintf.o" lastModified="14628be00b6">
          <source file="..\..\..\uart\uartprintf.c" lastModified="14623dcb801"/>
       </target>
-      <target file="gpio.o" lastModified="14623daa6f1">
-         <source file="..\..\..\GPIO\gpio.c" lastModified="145f142a989"/>
-      </target>
-      <target file="cpu.o" lastModified="14623daa8d1">
+      <target file="cpu.o" lastModified="14628be02d6">
          <source file="..\..\..\cpu\cpu.c" lastModified="145f142ab0c"/>
       </target>
-   </processor>
-   <processor signature="arm-none-eabi-gcc noversion nomachine -mcpu=cortex-m3 -mthumb -Wall -ffunction-sections -g -O0 -c -DLM3S6965 -I..\..\..\..\..\Users\Lukas Schwartz\Documents\GitHub\Projekt-2014\ARM\SemProjekt_RTCS\debug -I..\..\..\..\..\Users\Lukas Schwartz\Documents\GitHub\Projekt-2014\ARM\SemProjekt_RTCS\RTCS -I..\..\..\..\..\Users\Lukas Schwartz\Documents\GitHub\Projekt-2014\ARM -I..\..\..\..\..\Users\Lukas Schwartz\Documents\GitHub\Projekt-2014\ARM\SemProjekt_RTCS\spi -I..\..\..\..\..\Users\Lukas Schwartz\Documents\GitHub\Projekt-2014\ARM\SemProjekt_RTCS\communication -I..\..\..\..\..\Users\Lukas Schwartz\Documents\GitHub\Projekt-2014\ARM\SemProjekt_RTCS\control_tasks -I..\..\..\..\..\Users\Lukas Schwartz\Documents\GitHub\Projekt-2014\ARM\SemProjekt_RTCS\systick -I..\..\..\..\..\Users\Lukas Schwartz\Documents\GitHub\Projekt-2014\ARM\SemProjekt_RTCS -I..\..\..\..\..\Users\Lukas Schwartz\Documents\GitHub\Projekt-2014\ARM\SemProjekt_RTCS\application -I..\..\..\..\..\Users\Lukas Schwartz\Documents\GitHub\Projekt-2014\ARM\SemProjekt_RTCS\uart -I..\..\..\..\..\Users\Lukas Schwartz\Documents\GitHub\Projekt-2014\ARM\SemProjekt_RTCS\cpu -I..\..\..\..\..\Users\Lukas Schwartz\Documents\GitHub\Projekt-2014\ARM\SemProjekt_RTCS\Converter -I..\..\..\..\..\Users\Lukas Schwartz\Documents\GitHub\Projekt-2014\ARM\SemProjekt_RTCS\GPIO -I..\..\..\..\..\Users\Lukas Schwartz\Documents\GitHub\Projekt-2014\ARM\SemProjekt_RTCS\queue">
-      <target file="control_speed_tilt.o" lastModified="14619bbc9ee">
-         <source file="..\..\..\control_tasks\control_speed_tilt.c" lastModified="14619bb8d6c"/>
-      </target>
-      <target file="converter.o" lastModified="14619dc02ae">
-         <source file="..\..\..\Converter\converter.c" lastModified="14619dbf062"/>
-      </target>
-      <target file="control_position_pan.o" lastModified="14619c80508">
-         <source file="..\..\..\control_tasks\control_position_pan.c" lastModified="14619c7f7a2"/>
-      </target>
-      <target file="control_position_tilt.o" lastModified="14614508acc">
-         <source file="..\..\..\control_tasks\control_position_tilt.c" lastModified="14614507749"/>
-      </target>
-      <target file="spi.o" lastModified="14613adb2cc">
-         <source file="..\..\..\spi\spi.c" lastModified="14613ab3f43"/>
-      </target>
-      <target file="control_speed_pan.o" lastModified="14619c805ee">
-         <source file="..\..\..\control_tasks\control_speed_pan.c" lastModified="14619c7c336"/>
+      <target file="gpio.o" lastModified="14628be010c">
+         <source file="..\..\..\GPIO\gpio.c" lastModified="145f142a989"/>
       </target>
    </processor>
 </history>

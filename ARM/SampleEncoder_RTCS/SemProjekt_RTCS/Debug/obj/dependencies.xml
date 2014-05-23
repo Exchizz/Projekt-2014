@@ -1,54 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <dependencies>
-   <includePath signature="/I..\..\..\..\..\Users\Lukas Schwartz\Documents\GitHub\Projekt-2014\ARM\SemProjekt_RTCS\debug /I..\..\..\..\..\Users\Lukas Schwartz\Documents\GitHub\Projekt-2014\ARM\SemProjekt_RTCS\RTCS /I..\..\..\..\..\Users\Lukas Schwartz\Documents\GitHub\Projekt-2014\ARM /I..\..\..\..\..\Users\Lukas Schwartz\Documents\GitHub\Projekt-2014\ARM\SemProjekt_RTCS\spi /I..\..\..\..\..\Users\Lukas Schwartz\Documents\GitHub\Projekt-2014\ARM\SemProjekt_RTCS\communication /I..\..\..\..\..\Users\Lukas Schwartz\Documents\GitHub\Projekt-2014\ARM\SemProjekt_RTCS\control_tasks /I..\..\..\..\..\Users\Lukas Schwartz\Documents\GitHub\Projekt-2014\ARM\SemProjekt_RTCS\systick /I..\..\..\..\..\Users\Lukas Schwartz\Documents\GitHub\Projekt-2014\ARM\SemProjekt_RTCS /I..\..\..\..\..\Users\Lukas Schwartz\Documents\GitHub\Projekt-2014\ARM\SemProjekt_RTCS\application /I..\..\..\..\..\Users\Lukas Schwartz\Documents\GitHub\Projekt-2014\ARM\SemProjekt_RTCS\uart /I..\..\..\..\..\Users\Lukas Schwartz\Documents\GitHub\Projekt-2014\ARM\SemProjekt_RTCS\cpu /I..\..\..\..\..\Users\Lukas Schwartz\Documents\GitHub\Projekt-2014\ARM\SemProjekt_RTCS\Converter /I..\..\..\..\..\Users\Lukas Schwartz\Documents\GitHub\Projekt-2014\ARM\SemProjekt_RTCS\GPIO /I..\..\..\..\..\Users\Lukas Schwartz\Documents\GitHub\Projekt-2014\ARM\SemProjekt_RTCS\queue">
-      <source file="..\..\..\systick\systick.h" lastModified="145f142ac0d">
-         <include file="..\..\..\RTCS\rtcscnf.h"/>
-         <include file="..\..\..\inc\emp_type.h"/>
-      </source>
-      <source file="..\..\..\inc\binary.h" lastModified="145f142ab33">
-         <include file="..\..\..\inc\emp_type.h"/>
-      </source>
-      <source file="..\..\..\debug\debug.h" lastModified="145f142ab28">
-         <include file="..\..\..\inc\binary.h"/>
-         <include file="..\..\..\inc\lm3s6965.h"/>
-         <include file="..\..\..\inc\emp_type.h"/>
-         <include file="..\..\..\GPIO\gpio.h"/>
-      </source>
-      <source file="..\..\..\GPIO\gpio.h" lastModified="145f142a992">
-         <include file="..\..\..\inc\binary.h"/>
-         <include file="..\..\..\inc\lm3s6965.h"/>
-      </source>
-      <source file="..\..\..\queue\queue.c" lastModified="14601070bff">
-         <include file="..\..\..\queue\queue.h"/>
-      </source>
-      <source file="..\..\..\debug\debug.c" lastModified="145f142ab1f">
-         <include file="..\..\..\debug\debug.h"/>
-      </source>
-      <source file="..\..\..\inc\lm3s6965.h" lastModified="145f142ab4f">
-      </source>
-      <source file="..\..\..\GPIO\gpio.c" lastModified="145f142a989">
-         <include file="..\..\..\GPIO\gpio.h"/>
-      </source>
-      <source file="..\..\..\uart\uartcnf.h" lastModified="145f142ac18">
-         <include file="..\..\..\cpu\cpu.h"/>
-      </source>
-      <source file="..\..\..\cpu\cpu.h" lastModified="145f142ab14">
-         <include file="..\..\..\inc\emp_type.h"/>
-      </source>
-      <source file="..\..\..\inc\glob_def.h" lastModified="145f142ab44">
-      </source>
-      <source file="..\..\..\uart\uartprintf.h" lastModified="145ff13c4a9">
-      </source>
-      <source file="..\..\..\cpu\cpu.c" lastModified="145f142ab0c">
-         <include file="..\..\..\inc\lm3s6965.h"/>
-         <include file="..\..\..\inc\emp_type.h"/>
-         <include file="..\..\..\inc\glob_def.h"/>
-         <include file="..\..\..\inc\binary.h"/>
-         <include file="..\..\..\cpu\cpu.h"/>
-      </source>
-      <source file="..\..\..\inc\emp_type.h" lastModified="145f142ab3c">
-      </source>
-   </includePath>
    <includePath signature="/I..\..\..\..\..\Users\Lukas Schwartz\Documents\GitHub\Projekt-2014\ARM\SampleEncoder_RTCS\uart /I..\..\..\..\..\Users\Lukas Schwartz\Documents\GitHub\Projekt-2014\ARM\SampleEncoder_RTCS\queue /I..\..\..\..\..\Users\Lukas Schwartz\Documents\GitHub\Projekt-2014\ARM\SampleEncoder_RTCS\cpu /I..\..\..\..\..\Users\Lukas Schwartz\Documents\GitHub\Projekt-2014\ARM\SampleEncoder_RTCS\encoder /I..\..\..\..\..\Users\Lukas Schwartz\Documents\GitHub\Projekt-2014\ARM\SampleEncoder_RTCS\debug /I..\..\..\..\..\Users\Lukas Schwartz\Documents\GitHub\Projekt-2014\ARM /I..\..\..\..\..\Users\Lukas Schwartz\Documents\GitHub\Projekt-2014\ARM\SampleEncoder_RTCS\communication /I..\..\..\..\..\Users\Lukas Schwartz\Documents\GitHub\Projekt-2014\ARM\SampleEncoder_RTCS\GPIO /I..\..\..\..\..\Users\Lukas Schwartz\Documents\GitHub\Projekt-2014\ARM\SampleEncoder_RTCS\RTCS /I..\..\..\..\..\Users\Lukas Schwartz\Documents\GitHub\Projekt-2014\ARM\SampleEncoder_RTCS\systick /I..\..\..\..\..\Users\Lukas Schwartz\Documents\GitHub\Projekt-2014\ARM\SampleEncoder_RTCS">
       <source file="..\..\..\systick\systick.h" lastModified="145f142ac0d">
          <include file="..\..\..\RTCS\rtcscnf.h"/>
@@ -106,7 +57,7 @@
       <source file="..\..\..\communication\communication_task.h" lastModified="14623d8b2a1">
          <include file="..\..\..\queue\queue.h"/>
       </source>
-      <source file="..\..\..\communication\communication_task.c" lastModified="14625379587">
+      <source file="..\..\..\communication\communication_task.c" lastModified="14628c62b31">
          <include file="..\..\..\communication\communication_task.h"/>
          <include file="..\..\..\RTCS\rtcs.h"/>
          <include file="..\..\..\inc\lm3s6965.h"/>
@@ -115,7 +66,7 @@
       <source file="..\..\..\uart\uartcnf.h" lastModified="145f142ac18">
          <include file="..\..\..\cpu\cpu.h"/>
       </source>
-      <source file="..\..\..\encoder\encoder.c" lastModified="14623fecf04">
+      <source file="..\..\..\encoder\encoder.c" lastModified="14628c8a048">
          <include file="..\..\..\communication\communication_task.h"/>
          <include file="..\..\..\RTCS\rtcs.h"/>
          <include file="..\..\..\inc\emp_type.h"/>
@@ -128,8 +79,6 @@
       </source>
       <source file="..\..\..\inc\glob_def.h" lastModified="145f142ab44">
       </source>
-      <source file="..\..\..\uart\uartprintf.h" lastModified="145ff13c4a9">
-      </source>
       <source file="..\..\..\cpu\cpu.c" lastModified="145f142ab0c">
          <include file="..\..\..\inc\lm3s6965.h"/>
          <include file="..\..\..\inc\emp_type.h"/>
@@ -138,6 +87,19 @@
          <include file="..\..\..\cpu\cpu.h"/>
       </source>
       <source file="..\..\..\inc\emp_type.h" lastModified="145f142ab3c">
+      </source>
+      <source file="..\..\..\uart\uartprintf.h" lastModified="145ff13c4a9">
+      </source>
+      <source file="..\..\..\main.c" lastModified="146256a6382">
+         <include file="..\..\..\inc\lm3s6965.h"/>
+         <include file="..\..\..\inc\emp_type.h"/>
+         <include file="..\..\..\cpu\cpu.h"/>
+         <include file="..\..\..\RTCS\rtcs.h"/>
+         <include file="..\..\..\debug\debug.h"/>
+         <include file="..\..\..\uart\uartprintf.h"/>
+         <include file="..\..\..\queue\queue.h"/>
+         <include file="..\..\..\GPIO\gpio.h"/>
+         <include file="..\..\..\communication\communication_task.h"/>
       </source>
       <source file="..\..\..\uart\uartprintf.c" lastModified="14623dcbbe9">
          <include file="..\..\..\inc\lm3s6965.h"/>
