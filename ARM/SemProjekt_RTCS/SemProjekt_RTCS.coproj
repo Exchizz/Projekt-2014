@@ -70,14 +70,14 @@
     <Component id="200" name="BOOTLOADER" path="" type="2"/>
   </Components>
   <Files>
-    <File name="control_tasks/tilt/control_speed_tilt.c" path="control_tasks/control_speed_tilt.c" type="1"/>
     <File name="uart/uartprintf.h" path="uart/uartprintf.h" type="1"/>
+    <File name="control_tasks/tilt/control_speed_tilt.c" path="control_tasks/control_speed_tilt.c" type="1"/>
     <File name="cpu/cpu.c" path="cpu/cpu.c" type="1"/>
     <File name="control_tasks/pan/control_speed_pan.h" path="control_tasks/control_speed_pan.h" type="1"/>
     <File name="systick/systick.c" path="systick/systick.c" type="1"/>
     <File name="GPIO/gpio.c" path="GPIO/gpio.c" type="1"/>
-    <File name="communiction" path="" type="2"/>
     <File name="RTCS/rtcscnf.h" path="RTCS/rtcscnf.h" type="1"/>
+    <File name="communiction" path="" type="2"/>
     <File name="queue/queue.h" path="queue/queue.h" type="1"/>
     <File name="spi/spi.h" path="spi/spi.h" type="1"/>
     <File name="Converter/converter.c" path="Converter/converter.c" type="1"/>
@@ -92,20 +92,20 @@
     <File name="debug" path="" type="2"/>
     <File name="spi/spi.c" path="spi/spi.c" type="1"/>
     <File name="GPIO" path="" type="2"/>
+    <File name="GPIO/gpio.h" path="GPIO/gpio.h" type="1"/>
     <File name="queue/queue.c" path="queue/queue.c" type="1"/>
     <File name="cpu/cpu.h" path="cpu/cpu.h" type="1"/>
-    <File name="GPIO/gpio.h" path="GPIO/gpio.h" type="1"/>
-    <File name="startup/startup_lm3s.c" path="startup/startup_lm3s.c" type="1"/>
     <File name="Converter/converter.h" path="Converter/converter.h" type="1"/>
     <File name="RTCS" path="" type="2"/>
+    <File name="startup/startup_lm3s.c" path="startup/startup_lm3s.c" type="1"/>
     <File name="control_tasks" path="" type="2"/>
     <File name="control_tasks/tilt" path="" type="2"/>
     <File name="cpu" path="" type="2"/>
     <File name="control_tasks/pan" path="" type="2"/>
-    <File name="control_tasks/pan/control_speed_pan.c" path="control_tasks/control_speed_pan.c" type="1"/>
     <File name="RTCS/schedule.c" path="RTCS/schedule.c" type="1"/>
-    <File name="communiction/communiction_task.c" path="communication/communication_task.c" type="1"/>
+    <File name="control_tasks/pan/control_speed_pan.c" path="control_tasks/control_speed_pan.c" type="1"/>
     <File name="systick/systick.h" path="systick/systick.h" type="1"/>
+    <File name="communiction/communiction_task.c" path="communication/communication_task.c" type="1"/>
     <File name="control_tasks/tilt/control_speed_tilt.h" path="control_tasks/control_speed_tilt.h" type="1"/>
     <File name="communiction/comunication_task.h" path="communication/communication_task.h" type="1"/>
     <File name="uart" path="" type="2"/>

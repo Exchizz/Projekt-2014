@@ -14,6 +14,7 @@
 <part id="1"/>
 <part id="2"/>
 <part id="3"/>
+<part id="4"/>
 </presentation>
 </folder>
 </info>
@@ -30,9 +31,13 @@
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/SemProjekt_RTCS/debug/debug.c"/>
 <editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="295" selectionTopPixel="0"/>
 </editor>
-<editor activePart="true" focus="true" id="org.eclipse.cdt.ui.editor.CEditor" name="main.c" partName="main.c" path="C:/Users/Lukas Schwartz/Documents/GitHub/Projekt-2014/ARM/SemProjekt_RTCS/main.c" title="main.c" tooltip="C:/Users/Lukas Schwartz/Documents/GitHub/Projekt-2014/ARM/SemProjekt_RTCS/main.c" workbook="DefaultEditorWorkbook">
+<editor id="org.eclipse.cdt.ui.editor.CEditor" name="main.c" partName="main.c" path="C:/Users/exchizz/Desktop/SemProjekt_RTCS/main.c" title="main.c" tooltip="C:/Users/exchizz/Desktop/SemProjekt_RTCS/main.c" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/SemProjekt_RTCS/main.c"/>
 <editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="1934" selectionTopPixel="792"/>
+</editor>
+<editor activePart="true" focus="true" id="org.eclipse.cdt.ui.editor.CEditor" name="uartcnf.h" partName="uartcnf.h" path="C:/Users/exchizz/Desktop/SemProjekt_RTCS/uart/uartcnf.h" title="uartcnf.h" tooltip="C:/Users/exchizz/Desktop/SemProjekt_RTCS/uart/uartcnf.h" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/SemProjekt_RTCS/uart/uartcnf.h"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="1010" selectionTopPixel="0"/>
 </editor>
 </editors>
 <views>
@@ -40,9 +45,10 @@
 <viewState CommonNavigator.LINKING_ENABLED="0" horizontalPosition="0" org.eclipse.ui.navigator.resources.workingSets.showTopLevelWorkingSets="0" verticalPosition="0">
 <expanded>
 <element path="/SemProjekt_RTCS"/>
+<element path="/SemProjekt_RTCS/uart"/>
 </expanded>
 <selection>
-<element path="/SemProjekt_RTCS/main.c"/>
+<element path="/SemProjekt_RTCS/uart/uartcnf.h"/>
 </selection>
 </viewState>
 </view>
@@ -273,10 +279,8 @@
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/SemProjekt_RTCS/debug/debug.c"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/SemProjekt_RTCS/main.c"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/SemProjekt_RTCS/RTCS/rtcs.h"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/SemProjekt_RTCS/uart/uartcnf.h"/>
 </editors>
-<item historyLabel="control_speed_pan.c" index="0">
-<position info="not_deleted" x="1206" y="0"/>
-</item>
 <item historyLabel="control_position_pan.c" index="3">
 <position info="not_deleted" x="1426" y="0"/>
 </item>
@@ -421,8 +425,11 @@
 <item historyLabel="rtcs.h" index="23">
 <position info="not_deleted" x="870" y="0"/>
 </item>
-<item active="true" historyLabel="main.c" index="22">
+<item historyLabel="main.c" index="22">
 <position info="not_deleted" x="2179" y="0"/>
+</item>
+<item active="true" historyLabel="uartcnf.h" index="24">
+<position info="not_deleted" x="0" y="0"/>
 </item>
 </navigationHistory>
 <input factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/" type="8"/>
@@ -431,47 +438,49 @@
 <actionBarAdvisor/>
 </window>
 <mruList>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="rtcs.h" tooltip="SemProjekt_RTCS/RTCS/rtcs.h">
-<persistable path="/SemProjekt_RTCS/RTCS/rtcs.h"/>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="uartcnf.h" tooltip="SemProjekt_RTCS/uart/uartcnf.h">
+<persistable path="/SemProjekt_RTCS/uart/uartcnf.h"/>
 </file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="main.c" tooltip="SemProjekt_RTCS/main.c">
-<persistable path="/SemProjekt_RTCS/main.c"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="debug.c" tooltip="SemProjekt_RTCS/debug/debug.c">
-<persistable path="/SemProjekt_RTCS/debug/debug.c"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="communiction_task.c" tooltip="SemProjekt_RTCS/communiction/communiction_task.c">
-<persistable path="/SemProjekt_RTCS/communiction/communiction_task.c"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="systick.c" tooltip="SemProjekt_RTCS/systick/systick.c">
-<persistable path="/SemProjekt_RTCS/systick/systick.c"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="schedule.c" tooltip="SemProjekt_RTCS/RTCS/schedule.c">
-<persistable path="/SemProjekt_RTCS/RTCS/schedule.c"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="rtcscnf.h" tooltip="SemProjekt_RTCS/RTCS/rtcscnf.h">
-<persistable path="/SemProjekt_RTCS/RTCS/rtcscnf.h"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="rtcscnf.h" tooltip="sample_RTCS/RTCS/rtcscnf.h">
-<persistable path="/sample_RTCS/RTCS/rtcscnf.h"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="rtcs.h" tooltip="sample_RTCS/RTCS/rtcs.h">
-<persistable path="/sample_RTCS/RTCS/rtcs.h"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="encoder.c" tooltip="sample_RTCS/encoder/encoder.c">
-<persistable path="/sample_RTCS/encoder/encoder.c"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="startup_lm3s.c" tooltip="sample_RTCS/startup/startup_lm3s.c">
-<persistable path="/sample_RTCS/startup/startup_lm3s.c"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="main.c" tooltip="sample_RTCS/main.c">
-<persistable path="/sample_RTCS/main.c"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="encoder.c" tooltip="SemProjekt_RTCS/encoder/encoder.c">
-<persistable path="/SemProjekt_RTCS/encoder/encoder.c"/>
+<file factoryID="org.coocox.builder.ui.persistent.PersistentElementFactory" id="org.coocox.welcome.ui.WelcomePage" name="" tooltip="">
+<persistable>
+<org.coocox.welcome.ui.WelcomePage/>
+</persistable>
 </file>
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="uartprintf.c" tooltip="SemProjekt_RTCS/uart/uartprintf.c">
 <persistable path="/SemProjekt_RTCS/uart/uartprintf.c"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="startup_lm3s.c" tooltip="SemProjekt_RTCS/startup/startup_lm3s.c">
+<persistable path="/SemProjekt_RTCS/startup/startup_lm3s.c"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="cpu.h" tooltip="uartprint/cpu/cpu.h">
+<persistable path="/uartprint/cpu/cpu.h"/>
+</file>
+<file factoryID="org.eclipse.cdt.ui.ExternalEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="emp_type.h" tooltip="C:\Users\exchizz\Desktop\SemProjekt_RTCS\inc\emp_type.h">
+<persistable path="C:\Users\exchizz\Desktop\SemProjekt_RTCS\inc\emp_type.h" project="SemProjekt_RTCS"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="converter.c" tooltip="SemProjekt_RTCS/Converter/converter.c">
+<persistable path="/SemProjekt_RTCS/Converter/converter.c"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="control_speed_tilt.c" tooltip="SemProjekt_RTCS/control_tasks/tilt/control_speed_tilt.c">
+<persistable path="/SemProjekt_RTCS/control_tasks/tilt/control_speed_tilt.c"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="control_position_tilt.c" tooltip="SemProjekt_RTCS/control_tasks/tilt/control_position_tilt.c">
+<persistable path="/SemProjekt_RTCS/control_tasks/tilt/control_position_tilt.c"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="control_speed_pan.c" tooltip="SemProjekt_RTCS/control_tasks/pan/control_speed_pan.c">
+<persistable path="/SemProjekt_RTCS/control_tasks/pan/control_speed_pan.c"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="spi.c" tooltip="SemProjekt_RTCS/spi/spi.c">
+<persistable path="/SemProjekt_RTCS/spi/spi.c"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="queue.h" tooltip="SemProjekt_RTCS/queue/queue.h">
+<persistable path="/SemProjekt_RTCS/queue/queue.h"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="queue.c" tooltip="SemProjekt_RTCS/queue/queue.c">
+<persistable path="/SemProjekt_RTCS/queue/queue.c"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="communiction_task.c" tooltip="SemProjekt_RTCS/communiction/communiction_task.c">
+<persistable path="/SemProjekt_RTCS/communiction/communiction_task.c"/>
 </file>
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="comunication_task.h" tooltip="SemProjekt_RTCS/communiction/comunication_task.h">
 <persistable path="/SemProjekt_RTCS/communiction/comunication_task.h"/>
