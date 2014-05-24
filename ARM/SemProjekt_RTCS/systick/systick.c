@@ -30,7 +30,7 @@
 #define ENTER_CRITICAL()	__asm("cpsid i");
 #define EXIT_CRITICAL()		__asm("cpsie i");
 
-#define SYSTICK_RELOAD_VALUE (((RTCS_TIMER_FREQ/1000)*T_TICK)-1)
+#define SYSTICK_RELOAD_VALUE (((RTCS_TIMER_FREQ/1000000)*T_TICK)-1)
 
 #if (SYSTICK_RELOAD_VALUE > 0xFFFFFF)
 	#error "RTCS timer reload value to high"

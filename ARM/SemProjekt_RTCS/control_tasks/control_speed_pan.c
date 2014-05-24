@@ -31,14 +31,14 @@
 
 #define RUN_MODE NORMAL //
 
-#define PID_RUN_INTERVAL 30 // ticks
+#define PID_RUN_INTERVAL 100 // ticks // 100 = 50Hz
 #define PID_SPEED_CALC_INTERVAL 2  // length of time over which the speed is averaged as a multiple of PID_RUN_INTERVAL
 
 #define Kp 0.11472
 #define Ki 0.027353
 #define Kd 0.014946
 
-#define IDT (1000/(PID_RUN_INTERVAL*T_TICK*PID_SPEED_CALC_INTERVAL))
+#define IDT (1000000/(PID_RUN_INTERVAL*T_TICK*PID_SPEED_CALC_INTERVAL))
 
 #define TICKS_PER_FRAME_ROTATION 1080
 #define INTEGRATORLIMIT 100

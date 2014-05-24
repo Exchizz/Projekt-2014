@@ -13,21 +13,31 @@
 <part id="0"/>
 <part id="1"/>
 <part id="2"/>
+<part id="3"/>
+<part id="4"/>
 </presentation>
 </folder>
 </info>
 </editorArea>
-<editor id="org.eclipse.cdt.ui.editor.CEditor" name="communiction_task.c" partName="communiction_task.c" path="C:/Users/Lukas Schwartz/Documents/GitHub/Projekt-2014/ARM/SampleEncoder_RTCS/communication/communication_task.c" title="communiction_task.c" tooltip="C:/Users/Lukas Schwartz/Documents/GitHub/Projekt-2014/ARM/SampleEncoder_RTCS/communication/communication_task.c" workbook="DefaultEditorWorkbook">
+<editor activePart="true" focus="true" id="org.eclipse.cdt.ui.editor.CEditor" name="communiction_task.c" partName="communiction_task.c" path="C:/Users/Lukas Schwartz/Documents/GitHub/Projekt-2014/ARM/SampleEncoder_RTCS/communication/communication_task.c" title="communiction_task.c" tooltip="C:/Users/Lukas Schwartz/Documents/GitHub/Projekt-2014/ARM/SampleEncoder_RTCS/communication/communication_task.c" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/sample_RTCS/communiction/communiction_task.c"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="1550" selectionTopPixel="990"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="1211" selectionTopPixel="500"/>
 </editor>
-<editor activePart="true" focus="true" id="org.eclipse.cdt.ui.editor.CEditor" name="main.c" partName="main.c" path="C:/Users/Lukas Schwartz/Documents/GitHub/Projekt-2014/ARM/SampleEncoder_RTCS/main.c" title="main.c" tooltip="C:/Users/Lukas Schwartz/Documents/GitHub/Projekt-2014/ARM/SampleEncoder_RTCS/main.c" workbook="DefaultEditorWorkbook">
+<editor id="org.eclipse.cdt.ui.editor.CEditor" name="main.c" partName="main.c" path="C:/Users/Lukas Schwartz/Documents/GitHub/Projekt-2014/ARM/SampleEncoder_RTCS/main.c" title="main.c" tooltip="C:/Users/Lukas Schwartz/Documents/GitHub/Projekt-2014/ARM/SampleEncoder_RTCS/main.c" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/sample_RTCS/main.c"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="1148" selectionTopPixel="381"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="1146" selectionTopPixel="441"/>
 </editor>
 <editor id="org.eclipse.cdt.ui.editor.CEditor" name="startup_lm3s.c" partName="startup_lm3s.c" path="C:/Users/Lukas Schwartz/Documents/GitHub/Projekt-2014/ARM/SampleEncoder_RTCS/startup/startup_lm3s.c" title="startup_lm3s.c" tooltip="C:/Users/Lukas Schwartz/Documents/GitHub/Projekt-2014/ARM/SampleEncoder_RTCS/startup/startup_lm3s.c" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/sample_RTCS/startup/startup_lm3s.c"/>
 <editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="897" selectionTopPixel="180"/>
+</editor>
+<editor id="org.eclipse.cdt.ui.editor.CEditor" name="encoder.c" partName="encoder.c" path="C:/Users/Lukas Schwartz/Documents/GitHub/Projekt-2014/ARM/SampleEncoder_RTCS/encoder/encoder.c" title="encoder.c" tooltip="C:/Users/Lukas Schwartz/Documents/GitHub/Projekt-2014/ARM/SampleEncoder_RTCS/encoder/encoder.c" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/sample_RTCS/encoder/encoder.c"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="1771" selectionTopPixel="980"/>
+</editor>
+<editor id="org.eclipse.cdt.ui.editor.CEditor" name="rtcscnf.h" partName="rtcscnf.h" path="C:/Users/Lukas Schwartz/Documents/GitHub/Projekt-2014/ARM/SampleEncoder_RTCS/RTCS/rtcscnf.h" title="rtcscnf.h" tooltip="C:/Users/Lukas Schwartz/Documents/GitHub/Projekt-2014/ARM/SampleEncoder_RTCS/RTCS/rtcscnf.h" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/sample_RTCS/RTCS/rtcscnf.h"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="877" selectionTopPixel="346"/>
 </editor>
 </editors>
 <views>
@@ -35,10 +45,12 @@
 <viewState CommonNavigator.LINKING_ENABLED="0" horizontalPosition="0" org.eclipse.ui.navigator.resources.workingSets.showTopLevelWorkingSets="0" verticalPosition="0">
 <expanded>
 <element path="/sample_RTCS"/>
+<element path="/sample_RTCS/encoder"/>
+<element path="/sample_RTCS/RTCS"/>
 <element path="/sample_RTCS/startup"/>
 </expanded>
 <selection>
-<element path="/sample_RTCS/startup/startup_lm3s.c"/>
+<element path="/sample_RTCS/RTCS/rtcscnf.h"/>
 </selection>
 </viewState>
 </view>
@@ -248,79 +260,19 @@
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/SemProjekt_RTCS/communiction/communiction_task.c"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/SemProjekt_RTCS/RTCS/rtcscnf.h"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/SemProjekt_RTCS/encoder/encoder.c"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/SemProjekt_RTCS/communiction/comunication_task.h"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/SemProjekt_RTCS/main.c"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/SemProjekt_RTCS/uart/uartprintf.c"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/SemProjekt_RTCS/debug/debug.c"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/SemProjekt_RTCS/systick/systick.c"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/SemProjekt_RTCS/RTCS/schedule.c"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/sample_RTCS/communiction/communiction_task.c"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/SemProjekt_RTCS/main.c"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/sample_RTCS/main.c"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/sample_RTCS/startup/startup_lm3s.c"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/SemProjekt_RTCS/RTCS/rtcscnf.h"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/SemProjekt_RTCS/encoder/encoder.c"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/sample_RTCS/communiction/communiction_task.c"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/sample_RTCS/encoder/encoder.c"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/sample_RTCS/startup/startup_lm3s.c"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/sample_RTCS/RTCS/rtcs.h"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/sample_RTCS/RTCS/rtcscnf.h"/>
 </editors>
-<item historyLabel="communiction_task.c" index="0">
-<position info="not_deleted" x="1210" y="0"/>
-</item>
-<item historyLabel="systick.c" index="7">
-<position info="not_deleted" x="985" y="0"/>
-</item>
-<item historyLabel="rtcscnf.h" index="1">
-<position info="not_deleted" x="913" y="0"/>
-</item>
-<item historyLabel="schedule.c" index="8">
-<position info="not_deleted" x="7056" y="0"/>
-</item>
-<item historyLabel="comunication_task.h" index="3">
-<position info="not_deleted" x="483" y="0"/>
-</item>
-<item historyLabel="communiction_task.c" index="0">
-<position/>
-</item>
-<item historyLabel="debug.c" index="6">
-<position info="not_deleted" x="430" y="13"/>
-</item>
-<item historyLabel="communiction_task.c" index="0">
-<position info="not_deleted" x="1096" y="0"/>
-</item>
-<item historyLabel="rtcscnf.h" index="1">
-<position info="not_deleted" x="913" y="0"/>
-</item>
-<item historyLabel="uartprintf.c" index="5">
-<position info="not_deleted" x="1032" y="0"/>
-</item>
-<item historyLabel="rtcscnf.h" index="1">
-<position info="not_deleted" x="913" y="0"/>
-</item>
-<item historyLabel="schedule.c" index="8">
-<position info="not_deleted" x="7056" y="0"/>
-</item>
-<item historyLabel="rtcscnf.h" index="1">
-<position info="not_deleted" x="913" y="0"/>
-</item>
-<item historyLabel="main.c" index="4">
-<position info="not_deleted" x="454" y="0"/>
-</item>
-<item historyLabel="rtcscnf.h" index="1">
-<position info="not_deleted" x="913" y="0"/>
-</item>
-<item historyLabel="comunication_task.h" index="3">
-<position info="not_deleted" x="483" y="0"/>
-</item>
-<item historyLabel="rtcscnf.h" index="1">
-<position info="not_deleted" x="913" y="0"/>
-</item>
-<item historyLabel="encoder.c" index="2">
-<position info="not_deleted" x="324" y="0"/>
-</item>
-<item historyLabel="rtcscnf.h" index="1">
-<position info="not_deleted" x="913" y="0"/>
-</item>
-<item historyLabel="communiction_task.c" index="0">
-<position info="not_deleted" x="1210" y="0"/>
-</item>
 <item historyLabel="rtcscnf.h" index="1">
 <position info="not_deleted" x="877" y="0"/>
 </item>
@@ -333,7 +285,7 @@
 <item historyLabel="communiction_task.c" index="0">
 <position/>
 </item>
-<item historyLabel="main.c" index="4">
+<item historyLabel="main.c" index="3">
 <position info="not_deleted" x="2209" y="0"/>
 </item>
 <item historyLabel="encoder.c" index="2">
@@ -345,7 +297,7 @@
 <item historyLabel="encoder.c" index="2">
 <position info="not_deleted" x="1938" y="0"/>
 </item>
-<item historyLabel="main.c" index="4">
+<item historyLabel="main.c" index="3">
 <position info="not_deleted" x="2209" y="0"/>
 </item>
 <item historyLabel="rtcscnf.h" index="1">
@@ -354,52 +306,112 @@
 <item historyLabel="communiction_task.c" index="0">
 <position info="not_deleted" x="1155" y="0"/>
 </item>
-<item historyLabel="main.c" index="4">
+<item historyLabel="main.c" index="3">
 <position info="not_deleted" x="2209" y="0"/>
 </item>
 <item historyLabel="communiction_task.c" index="0">
 <position info="not_deleted" x="1155" y="0"/>
 </item>
-<item historyLabel="communiction_task.c" index="9">
+<item historyLabel="communiction_task.c" index="4">
 <position info="not_deleted" x="11848" y="0"/>
 </item>
-<item historyLabel="main.c" index="10"/>
-<item historyLabel="main.c" index="11">
+<item historyLabel="main.c" index="5"/>
+<item historyLabel="main.c" index="6">
 <position info="not_deleted" x="0" y="0"/>
 </item>
-<item historyLabel="main.c" index="11">
+<item historyLabel="main.c" index="6">
 <position/>
 </item>
-<item historyLabel="startup_lm3s.c" index="12">
+<item historyLabel="startup_lm3s.c" index="7">
 <position info="not_deleted" x="897" y="0"/>
 </item>
-<item historyLabel="communiction_task.c" index="9">
+<item historyLabel="communiction_task.c" index="4">
 <position info="not_deleted" x="1218" y="0"/>
 </item>
-<item historyLabel="main.c" index="10"/>
-<item historyLabel="communiction_task.c" index="9">
+<item historyLabel="main.c" index="5"/>
+<item historyLabel="communiction_task.c" index="4">
 <position info="not_deleted" x="1218" y="0"/>
 </item>
-<item historyLabel="main.c" index="11">
+<item historyLabel="main.c" index="6">
 <position/>
 </item>
-<item historyLabel="startup_lm3s.c" index="12">
+<item historyLabel="startup_lm3s.c" index="7">
 <position info="not_deleted" x="897" y="0"/>
 </item>
-<item historyLabel="main.c" index="11">
+<item historyLabel="main.c" index="6">
 <position info="not_deleted" x="1172" y="0"/>
 </item>
-<item historyLabel="rtcscnf.h" index="13"/>
-<item historyLabel="encoder.c" index="14"/>
-<item historyLabel="rtcscnf.h" index="13"/>
-<item historyLabel="main.c" index="11">
+<item historyLabel="rtcscnf.h" index="8"/>
+<item historyLabel="encoder.c" index="9"/>
+<item historyLabel="rtcscnf.h" index="8"/>
+<item historyLabel="main.c" index="6">
 <position/>
 </item>
-<item historyLabel="communiction_task.c" index="9">
+<item historyLabel="communiction_task.c" index="4">
 <position info="not_deleted" x="1550" y="0"/>
 </item>
-<item active="true" historyLabel="main.c" index="11">
+<item historyLabel="main.c" index="6">
 <position/>
+</item>
+<item historyLabel="communiction_task.c" index="10">
+<position info="not_deleted" x="1759" y="0"/>
+</item>
+<item historyLabel="communiction_task.c" index="10">
+<position info="not_deleted" x="8645" y="0"/>
+</item>
+<item historyLabel="main.c" index="6">
+<position info="not_deleted" x="1148" y="0"/>
+</item>
+<item historyLabel="encoder.c" index="11">
+<position info="not_deleted" x="1912" y="0"/>
+</item>
+<item historyLabel="communiction_task.c" index="10">
+<position info="not_deleted" x="8645" y="0"/>
+</item>
+<item historyLabel="startup_lm3s.c" index="12">
+<position info="not_deleted" x="897" y="0"/>
+</item>
+<item historyLabel="rtcs.h" index="13">
+<position info="not_deleted" x="0" y="0"/>
+</item>
+<item historyLabel="startup_lm3s.c" index="12">
+<position info="not_deleted" x="897" y="0"/>
+</item>
+<item historyLabel="rtcscnf.h" index="14">
+<position info="not_deleted" x="877" y="0"/>
+</item>
+<item historyLabel="communiction_task.c" index="10">
+<position info="not_deleted" x="8804" y="0"/>
+</item>
+<item historyLabel="main.c" index="6">
+<position info="not_deleted" x="1146" y="0"/>
+</item>
+<item historyLabel="encoder.c" index="11">
+<position/>
+</item>
+<item historyLabel="main.c" index="6">
+<position info="not_deleted" x="1146" y="0"/>
+</item>
+<item historyLabel="communiction_task.c" index="10">
+<position info="not_deleted" x="1019" y="0"/>
+</item>
+<item historyLabel="encoder.c" index="11">
+<position info="not_deleted" x="1771" y="0"/>
+</item>
+<item historyLabel="communiction_task.c" index="10">
+<position info="not_deleted" x="1019" y="0"/>
+</item>
+<item historyLabel="communiction_task.c" index="10">
+<position info="not_deleted" x="8127" y="0"/>
+</item>
+<item historyLabel="communiction_task.c" index="10">
+<position info="not_deleted" x="1412" y="15"/>
+</item>
+<item historyLabel="communiction_task.c" index="10">
+<position info="not_deleted" x="8131" y="0"/>
+</item>
+<item active="true" historyLabel="communiction_task.c" index="10">
+<position info="not_deleted" x="1412" y="15"/>
 </item>
 </navigationHistory>
 <input factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/" type="8"/>
@@ -408,6 +420,15 @@
 <actionBarAdvisor/>
 </window>
 <mruList>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="rtcscnf.h" tooltip="sample_RTCS/RTCS/rtcscnf.h">
+<persistable path="/sample_RTCS/RTCS/rtcscnf.h"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="rtcs.h" tooltip="sample_RTCS/RTCS/rtcs.h">
+<persistable path="/sample_RTCS/RTCS/rtcs.h"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="encoder.c" tooltip="sample_RTCS/encoder/encoder.c">
+<persistable path="/sample_RTCS/encoder/encoder.c"/>
+</file>
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="startup_lm3s.c" tooltip="sample_RTCS/startup/startup_lm3s.c">
 <persistable path="/sample_RTCS/startup/startup_lm3s.c"/>
 </file>
@@ -443,15 +464,6 @@
 </file>
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="encoder.h" tooltip="SemProjekt_RTCS/encoder/encoder.h">
 <persistable path="/SemProjekt_RTCS/encoder/encoder.h"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="converter.c" tooltip="SemProjekt_RTCS/Converter/converter.c">
-<persistable path="/SemProjekt_RTCS/Converter/converter.c"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="control_speed_pan.c" tooltip="SemProjekt_RTCS/control_tasks/pan/control_speed_pan.c">
-<persistable path="/SemProjekt_RTCS/control_tasks/pan/control_speed_pan.c"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="control_position_pan.c" tooltip="SemProjekt_RTCS/control_tasks/pan/control_position_pan.c">
-<persistable path="/SemProjekt_RTCS/control_tasks/pan/control_position_pan.c"/>
 </file>
 </mruList>
 </workbench>

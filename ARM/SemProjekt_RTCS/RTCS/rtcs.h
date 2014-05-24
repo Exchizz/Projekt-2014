@@ -27,7 +27,7 @@
 /*****************************    Defines    *******************************/
 
 // To be used together with the _wait, _wait_time_sem and _start system call. 
-#define MILLI_SEC(X)							X/T_TICK
+#define MILLI_SEC(X)							X*1000/T_TICK
 #define WAIT_ONLY_FOR_SEMAPHORE		0
 #define NO_SEMAPHORE							0	
 #define NO_TIMEOUT								0xFFFF

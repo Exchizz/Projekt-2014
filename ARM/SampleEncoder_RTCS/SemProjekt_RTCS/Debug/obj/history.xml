@@ -4,8 +4,8 @@
       <target file="queue.o" lastModified="14628be022d">
          <source file="..\..\..\queue\queue.c" lastModified="14601070bff"/>
       </target>
-      <target file="communication_task.o" lastModified="14628c6365d">
-         <source file="..\..\..\communication\communication_task.c" lastModified="14628c62b31"/>
+      <target file="communication_task.o" lastModified="146296acd81">
+         <source file="..\..\..\communication\communication_task.c" lastModified="146296ab2e0"/>
       </target>
       <target file="systick.o" lastModified="14628be032e">
          <source file="..\..\..\systick\systick.c" lastModified="14623a7564e"/>
@@ -28,11 +28,11 @@
       <target file="uartprintf.o" lastModified="14628be00b6">
          <source file="..\..\..\uart\uartprintf.c" lastModified="14623dcb801"/>
       </target>
-      <target file="cpu.o" lastModified="14628be02d6">
-         <source file="..\..\..\cpu\cpu.c" lastModified="145f142ab0c"/>
-      </target>
       <target file="gpio.o" lastModified="14628be010c">
          <source file="..\..\..\GPIO\gpio.c" lastModified="145f142a989"/>
+      </target>
+      <target file="cpu.o" lastModified="14628be02d6">
+         <source file="..\..\..\cpu\cpu.c" lastModified="145f142ab0c"/>
       </target>
    </processor>
 </history>

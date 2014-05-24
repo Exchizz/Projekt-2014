@@ -57,12 +57,6 @@
       <source file="..\..\..\communication\communication_task.h" lastModified="14623d8b2a1">
          <include file="..\..\..\queue\queue.h"/>
       </source>
-      <source file="..\..\..\communication\communication_task.c" lastModified="14628c62b31">
-         <include file="..\..\..\communication\communication_task.h"/>
-         <include file="..\..\..\RTCS\rtcs.h"/>
-         <include file="..\..\..\inc\lm3s6965.h"/>
-         <include file="..\..\..\debug\debug.h"/>
-      </source>
       <source file="..\..\..\uart\uartcnf.h" lastModified="145f142ac18">
          <include file="..\..\..\cpu\cpu.h"/>
       </source>
@@ -79,16 +73,16 @@
       </source>
       <source file="..\..\..\inc\glob_def.h" lastModified="145f142ab44">
       </source>
+      <source file="..\..\..\uart\uartprintf.h" lastModified="145ff13c4a9">
+      </source>
+      <source file="..\..\..\inc\emp_type.h" lastModified="145f142ab3c">
+      </source>
       <source file="..\..\..\cpu\cpu.c" lastModified="145f142ab0c">
          <include file="..\..\..\inc\lm3s6965.h"/>
          <include file="..\..\..\inc\emp_type.h"/>
          <include file="..\..\..\inc\glob_def.h"/>
          <include file="..\..\..\inc\binary.h"/>
          <include file="..\..\..\cpu\cpu.h"/>
-      </source>
-      <source file="..\..\..\inc\emp_type.h" lastModified="145f142ab3c">
-      </source>
-      <source file="..\..\..\uart\uartprintf.h" lastModified="145ff13c4a9">
       </source>
       <source file="..\..\..\main.c" lastModified="146256a6382">
          <include file="..\..\..\inc\lm3s6965.h"/>

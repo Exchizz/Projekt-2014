@@ -32,13 +32,13 @@
 #define RUN_MODE NORMAL //
 #define DEFAULTPOSITION_TILT 0
 
-#define PID_RUN_INTERVAL 30 // ticks
+#define PID_RUN_INTERVAL 500 // ticks // 500 = 10Hz
 
 #define Kp 1
 #define Ki 0.05
 #define Kd 0.2
 
-#define IDT (1000/(PID_RUN_INTERVAL*T_TICK))
+#define IDT (1000000/(PID_RUN_INTERVAL*T_TICK))
 
 #define TICKS_PER_FRAME_ROTATION 1080
 #define INTEGRATORLIMIT 50

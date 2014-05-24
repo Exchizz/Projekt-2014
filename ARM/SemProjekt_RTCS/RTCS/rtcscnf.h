@@ -27,8 +27,8 @@
 // Definition of RTCS timer frequency in Hz.
 #define RTCS_TIMER_FREQ					50000000
 
-// Definition of system tick in millisec.
-#define T_TICK						1
+// Definition of system tick in µsec.
+#define T_TICK						200
 
 // Definition of user tasks. Always start from task 0 and proceed onwards.
 // If no task is required, write NULL. LAST_TASK must be set to the task
