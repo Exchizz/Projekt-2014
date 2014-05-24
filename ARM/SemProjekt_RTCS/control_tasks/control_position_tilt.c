@@ -32,7 +32,7 @@
 #define RUN_MODE NORMAL //
 #define DEFAULTPOSITION_TILT 0
 
-#define PID_RUN_INTERVAL 500 // ticks // 500 = 10Hz
+#define PID_RUN_INTERVAL 1250 // ticks // 500 = 10Hz // 1250 = 25Hz
 
 #define Kp 1
 #define Ki 0.05

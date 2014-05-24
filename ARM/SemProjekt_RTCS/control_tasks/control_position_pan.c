@@ -36,7 +36,7 @@
 #define STOP_BAND_START 205 // when the band were it can't be starts (~221-227)
 #define STOP_BAND_STOP 860 // ^... stops (~840-846)
 
-#define PID_RUN_INTERVAL 500 // ticks // 500 = 10Hz
+#define PID_RUN_INTERVAL 1250 // ticks // 500 = 10Hz // 1250 = 25Hz
 
 #define Kp 1
 #define Ki 0.05

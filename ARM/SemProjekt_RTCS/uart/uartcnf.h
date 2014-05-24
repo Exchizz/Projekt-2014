@@ -25,7 +25,7 @@
 
 /*****************************    Defines    *******************************/
 // FCPU are defined in cpu.h
-#define BAUD_RATE   						3125000	  // Baud rate [bits/s]
+#define BAUD_RATE   						3000000	  // Baud rate [bits/s]
 #define UARTSYSCLK							FCPU			// 
 
 #if	defined(BAUD_RATE) && defined(UARTSYSCLK)

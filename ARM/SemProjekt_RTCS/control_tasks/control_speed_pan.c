@@ -31,7 +31,7 @@
 
 #define RUN_MODE NORMAL //
 
-#define PID_RUN_INTERVAL 100 // ticks // 100 = 50Hz
+#define PID_RUN_INTERVAL 250 // ticks // 100 = 50Hz // 250 = 125Hz
 #define PID_SPEED_CALC_INTERVAL 2  // length of time over which the speed is averaged as a multiple of PID_RUN_INTERVAL
 
 #define Kp 0.11472
