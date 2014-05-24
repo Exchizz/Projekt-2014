@@ -36,6 +36,12 @@ enum 	task_states 			{RUNNING, STOPPED};
 #define EXIT_CRITICAL()		__asm("cpsie i");
 
 
+// runmodes
+#define NORMAL 0
+#define RUNTIMELED 1
+
+#define RUNMODE NORMAL
+
 /*****************************   Constants   *******************************/
 
 /*****************************   Variables   *******************************/
@@ -294,7 +300,9 @@ INT16S start_rtcs_scheduler(void)
 	{
 		if (systick_get())
 		{
+#if RUNMODE == RUNTIMELED
 			debug_pin_red(ON);
+#endif
 			systick_decrement();
 			for (rtcs_i = 0; rtcs_i < LAST_TASK+1; rtcs_i++)
 			{
@@ -303,7 +311,7 @@ INT16S start_rtcs_scheduler(void)
 					task_time[rtcs_i]--;
 				}	
 			}	
-			
+
 			for (rtcs_i = 0; rtcs_i < LAST_TASK+1; rtcs_i++)
 			{
 				if _READY(rtcs_i)
@@ -314,8 +322,10 @@ INT16S start_rtcs_scheduler(void)
 					(*task[rtcs_i])();
 				}
 			}
-			debug_pin_red(OFF);
-		} // if (tick_flag)
+#if RUNMODE == RUNTIMELED
+                        debug_pin_red(OFF);
+#endif
+                        } // if (tick_flag)
 	} // while(!)
 	return 0;
 }

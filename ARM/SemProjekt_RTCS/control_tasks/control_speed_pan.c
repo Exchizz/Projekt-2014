@@ -34,9 +34,9 @@
 #define PID_RUN_INTERVAL 250 // ticks // 100 = 50Hz // 250 = 125Hz
 #define PID_SPEED_CALC_INTERVAL 2  // length of time over which the speed is averaged as a multiple of PID_RUN_INTERVAL
 
-#define Kp 0.11472
-#define Ki 0.027353
-#define Kd 0.014946
+#define Kp 0.160838
+#define Ki 0
+#define Kd 0
 
 #define IDT (1000000/(PID_RUN_INTERVAL*T_TICK*PID_SPEED_CALC_INTERVAL))
 

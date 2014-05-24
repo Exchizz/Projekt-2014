@@ -38,9 +38,9 @@
 
 #define PID_RUN_INTERVAL 1250 // ticks // 500 = 10Hz // 1250 = 25Hz
 
-#define Kp 1
-#define Ki 0.05
-#define Kd 0.2
+#define Kp 3.03
+#define Ki 0
+#define Kd 0
 
 #define IDT (1000000/(PID_RUN_INTERVAL*T_TICK))
 
