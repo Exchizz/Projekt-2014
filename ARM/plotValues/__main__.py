@@ -12,8 +12,8 @@ from pylab import plot, subplot, axis, grid, title, xlabel, ylabel, ylim, draw, 
 import time
 
 # configure the serial connections (the parameters differs on the device you are connecting to)
-positionPunkter = ["0900","0100","0600","0500"]
-
+positionPunkter = ["0020","0050", "0200", "0100", "0500","1000","0300", "0800", "500"]
+#positionPunkter = ["0100","0880"]
 ser = serial.Serial(
     port='/dev/ttyUSB0',
     baudrate=3000000)
@@ -38,7 +38,7 @@ plot position = 1
 plot speed = 2
 '''
 
-state = 2
+state = 1
 
 
 while True:
@@ -59,21 +59,24 @@ while True:
 				print "new position tilt: " + str(positionPunkter[positionHold])
 
 				#time.sleep(1)
-	                	ser.write('f')
-	                	ser.write('t')
+#	                	ser.write('f')
+#	                	ser.write('t')
+#
+#				ser.write(positionPunkter[positionHold][0])
+#				ser.write(positionPunkter[positionHold][1])
+#				ser.write(positionPunkter[positionHold][2])
+#				ser.write(positionPunkter[positionHold][3])
+#				print "new position pan: " + str(positionPunkter[positionHold])
 
-				ser.write(positionPunkter[positionHold][0])
-				ser.write(positionPunkter[positionHold][1])
-				ser.write(positionPunkter[positionHold][2])
-				ser.write(positionPunkter[positionHold][3])
-				print "new position pan: " + str(positionPunkter[positionHold])
+				#positionHold %= len(positionPunkter)
+				if positionHold == len(positionPunkter):
+					exit(0)
 
 				positionHold+=1
-				positionHold %= len(positionPunkter)
 		hundrede=ord(ser.read(1));
 		tiere=ord(ser.read(1));
 		y2 = hundrede*256+tiere-32768
-		f.write(str(y2) + "\n")
+		f.write(str(y2) + ", " + positionPunkter[positionHold-1] +  "\n")
 		f.flush()
 		y.append (y2)
 		del y[0]
