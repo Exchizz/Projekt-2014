@@ -35,7 +35,7 @@
 #define PID_RUN_INTERVAL 250 // ticks // 100 = 50Hz // 250 = 125Hz
 #define PID_SPEED_CALC_INTERVAL 2  // length of time over which the speed is averaged as a multiple of PID_RUN_INTERVAL
 
-#define Kp 0.160838
+#define Kp 0.236157
 #define Ki 0
 #define Kd 0
 
@@ -57,7 +57,7 @@
 /*****************************   Functions   ********************************/
 void init_tilt_speed_task(){
   //UARTprintf("Starting Speed Tilt Task\r\n");
-  _start(TILT_SPEED_TASK, MILLI_SEC(0));
+  _start(TILT_SPEED_TASK);
 }
 
 void tilt_speed_task()

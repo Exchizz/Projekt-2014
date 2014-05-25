@@ -38,7 +38,7 @@
 
 #define PID_RUN_INTERVAL 1250 // ticks // 500 = 10Hz // 1250 = 25Hz
 
-#define Kp 3.03
+#define Kp 0.619508
 #define Ki 0
 #define Kd 0
 
@@ -51,7 +51,7 @@
 /*****************************   Variables   ********************************/
 /*****************************   Functions   ********************************/
 void init_pan_position_task(){
-  _start(PAN_POSITION_TASK, MILLI_SEC(0));
+  _start(PAN_POSITION_TASK);
 }
 
 void pan_position_task()

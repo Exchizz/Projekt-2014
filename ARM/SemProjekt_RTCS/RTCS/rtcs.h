@@ -44,7 +44,7 @@ INT16S start_rtcs_scheduler(void);
 ******************************************************************************/
 
 
-void _start(INT8U task_number, INT16U time);
+void _start(INT8U task_number);
 /*****************************************************************************
 *   Input    : 	task:	task number to start
 *								time:	wait number of Tick's to start the task

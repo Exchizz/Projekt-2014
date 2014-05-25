@@ -53,16 +53,22 @@ QueueHandle_t QueueTiltSpeed;
 void init_alive_task(){
 	//debug_pin(ON);
 	// Start task
-	_start(ALIVE_TASK, MILLI_SEC(500));
+	_start(ALIVE_TASK);
 	//UARTprintf("Starting up\r\n",0);
 
 }
 
 void alive_task(void)
 {
-	// Toggles status LED every 1 sec.
-	GPIO_PORTF_DATA_R ^= 0x01;
-	_wait(MILLI_SEC(500));
+  static INT16U time = 0;
+  ++time;
+  time %= 2500;
+  // Toggles status LED every 1 sec.
+  if (time == 0) {
+    GPIO_PORTF_DATA_R ^= 0x01;
+  }
+
+  //_wait(MILLI_SEC(500));
 }
 
 

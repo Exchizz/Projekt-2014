@@ -1,47 +1,27 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <dependencies>
    <includePath signature="/I..\..\..\..\..\Users\Lukas Schwartz\Documents\GitHub\Projekt-2014\ARM\SemProjekt_RTCS\debug /I..\..\..\..\..\Users\Lukas Schwartz\Documents\GitHub\Projekt-2014\ARM\SemProjekt_RTCS\RTCS /I..\..\..\..\..\Users\Lukas Schwartz\Documents\GitHub\Projekt-2014\ARM /I..\..\..\..\..\Users\Lukas Schwartz\Documents\GitHub\Projekt-2014\ARM\SemProjekt_RTCS\spi /I..\..\..\..\..\Users\Lukas Schwartz\Documents\GitHub\Projekt-2014\ARM\SemProjekt_RTCS\communication /I..\..\..\..\..\Users\Lukas Schwartz\Documents\GitHub\Projekt-2014\ARM\SemProjekt_RTCS\control_tasks /I..\..\..\..\..\Users\Lukas Schwartz\Documents\GitHub\Projekt-2014\ARM\SemProjekt_RTCS\systick /I..\..\..\..\..\Users\Lukas Schwartz\Documents\GitHub\Projekt-2014\ARM\SemProjekt_RTCS /I..\..\..\..\..\Users\Lukas Schwartz\Documents\GitHub\Projekt-2014\ARM\SemProjekt_RTCS\application /I..\..\..\..\..\Users\Lukas Schwartz\Documents\GitHub\Projekt-2014\ARM\SemProjekt_RTCS\uart /I..\..\..\..\..\Users\Lukas Schwartz\Documents\GitHub\Projekt-2014\ARM\SemProjekt_RTCS\cpu /I..\..\..\..\..\Users\Lukas Schwartz\Documents\GitHub\Projekt-2014\ARM\SemProjekt_RTCS\Converter /I..\..\..\..\..\Users\Lukas Schwartz\Documents\GitHub\Projekt-2014\ARM\SemProjekt_RTCS\GPIO /I..\..\..\..\..\Users\Lukas Schwartz\Documents\GitHub\Projekt-2014\ARM\SemProjekt_RTCS\queue">
-      <source file="..\..\..\application\application.h" lastModified="145ff1c76aa">
-         <include file="..\..\..\queue\queue.h"/>
-      </source>
-      <source file="..\..\..\Converter\converter.h" lastModified="1462dfaf20c">
-         <include file="..\..\..\application\application.h"/>
-         <include file="..\..\..\queue\queue.h"/>
-      </source>
-      <source file="..\..\..\control_tasks\control_position_tilt.h" lastModified="145ff13c495">
-         <include file="..\..\..\application\application.h"/>
-         <include file="..\..\..\inc\emp_type.h"/>
-      </source>
-      <source file="..\..\..\Converter\converter.c" lastModified="1462dfaf20c">
-         <include file="..\..\..\Converter\converter.h"/>
-         <include file="..\..\..\communication\communication_task.h"/>
-         <include file="..\..\..\RTCS\rtcs.h"/>
-      </source>
-      <source file="..\..\..\inc\glob_def.h" lastModified="145f142ab44">
-      </source>
-      <source file="..\..\..\control_tasks\control_position_tilt.c" lastModified="1462e1d1dde">
-         <include file="..\..\..\control_tasks\control_position_tilt.h"/>
-         <include file="..\..\..\RTCS\rtcs.h"/>
-         <include file="..\..\..\debug\debug.h"/>
-      </source>
-      <source file="..\..\..\uart\uartprintf.h" lastModified="145ff13c4a9">
-      </source>
-      <source file="..\..\..\uart\uartprintf.c" lastModified="14614c27872">
-         <include file="..\..\..\inc\lm3s6965.h"/>
-         <include file="..\..\..\inc\emp_type.h"/>
-         <include file="..\..\..\inc\glob_def.h"/>
-         <include file="..\..\..\inc\binary.h"/>
-         <include file="..\..\..\uart\uartcnf.h"/>
-         <include file="..\..\..\uart\uartprintf.h"/>
-         <include file="..\..\..\queue\queue.h"/>
-         <include file="..\..\..\RTCS\rtcs.h"/>
-         <include file="..\..\..\application\application.h"/>
-      </source>
       <source file="..\..\..\systick\systick.h" lastModified="145f142ac0d">
          <include file="..\..\..\RTCS\rtcscnf.h"/>
          <include file="..\..\..\inc\emp_type.h"/>
       </source>
-      <source file="..\..\..\startup\startup_lm3s.c" lastModified="146005a8d33">
+      <source file="..\..\..\inc\binary.h" lastModified="145f142ab33">
+         <include file="..\..\..\inc\emp_type.h"/>
+      </source>
+      <source file="..\..\..\queue\queue.h" lastModified="14600437e97">
+         <include file="..\..\..\inc\emp_type.h"/>
+         <include file="..\..\..\inc\glob_def.h"/>
+      </source>
+      <source file="..\..\..\RTCS\rtcs.h" lastModified="1462e80db9f">
+         <include file="..\..\..\inc\emp_type.h"/>
+         <include file="..\..\..\systick\systick.h"/>
+         <include file="..\..\..\RTCS\rtcscnf.h"/>
+      </source>
+      <source file="..\..\..\debug\debug.h" lastModified="145f142ab28">
+         <include file="..\..\..\inc\binary.h"/>
+         <include file="..\..\..\inc\lm3s6965.h"/>
+         <include file="..\..\..\inc\emp_type.h"/>
+         <include file="..\..\..\GPIO\gpio.h"/>
       </source>
       <source file="..\..\..\systick\systick.c" lastModified="1462a02b712">
          <include file="..\..\..\RTCS\rtcscnf.h"/>
@@ -50,48 +30,20 @@
          <include file="..\..\..\inc\lm3s6965.h"/>
          <include file="..\..\..\systick\systick.h"/>
       </source>
-      <source file="..\..\..\inc\binary.h" lastModified="145f142ab33">
-         <include file="..\..\..\inc\emp_type.h"/>
-      </source>
-      <source file="..\..\..\main.c" lastModified="146010659e9">
-         <include file="..\..\..\inc\lm3s6965.h"/>
-         <include file="..\..\..\inc\emp_type.h"/>
-         <include file="..\..\..\cpu\cpu.h"/>
-         <include file="..\..\..\RTCS\rtcs.h"/>
-         <include file="..\..\..\debug\debug.h"/>
-         <include file="..\..\..\uart\uartprintf.h"/>
-         <include file="..\..\..\queue\queue.h"/>
-         <include file="..\..\..\GPIO\gpio.h"/>
-         <include file="..\..\..\spi\spi.h"/>
-         <include file="..\..\..\communication\communication_task.h"/>
-         <include file="..\..\..\control_tasks\control_position_tilt.h"/>
-         <include file="..\..\..\control_tasks\control_speed_tilt.h"/>
-         <include file="..\..\..\control_tasks\control_position_pan.h"/>
-         <include file="..\..\..\control_tasks\control_speed_pan.h"/>
-      </source>
       <source file="..\..\..\GPIO\gpio.h" lastModified="145f142a992">
          <include file="..\..\..\inc\binary.h"/>
          <include file="..\..\..\inc\lm3s6965.h"/>
       </source>
-      <source file="..\..\..\control_tasks\control_speed_tilt.h" lastModified="145ff13c49f">
-         <include file="..\..\..\application\application.h"/>
-         <include file="..\..\..\inc\emp_type.h"/>
+      <source file="..\..\..\queue\queue.c" lastModified="1462dfaf266">
+         <include file="..\..\..\queue\queue.h"/>
+      </source>
+      <source file="..\..\..\debug\debug.c" lastModified="145f142ab1f">
+         <include file="..\..\..\debug\debug.h"/>
+      </source>
+      <source file="..\..\..\inc\lm3s6965.h" lastModified="145f142ab4f">
       </source>
       <source file="..\..\..\GPIO\gpio.c" lastModified="145f142a989">
          <include file="..\..\..\GPIO\gpio.h"/>
-      </source>
-      <source file="..\..\..\RTCS\rtcs.h" lastModified="1462a0df2a6">
-         <include file="..\..\..\inc\emp_type.h"/>
-         <include file="..\..\..\systick\systick.h"/>
-         <include file="..\..\..\RTCS\rtcscnf.h"/>
-      </source>
-      <source file="..\..\..\uart\uartcnf.h" lastModified="1462e1bf3a2">
-         <include file="..\..\..\cpu\cpu.h"/>
-      </source>
-      <source file="..\..\..\control_tasks\control_speed_tilt.c" lastModified="1462e1daf9c">
-         <include file="..\..\..\control_tasks\control_speed_tilt.h"/>
-         <include file="..\..\..\RTCS\rtcs.h"/>
-         <include file="..\..\..\debug\debug.h"/>
       </source>
       <source file="..\..\..\spi\spi.h" lastModified="145ff243f17">
          <include file="..\..\..\inc\emp_type.h"/>
@@ -103,49 +55,41 @@
          <include file="..\..\..\application\application.h"/>
          <include file="..\..\..\queue\queue.h"/>
       </source>
-      <source file="..\..\..\spi\spi.c" lastModified="1462e23db24">
-         <include file="..\..\..\spi\spi.h"/>
-         <include file="..\..\..\inc\binary.h"/>
-         <include file="..\..\..\RTCS\rtcs.h"/>
-         <include file="..\..\..\debug\debug.h"/>
-      </source>
-      <source file="..\..\..\communication\communication_task.c" lastModified="146010285de">
-         <include file="..\..\..\communication\communication_task.h"/>
-         <include file="..\..\..\RTCS\rtcs.h"/>
-      </source>
-      <source file="..\..\..\control_tasks\control_position_pan.h" lastModified="145ff13c495">
-         <include file="..\..\..\inc\emp_type.h"/>
+      <source file="..\..\..\control_tasks\control_position_tilt.h" lastModified="145ff13c495">
          <include file="..\..\..\application\application.h"/>
-      </source>
-      <source file="..\..\..\queue\queue.h" lastModified="14600437e97">
          <include file="..\..\..\inc\emp_type.h"/>
-         <include file="..\..\..\inc\glob_def.h"/>
-      </source>
-      <source file="..\..\..\control_tasks\control_position_pan.c" lastModified="1462e1cf462">
-         <include file="..\..\..\control_tasks\control_position_pan.h"/>
-         <include file="..\..\..\RTCS\rtcs.h"/>
-         <include file="..\..\..\debug\debug.h"/>
       </source>
       <source file="..\..\..\control_tasks\control_speed_pan.h" lastModified="145ff13c49f">
          <include file="..\..\..\application\application.h"/>
          <include file="..\..\..\inc\emp_type.h"/>
       </source>
-      <source file="..\..\..\queue\queue.c" lastModified="1462dfaf266">
-         <include file="..\..\..\queue\queue.h"/>
+      <source file="..\..\..\communication\communication_task.c" lastModified="1462e81cc13">
+         <include file="..\..\..\communication\communication_task.h"/>
+         <include file="..\..\..\RTCS\rtcs.h"/>
+      </source>
+      <source file="..\..\..\uart\uartcnf.h" lastModified="1462e1bf3a2">
+         <include file="..\..\..\cpu\cpu.h"/>
+      </source>
+      <source file="..\..\..\RTCS\rtcscnf.h" lastModified="1462dfaf20c">
+      </source>
+      <source file="..\..\..\control_tasks\control_position_pan.h" lastModified="145ff13c495">
+         <include file="..\..\..\inc\emp_type.h"/>
+         <include file="..\..\..\application\application.h"/>
+      </source>
+      <source file="..\..\..\control_tasks\control_speed_tilt.h" lastModified="145ff13c49f">
+         <include file="..\..\..\application\application.h"/>
+         <include file="..\..\..\inc\emp_type.h"/>
       </source>
       <source file="..\..\..\cpu\cpu.h" lastModified="145f142ab14">
          <include file="..\..\..\inc\emp_type.h"/>
       </source>
-      <source file="..\..\..\control_tasks\control_speed_pan.c" lastModified="1462e1d9ade">
-         <include file="..\..\..\control_tasks\control_speed_pan.h"/>
-         <include file="..\..\..\RTCS\rtcs.h"/>
-         <include file="..\..\..\debug\debug.h"/>
+      <source file="..\..\..\Converter\converter.h" lastModified="1462dfaf20c">
+         <include file="..\..\..\application\application.h"/>
+         <include file="..\..\..\queue\queue.h"/>
       </source>
-      <source file="..\..\..\debug\debug.h" lastModified="145f142ab28">
-         <include file="..\..\..\inc\binary.h"/>
-         <include file="..\..\..\inc\lm3s6965.h"/>
-         <include file="..\..\..\inc\emp_type.h"/>
-         <include file="..\..\..\GPIO\gpio.h"/>
+      <source file="..\..\..\inc\glob_def.h" lastModified="145f142ab44">
+      </source>
+      <source file="..\..\..\uart\uartprintf.h" lastModified="145ff13c4a9">
       </source>
       <source file="..\..\..\cpu\cpu.c" lastModified="145f142ab0c">
          <include file="..\..\..\inc\lm3s6965.h"/>
@@ -154,14 +98,44 @@
          <include file="..\..\..\inc\binary.h"/>
          <include file="..\..\..\cpu\cpu.h"/>
       </source>
-      <source file="..\..\..\RTCS\rtcscnf.h" lastModified="1462dfaf20c">
-      </source>
-      <source file="..\..\..\inc\lm3s6965.h" lastModified="145f142ab4f">
-      </source>
       <source file="..\..\..\inc\emp_type.h" lastModified="145f142ab3c">
       </source>
-      <source file="..\..\..\debug\debug.c" lastModified="145f142ab1f">
+      <source file="..\..\..\main.c" lastModified="1462e81ed40">
+         <include file="..\..\..\inc\lm3s6965.h"/>
+         <include file="..\..\..\inc\emp_type.h"/>
+         <include file="..\..\..\cpu\cpu.h"/>
+         <include file="..\..\..\RTCS\rtcs.h"/>
          <include file="..\..\..\debug\debug.h"/>
+         <include file="..\..\..\uart\uartprintf.h"/>
+         <include file="..\..\..\queue\queue.h"/>
+         <include file="..\..\..\GPIO\gpio.h"/>
+         <include file="..\..\..\spi\spi.h"/>
+         <include file="..\..\..\communication\communication_task.h"/>
+         <include file="..\..\..\control_tasks\control_position_tilt.h"/>
+         <include file="..\..\..\control_tasks\control_speed_tilt.h"/>
+         <include file="..\..\..\control_tasks\control_position_pan.h"/>
+         <include file="..\..\..\control_tasks\control_speed_pan.h"/>
+      </source>
+      <source file="..\..\..\Converter\converter.c" lastModified="1462e822277">
+         <include file="..\..\..\Converter\converter.h"/>
+         <include file="..\..\..\communication\communication_task.h"/>
+         <include file="..\..\..\RTCS\rtcs.h"/>
+      </source>
+      <source file="..\..\..\uart\uartprintf.c" lastModified="1462e81b11a">
+         <include file="..\..\..\inc\lm3s6965.h"/>
+         <include file="..\..\..\inc\emp_type.h"/>
+         <include file="..\..\..\inc\glob_def.h"/>
+         <include file="..\..\..\inc\binary.h"/>
+         <include file="..\..\..\uart\uartcnf.h"/>
+         <include file="..\..\..\uart\uartprintf.h"/>
+         <include file="..\..\..\queue\queue.h"/>
+         <include file="..\..\..\RTCS\rtcs.h"/>
+         <include file="..\..\..\application\application.h"/>
+      </source>
+      <source file="..\..\..\startup\startup_lm3s.c" lastModified="146005a8d33">
+      </source>
+      <source file="..\..\..\application\application.h" lastModified="145ff1c76aa">
+         <include file="..\..\..\queue\queue.h"/>
       </source>
    </includePath>
 </dependencies>

@@ -48,11 +48,11 @@ static const char * const g_pcHex = "0123456789abcdef";
 
 /*****************************   Functions   *******************************/
 void init_uart_rx_task(){
-	_start(UART_RX_TASK, MILLI_SEC(0));
+	_start(UART_RX_TASK);
 }
 void init_uart_tx_task(){
 	//UARTprintf("Starting uart tx\r\n");
-	_start(UART_TX_TASK, MILLI_SEC(0));
+	_start(UART_TX_TASK);
 }
 
 

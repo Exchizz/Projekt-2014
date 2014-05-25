@@ -34,7 +34,7 @@
 
 #define PID_RUN_INTERVAL 1250 // ticks // 500 = 10Hz // 1250 = 25Hz
 
-#define Kp 3.03
+#define Kp 0.619508
 #define Ki 0
 #define Kd 0
 
@@ -48,7 +48,7 @@
 /*****************************   Functions   ********************************/
 void init_tilt_position_task(){
   //UARTprintf("Starting Position Tilt Task\r\n");
-  _start(TILT_POSITION_TASK, MILLI_SEC(0));
+  _start(TILT_POSITION_TASK);
 }
 
 void tilt_position_task()
