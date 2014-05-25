@@ -32,7 +32,6 @@
 #define RUN_MODE NORMAL //
 
 #define PID_RUN_INTERVAL 40 // ticks // 100 = 50Hz // 40 = 125Hz
-#define PID_SPEED_CALC_INTERVAL 1  // length of time over which the speed is averaged as a multiple of PID_RUN_INTERVAL
 
 //#define Kp 0.236157
 #define Kp 0.0785284
@@ -77,7 +76,8 @@ void tilt_speed_task()
   static INT16U last_error = 0;
   INT16S error, Derror, set_pwm;
   static INT16S Ierror = 0;
-  static INT16U position[PID_SPEED_CALC_INTERVAL +1] = {0};
+
+  static INT16U last_position = 0;
 
   static int i = 1;
 
@@ -98,12 +98,12 @@ void tilt_speed_task()
     pid_interval_counter = PID_RUN_INTERVAL;
 
 #if RUN_MODE == INTENSEDEBUG
-  UARTprintf("C. speed tilt: Loop entered.\r\n");
+    UARTprintf("C. speed tilt: Loop entered.\r\n");
 #endif
     //get speed
-   QueuePeek(&QueueTiltSpeed, &set_speed_tilt);
+    QueuePeek(&QueueTiltSpeed, &set_speed_tilt);
 
-   // debug info
+    // debug info
 #if (RUN_MODE == DEBUGINFO)
     UARTprintf("ss: %d\r\n", set_speed_tilt);
 #endif
@@ -113,16 +113,14 @@ void tilt_speed_task()
     QueuePeek(&QueuePositionTilt, &current_position);
 
 #if RUN_MODE == INTENSEDEBUG
-  UARTprintf("C. speed tilt: Peeks made.\r\n");
+    UARTprintf("C. speed tilt: Peeks made.\r\n");
 #endif
-    // save position
-    for (var = 0; var < (PID_SPEED_CALC_INTERVAL); ++var) {
-      position[var] = position[var+1];
-    }
-    position[(PID_SPEED_CALC_INTERVAL)] = current_position; // 0 = oldest, PID_... = Newest
 
     // calc current speed
-    current_speed = (position[PID_SPEED_CALC_INTERVAL] - position[0])*IDT;
+    current_speed = (current_position - last_position)*IDT;
+
+    // save last position
+    last_position = current_position;
 
     // adjust current speed for overflow due to direction reset (1079 -> 0 and 0 -> 1079)
     if(current_speed < -MAXSPEED_LIMIT){ // CW
@@ -139,10 +137,10 @@ void tilt_speed_task()
 
     // limit integral
     if(Ierror > INTEGRATORLIMIT*IDT){
-    	Ierror = INTEGRATORLIMIT*IDT;
+      Ierror = INTEGRATORLIMIT*IDT;
     }
     else if(Ierror < -INTEGRATORLIMIT*IDT){
-    	Ierror = -INTEGRATORLIMIT*IDT;
+      Ierror = -INTEGRATORLIMIT*IDT;
     }
     // calculate PID
     set_pwm = (error*Kp + Derror*Kd + ((Ierror*Ki)/IDT));
@@ -178,18 +176,18 @@ void tilt_speed_task()
     QueueSend(&QueuePWMOutTilt, &set_pwm);
 
 #if RUN_MODE == INTENSEDEBUG
-  UARTprintf("C. speed tilt: PWM send.\r\n");
+    UARTprintf("C. speed tilt: PWM send.\r\n");
 #endif
 
     // plotspeed
 #if (RUN_MODE == PLOTSPEED)
-  	  if(--i == 0){
-  		  i = 5;
-  		  current_speed+=32768;
-  		  UARTCharPut(0,'|');
-  		  UARTCharPut(0, current_speed>> 8);
-  		  UARTCharPut(0, current_speed);
-  	  }
+    if(--i == 0){
+      i = 5;
+      current_speed+=32768;
+      UARTCharPut(0,'|');
+      UARTCharPut(0, current_speed>> 8);
+      UARTCharPut(0, current_speed);
+    }
 #endif
 #if RUN_MODE == DEBUGTIME
     debug_pin(OFF);

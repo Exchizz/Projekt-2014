@@ -32,7 +32,6 @@
 #define RUN_MODE PLOTSPEED //
 
 #define PID_RUN_INTERVAL 40 // ticks // 100 = 50Hz // 80 = 125Hz
-#define PID_SPEED_CALC_INTERVAL 1  // length of time over which the speed is averaged as a multiple of PID_RUN_INTERVAL
 
 //#define Kp 0.0785284 <- kiddi værdi
 #define Kp 0.03
@@ -44,12 +43,10 @@
 #define TICKS_PER_FRAME_ROTATION 1080
 #define INTEGRATORLIMIT 100
 #define MAXSPEED_LIMIT 1500 // ticks/s
-#define MAXPWMVALUE 200
+#define MAXPWMVALUE 255
 #define MAXPWM_MASK 0xFF
 #define MOTOR_DIRECTION_FORWARDS 0b01
 #define MOTOR_DIRECTION_BACKWARDS 0b10
-// fixedspeed plot
-#define CHANGE_SPEED_PLOTPOSITION 50000// 1/5 ms
 
 /*****************************   Constants   ********************************/
 /*****************************   Variables   ********************************/
@@ -76,7 +73,8 @@ void pan_speed_task()
   static INT16U last_error = 0;
   INT16S error, Derror, set_pwm;
   static INT16S Ierror = 0;
-  static INT16U position[PID_SPEED_CALC_INTERVAL +1] = {0};
+
+  static INT16U last_position = 0;
 
   static INT8U i = 1;
 
@@ -98,7 +96,7 @@ void pan_speed_task()
     pid_interval_counter = PID_RUN_INTERVAL;
 
 #if RUN_MODE == INTENSEDEBUG
-  UARTprintf("C. speed Pan.: loop entered.\r\n");
+    UARTprintf("C. speed Pan.: loop entered.\r\n");
 #endif
 
     //get wanted speed
@@ -108,16 +106,14 @@ void pan_speed_task()
     QueuePeek(&QueuePositionPan, &current_position);
 
 #if RUN_MODE == INTENSEDEBUG
-  UARTprintf("C. speed Pan.: peeks made.\r\n");
+    UARTprintf("C. speed Pan.: peeks made.\r\n");
 #endif
-    // save current position in array
-    for (var = 0; var < (PID_SPEED_CALC_INTERVAL); ++var) {
-      position[var] = position[var+1];
-    }
-    position[(PID_SPEED_CALC_INTERVAL)] = current_position; // 0 = oldest, PID_... = Newest
 
     // calc current speed
-    current_speed = (position[PID_SPEED_CALC_INTERVAL] - position[0])*IDT;
+    current_speed = (current_position - last_position)*IDT;
+
+    // save last position
+    last_position = current_position;
 
     // adjust current speed for overflow due to direction reset (1079 -> 0 and 0 -> 1079)
     if(current_speed < -MAXSPEED_LIMIT){ // CW
@@ -134,10 +130,10 @@ void pan_speed_task()
 
     // integral limit
     if(Ierror > INTEGRATORLIMIT*IDT){
-    	Ierror = INTEGRATORLIMIT*IDT;
+      Ierror = INTEGRATORLIMIT*IDT;
     }
     else if(Ierror < -INTEGRATORLIMIT*IDT){
-    	Ierror = -INTEGRATORLIMIT*IDT;
+      Ierror = -INTEGRATORLIMIT*IDT;
     }
 
     // calculate set pwm
@@ -174,7 +170,7 @@ void pan_speed_task()
     QueueSend(&QueuePWMOutPan, &set_pwm);
 
 #if RUN_MODE == INTENSEDEBUG
-  UARTprintf("C. speed Pan.: PWM send.\r\n");
+    UARTprintf("C. speed Pan.: PWM send.\r\n");
 #endif
     // plotspeed
 #if (RUN_MODE == PLOTSPEED)
