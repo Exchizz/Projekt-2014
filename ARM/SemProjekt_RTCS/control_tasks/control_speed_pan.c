@@ -29,14 +29,15 @@
 #define INTENSEDEBUG 3
 #define DEBUGTIME 4
 
-#define RUN_MODE NORMAL //
+#define RUN_MODE PLOTSPEED //
 
-#define PID_RUN_INTERVAL 250 // ticks // 100 = 50Hz // 250 = 125Hz
-#define PID_SPEED_CALC_INTERVAL 2  // length of time over which the speed is averaged as a multiple of PID_RUN_INTERVAL
+#define PID_RUN_INTERVAL 40 // ticks // 100 = 50Hz // 80 = 125Hz
+#define PID_SPEED_CALC_INTERVAL 1  // length of time over which the speed is averaged as a multiple of PID_RUN_INTERVAL
 
-#define Kp 0.236157
+//#define Kp 0.0785284 <- kiddi værdi
+#define Kp 0.03
 #define Ki 0
-#define Kd 0
+#define Kd 0.00035
 
 #define IDT (1000000/(PID_RUN_INTERVAL*T_TICK*PID_SPEED_CALC_INTERVAL))
 
@@ -47,6 +48,8 @@
 #define MAXPWM_MASK 0xFF
 #define MOTOR_DIRECTION_FORWARDS 0b01
 #define MOTOR_DIRECTION_BACKWARDS 0b10
+// fixedspeed plot
+#define CHANGE_SPEED_PLOTPOSITION 50000// 1/5 ms
 
 /*****************************   Constants   ********************************/
 /*****************************   Variables   ********************************/
@@ -97,6 +100,7 @@ void pan_speed_task()
 #if RUN_MODE == INTENSEDEBUG
   UARTprintf("C. speed Pan.: loop entered.\r\n");
 #endif
+
     //get wanted speed
     QueuePeek(&QueuePanSpeed, &set_speed_pan);
 
@@ -175,7 +179,8 @@ void pan_speed_task()
     // plotspeed
 #if (RUN_MODE == PLOTSPEED)
     if(--i == 0){
-      i = 4;
+      i = 5;
+      current_speed+=32768;
       UARTCharPut(0,'|');
       UARTCharPut(0, current_speed>> 8);
       UARTCharPut(0, current_speed);

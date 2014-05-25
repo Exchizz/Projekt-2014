@@ -26,20 +26,21 @@
 #define NORMAL 0
 #define DEBUGINFO 1
 #define PLOTPOSITION 2
+#define FIXEDSPEEDRUN 5
 #define INTENSEDEBUG 3
 #define DEBUGTIME 4
 
-#define RUN_MODE NORMAL //
+#define RUN_MODE FIXEDSPEEDRUN //
 #define DEFAULTPOSITIONPAN 0
 
 // both adjusted  to not bump into stopper. value can vary due to index-magnet ranging over multiple ticks.
 #define STOP_BAND_START 205 // when the band were it can't be starts (~221-227)
 #define STOP_BAND_STOP 860 // ^... stops (~840-846)
 
-#define PID_RUN_INTERVAL 1250 // ticks // 500 = 10Hz // 1250 = 25Hz
+#define PID_RUN_INTERVAL 200 // ticks // 500 = 10Hz // 200 = 25Hz
 
-#define Kp 0.619508
-#define Ki 0
+#define Kp 0.61973
+#define Ki 0.6
 #define Kd 0
 
 #define IDT (1000000/(PID_RUN_INTERVAL*T_TICK))
@@ -147,8 +148,13 @@ void pan_position_task()
 #if RUN_MODE == INTENSEDEBUG
   UARTprintf("C. Pos. Pan.: Calc. made.\r\n");
 #endif
-    // send the speed
-    QueueOverwrite(&QueuePanSpeed, &set_speed);
+  // send wanted speed, fixed if in fixedspeedrun
+#if RUN_MODE == FIXEDSPEEDRUN
+  // if in fixedspeedrun, get the speed from buffer
+  QueueOverwrite(&QueuePanSpeed, &goToPosition);
+#else
+  QueueOverwrite(&QueuePanSpeed, &set_speed);
+#endif
 #if RUN_MODE == INTENSEDEBUG
   UARTprintf("C. Pos. Pan.: Pan speed send.\r\n");
 #endif
@@ -159,12 +165,10 @@ void pan_position_task()
 
     // plot current position
 #if (RUN_MODE == PLOTPOSITION)
-  if(--i == 0){
-    i = 5;
-    UARTCharPut(0,'|');
-    UARTCharPut(0, current_position >> 8);
-    UARTCharPut(0, current_position);
-  }
+    	current_position+=32768;
+    	UARTCharPut(0,'|');
+    	UARTCharPut(0, current_position >> 8);
+    	UARTCharPut(0, current_position);
 #endif
 
   // save last error

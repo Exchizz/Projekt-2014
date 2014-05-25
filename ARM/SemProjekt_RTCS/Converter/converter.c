@@ -41,7 +41,7 @@
 
 #define ticksPerRotation 1080
 
-#define MINPOSITIONCHANGE 15
+#define MINPOSITIONCHANGE 0
 
 /*****************************   Constants   ********************************/
 enum CONVERTER_STATES {WAIT_FUNC, RECEIVE_MOTOR, RECEIVE_DEC_NUM};

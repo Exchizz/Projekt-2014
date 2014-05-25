@@ -26,16 +26,17 @@
 #define NORMAL 0
 #define DEBUGINFO 1
 #define PLOTPOSITION 2
+#define FIXEDSPEEDRUN 5
 #define INTENSEDEBUG 3
 #define DEBUGTIME 4
 
 #define RUN_MODE NORMAL //
 #define DEFAULTPOSITION_TILT 0
 
-#define PID_RUN_INTERVAL 1250 // ticks // 500 = 10Hz // 1250 = 25Hz
+#define PID_RUN_INTERVAL 200 // ticks // 500 = 10Hz // 200 = 25Hz
 
-#define Kp 0.619508
-#define Ki 0
+#define Kp 0.61973
+#define Ki 0.23
 #define Kd 0
 
 #define IDT (1000000/(PID_RUN_INTERVAL*T_TICK))
@@ -129,20 +130,24 @@ void tilt_position_task()
     	set_speed = -MAXSPEED_LIMIT;
     }
 
-    // send wanted speed
+    // send wanted speed, fixed if in fixedspeedrun
+#if RUN_MODE == FIXEDSPEEDRUN
+    // if in fixedspeedrun, get the speed from buffer
+    QueueOverwrite(&QueueTiltSpeed, &goToPosition);
+#else
     QueueOverwrite(&QueueTiltSpeed, &set_speed);
+#endif
 
 #if RUN_MODE == INTENSEDEBUG
   UARTprintf("C. Pos. tilt: Speed overwritten.\r\n");
 #endif
     // plot position
 #if (RUN_MODE == PLOTPOSITION)
-  if(--i == 0){
-    i = 5;
+    current_position+=32768;
     UARTCharPut(0,'|');
     UARTCharPut(0, current_position >> 8);
     UARTCharPut(0, current_position);
-  }
+    debug_pin_red(TOGGLE);
 #endif
 
   // save last error
