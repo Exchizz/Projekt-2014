@@ -6,7 +6,7 @@ import time
 import sys
 #
 
-ser = serial.Serial('/dev/ttyUSB0',115200) 
+ser = serial.Serial('/dev/ttyUSB0',3000000) 
 def readSerial():
 	global ser
 	while True:
