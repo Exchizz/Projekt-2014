@@ -38,7 +38,7 @@
 #define Ki 0
 #define Kd 0.00035
 
-#define IDT (1000000/(PID_RUN_INTERVAL*T_TICK*PID_SPEED_CALC_INTERVAL))
+#define IDT (1000000/(PID_RUN_INTERVAL*T_TICK))
 
 #define TICKS_PER_FRAME_ROTATION 1080
 #define INTEGRATORLIMIT 100
@@ -154,7 +154,10 @@ void pan_speed_task()
 
     // debuginfo
 #if (RUN_MODE == DEBUGINFO)
-    UARTprintf("GSP: %d, CSP: %d, PWMP: %d\r\n", set_speed_pan, current_speed, set_pwm);
+    if(--i == 0){
+      i = 100;
+    UARTprintf("GS:%d,CS:%d,PWM:%d\r\n", set_speed_pan, current_speed, set_pwm);
+    }
 #endif
 
     // determine motor direction

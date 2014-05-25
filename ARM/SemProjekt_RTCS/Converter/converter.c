@@ -74,7 +74,7 @@ void converter_task()
 #endif
   INT8U data = 0;
   INT16U currentPosition = 0;
-  static INT32S decValue = 0;
+  static INT32U decValue = 0;
 
 #if RUNMODE == INTENSEDEBUG
   UARTprintf("Converter: Just before if(Rec).\r\n");
@@ -207,7 +207,7 @@ void converter_task()
             currentPosition = decValue - currentPosition;
           }
           // if difference is more than min change
-          if (currentPosition <= -MINPOSITIONCHANGE || currentPosition >= MINPOSITIONCHANGE) {
+          if (currentPosition < -MINPOSITIONCHANGE || currentPosition > MINPOSITIONCHANGE) {
             // send position to tilt
             QueueOverwrite(&QueueGoToPositionTilt, &decValue);
             // debug
@@ -227,7 +227,7 @@ void converter_task()
             currentPosition = decValue - currentPosition;
           }
           // if difference is more than min change
-          if (currentPosition <= -MINPOSITIONCHANGE || currentPosition >= MINPOSITIONCHANGE) {
+          if (currentPosition < -MINPOSITIONCHANGE || currentPosition > MINPOSITIONCHANGE) {
             // send position to pan
             QueueOverwrite(&QueueGoToPositionPan, &decValue);
             // debuginfo
@@ -268,7 +268,7 @@ void converter_task()
             currentPosition = decValue - currentPosition;
           }
           // if difference is more than min change
-          if (currentPosition <= -MINPOSITIONCHANGE || currentPosition >= MINPOSITIONCHANGE) {
+          if (currentPosition < -MINPOSITIONCHANGE || currentPosition > MINPOSITIONCHANGE) {
             // send
             QueueOverwrite(&QueueGoToPositionTilt, &decValue);
             // debuginfo
@@ -307,7 +307,7 @@ void converter_task()
             currentPosition = decValue - currentPosition;
           }
           // if difference is more than min change
-          if (currentPosition <= -MINPOSITIONCHANGE || currentPosition >= MINPOSITIONCHANGE) {
+          if (currentPosition < -MINPOSITIONCHANGE || currentPosition > MINPOSITIONCHANGE) {
             // send
             QueueOverwrite(&QueueGoToPositionPan, &decValue);
             // debuginfo

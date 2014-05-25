@@ -104,7 +104,7 @@ int main(void)
         QueueSPITX              = QueueCreate(2, sizeof(INT16U));
         QueueSPIRX              = QueueCreate(2, sizeof(INT16U));
 
-        QueueUARTTX             = QueueCreate(16, sizeof(INT8U));
+        QueueUARTTX             = QueueCreate(32, sizeof(INT8U));
         QueueUARTRX             = QueueCreate(16, sizeof(INT8U));
 
 

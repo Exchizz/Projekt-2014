@@ -150,6 +150,10 @@ void pan_position_task()
 #endif
   // send wanted speed, fixed if in fixedspeedrun
 #if RUN_MODE == FIXEDSPEEDRUN
+  // get the speed before stopband limiter
+  if (!QueuePeek(&QueueGoToPositionPan, &goToPosition)) {
+        goToPosition = DEFAULTPOSITIONPAN;
+      }
   // if in fixedspeedrun, get the speed from buffer
   QueueOverwrite(&QueuePanSpeed, &goToPosition);
 #else
