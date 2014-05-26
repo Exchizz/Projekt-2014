@@ -30,7 +30,7 @@
 #define INTENSEDEBUG 3
 #define DEBUGTIME 4
 
-#define RUN_MODE NORMAL //
+#define RUN_MODE PLOTPOSITION //
 #define DEFAULTPOSITION_TILT 0
 
 #define PID_RUN_INTERVAL 200 // ticks // 500 = 10Hz // 200 = 25Hz

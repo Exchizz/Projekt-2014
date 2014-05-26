@@ -30,12 +30,12 @@
 #define INTENSEDEBUG 3
 #define DEBUGTIME 4
 
-#define RUN_MODE FIXEDSPEEDRUN //
+#define RUN_MODE NORMAL //
 #define DEFAULTPOSITIONPAN 0
 
 // both adjusted  to not bump into stopper. value can vary due to index-magnet ranging over multiple ticks.
-#define STOP_BAND_START 205 // when the band were it can't be starts (~221-227)
-#define STOP_BAND_STOP 860 // ^... stops (~840-846)
+#define STOP_BAND_START 205 // when the band were it can't be starts (~221-227) 205
+#define STOP_BAND_STOP 860 // ^... stops (~840-846) 860
 
 #define PID_RUN_INTERVAL 200 // ticks // 500 = 10Hz // 200 = 25Hz
 

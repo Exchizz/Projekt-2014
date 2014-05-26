@@ -19,7 +19,7 @@
       </source>
       <source file="..\..\..\inc\glob_def.h" lastModified="145f142ab44">
       </source>
-      <source file="..\..\..\control_tasks\control_position_tilt.c" lastModified="14634757043">
+      <source file="..\..\..\control_tasks\control_position_tilt.c" lastModified="146352b6993">
          <include file="..\..\..\control_tasks\control_position_tilt.h"/>
          <include file="..\..\..\RTCS\rtcs.h"/>
          <include file="..\..\..\debug\debug.h"/>
@@ -97,7 +97,7 @@
       <source file="..\..\..\uart\uartcnf.h" lastModified="1462e1bf3a2">
          <include file="..\..\..\cpu\cpu.h"/>
       </source>
-      <source file="..\..\..\control_tasks\control_speed_tilt.c" lastModified="14634cbf135">
+      <source file="..\..\..\control_tasks\control_speed_tilt.c" lastModified="146352bce14">
          <include file="..\..\..\control_tasks\control_speed_tilt.h"/>
          <include file="..\..\..\RTCS\rtcs.h"/>
          <include file="..\..\..\debug\debug.h"/>
@@ -130,7 +130,7 @@
          <include file="..\..\..\inc\emp_type.h"/>
          <include file="..\..\..\inc\glob_def.h"/>
       </source>
-      <source file="..\..\..\control_tasks\control_position_pan.c" lastModified="14634df7c39">
+      <source file="..\..\..\control_tasks\control_position_pan.c" lastModified="146352c0ff1">
          <include file="..\..\..\control_tasks\control_position_pan.h"/>
          <include file="..\..\..\RTCS\rtcs.h"/>
          <include file="..\..\..\debug\debug.h"/>
@@ -144,6 +144,11 @@
       </source>
       <source file="..\..\..\cpu\cpu.h" lastModified="145f142ab14">
          <include file="..\..\..\inc\emp_type.h"/>
+      </source>
+      <source file="..\..\..\control_tasks\control_speed_pan.c" lastModified="146352c3906">
+         <include file="..\..\..\control_tasks\control_speed_pan.h"/>
+         <include file="..\..\..\RTCS\rtcs.h"/>
+         <include file="..\..\..\debug\debug.h"/>
       </source>
       <source file="..\..\..\debug\debug.h" lastModified="145f142ab28">
          <include file="..\..\..\inc\binary.h"/>

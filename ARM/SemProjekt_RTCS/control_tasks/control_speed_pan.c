@@ -29,7 +29,7 @@
 #define INTENSEDEBUG 3
 #define DEBUGTIME 4
 
-#define RUN_MODE PLOTSPEED //
+#define RUN_MODE NORMAL //
 
 #define PID_RUN_INTERVAL 40 // ticks // 100 = 50Hz // 80 = 125Hz
 
